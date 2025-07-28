@@ -178,7 +178,7 @@ if (colortype == COLOR_TYPE_RGB) {
   g = clamp(g * 255.0, 1.0, 255.0);
   b = clamp(b * 255.0, 1.0, 255.0);
 
-  listout1 = o.concat([channel, mappedindex, r & 0x7F, r >> 7, g & 0x7F, g >> 7, b & 0x7F, b >> 7, 247]);
+  listout1 = o.concat([channel << 4, mappedindex, r & 0x7F, r >> 7, g & 0x7F, g >> 7, b & 0x7F, b >> 7, 247]);
 } else if (channel == 1) { //should all be 1 if colortype == COLOR_TYPE_BW
   out2 = 0xBF;
   out2 = mappedindex;
