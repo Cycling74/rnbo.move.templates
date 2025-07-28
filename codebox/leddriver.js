@@ -102,16 +102,16 @@ function mapdest(dest: number, index: number): list {
       colortype = COLOR_TYPE_BW;
       channel = 1;
       switch (index) {
-        case 0: //left
+        case 0: //plus
           index = 55;
           break;
-        case 1: //right
+        case 1: //minus
           index = 54;
           break;
-        case 2: //plus
+        case 2: //left
           index = 62;
           break;
-        case 3: //minus
+        case 3: //right
           index = 63;
           break;
         default:

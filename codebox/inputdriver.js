@@ -7,7 +7,7 @@
 //1 -> steps
 //2 -> tracks
 //3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)
-//4 -> nav (left, right, plus, minus)
+//4 -> nav (plus, minus, left, right)
 
 const OUT_PAD = 0;
 const OUT_STEP = 1;
