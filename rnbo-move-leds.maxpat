@@ -1,0 +1,703 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 9,
+			"minor" : 1,
+			"revision" : 0,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "box",
+		"rect" : [ 721.0, 154.0, 1288.0, 1125.0 ],
+		"gridsize" : [ 15.0, 15.0 ],
+		"boxes" : [ 			{
+				"box" : 				{
+					"autosave" : 1,
+					"id" : "obj-3",
+					"inletInfo" : 					{
+						"IOInfo" : [  ]
+					}
+,
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outletInfo" : 					{
+						"IOInfo" : [  ]
+					}
+,
+					"outlettype" : [ "list" ],
+					"patcher" : 					{
+						"fileversion" : 1,
+						"appversion" : 						{
+							"major" : 9,
+							"minor" : 1,
+							"revision" : 0,
+							"architecture" : "x64",
+							"modernui" : 1
+						}
+,
+						"classnamespace" : "rnbo",
+						"rect" : [ 721.0, 154.0, 1288.0, 1125.0 ],
+						"default_fontname" : "Lato",
+						"gridsize" : [ 15.0, 15.0 ],
+						"title" : "untitled",
+						"boxes" : [  ],
+						"lines" : [  ]
+					}
+,
+					"patching_rect" : [ 77.0, 171.0, 74.0, 22.0 ],
+					"rnboattrcache" : 					{
+
+					}
+,
+					"rnboversion" : "1.4.1",
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_invisible" : 1,
+							"parameter_longname" : "rnbo~[2]",
+							"parameter_modmode" : 0,
+							"parameter_shortname" : "rnbo~[2]",
+							"parameter_type" : 3
+						}
+
+					}
+,
+					"saved_object_attributes" : 					{
+						"optimization" : "O1",
+						"parameter_enable" : 1,
+						"uuid" : "addbb98d-6bcd-11f0-b98d-7683f81cdc8a"
+					}
+,
+					"snapshot" : 					{
+						"filetype" : "C74Snapshot",
+						"version" : 2,
+						"minorversion" : 0,
+						"name" : "snapshotlist",
+						"origin" : "rnbo~",
+						"type" : "list",
+						"subtype" : "Undefined",
+						"embed" : 1,
+						"snapshot" : 						{
+							"__presetid" : "addbb98d-6bcd-11f0-b98d-7683f81cdc8a"
+						}
+,
+						"snapshotlist" : 						{
+							"current_snapshot" : 0,
+							"entries" : [ 								{
+									"filetype" : "C74Snapshot",
+									"version" : 2,
+									"minorversion" : 0,
+									"name" : "untitled",
+									"origin" : "addbb98d-6bcd-11f0-b98d-7683f81cdc8a",
+									"type" : "rnbo",
+									"subtype" : "",
+									"embed" : 0,
+									"snapshot" : 									{
+										"__presetid" : "addbb98d-6bcd-11f0-b98d-7683f81cdc8a"
+									}
+,
+									"fileref" : 									{
+										"name" : "untitled",
+										"filename" : "untitled_20250728.maxsnap",
+										"filepath" : "~/Documents/Max 9/Snapshots",
+										"filepos" : -1,
+										"snapshotfileid" : "e2f4aafa5289719f4521ae88f58a90b0"
+									}
+
+								}
+ ]
+						}
+
+					}
+,
+					"text" : "rnbo~ @title",
+					"varname" : "rnbo~[2]"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"autosave" : 1,
+					"id" : "obj-2",
+					"inletInfo" : 					{
+						"IOInfo" : [  ]
+					}
+,
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outletInfo" : 					{
+						"IOInfo" : [  ]
+					}
+,
+					"outlettype" : [ "list" ],
+					"patcher" : 					{
+						"fileversion" : 1,
+						"appversion" : 						{
+							"major" : 9,
+							"minor" : 1,
+							"revision" : 0,
+							"architecture" : "x64",
+							"modernui" : 1
+						}
+,
+						"classnamespace" : "rnbo",
+						"rect" : [ 721.0, 154.0, 1288.0, 1125.0 ],
+						"default_fontname" : "Lato",
+						"gridsize" : [ 15.0, 15.0 ],
+						"title" : "play-display",
+						"boxes" : [  ],
+						"lines" : [  ]
+					}
+,
+					"patching_rect" : [ 297.0, 103.0, 140.0, 22.0 ],
+					"rnboattrcache" : 					{
+
+					}
+,
+					"rnboversion" : "1.4.1",
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_invisible" : 1,
+							"parameter_longname" : "rnbo~[1]",
+							"parameter_modmode" : 0,
+							"parameter_shortname" : "rnbo~[1]",
+							"parameter_type" : 3
+						}
+
+					}
+,
+					"saved_object_attributes" : 					{
+						"optimization" : "O1",
+						"parameter_enable" : 1,
+						"uuid" : "3f01ccf5-6bcd-11f0-8cf5-7683f81cdc8a"
+					}
+,
+					"snapshot" : 					{
+						"filetype" : "C74Snapshot",
+						"version" : 2,
+						"minorversion" : 0,
+						"name" : "snapshotlist",
+						"origin" : "rnbo~",
+						"type" : "list",
+						"subtype" : "Undefined",
+						"embed" : 1,
+						"snapshot" : 						{
+							"__presetid" : "play-display"
+						}
+,
+						"snapshotlist" : 						{
+							"current_snapshot" : 0,
+							"entries" : [ 								{
+									"filetype" : "C74Snapshot",
+									"version" : 2,
+									"minorversion" : 0,
+									"name" : "play-display",
+									"origin" : "play-display",
+									"type" : "rnbo",
+									"subtype" : "",
+									"embed" : 0,
+									"snapshot" : 									{
+										"__presetid" : "play-display"
+									}
+,
+									"fileref" : 									{
+										"name" : "play-display",
+										"filename" : "play-display.maxsnap",
+										"filepath" : "~/Documents/Max 9/Snapshots",
+										"filepos" : -1,
+										"snapshotfileid" : "62f2cb90e86b447093ddf72237e39735"
+									}
+
+								}
+ ]
+						}
+
+					}
+,
+					"text" : "rnbo~ @title play-display",
+					"varname" : "rnbo~[1]"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"autosave" : 1,
+					"id" : "obj-1",
+					"inletInfo" : 					{
+						"IOInfo" : [ 							{
+								"type" : "event",
+								"index" : 1,
+								"tag" : "in1",
+								"comment" : "prefix, address, r, g, b"
+							}
+ ]
+					}
+,
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outletInfo" : 					{
+						"IOInfo" : [ 							{
+								"type" : "midi",
+								"index" : -1,
+								"tag" : "",
+								"comment" : ""
+							}
+ ]
+					}
+,
+					"outlettype" : [ "int", "list" ],
+					"patcher" : 					{
+						"fileversion" : 1,
+						"appversion" : 						{
+							"major" : 9,
+							"minor" : 1,
+							"revision" : 0,
+							"architecture" : "x64",
+							"modernui" : 1
+						}
+,
+						"classnamespace" : "rnbo",
+						"rect" : [ 721.0, 154.0, 1288.0, 1125.0 ],
+						"default_fontname" : "Lato",
+						"gridsize" : [ 15.0, 15.0 ],
+						"title" : "led-driver",
+						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-7",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 18.0, 17.0, 213.0, 23.0 ],
+									"rnbo_classname" : "in",
+									"rnbo_extra_attributes" : 									{
+										"meta" : ""
+									}
+,
+									"rnbo_serial" : 7,
+									"rnbo_uniqueid" : "in_obj-7",
+									"rnboinfo" : 									{
+										"needsInstanceInfo" : 1,
+										"argnames" : 										{
+											"index" : 											{
+												"attrOrProp" : 2,
+												"digest" : "inlet number",
+												"defaultarg" : 1,
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "number",
+												"mandatory" : 1
+											}
+,
+											"comment" : 											{
+												"attrOrProp" : 2,
+												"digest" : "mouse over comment",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "symbol"
+											}
+,
+											"meta" : 											{
+												"attrOrProp" : 2,
+												"digest" : "A JSON formatted string containing metadata for use by the exported code",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "symbol",
+												"defaultValue" : "",
+												"label" : "Metadata",
+												"displayorder" : 3
+											}
+
+										}
+,
+										"inputs" : [  ],
+										"outputs" : [ 											{
+												"name" : "out1",
+												"type" : [ "bang", "number", "list" ],
+												"digest" : "value from inlet with index 1",
+												"displayName" : "prefix, address, r, g, b",
+												"docked" : 0
+											}
+ ],
+										"helpname" : "in",
+										"aliasOf" : "in",
+										"classname" : "in",
+										"operator" : 0,
+										"versionId" : 475235762,
+										"changesPatcherIO" : 1
+									}
+,
+									"text" : "in 1 @comment \"prefix, address, r, g, b\""
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-6",
+									"linecount" : 11,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 948.0, 69.0, 323.0, 165.0 ],
+									"text" : "listin1 - prefix, address, r, g, b\n\nif the LED is b/w then we just use r = 0 for off, != 0 for on\n\nprefix:\n0 - pads\n1 - steps\n2 - track\n3 - functions (capture.. shift, record)\n4 - nav (left, right, plus, minus)\n5 - icons"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-19",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 0,
+									"patching_rect" : [ 914.0, 1046.0, 49.0, 23.0 ],
+									"rnbo_classname" : "midiout",
+									"rnbo_serial" : 1,
+									"rnbo_uniqueid" : "midiout_obj-19",
+									"text" : "midiout"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"code" : "const COLOR_TYPE_RGB = 0;\nconst COLOR_TYPE_BW = 1;\n\n\n/*\n  * 32 pad buttons\n  * 16 step buttons\n  * 4  track buttons\n  * 9 \"function\" buttons (right side + left side record button) [b/w except 2]\n  * 4 nav buttons [b/w]\n  * 16 icons [b/w]\n  *\n  * = \n  *\n  * color storage\n  * 32 + 16 + 4 + 2 = 54 (store in FixedUint32Array) (r << 16 | g << 8 | b)\n  *\n  * bw storage\n  * (9 - 2) + 4 + 16 -> 27 (can store in one 32-bit, using length 1 FixedUint32Array)\n  *\n  */\n\n@state storage_color = new FixedUint32Array(54);\n@state storage_bw = new FixedUint32Array(1); \n\nfunction processcolor(v: number): list {\n  let v = clamp(v * 255.0, 1, 255);\n  let v0 = v & 0x7F;\n  let v1 = v >> 7;\n  return [v0, v1];\n}\n\nfunction mapdest(dest: number, index: number): list {\n  let channel = 0; //0 == note, 1 == ctrl\n  let colortype = COLOR_TYPE_RGB;\n  switch (dest) {\n    case 0: { //buttons\n      //range check\n      if (index >= 32) {\n        return [];\n      }\n      index += 68;\n      break;\n    }\n    case 1: { //steps\n      if (index >= 16) {\n        return [];\n      }\n      index += 16;\n      break;\n    }\n    case 2: { //tracks\n      if (index >= 4) {\n        return [];\n      }\n      index += 40;\n      channel = 1;\n      break;\n    }\n    case 3: { //functions\n      colortype = COLOR_TYPE_BW;\n      channel = 1;\n      switch (index) {\n        case 0: //capture\n          index = 52;\n          break;\n        case 1: //sampling\n          colortype = COLOR_TYPE_RGB;\n          index = 118;\n          break;\n        case 2: //repeat\n          index = 58;\n          break;\n        case 3: //mute\n          index = 88;\n          break;\n        case 4: //delete\n            index = 119;\n          break;\n        case 5: //duplicate\n          index = 60;\n          break;\n        case 6: //undo \n          index = 56;\n          break;\n        case 7: //shift\n          index = 49;\n          break;\n        case 8: //record\n          colortype = COLOR_TYPE_RGB;\n          index = 86;\n          break;\n        default:\n          return [];\n      }\n      break;\n    }\n    case 4: { //nav\n      colortype = COLOR_TYPE_BW;\n      channel = 1;\n      switch (index) {\n        case 0: //left\n          index = 55;\n          break;\n        case 1: //right\n          index = 54;\n          break;\n        case 2: //plus\n          index = 62;\n          break;\n        case 3: //minus\n          index = 63;\n          break;\n        default:\n          return [];\n      }\n      break;\n    }\n    case 5: { //icons\n      colortype = COLOR_TYPE_BW;\n      channel = 1;\n      if (index >= 16) {\n        return [];\n      }\n      index += 16;\n      break;\n    }\n    default:\n      return [];\n  }\n\n  return [colortype, channel, index];\n}\n\nlet led = listin1; //dest, index, r (or b/w), g, b\n\nif (led.length < 2) {\n  return;\n}\n\nlet dest = led[0];\nlet index = led[1];\nlet r = 0; \nlet g = 0;\nlet b = 0; \n\nswitch (led.length) {\n  case 5:\n    b = led[4];\n  case 4:\n    g = led[3];\n  case 3:\n    r = led[2];\n  default:\n    break;\n}\n\nlet channel = 0; //0 == note, 1 == ctrl\nlet colortype = COLOR_TYPE_RGB;\n\nif (index < 0) {\n  return;\n}\n\nswitch (dest) {\n  case 0: { //buttons\n    //range check\n    if (index >= 32) {\n      return;\n    }\n    index += 68;\n    break;\n  }\n  case 1: { //steps\n    if (index >= 16) {\n      return;\n    }\n    index += 16;\n    break;\n  }\n  case 2: { //tracks\n    if (index >= 4) {\n      return;\n    }\n    index += 40;\n    channel = 1;\n    break;\n  }\n  case 3: { //functions\n    colortype = COLOR_TYPE_BW;\n    channel = 1;\n    switch (index) {\n      case 0: //capture\n        index = 52;\n        break;\n      case 1: //sampling\n        colortype = COLOR_TYPE_RGB;\n        index = 118;\n        break;\n      case 2: //repeat\n        index = 58;\n        break;\n      case 3: //mute\n        index = 88;\n        break;\n      case 4: //delete\n        index = 119;\n        break;\n      case 5: //duplicate\n        index = 60;\n        break;\n      case 6: //undo \n        index = 56;\n        break;\n      case 7: //shift\n        index = 49;\n        break;\n      case 8: //record\n        colortype = COLOR_TYPE_RGB;\n        index = 86;\n        break;\n      default:\n        return;\n    }\n    break;\n  }\n  case 4: { //nav\n    colortype = COLOR_TYPE_BW;\n    channel = 1;\n    switch (index) {\n      case 0: //left\n        index = 55;\n        break;\n      case 1: //right\n        index = 54;\n        break;\n      case 2: //plus\n        index = 62;\n        break;\n      case 3: //minus\n        index = 63;\n        break;\n      default:\n        return;\n    }\n    break;\n  }\n  case 5: { //icons\n    colortype = COLOR_TYPE_BW;\n    channel = 1;\n    if (index >= 16) {\n      return;\n    }\n    index += 16;\n    break;\n  }\n  default:\n    return;\n}\n\nif (colortype == COLOR_TYPE_RGB) {\n  //sysex\n  let o: list = [240, 0, 33, 29, 1, 1, 59];\n\n  //clamping to 1 because 0 doesn't seem to work\n  r = clamp(r * 255.0, 1.0, 255.0);\n  g = clamp(g * 255.0, 1.0, 255.0);\n  b = clamp(b * 255.0, 1.0, 255.0);\n\n  listout1 = o.concat([channel, index, r & 0x7F, r >> 7, g & 0x7F, g >> 7, b & 0x7F, b >> 7, 247]);\n} else if (channel == 1) { //should all be 1 if colortype == COLOR_TYPE_BW\n  out2 = 0xBF;\n  out2 = index;\n  out2 = r > 0 ? 127 : 0;\n}\n",
+									"fontface" : 0,
+									"fontname" : "<Monospaced>",
+									"fontsize" : 12.0,
+									"id" : "obj-10",
+									"maxclass" : "codebox",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 18.0, 69.0, 915.0, 915.0 ],
+									"rnbo_classname" : "codebox",
+									"rnbo_extra_attributes" : 									{
+										"code" : "const COLOR_TYPE_RGB = 0;\nconst COLOR_TYPE_BW = 1;\n\n\n/*\n  * 32 pad buttons\n  * 16 step buttons\n  * 4  track buttons\n  * 9 \"function\" buttons (right side + left side record button) [b/w except 2]\n  * 4 nav buttons [b/w]\n  * 16 icons [b/w]\n  *\n  * = \n  *\n  * color storage\n  * 32 + 16 + 4 + 2 = 54 (store in FixedUint32Array) (r << 16 | g << 8 | b)\n  *\n  * bw storage\n  * (9 - 2) + 4 + 16 -> 27 (can store in one 32-bit, using length 1 FixedUint32Array)\n  *\n  */\n\n@state storage_color = new FixedUint32Array(54);\n@state storage_bw = new FixedUint32Array(1); \n\nfunction processcolor(v: number): list {\n  let v = clamp(v * 255.0, 1, 255);\n  let v0 = v & 0x7F;\n  let v1 = v >> 7;\n  return [v0, v1];\n}\n\nfunction mapdest(dest: number, index: number): list {\n  let channel = 0; //0 == note, 1 == ctrl\n  let colortype = COLOR_TYPE_RGB;\n  switch (dest) {\n    case 0: { //buttons\n      //range check\n      if (index >= 32) {\n        return [];\n      }\n      index += 68;\n      break;\n    }\n    case 1: { //steps\n      if (index >= 16) {\n        return [];\n      }\n      index += 16;\n      break;\n    }\n    case 2: { //tracks\n      if (index >= 4) {\n        return [];\n      }\n      index += 40;\n      channel = 1;\n      break;\n    }\n    case 3: { //functions\n      colortype = COLOR_TYPE_BW;\n      channel = 1;\n      switch (index) {\n        case 0: //capture\n          index = 52;\n          break;\n        case 1: //sampling\n          colortype = COLOR_TYPE_RGB;\n          index = 118;\n          break;\n        case 2: //repeat\n          index = 58;\n          break;\n        case 3: //mute\n          index = 88;\n          break;\n        case 4: //delete\n            index = 119;\n          break;\n        case 5: //duplicate\n          index = 60;\n          break;\n        case 6: //undo \n          index = 56;\n          break;\n        case 7: //shift\n          index = 49;\n          break;\n        case 8: //record\n          colortype = COLOR_TYPE_RGB;\n          index = 86;\n          break;\n        default:\n          return [];\n      }\n      break;\n    }\n    case 4: { //nav\n      colortype = COLOR_TYPE_BW;\n      channel = 1;\n      switch (index) {\n        case 0: //left\n          index = 55;\n          break;\n        case 1: //right\n          index = 54;\n          break;\n        case 2: //plus\n          index = 62;\n          break;\n        case 3: //minus\n          index = 63;\n          break;\n        default:\n          return [];\n      }\n      break;\n    }\n    case 5: { //icons\n      colortype = COLOR_TYPE_BW;\n      channel = 1;\n      if (index >= 16) {\n        return [];\n      }\n      index += 16;\n      break;\n    }\n    default:\n      return [];\n  }\n\n  return [colortype, channel, index];\n}\n\nlet led = listin1; //dest, index, r (or b/w), g, b\n\nif (led.length < 2) {\n  return;\n}\n\nlet dest = led[0];\nlet index = led[1];\nlet r = 0; \nlet g = 0;\nlet b = 0; \n\nswitch (led.length) {\n  case 5:\n    b = led[4];\n  case 4:\n    g = led[3];\n  case 3:\n    r = led[2];\n  default:\n    break;\n}\n\nlet channel = 0; //0 == note, 1 == ctrl\nlet colortype = COLOR_TYPE_RGB;\n\nif (index < 0) {\n  return;\n}\n\nswitch (dest) {\n  case 0: { //buttons\n    //range check\n    if (index >= 32) {\n      return;\n    }\n    index += 68;\n    break;\n  }\n  case 1: { //steps\n    if (index >= 16) {\n      return;\n    }\n    index += 16;\n    break;\n  }\n  case 2: { //tracks\n    if (index >= 4) {\n      return;\n    }\n    index += 40;\n    channel = 1;\n    break;\n  }\n  case 3: { //functions\n    colortype = COLOR_TYPE_BW;\n    channel = 1;\n    switch (index) {\n      case 0: //capture\n        index = 52;\n        break;\n      case 1: //sampling\n        colortype = COLOR_TYPE_RGB;\n        index = 118;\n        break;\n      case 2: //repeat\n        index = 58;\n        break;\n      case 3: //mute\n        index = 88;\n        break;\n      case 4: //delete\n        index = 119;\n        break;\n      case 5: //duplicate\n        index = 60;\n        break;\n      case 6: //undo \n        index = 56;\n        break;\n      case 7: //shift\n        index = 49;\n        break;\n      case 8: //record\n        colortype = COLOR_TYPE_RGB;\n        index = 86;\n        break;\n      default:\n        return;\n    }\n    break;\n  }\n  case 4: { //nav\n    colortype = COLOR_TYPE_BW;\n    channel = 1;\n    switch (index) {\n      case 0: //left\n        index = 55;\n        break;\n      case 1: //right\n        index = 54;\n        break;\n      case 2: //plus\n        index = 62;\n        break;\n      case 3: //minus\n        index = 63;\n        break;\n      default:\n        return;\n    }\n    break;\n  }\n  case 5: { //icons\n    colortype = COLOR_TYPE_BW;\n    channel = 1;\n    if (index >= 16) {\n      return;\n    }\n    index += 16;\n    break;\n  }\n  default:\n    return;\n}\n\nif (colortype == COLOR_TYPE_RGB) {\n  //sysex\n  let o: list = [240, 0, 33, 29, 1, 1, 59];\n\n  //clamping to 1 because 0 doesn't seem to work\n  r = clamp(r * 255.0, 1.0, 255.0);\n  g = clamp(g * 255.0, 1.0, 255.0);\n  b = clamp(b * 255.0, 1.0, 255.0);\n\n  listout1 = o.concat([channel, index, r & 0x7F, r >> 7, g & 0x7F, g >> 7, b & 0x7F, b >> 7, 247]);\n} else if (channel == 1) { //should all be 1 if colortype == COLOR_TYPE_BW\n  out2 = 0xBF;\n  out2 = index;\n  out2 = r > 0 ? 127 : 0;\n}\n",
+										"hot" : 0,
+										"safemath" : 1,
+										"nocache" : 0
+									}
+,
+									"rnbo_serial" : 4,
+									"rnbo_uniqueid" : "codebox_obj-10",
+									"rnboinfo" : 									{
+										"needsInstanceInfo" : 1,
+										"argnames" : 										{
+											"reset" : 											{
+												"attrOrProp" : 1,
+												"digest" : "Reset all state and params to initial values",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"attachable" : 1,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "bang"
+											}
+,
+											"in1" : 											{
+												"attrOrProp" : 1,
+												"digest" : "in1",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"inlet" : 1,
+												"type" : "list"
+											}
+,
+											"out1" : 											{
+												"attrOrProp" : 1,
+												"digest" : "out1",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 0,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"outlet" : 1,
+												"type" : "list"
+											}
+,
+											"out2" : 											{
+												"attrOrProp" : 1,
+												"digest" : "out2",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 0,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"outlet" : 1,
+												"type" : "number"
+											}
+,
+											"expr" : 											{
+												"attrOrProp" : 2,
+												"digest" : "expr",
+												"defaultarg" : 1,
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "symbol",
+												"doNotShowInMaxInspector" : 1
+											}
+,
+											"hot" : 											{
+												"attrOrProp" : 2,
+												"digest" : "Trigger computation on all inlets.",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "bool",
+												"defaultValue" : "false"
+											}
+,
+											"safemath" : 											{
+												"attrOrProp" : 2,
+												"digest" : "Use safe math expressions (e.g.: division by 0 will not crash).",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "bool",
+												"defaultValue" : "true"
+											}
+,
+											"nocache" : 											{
+												"attrOrProp" : 2,
+												"digest" : "Do not use parsing cache. This is only useful with very very big code sizes. Code generation will then take a looooong time.",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "bool",
+												"defaultValue" : "false"
+											}
+
+										}
+,
+										"inputs" : [ 											{
+												"name" : "in1",
+												"type" : "list",
+												"digest" : "in1",
+												"hot" : 1,
+												"docked" : 0
+											}
+ ],
+										"outputs" : [ 											{
+												"name" : "out1",
+												"type" : "list",
+												"digest" : "out1",
+												"docked" : 0
+											}
+, 											{
+												"name" : "out2",
+												"type" : "number",
+												"digest" : "out2",
+												"docked" : 0
+											}
+ ],
+										"helpname" : "codebox",
+										"aliasOf" : "expr",
+										"classname" : "codebox",
+										"operator" : 0,
+										"versionId" : 835263063,
+										"changesPatcherIO" : 0
+									}
+
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-9",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 18.0, 1046.0, 55.0, 23.0 ],
+									"rnbo_classname" : "sysexout",
+									"rnbo_serial" : 1,
+									"rnbo_uniqueid" : "sysexout_obj-9",
+									"text" : "sysexout"
+								}
+
+							}
+ ],
+						"lines" : [ 							{
+								"patchline" : 								{
+									"destination" : [ "obj-19", 0 ],
+									"source" : [ "obj-10", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-9", 0 ],
+									"source" : [ "obj-10", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-10", 0 ],
+									"source" : [ "obj-7", 0 ]
+								}
+
+							}
+ ]
+					}
+,
+					"patching_rect" : [ 59.0, 98.0, 127.0, 22.0 ],
+					"rnboattrcache" : 					{
+
+					}
+,
+					"rnboversion" : "1.4.1",
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_invisible" : 1,
+							"parameter_longname" : "rnbo~",
+							"parameter_modmode" : 0,
+							"parameter_shortname" : "rnbo~",
+							"parameter_type" : 3
+						}
+
+					}
+,
+					"saved_object_attributes" : 					{
+						"optimization" : "O1",
+						"parameter_enable" : 1,
+						"uuid" : "e09efc3d-640a-11f0-bc3d-7683f81cdc89"
+					}
+,
+					"snapshot" : 					{
+						"filetype" : "C74Snapshot",
+						"version" : 2,
+						"minorversion" : 0,
+						"name" : "snapshotlist",
+						"origin" : "rnbo~",
+						"type" : "list",
+						"subtype" : "Undefined",
+						"embed" : 1,
+						"snapshot" : 						{
+							"__presetid" : "led-driver"
+						}
+,
+						"snapshotlist" : 						{
+							"current_snapshot" : 0,
+							"entries" : [ 								{
+									"filetype" : "C74Snapshot",
+									"version" : 2,
+									"minorversion" : 0,
+									"name" : "led-driver",
+									"origin" : "led-driver",
+									"type" : "rnbo",
+									"subtype" : "",
+									"embed" : 0,
+									"snapshot" : 									{
+										"__presetid" : "led-driver"
+									}
+,
+									"fileref" : 									{
+										"name" : "led-driver",
+										"filename" : "led-driver.maxsnap",
+										"filepath" : "~/Documents/Max 9/Snapshots",
+										"filepos" : -1,
+										"snapshotfileid" : "87e8e386911b111b6d2e103a5022534b"
+									}
+
+								}
+ ]
+						}
+
+					}
+,
+					"text" : "rnbo~ @title led-driver",
+					"varname" : "rnbo~"
+				}
+
+			}
+ ],
+		"lines" : [  ],
+		"parameters" : 		{
+			"obj-1" : [ "rnbo~", "rnbo~", 0 ],
+			"obj-2" : [ "rnbo~[1]", "rnbo~[1]", 0 ],
+			"obj-3" : [ "rnbo~[2]", "rnbo~[2]", 0 ],
+			"parameterbanks" : 			{
+				"0" : 				{
+					"index" : 0,
+					"name" : "",
+					"parameters" : [ "-", "-", "-", "-", "-", "-", "-", "-" ]
+				}
+
+			}
+,
+			"inherited_shortname" : 1
+		}
+,
+		"dependency_cache" : [ 			{
+				"name" : "led-driver.maxsnap",
+				"bootpath" : "~/Documents/Max 9/Snapshots",
+				"patcherrelativepath" : "../../../Max 9/Snapshots",
+				"type" : "mx@s",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "play-display.maxsnap",
+				"bootpath" : "~/Documents/Max 9/Snapshots",
+				"patcherrelativepath" : "../../../Max 9/Snapshots",
+				"type" : "mx@s",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "untitled_20250728.maxsnap",
+				"bootpath" : "~/Documents/Max 9/Snapshots",
+				"patcherrelativepath" : "../../../Max 9/Snapshots",
+				"type" : "mx@s",
+				"implicit" : 1
+			}
+ ],
+		"autosave" : 0,
+		"oscsendudpport" : 8001
+	}
+
+}
