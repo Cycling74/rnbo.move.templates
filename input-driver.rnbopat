@@ -10,23 +10,53 @@
 		}
 ,
 		"classnamespace" : "rnbo",
-		"rect" : [ 507.0, 233.0, 2719.0, 871.0 ],
+		"rect" : [ 507.0, 289.0, 2710.0, 1053.0 ],
 		"default_fontname" : "Lato",
 		"gridsize" : [ 15.0, 15.0 ],
 		"title" : "input-driver.rnbopat",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-18",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 964.0, 281.0, 161.0, 21.0 ],
+					"text" : "convert to zero based range"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-11",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 876.5, 280.0, 30.0, 23.0 ],
+					"rnbo_classname" : "-",
+					"rnbo_extra_attributes" : 					{
+						"hot" : 0
+					}
+,
+					"rnbo_serial" : 2,
+					"rnbo_uniqueid" : "-_obj-11",
+					"text" : "- 68"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-17",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 815.0, 437.0, 142.0, 23.0 ],
+					"patching_rect" : [ 815.0, 517.0, 142.0, 23.0 ],
 					"rnbo_classname" : "out",
 					"rnbo_extra_attributes" : 					{
 						"meta" : ""
 					}
 ,
-					"rnbo_serial" : 2,
+					"rnbo_serial" : 1,
 					"rnbo_uniqueid" : "out_obj-17",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
@@ -106,9 +136,9 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 815.0, 401.0, 43.0, 23.0 ],
+					"patching_rect" : [ 815.0, 481.0, 43.0, 23.0 ],
 					"rnbo_classname" : "list.rev",
-					"rnbo_serial" : 2,
+					"rnbo_serial" : 1,
 					"rnbo_uniqueid" : "list.rev_obj-15",
 					"text" : "list.rev"
 				}
@@ -121,7 +151,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 815.0, 359.0, 54.0, 23.0 ],
+					"patching_rect" : [ 815.0, 439.0, 54.0, 23.0 ],
 					"rnbo_classname" : "route",
 					"rnbo_serial" : 1,
 					"rnbo_uniqueid" : "route_obj-14",
@@ -193,9 +223,9 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 815.0, 323.0, 142.0, 23.0 ],
+					"patching_rect" : [ 815.0, 403.0, 142.0, 23.0 ],
 					"rnbo_classname" : "list.rev",
-					"rnbo_serial" : 1,
+					"rnbo_serial" : 2,
 					"rnbo_uniqueid" : "list.rev_obj-13",
 					"text" : "list.rev"
 				}
@@ -208,14 +238,14 @@
 					"numinlets" : 3,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 815.0, 286.0, 142.0, 23.0 ],
+					"patching_rect" : [ 815.0, 343.0, 142.0, 23.0 ],
 					"rnbo_classname" : "pack",
 					"rnbo_extra_attributes" : 					{
-						"list" : "",
-						"length" : 0.0
+						"length" : 0.0,
+						"list" : ""
 					}
 ,
-					"rnbo_serial" : 3,
+					"rnbo_serial" : 1,
 					"rnbo_uniqueid" : "pack_obj-12",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
@@ -354,7 +384,7 @@
 					"outlettype" : [ "", "", "" ],
 					"patching_rect" : [ 815.0, 237.0, 142.0, 23.0 ],
 					"rnbo_classname" : "polyin",
-					"rnbo_serial" : 2,
+					"rnbo_serial" : 1,
 					"rnbo_uniqueid" : "polyin_obj-10",
 					"text" : "polyin"
 				}
@@ -457,7 +487,7 @@
 						"meta" : ""
 					}
 ,
-					"rnbo_serial" : 1,
+					"rnbo_serial" : 2,
 					"rnbo_uniqueid" : "out_obj-8",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
@@ -546,8 +576,8 @@
 					"rnbo_extra_attributes" : 					{
 						"code" : "//input prefix: \n//0 -> note\n//1 -> cc\n//\n//output prefix:\n//0 -> pads\n//1 -> steps\n//2 -> tracks\n//3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)\n//4 -> nav (left, right, plus, minus)\n\nconst OUT_PAD = 0;\nconst OUT_STEP = 1;\nconst OUT_TRACK = 2;\nconst OUT_FUNCTION = 3;\nconst OUT_NAV = 4;\n\nlet m = listin1;\nlet prefix = m[0];\n\nif (prefix == 0) { //note\n  let num = m[1];\n  let vel = m[2];\n  if (num >= 68 && num <= 99) {\n    listout1 = [OUT_PAD, num - 68, vel];\n  } else if (num >= 16 && num <= 31) {\n    listout1 = [OUT_STEP, num - 16, vel];\n  }\n} else if (prefix == 1) { //cc\n  let num = m[2];\n  let val = m[1];\n\n  if (num >= 40 && num <= 43) {\n    listout1 = [OUT_TRACK, num - 40, val];\n  } else {\n    let o = OUT_FUNCTION;\n    let mapped = 0;\n    switch (num) {\n      case 52:\n        mapped = 0;\n        break;\n      case 118:\n        mapped = 1;\n        break;\n      case 58:\n        mapped = 2;\n        break;\n      case 88:\n        mapped = 3;\n        break;\n      case 119:\n        mapped = 4;\n        break;\n      case 60:\n        mapped = 5;\n        break;\n      case 56:\n        mapped = 6;\n        break;\n      case 49:\n        mapped = 7;\n        break;\n      case 86:\n        mapped = 8;\n        break;\n      case 55:\n        o = OUT_NAV;\n        mapped = 0;\n        break;\n      case 54:\n        o = OUT_NAV;\n        mapped = 1;\n        break;\n      case 62:\n        o = OUT_NAV;\n        mapped = 2;\n        break;\n      case 63:\n        o = OUT_NAV;\n        mapped = 3;\n        break;\n      default:\n        return;\n    }\n    listout1 = [o, mapped, val];\n  }\n}",
 						"nocache" : 0,
-						"hot" : 0,
-						"safemath" : 1
+						"safemath" : 1,
+						"hot" : 0
 					}
 ,
 					"rnbo_serial" : 1,
@@ -787,11 +817,11 @@
 					"patching_rect" : [ 96.0, 183.0, 55.0, 23.0 ],
 					"rnbo_classname" : "pack",
 					"rnbo_extra_attributes" : 					{
-						"list" : "",
-						"length" : 0.0
+						"length" : 0.0,
+						"list" : ""
 					}
 ,
-					"rnbo_serial" : 1,
+					"rnbo_serial" : 2,
 					"rnbo_uniqueid" : "pack_obj-6",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
@@ -1028,11 +1058,11 @@
 					"patching_rect" : [ 23.0, 183.0, 55.0, 23.0 ],
 					"rnbo_classname" : "pack",
 					"rnbo_extra_attributes" : 					{
-						"list" : "",
-						"length" : 0.0
+						"length" : 0.0,
+						"list" : ""
 					}
 ,
-					"rnbo_serial" : 2,
+					"rnbo_serial" : 3,
 					"rnbo_uniqueid" : "pack_obj-3",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
@@ -1210,6 +1240,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-11", 0 ],
+					"source" : [ "obj-10", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-12", 2 ],
 					"source" : [ "obj-10", 2 ]
 				}
@@ -1217,15 +1254,15 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-12", 1 ],
-					"source" : [ "obj-10", 1 ]
+					"destination" : [ "obj-12", 0 ],
+					"source" : [ "obj-10", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-12", 0 ],
-					"source" : [ "obj-10", 0 ]
+					"destination" : [ "obj-12", 1 ],
+					"source" : [ "obj-11", 0 ]
 				}
 
 			}
