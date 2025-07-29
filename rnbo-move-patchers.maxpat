@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 115.0, 3292.0, 1741.0 ],
+		"rect" : [ 850.0, 536.0, 2191.0, 927.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -39,7 +39,7 @@
 						}
 ,
 						"classnamespace" : "rnbo",
-						"rect" : [ 721.0, 154.0, 1890.0, 1395.0 ],
+						"rect" : [ 850.0, 536.0, 2191.0, 927.0 ],
 						"default_fontname" : "Lato",
 						"gridsize" : [ 15.0, 15.0 ],
 						"title" : "Scale",
@@ -150,8 +150,8 @@
 									"rnbo_extra_attributes" : 									{
 										"code" : "@param len = 12;\r\n\r\n@state tuning = 286;\r\n@state mid = 60;\r\n@state ref = 60;\r\n\r\nlet _dummy = in1;\r\n\r\nlet v: list = [len, 0, 127, mid, ref, tuning, len];\r\n\r\nfor (let i = 0; i < len; i++) {\r\n\tv.push(i);\r\n}\r\n\r\nlistout1 = v;",
 										"safemath" : 1,
-										"hot" : 0,
-										"nocache" : 0
+										"nocache" : 0,
+										"hot" : 0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -341,8 +341,8 @@
 									"patching_rect" : [ 306.0, 576.0, 268.0, 23.0 ],
 									"rnbo_classname" : "message",
 									"rnbo_extra_attributes" : 									{
-										"text" : "",
-										"storeempty" : 0
+										"storeempty" : 0,
+										"text" : ""
 									}
 ,
 									"rnbo_serial" : 1,
@@ -605,6 +605,10 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 51.0, 64.0, 23.0, 23.0 ],
 									"rnbo_classname" : "t",
+									"rnbo_extra_attributes" : 									{
+										"triggers" : ""
+									}
+,
 									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "t_obj-5",
 									"rnboinfo" : 									{
@@ -697,20 +701,20 @@
 									"patching_rect" : [ 51.0, 103.0, 253.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
+										"preset" : 1,
 										"unit" : "",
-										"steps" : 3.0,
-										"order" : "0",
-										"meta" : "",
-										"fromnormalized" : "",
 										"displayorder" : "-",
+										"steps" : 3.0,
+										"maximum" : 2.0,
+										"order" : "0",
+										"tonormalized" : "",
+										"ctlin" : -1.0,
 										"exponent" : 1.0,
 										"minimum" : 0.0,
-										"preset" : 1,
+										"fromnormalized" : "",
 										"sendinit" : 1,
-										"maximum" : 2.0,
 										"displayname" : "",
-										"ctlin" : -1.0,
-										"tonormalized" : ""
+										"meta" : ""
 									}
 ,
 									"rnbo_serial" : 1,
@@ -1476,11 +1480,22 @@
 						}
 ,
 						"classnamespace" : "rnbo",
-						"rect" : [ 721.0, 154.0, 1890.0, 1395.0 ],
+						"rect" : [ 850.0, 536.0, 1663.0, 927.0 ],
 						"default_fontname" : "Lato",
 						"gridsize" : [ 15.0, 15.0 ],
 						"title" : "Pad Scale",
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-5",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 65.0, 414.0, 241.0, 21.0 ],
+									"text" : "SAFEMATH off to work around bug #21957"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-50",
 									"maxclass" : "newobj",
@@ -1508,6 +1523,10 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 828.0, 329.0, 46.0, 23.0 ],
 									"rnbo_classname" : "t",
+									"rnbo_extra_attributes" : 									{
+										"triggers" : ""
+									}
+,
 									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "t_obj-48",
 									"rnboinfo" : 									{
@@ -1602,8 +1621,8 @@
 									"patching_rect" : [ 828.0, 362.0, 105.0, 23.0 ],
 									"rnbo_classname" : "message",
 									"rnbo_extra_attributes" : 									{
-										"text" : "",
-										"storeempty" : 0
+										"storeempty" : 0,
+										"text" : ""
 									}
 ,
 									"rnbo_serial" : 1,
@@ -1686,19 +1705,19 @@
 									"patching_rect" : [ 828.0, 260.0, 522.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
+										"preset" : 1,
 										"unit" : "",
-										"steps" : 7.0,
-										"order" : "0",
-										"meta" : "",
-										"fromnormalized" : "",
 										"displayorder" : "-",
+										"steps" : 7.0,
+										"maximum" : 6.0,
+										"order" : "0",
+										"tonormalized" : "",
+										"ctlin" : -1.0,
 										"exponent" : 1.0,
 										"minimum" : 0.0,
-										"preset" : 1,
+										"fromnormalized" : "",
 										"sendinit" : 1,
-										"maximum" : 6.0,
-										"ctlin" : -1.0,
-										"tonormalized" : ""
+										"meta" : ""
 									}
 ,
 									"rnbo_serial" : 1,
@@ -2184,7 +2203,7 @@
 							}
 , 							{
 								"box" : 								{
-									"code" : "//listout1 = control\n//out2 = note out\n//out3 = velocity out\n\n@param active = 0;\n\n@state scalenotes = 12; //computed from scl\n@state octavesteps = 12; //computed from scl or kbm\n@state noteoffset = 60; //computed from kbm\n\n@state page = 0;\n@state padoffset = 0; //computed from page\n@state pageoctaveoffset = 2;\n\nconst PREFIX_PAD = 0;\nconst PREFIX_NAV = 4;\n\nfunction updatepadoffset() {\n  padoffset = round(page * pageoctaveoffset * octavesteps);\n}\n\nfunction listin2(scl: list) {\n  scalenotes = scl[0];\n  octavesteps = scl[0];\n\n  updatepadoffset();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin3(kbm: list) {\n  octavesteps = kbm[0];\n  noteoffset = kbm[3];\n\n  updatepadoffset();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction in4(offset: number) {\n  pageoctaveoffset = offset;\n  updatepadoffset();\n\n  if (active) {\n    drawall();\n  }\n}\n\nfunction sendnote(note: number, vel: number) {\n  out3 = vel;\n  out2 = note;\n}\n\nfunction isoctave(pad: number): number {\n  pad += padoffset;\n\n  //TODO allow repeat notes\n  return (pad % scalenotes) == 0;\n}\n\nfunction drawall() {\n  for (let pad = 0; pad < 32; pad++) {\n    let r = 0;\n    let g = 0;\n    let b = 0;\n    if (isoctave(pad)) {\n      r = 1;\n    }\n    listout1 = [PREFIX_PAD, pad, r, g, b];\n  }\n  //nav\n  \n  //up, down\n  listout1 = [PREFIX_NAV, 2, 0];\n  listout1 = [PREFIX_NAV, 3, 0];\n\n  let plus = 0;\n  let minus = 0;\n  if (page == 1) {\n    plus = 1;\n  } else if (page == -1) {\n    minus = 1;\n  }\n  listout1 = [PREFIX_NAV, 0, plus];\n  listout1 = [PREFIX_NAV, 1, minus];\n}\n\nlet m = listin1;\n\nif (!active) {\n  return;\n}\n\nlet prefix = m[0];\n\nif (prefix == PREFIX_PAD) { //pads\n  let pad = m[1];\n  let vel = m[2];\n\n  let note = pad + noteoffset + padoffset;\n  sendnote(note, vel);\n\n  //TODO allow for octave steps to be different than scalenotes and therefore light up multiple buttons\n  let r = 0;\n  let g = 0;\n  let b = 0;\n  if (vel > 0) {\n    g = vel / 127.0;\n  } else if (isoctave(pad)) {\n    r = 1;\n  }\n\n  listout1 = [0, pad, r, g, b];\n} else if (prefix == PREFIX_NAV) { //nav\n  if (m[2] == 0) { //value\n    return;\n  }\n  let btn = m[1];\n  if (btn == 0) { //plus\n    page = clamp(page + 1, -1, 1);\n  } else if (btn == 1) { //minus\n    page = clamp(page - 1, -1, 1);\n  } else {\n    return;\n  }\n  updatepadoffset();\n  drawall();\n}\n",
+									"code" : "//listout1 = control\n//out2 = note out\n//out3 = velocity out\n\n@param active = 0;\n\n@state scalenotes = 12; //computed from scl\n@state octavesteps = 12; //computed from scl or kbm\n@state noteoffset = 60; //computed from kbm\n\n//pad -> note, offcolor, [, output pad 1..]\n//XXX BROKEN\n@state padmapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 32, \"preset\": false});\n\nconst MAP_INDEX_NOTE: Index = 0;\nconst MAP_INDEX_COLOR: Index = 1;\nconst MAP_INDEX_EXTRA: Index = 2;\n\n@state page = 0;\n@state padoffset = 0; //computed from page\n@state pageoctaveoffset = 2;\n\nconst PREFIX_PAD = 0;\nconst PREFIX_NAV = 4;\n\nfunction updatemappings() {\n  padoffset = round(page * pageoctaveoffset * octavesteps + noteoffset);\n\n  let dofit = octavesteps < 8; //should we try to map octaves vetically\n\n  //map of note number -> pads\n  let notemapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 128, \"preset\": false});\n\n  for (let row = 0; row < 4; row++) {\n    for (let col = 0; col < 8; col++) {\n      let pad = row * 8 + col;\n      let v: list = [];\n      if (dofit) {\n        let note = padoffset + row * octavesteps + col;\n        v.push(note);\n        v.push((safemod(col, octavesteps) == 0) ? 1 : 0); //safemod explicit calls work around bug #21960\n\n        if (note >= 0 && note < 128) { //should always be true\n          notemapping.store(note, pad);\n        }\n      } else {\n        v.push(pad + padoffset);\n        v.push(safemod(pad + padoffset, octavesteps) == 0 ? 1 : 0);\n      }\n      padmapping.store(pad, v);\n    }\n  }\n\n  if (dofit) {\n    //insert additional pad outputs\n    for (let note = 0; note < 127; note++) {\n      let mapping = notemapping.lookup(note);\n\n      //if more than 1 pad maps to the same note, insert the into padmapping\n      if (mapping.length > 1) {\n        for (let i = 0; i < mapping.length; i++) {\n          let pad = mapping[i];\n          for (let j = 0; j < mapping.length; j++) {\n            let other = mapping[j];\n            if (pad != other) {\n              let tmp = padmapping.lookup(pad);\n              tmp.push(other);\n              padmapping.store(pad, tmp);\n            }\n          }\n        }\n      }\n    }\n  }\n}\n\nfunction listin2(scl: list) {\n  scalenotes = scl[0];\n  octavesteps = scl[0];\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin3(kbm: list) {\n  octavesteps = kbm[0];\n  noteoffset = kbm[3];\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction in4(offset: number) {\n  pageoctaveoffset = offset;\n  updatemappings();\n\n  if (active) {\n    drawall();\n  }\n}\n\nfunction sendnote(note: number, vel: number) {\n  out3 = vel;\n  out2 = note;\n}\n\nfunction drawall() {\n  for (let pad = 0; pad < 32; pad++) {\n    let v = padmapping.lookup(pad);\n    let r = v[MAP_INDEX_COLOR];\n    let g = 0;\n    let b = 0;\n    listout1 = [PREFIX_PAD, pad, r, g, b];\n  }\n  //nav\n  \n  //up, down\n  listout1 = [PREFIX_NAV, 2, 0];\n  listout1 = [PREFIX_NAV, 3, 0];\n\n  let plus = 0;\n  let minus = 0;\n  if (page == 1) {\n    plus = 1;\n  } else if (page == -1) {\n    minus = 1;\n  }\n  listout1 = [PREFIX_NAV, 0, plus];\n  listout1 = [PREFIX_NAV, 1, minus];\n}\n\nlet m = listin1;\n\nif (!active) {\n  return;\n}\n\nlet prefix = m[0];\n\nif (prefix == PREFIX_PAD) { //pads\n  let pad = m[1];\n  let vel = m[2];\n\n  //send mapped note\n  let mapping = padmapping.lookup(pad);\n  let note = mapping[MAP_INDEX_NOTE];\n  sendnote(note, vel);\n\n  let r = 0;\n  let g = 0;\n  let b = 0;\n  if (vel > 0) {\n    g = vel / 127.0;\n  } else {\n    r = mapping[MAP_INDEX_COLOR];\n  }\n\n  listout1 = [0, pad, r, g, b];\n  //additional pads to light\n  for (let i = MAP_INDEX_EXTRA; i < mapping.length; i++) {\n    listout1 = [0, mapping[i], r, g, b];\n  }\n} else if (prefix == PREFIX_NAV) { //nav\n  if (m[2] == 0) { //value\n    return;\n  }\n  let btn = m[1];\n  if (btn == 0) { //plus\n    page = clamp(page + 1, -1, 1);\n  } else if (btn == 1) { //minus\n    page = clamp(page - 1, -1, 1);\n  } else {\n    return;\n  }\n  updatemappings();\n  drawall();\n}\n",
 									"fontface" : 0,
 									"fontname" : "<Monospaced>",
 									"fontsize" : 12.0,
@@ -2196,13 +2215,13 @@
 									"patching_rect" : [ 41.0, 442.0, 806.0, 625.0 ],
 									"rnbo_classname" : "codebox",
 									"rnbo_extra_attributes" : 									{
-										"code" : "//listout1 = control\n//out2 = note out\n//out3 = velocity out\n\n@param active = 0;\n\n@state scalenotes = 12; //computed from scl\n@state octavesteps = 12; //computed from scl or kbm\n@state noteoffset = 60; //computed from kbm\n\n@state page = 0;\n@state padoffset = 0; //computed from page\n@state pageoctaveoffset = 2;\n\nconst PREFIX_PAD = 0;\nconst PREFIX_NAV = 4;\n\nfunction updatepadoffset() {\n  padoffset = round(page * pageoctaveoffset * octavesteps);\n}\n\nfunction listin2(scl: list) {\n  scalenotes = scl[0];\n  octavesteps = scl[0];\n\n  updatepadoffset();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin3(kbm: list) {\n  octavesteps = kbm[0];\n  noteoffset = kbm[3];\n\n  updatepadoffset();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction in4(offset: number) {\n  pageoctaveoffset = offset;\n  updatepadoffset();\n\n  if (active) {\n    drawall();\n  }\n}\n\nfunction sendnote(note: number, vel: number) {\n  out3 = vel;\n  out2 = note;\n}\n\nfunction isoctave(pad: number): number {\n  pad += padoffset;\n\n  //TODO allow repeat notes\n  return (pad % scalenotes) == 0;\n}\n\nfunction drawall() {\n  for (let pad = 0; pad < 32; pad++) {\n    let r = 0;\n    let g = 0;\n    let b = 0;\n    if (isoctave(pad)) {\n      r = 1;\n    }\n    listout1 = [PREFIX_PAD, pad, r, g, b];\n  }\n  //nav\n  \n  //up, down\n  listout1 = [PREFIX_NAV, 2, 0];\n  listout1 = [PREFIX_NAV, 3, 0];\n\n  let plus = 0;\n  let minus = 0;\n  if (page == 1) {\n    plus = 1;\n  } else if (page == -1) {\n    minus = 1;\n  }\n  listout1 = [PREFIX_NAV, 0, plus];\n  listout1 = [PREFIX_NAV, 1, minus];\n}\n\nlet m = listin1;\n\nif (!active) {\n  return;\n}\n\nlet prefix = m[0];\n\nif (prefix == PREFIX_PAD) { //pads\n  let pad = m[1];\n  let vel = m[2];\n\n  let note = pad + noteoffset + padoffset;\n  sendnote(note, vel);\n\n  //TODO allow for octave steps to be different than scalenotes and therefore light up multiple buttons\n  let r = 0;\n  let g = 0;\n  let b = 0;\n  if (vel > 0) {\n    g = vel / 127.0;\n  } else if (isoctave(pad)) {\n    r = 1;\n  }\n\n  listout1 = [0, pad, r, g, b];\n} else if (prefix == PREFIX_NAV) { //nav\n  if (m[2] == 0) { //value\n    return;\n  }\n  let btn = m[1];\n  if (btn == 0) { //plus\n    page = clamp(page + 1, -1, 1);\n  } else if (btn == 1) { //minus\n    page = clamp(page - 1, -1, 1);\n  } else {\n    return;\n  }\n  updatepadoffset();\n  drawall();\n}\n",
-										"safemath" : 1,
-										"hot" : 0,
-										"nocache" : 0
+										"code" : "//listout1 = control\n//out2 = note out\n//out3 = velocity out\n\n@param active = 0;\n\n@state scalenotes = 12; //computed from scl\n@state octavesteps = 12; //computed from scl or kbm\n@state noteoffset = 60; //computed from kbm\n\n//pad -> note, offcolor, [, output pad 1..]\n//XXX BROKEN\n@state padmapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 32, \"preset\": false});\n\nconst MAP_INDEX_NOTE: Index = 0;\nconst MAP_INDEX_COLOR: Index = 1;\nconst MAP_INDEX_EXTRA: Index = 2;\n\n@state page = 0;\n@state padoffset = 0; //computed from page\n@state pageoctaveoffset = 2;\n\nconst PREFIX_PAD = 0;\nconst PREFIX_NAV = 4;\n\nfunction updatemappings() {\n  padoffset = round(page * pageoctaveoffset * octavesteps + noteoffset);\n\n  let dofit = octavesteps < 8; //should we try to map octaves vetically\n\n  //map of note number -> pads\n  let notemapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 128, \"preset\": false});\n\n  for (let row = 0; row < 4; row++) {\n    for (let col = 0; col < 8; col++) {\n      let pad = row * 8 + col;\n      let v: list = [];\n      if (dofit) {\n        let note = padoffset + row * octavesteps + col;\n        v.push(note);\n        v.push((safemod(col, octavesteps) == 0) ? 1 : 0); //safemod explicit calls work around bug #21960\n\n        if (note >= 0 && note < 128) { //should always be true\n          notemapping.store(note, pad);\n        }\n      } else {\n        v.push(pad + padoffset);\n        v.push(safemod(pad + padoffset, octavesteps) == 0 ? 1 : 0);\n      }\n      padmapping.store(pad, v);\n    }\n  }\n\n  if (dofit) {\n    //insert additional pad outputs\n    for (let note = 0; note < 127; note++) {\n      let mapping = notemapping.lookup(note);\n\n      //if more than 1 pad maps to the same note, insert the into padmapping\n      if (mapping.length > 1) {\n        for (let i = 0; i < mapping.length; i++) {\n          let pad = mapping[i];\n          for (let j = 0; j < mapping.length; j++) {\n            let other = mapping[j];\n            if (pad != other) {\n              let tmp = padmapping.lookup(pad);\n              tmp.push(other);\n              padmapping.store(pad, tmp);\n            }\n          }\n        }\n      }\n    }\n  }\n}\n\nfunction listin2(scl: list) {\n  scalenotes = scl[0];\n  octavesteps = scl[0];\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin3(kbm: list) {\n  octavesteps = kbm[0];\n  noteoffset = kbm[3];\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction in4(offset: number) {\n  pageoctaveoffset = offset;\n  updatemappings();\n\n  if (active) {\n    drawall();\n  }\n}\n\nfunction sendnote(note: number, vel: number) {\n  out3 = vel;\n  out2 = note;\n}\n\nfunction drawall() {\n  for (let pad = 0; pad < 32; pad++) {\n    let v = padmapping.lookup(pad);\n    let r = v[MAP_INDEX_COLOR];\n    let g = 0;\n    let b = 0;\n    listout1 = [PREFIX_PAD, pad, r, g, b];\n  }\n  //nav\n  \n  //up, down\n  listout1 = [PREFIX_NAV, 2, 0];\n  listout1 = [PREFIX_NAV, 3, 0];\n\n  let plus = 0;\n  let minus = 0;\n  if (page == 1) {\n    plus = 1;\n  } else if (page == -1) {\n    minus = 1;\n  }\n  listout1 = [PREFIX_NAV, 0, plus];\n  listout1 = [PREFIX_NAV, 1, minus];\n}\n\nlet m = listin1;\n\nif (!active) {\n  return;\n}\n\nlet prefix = m[0];\n\nif (prefix == PREFIX_PAD) { //pads\n  let pad = m[1];\n  let vel = m[2];\n\n  //send mapped note\n  let mapping = padmapping.lookup(pad);\n  let note = mapping[MAP_INDEX_NOTE];\n  sendnote(note, vel);\n\n  let r = 0;\n  let g = 0;\n  let b = 0;\n  if (vel > 0) {\n    g = vel / 127.0;\n  } else {\n    r = mapping[MAP_INDEX_COLOR];\n  }\n\n  listout1 = [0, pad, r, g, b];\n  //additional pads to light\n  for (let i = MAP_INDEX_EXTRA; i < mapping.length; i++) {\n    listout1 = [0, mapping[i], r, g, b];\n  }\n} else if (prefix == PREFIX_NAV) { //nav\n  if (m[2] == 0) { //value\n    return;\n  }\n  let btn = m[1];\n  if (btn == 0) { //plus\n    page = clamp(page + 1, -1, 1);\n  } else if (btn == 1) { //minus\n    page = clamp(page - 1, -1, 1);\n  } else {\n    return;\n  }\n  updatemappings();\n  drawall();\n}\n",
+										"safemath" : 0,
+										"nocache" : 0,
+										"hot" : 0
 									}
 ,
-									"rnbo_serial" : 1,
+									"rnbo_serial" : 9,
 									"rnbo_uniqueid" : "codebox_obj-29",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -2509,20 +2528,20 @@
 									"patching_rect" : [ 65.0, 86.0, 205.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
+										"preset" : 1,
 										"unit" : "",
-										"steps" : 2.0,
-										"order" : "0",
-										"meta" : "",
-										"fromnormalized" : "",
 										"displayorder" : "-",
+										"steps" : 2.0,
+										"maximum" : 1.0,
+										"order" : "0",
+										"tonormalized" : "",
+										"ctlin" : -1.0,
 										"exponent" : 1.0,
 										"minimum" : 0.0,
-										"preset" : 1,
+										"fromnormalized" : "",
 										"sendinit" : 1,
-										"maximum" : 1.0,
 										"displayname" : "",
-										"ctlin" : -1.0,
-										"tonormalized" : ""
+										"meta" : ""
 									}
 ,
 									"rnbo_serial" : 2,
@@ -2958,19 +2977,19 @@
 									"patching_rect" : [ 908.0, 1096.0, 501.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
+										"preset" : 1,
 										"unit" : "",
-										"steps" : 16.0,
-										"order" : "0",
-										"meta" : "",
-										"fromnormalized" : "",
 										"displayorder" : "-",
+										"steps" : 16.0,
+										"maximum" : 15.0,
+										"order" : "0",
+										"tonormalized" : "",
+										"ctlin" : -1.0,
 										"exponent" : 1.0,
 										"minimum" : 0.0,
-										"preset" : 1,
+										"fromnormalized" : "",
 										"sendinit" : 1,
-										"maximum" : 15.0,
-										"ctlin" : -1.0,
-										"tonormalized" : ""
+										"meta" : ""
 									}
 ,
 									"rnbo_serial" : 3,
@@ -3439,13 +3458,13 @@
 									"patching_rect" : [ 41.0, 1167.0, 143.0, 23.0 ],
 									"rnbo_classname" : "p",
 									"rnbo_extra_attributes" : 									{
-										"args" : [  ],
 										"receivemode" : "local",
+										"args" : [  ],
 										"polyphony" : -1.0,
-										"uidstyle" : "auto",
 										"exposevoiceparams" : 0,
-										"notecontroller" : 0,
-										"voicecontrol" : "simple"
+										"uidstyle" : "auto",
+										"voicecontrol" : "simple",
+										"notecontroller" : 0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -3655,13 +3674,13 @@
 									"patching_rect" : [ 42.0, 54.0, 154.0, 23.0 ],
 									"rnbo_classname" : "p",
 									"rnbo_extra_attributes" : 									{
-										"args" : [  ],
 										"receivemode" : "local",
+										"args" : [  ],
 										"polyphony" : -1.0,
-										"uidstyle" : "auto",
 										"exposevoiceparams" : 0,
-										"notecontroller" : 0,
-										"voicecontrol" : "simple"
+										"uidstyle" : "auto",
+										"voicecontrol" : "simple",
+										"notecontroller" : 0
 									}
 ,
 									"rnbo_serial" : 2,
@@ -4219,13 +4238,13 @@
 									"patching_rect" : [ 46.0, 66.0, 143.0, 23.0 ],
 									"rnbo_classname" : "p",
 									"rnbo_extra_attributes" : 									{
-										"args" : [  ],
 										"receivemode" : "local",
+										"args" : [  ],
 										"polyphony" : -1.0,
-										"uidstyle" : "auto",
 										"exposevoiceparams" : 0,
-										"notecontroller" : 0,
-										"voicecontrol" : "simple"
+										"uidstyle" : "auto",
+										"voicecontrol" : "simple",
+										"notecontroller" : 0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -4600,13 +4619,13 @@
 									"patching_rect" : [ 46.0, 66.0, 154.0, 23.0 ],
 									"rnbo_classname" : "p",
 									"rnbo_extra_attributes" : 									{
-										"args" : [  ],
 										"receivemode" : "local",
+										"args" : [  ],
 										"polyphony" : -1.0,
-										"uidstyle" : "auto",
 										"exposevoiceparams" : 0,
-										"notecontroller" : 0,
-										"voicecontrol" : "simple"
+										"uidstyle" : "auto",
+										"voicecontrol" : "simple",
+										"notecontroller" : 0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -5180,8 +5199,8 @@
 									"patching_rect" : [ 46.0, 220.0, 143.0, 23.0 ],
 									"rnbo_classname" : "pack",
 									"rnbo_extra_attributes" : 									{
-										"length" : 0.0,
-										"list" : ""
+										"list" : "",
+										"length" : 0.0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -5518,13 +5537,13 @@
 									"patching_rect" : [ 46.0, 276.0, 143.0, 23.0 ],
 									"rnbo_classname" : "p",
 									"rnbo_extra_attributes" : 									{
-										"args" : [  ],
 										"receivemode" : "local",
+										"args" : [  ],
 										"polyphony" : -1.0,
-										"uidstyle" : "auto",
 										"exposevoiceparams" : 0,
-										"notecontroller" : 0,
-										"voicecontrol" : "simple"
+										"uidstyle" : "auto",
+										"voicecontrol" : "simple",
+										"notecontroller" : 0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -5734,13 +5753,13 @@
 									"patching_rect" : [ 46.0, 66.0, 154.0, 23.0 ],
 									"rnbo_classname" : "p",
 									"rnbo_extra_attributes" : 									{
-										"args" : [  ],
 										"receivemode" : "local",
+										"args" : [  ],
 										"polyphony" : -1.0,
-										"uidstyle" : "auto",
 										"exposevoiceparams" : 0,
-										"notecontroller" : 0,
-										"voicecontrol" : "simple"
+										"uidstyle" : "auto",
+										"voicecontrol" : "simple",
+										"notecontroller" : 0
 									}
 ,
 									"rnbo_serial" : 2,
