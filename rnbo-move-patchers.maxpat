@@ -10,9 +10,653 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 507.0, 261.0, 2182.0, 1081.0 ],
+		"rect" : [ 34.0, 196.0, 2760.0, 1338.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-35",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1000.0, 878.0, 69.0, 22.0 ],
+					"text" : "s movemidi"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"autosave" : 1,
+					"id" : "obj-104",
+					"inletInfo" : 					{
+						"IOInfo" : [ 							{
+								"type" : "midi",
+								"index" : -1,
+								"tag" : "",
+								"comment" : ""
+							}
+ ]
+					}
+,
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outletInfo" : 					{
+						"IOInfo" : [  ]
+					}
+,
+					"outlettype" : [ "list" ],
+					"patcher" : 					{
+						"fileversion" : 1,
+						"appversion" : 						{
+							"major" : 9,
+							"minor" : 1,
+							"revision" : 0,
+							"architecture" : "x64",
+							"modernui" : 1
+						}
+,
+						"classnamespace" : "rnbo",
+						"rect" : [ 34.0, 196.0, 2462.0, 1338.0 ],
+						"default_fontname" : "Lato",
+						"gridsize" : [ 15.0, 15.0 ],
+						"title" : "midi-monitor",
+						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-2",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 288.0, 279.0, 74.0, 23.0 ],
+									"rnbo_classname" : "outport",
+									"rnbo_extra_attributes" : 									{
+										"meta" : ""
+									}
+,
+									"rnbo_serial" : 1,
+									"rnbo_uniqueid" : "outport_obj-2",
+									"text" : "outport midi"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-1",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 288.0, 228.0, 40.0, 23.0 ],
+									"rnbo_classname" : "midiin",
+									"rnbo_serial" : 1,
+									"rnbo_uniqueid" : "midiin_obj-1",
+									"text" : "midiin"
+								}
+
+							}
+ ],
+						"lines" : [ 							{
+								"patchline" : 								{
+									"destination" : [ "obj-2", 0 ],
+									"source" : [ "obj-1", 0 ]
+								}
+
+							}
+ ]
+					}
+,
+					"patching_rect" : [ 309.090906143188477, 461.038956642150879, 143.0, 22.0 ],
+					"rnboattrcache" : 					{
+
+					}
+,
+					"rnboversion" : "1.4.1",
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_invisible" : 1,
+							"parameter_longname" : "rnbo~[7]",
+							"parameter_modmode" : 0,
+							"parameter_shortname" : "rnbo~[7]",
+							"parameter_type" : 3
+						}
+
+					}
+,
+					"saved_object_attributes" : 					{
+						"optimization" : "O1",
+						"parameter_enable" : 1,
+						"uuid" : "527810c1-6d5f-11f0-90c1-7683f81cdc8a"
+					}
+,
+					"snapshot" : 					{
+						"filetype" : "C74Snapshot",
+						"version" : 2,
+						"minorversion" : 0,
+						"name" : "snapshotlist",
+						"origin" : "rnbo~",
+						"type" : "list",
+						"subtype" : "Undefined",
+						"embed" : 1,
+						"snapshot" : 						{
+							"__presetid" : "midi-monitor"
+						}
+,
+						"snapshotlist" : 						{
+							"current_snapshot" : 0,
+							"entries" : [ 								{
+									"filetype" : "C74Snapshot",
+									"version" : 2,
+									"minorversion" : 0,
+									"name" : "midi-monitor",
+									"origin" : "midi-monitor",
+									"type" : "rnbo",
+									"subtype" : "",
+									"embed" : 0,
+									"snapshot" : 									{
+										"__presetid" : "midi-monitor"
+									}
+,
+									"fileref" : 									{
+										"name" : "midi-monitor",
+										"filename" : "midi-monitor.maxsnap",
+										"filepath" : "~/Documents/Max 9/Snapshots",
+										"filepos" : -1,
+										"snapshotfileid" : "9b60ee98248295cf295549f1cb237daf"
+									}
+
+								}
+ ]
+						}
+
+					}
+,
+					"text" : "rnbo~ @title midi-monitor",
+					"varname" : "rnbo~[7]"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-103",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 835.294152498245239, 845.454537391662598, 46.0, 22.0 ],
+					"text" : "route 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-73",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1280.519468307495117, 1184.415573120117188, 140.770111000000014, 23.0 ],
+					"text" : "midievent 143 86 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-74",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1302.597390174865723, 1137.662326812744141, 57.5, 36.0 ],
+					"style" : "helpfile_label",
+					"text" : "MIDI \nChannel"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-75",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1209.090897560119629, 1137.662326812744141, 41.0, 36.0 ],
+					"style" : "helpfile_label",
+					"text" : "Pitch\nBend"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-76",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1114.285703659057617, 1137.662326812744141, 72.0, 21.0 ],
+					"style" : "helpfile_label",
+					"text" : "Aftertouch"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-77",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1020.779211044311523, 1137.662326812744141, 60.0, 36.0 ],
+					"style" : "helpfile_label",
+					"text" : "Pgm \nChange"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-78",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 927.27271842956543, 1137.662326812744141, 61.0, 36.0 ],
+					"style" : "helpfile_label",
+					"text" : "Control \nChange"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-79",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 832.467524528503418, 1137.662326812744141, 62.166671999999998, 36.0 ],
+					"style" : "helpfile_label",
+					"text" : "Poly \nPressure"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-80",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 733.766226768493652, 1137.662326812744141, 53.0, 36.0 ],
+					"style" : "helpfile_label",
+					"text" : "Note \nOn/Off"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-81",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "int", "int" ],
+					"patching_rect" : [ 741.55843448638916, 1057.142847061157227, 65.0, 23.0 ],
+					"text" : "unpack i i"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-82",
+					"maxclass" : "number",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 741.55843448638916, 1084.415574073791504, 38.0, 23.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-83",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 741.55843448638916, 1112.987002372741699, 20.0, 20.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-84",
+					"maxclass" : "number",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 788.311680793762207, 1084.415574073791504, 38.0, 23.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-85",
+					"maxclass" : "number",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 881.818173408508301, 1084.415574073791504, 38.0, 23.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-86",
+					"maxclass" : "number",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 836.363628387451172, 1084.415574073791504, 38.0, 23.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-87",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "int", "int" ],
+					"patching_rect" : [ 836.363628387451172, 1057.142847061157227, 65.0, 23.0 ],
+					"text" : "unpack i i"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-88",
+					"maxclass" : "number",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 976.623367309570312, 1084.415574073791504, 38.0, 23.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-89",
+					"maxclass" : "number",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 931.168822288513184, 1084.415574073791504, 38.0, 23.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-90",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "int", "int" ],
+					"patching_rect" : [ 931.168822288513184, 1057.142847061157227, 65.0, 23.0 ],
+					"text" : "unpack i i"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-91",
+					"maxclass" : "number",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1024.675314903259277, 1084.415574073791504, 53.0, 23.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-92",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1024.675314903259277, 1112.987002372741699, 20.0, 20.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-94",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 8,
+					"outlettype" : [ "", "", "", "int", "int", "", "int", "" ],
+					"patching_rect" : [ 741.55843448638916, 1028.571418762207031, 679.0, 23.0 ],
+					"text" : "midiparse"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-95",
+					"maxclass" : "number",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1307.792195320129395, 1084.415574073791504, 53.0, 23.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-96",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1307.792195320129395, 1112.987002372741699, 20.0, 20.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-97",
+					"maxclass" : "number",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1212.987001419067383, 1084.415574073791504, 53.0, 23.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-98",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1212.987001419067383, 1112.987002372741699, 20.0, 20.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-99",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1119.480508804321289, 1112.987002372741699, 20.0, 20.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-100",
+					"maxclass" : "number",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1119.480508804321289, 1084.415574073791504, 53.0, 23.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-101",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 836.363628387451172, 1112.987002372741699, 20.0, 20.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-102",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 931.168822288513184, 1112.987002372741699, 20.0, 20.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-72",
+					"maxclass" : "newobj",
+					"numinlets" : 7,
+					"numoutlets" : 2,
+					"outlettype" : [ "int", "" ],
+					"patching_rect" : [ 892.941213726997375, 938.82356858253479, 238.82353937625885, 22.0 ],
+					"text" : "midiformat"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-69",
+					"maxclass" : "newobj",
+					"numinlets" : 4,
+					"numoutlets" : 4,
+					"outlettype" : [ "", "", "", "" ],
+					"patching_rect" : [ 835.294152498245239, 807.058857202529907, 159.0, 22.0 ],
+					"text" : "route monitor polytouch midi"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-68",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 3,
+					"outlettype" : [ "list", "int", "list" ],
+					"patching_rect" : [ 835.294152498245239, 764.705914258956909, 173.0, 22.0 ],
+					"text" : "rnbo.remote @addr move.local"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-66",
+					"maxclass" : "number",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1048.0, 599.0, 50.0, 22.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-65",
+					"maxclass" : "slider",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1175.0, 471.0, 20.0, 140.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-61",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1140.0, 694.0, 48.0, 22.0 ],
+					"text" : "pak 0 0"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-62",
 					"maxclass" : "message",
@@ -182,8 +826,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1487.0, 146.0, 36.0, 23.0 ],
-					"text" : "60 5"
+					"patching_rect" : [ 1487.0, 146.0, 41.0, 23.0 ],
+					"text" : "68 50"
 				}
 
 			}
@@ -293,7 +937,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 571.0, 736.0, 140.770111000000014, 23.0 ],
-					"text" : "midievent 160 5 60"
+					"text" : "midievent 191 54 0"
 				}
 
 			}
@@ -815,9 +1459,9 @@
 									"rnbo_classname" : "codebox",
 									"rnbo_extra_attributes" : 									{
 										"code" : "@param len = 12;\r\n\r\n@state tuning = 286;\r\n@state mid = 60;\r\n@state ref = 60;\r\n\r\nlet _dummy = in1;\r\n\r\nlet v: list = [len, 0, 127, mid, ref, tuning, len];\r\n\r\nfor (let i = 0; i < len; i++) {\r\n\tv.push(i);\r\n}\r\n\r\nlistout1 = v;",
-										"nocache" : 0,
 										"safemath" : 1,
-										"hot" : 0
+										"hot" : 0,
+										"nocache" : 0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -1007,8 +1651,8 @@
 									"patching_rect" : [ 306.0, 576.0, 268.0, 23.0 ],
 									"rnbo_classname" : "message",
 									"rnbo_extra_attributes" : 									{
-										"storeempty" : 0,
-										"text" : ""
+										"text" : "",
+										"storeempty" : 0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -1355,6 +1999,10 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 51.0, 64.0, 23.0, 23.0 ],
 									"rnbo_classname" : "t",
+									"rnbo_extra_attributes" : 									{
+										"triggers" : ""
+									}
+,
 									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "t_obj-5",
 									"rnboinfo" : 									{
@@ -1447,20 +2095,20 @@
 									"patching_rect" : [ 51.0, 103.0, 253.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"maximum" : 2.0,
 										"displayname" : "",
-										"exponent" : 1.0,
-										"tonormalized" : "",
+										"steps" : 3.0,
+										"sendinit" : 1,
+										"preset" : 1,
+										"minimum" : 0.0,
 										"displayorder" : "-",
-										"ctlin" : -1.0,
-										"meta" : "",
+										"fromnormalized" : "",
+										"exponent" : 1.0,
 										"unit" : "",
 										"order" : "0",
-										"steps" : 3.0,
-										"minimum" : 0.0,
-										"fromnormalized" : "",
-										"sendinit" : 1,
-										"preset" : 1
+										"tonormalized" : "",
+										"ctlin" : -1.0,
+										"meta" : "",
+										"maximum" : 2.0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -2224,25 +2872,141 @@
 						}
 ,
 						"classnamespace" : "rnbo",
-						"rect" : [ 507.0, 261.0, 2185.0, 1081.0 ],
+						"rect" : [ 34.0, 196.0, 2760.0, 1338.0 ],
 						"default_fontname" : "Lato",
 						"gridsize" : [ 15.0, 15.0 ],
 						"title" : "Pad Scale",
 						"boxes" : [ 							{
 								"box" : 								{
-									"id" : "obj-9",
+									"id" : "obj-12",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1028.0, 1162.0, 29.5, 23.0 ],
+									"rnbo_classname" : "+",
+									"rnbo_extra_attributes" : 									{
+										"hot" : 0
+									}
+,
+									"rnbo_serial" : 2,
+									"rnbo_uniqueid" : "+_obj-12",
+									"text" : "+"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-10",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 999.0, 1131.0, 58.0, 23.0 ],
+									"patching_rect" : [ 1004.0, 1111.0, 43.0, 23.0 ],
+									"rnbo_classname" : "t",
+									"rnbo_extra_attributes" : 									{
+										"triggers" : ""
+									}
+,
+									"rnbo_serial" : 3,
+									"rnbo_uniqueid" : "t_obj-10",
+									"rnboinfo" : 									{
+										"needsInstanceInfo" : 1,
+										"argnames" : 										{
+											"out1" : 											{
+												"attrOrProp" : 1,
+												"digest" : "Output order 2 (list).",
+												"defaultarg" : 1,
+												"isalias" : 0,
+												"aliases" : [  ],
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"outlet" : 1,
+												"type" : "list"
+											}
+,
+											"out2" : 											{
+												"attrOrProp" : 1,
+												"digest" : "Output order 1 (number).",
+												"defaultarg" : 2,
+												"isalias" : 0,
+												"aliases" : [  ],
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"outlet" : 1,
+												"type" : "number"
+											}
+,
+											"triggers" : 											{
+												"attrOrProp" : 2,
+												"digest" : "The number of arguments determines the number of outlets. \t\t\t\t\t\tEach outlet sends out either a whole number, float, bang or list, \t\t\t\t\t\tas identified by symbol arguments (i, f, b, l). \t\t\t\t\t\tIf there are no arguments, there are two outlets, both of which send a float.",
+												"defaultarg" : 1,
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "list"
+											}
+
+										}
+,
+										"inputs" : [ 											{
+												"name" : "input",
+												"type" : [ "bang", "number", "list" ],
+												"digest" : "input to distribute",
+												"hot" : 1,
+												"docked" : 0
+											}
+ ],
+										"outputs" : [ 											{
+												"name" : "out1",
+												"type" : "list",
+												"digest" : "Output order 2 (list).",
+												"defaultarg" : 1,
+												"docked" : 0
+											}
+, 											{
+												"name" : "out2",
+												"type" : "number",
+												"digest" : "Output order 1 (number).",
+												"defaultarg" : 2,
+												"docked" : 0
+											}
+ ],
+										"helpname" : "trigger",
+										"aliasOf" : "trigger",
+										"classname" : "t",
+										"operator" : 0,
+										"versionId" : 1624904035,
+										"changesPatcherIO" : 0
+									}
+,
+									"text" : "t l 160"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-8",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 1067.5, 1193.0, 58.0, 23.0 ],
 									"rnbo_classname" : "unpack",
 									"rnbo_extra_attributes" : 									{
 										"length" : 0.0
 									}
 ,
-									"rnbo_serial" : 1,
-									"rnbo_uniqueid" : "unpack_obj-9",
+									"rnbo_serial" : 2,
+									"rnbo_uniqueid" : "unpack_obj-8",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
 										"argnames" : 										{
@@ -2357,30 +3121,28 @@
 							}
 , 							{
 								"box" : 								{
-									"id" : "obj-8",
+									"id" : "obj-1",
 									"maxclass" : "newobj",
-									"numinlets" : 0,
+									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 999.0, 1101.0, 38.0, 23.0 ],
-									"rnbo_classname" : "r",
+									"patching_rect" : [ 1067.5, 1162.0, 43.0, 23.0 ],
+									"rnbo_classname" : "list.rev",
 									"rnbo_serial" : 1,
-									"rnbo_uniqueid" : "r_obj-8",
-									"text" : "r poly"
+									"rnbo_uniqueid" : "list.rev_obj-1",
+									"text" : "list.rev"
 								}
 
 							}
 , 							{
 								"box" : 								{
-									"id" : "obj-7",
-									"maxclass" : "newobj",
+									"id" : "obj-9",
+									"linecount" : 5,
+									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 197.0, 197.0, 39.0, 23.0 ],
-									"rnbo_classname" : "s",
-									"rnbo_serial" : 1,
-									"rnbo_uniqueid" : "s_obj-7",
-									"text" : "s poly"
+									"patching_rect" : [ 1144.0, 1141.5, 150.0, 78.0 ],
+									"text" : "could use polyout but there is a bug either in polyin or polyout so just formatting the midi directly"
 								}
 
 							}
@@ -2389,19 +3151,81 @@
 									"id" : "obj-6",
 									"maxclass" : "newobj",
 									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 197.0, 157.0, 51.0, 23.0 ],
-									"rnbo_classname" : "gate",
+									"numoutlets" : 0,
+									"patching_rect" : [ 1028.0, 1268.0, 49.0, 23.0 ],
+									"rnbo_classname" : "midiout",
 									"rnbo_serial" : 1,
-									"rnbo_uniqueid" : "gate_obj-6",
+									"rnbo_uniqueid" : "midiout_obj-6",
+									"text" : "midiout"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-7",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 787.0, 1131.0, 58.0, 23.0 ],
+									"rnbo_classname" : "unpack",
+									"rnbo_extra_attributes" : 									{
+										"length" : 0.0
+									}
+,
+									"rnbo_serial" : 1,
+									"rnbo_uniqueid" : "unpack_obj-7",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
 										"argnames" : 										{
-											"onoff" : 											{
+											"input" : 											{
 												"attrOrProp" : 1,
-												"digest" : "0 Closes gate, non-zero opens the corresponding gate outlet",
+												"digest" : "input list",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"inlet" : 1,
+												"type" : "list"
+											}
+,
+											"out1" : 											{
+												"attrOrProp" : 1,
+												"digest" : "list element 1",
+												"defaultarg" : 1,
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 0,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"outlet" : 1,
+												"type" : "number",
+												"defaultValue" : "0"
+											}
+,
+											"out2" : 											{
+												"attrOrProp" : 1,
+												"digest" : "list element 2",
 												"defaultarg" : 2,
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 0,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"outlet" : 1,
+												"type" : "number",
+												"defaultValue" : "0"
+											}
+,
+											"length" : 											{
+												"attrOrProp" : 2,
+												"digest" : "how many things to unpack",
 												"isalias" : 0,
 												"aliases" : [  ],
 												"settable" : 1,
@@ -2409,14 +3233,12 @@
 												"isparam" : 0,
 												"deprecated" : 0,
 												"touched" : 0,
-												"inlet" : 1,
-												"type" : "number",
-												"defaultValue" : "0"
+												"type" : "number"
 											}
 ,
-											"outputs" : 											{
+											"list" : 											{
 												"attrOrProp" : 2,
-												"digest" : "Number of outlets",
+												"digest" : "the list to initialize the unpack object with",
 												"defaultarg" : 1,
 												"isalias" : 0,
 												"aliases" : [  ],
@@ -2425,58 +3247,43 @@
 												"isparam" : 0,
 												"deprecated" : 0,
 												"touched" : 0,
-												"type" : "number",
-												"defaultValue" : "1"
+												"type" : "list"
 											}
 
 										}
 ,
 										"inputs" : [ 											{
-												"name" : "onoff",
-												"type" : "number",
-												"digest" : "0 Closes gate, non-zero opens the corresponding gate outlet",
-												"defaultarg" : 2,
-												"docked" : 0
-											}
-, 											{
 												"name" : "input",
-												"type" : [ "bang", "number", "list" ],
-												"digest" : "Incoming gated message",
+												"type" : [ "bang", "list" ],
+												"digest" : "input list",
 												"hot" : 1,
 												"docked" : 0
 											}
  ],
 										"outputs" : [ 											{
 												"name" : "out1",
-												"type" : [ "bang", "number", "list" ],
-												"digest" : "Gated Output 1",
+												"type" : "number",
+												"digest" : "list element 1",
+												"defaultarg" : 1,
+												"docked" : 0
+											}
+, 											{
+												"name" : "out2",
+												"type" : "number",
+												"digest" : "list element 2",
+												"defaultarg" : 2,
 												"docked" : 0
 											}
  ],
-										"helpname" : "gate",
-										"aliasOf" : "gate",
-										"classname" : "gate",
+										"helpname" : "unpack",
+										"aliasOf" : "unpack",
+										"classname" : "unpack",
 										"operator" : 0,
-										"versionId" : -1253073831,
+										"versionId" : 2023587622,
 										"changesPatcherIO" : 0
 									}
 ,
-									"text" : "gate 1 0"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-1",
-									"maxclass" : "newobj",
-									"numinlets" : 4,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 999.0, 1167.0, 133.0, 23.0 ],
-									"rnbo_classname" : "polyout",
-									"rnbo_serial" : 1,
-									"rnbo_uniqueid" : "polyout_obj-1",
-									"text" : "polyout"
+									"text" : "unpack i i"
 								}
 
 							}
@@ -2519,6 +3326,10 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 828.0, 329.0, 46.0, 23.0 ],
 									"rnbo_classname" : "t",
+									"rnbo_extra_attributes" : 									{
+										"triggers" : ""
+									}
+,
 									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "t_obj-48",
 									"rnboinfo" : 									{
@@ -2613,8 +3424,8 @@
 									"patching_rect" : [ 828.0, 362.0, 105.0, 23.0 ],
 									"rnbo_classname" : "message",
 									"rnbo_extra_attributes" : 									{
-										"storeempty" : 0,
-										"text" : ""
+										"text" : "",
+										"storeempty" : 0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -2697,19 +3508,19 @@
 									"patching_rect" : [ 828.0, 260.0, 522.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"maximum" : 6.0,
-										"exponent" : 1.0,
-										"tonormalized" : "",
+										"steps" : 7.0,
+										"sendinit" : 1,
+										"preset" : 1,
+										"minimum" : 0.0,
 										"displayorder" : "-",
-										"ctlin" : -1.0,
-										"meta" : "",
+										"fromnormalized" : "",
+										"exponent" : 1.0,
 										"unit" : "",
 										"order" : "0",
-										"steps" : 7.0,
-										"minimum" : 0.0,
-										"fromnormalized" : "",
-										"sendinit" : 1,
-										"preset" : 1
+										"tonormalized" : "",
+										"ctlin" : -1.0,
+										"meta" : "",
+										"maximum" : 6.0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -3195,25 +4006,25 @@
 							}
 , 							{
 								"box" : 								{
-									"code" : "//listout1 = control\n//out2 = note out\n//out3 = velocity out\n\n@param active = 0;\n\n@state scalenotes = 12; //computed from scl\n@state octavesteps = 12; //computed from scl or kbm\n@state noteoffset = 60; //computed from kbm\n\n//pad -> note, offcolor, [, output pad 1..]\n@state padmapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 32, \"preset\": false});\n\n//map of note number -> pads\n@state notemapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 128, \"preset\": false});\n\nconst MAP_INDEX_NOTE: Index = 0;\nconst MAP_INDEX_COLOR: Index = 1;\nconst MAP_INDEX_EXTRA: Index = 2;\n\n@state page = 0;\n@state padoffset = 0; //computed from page\n@state pageoctaveoffset = 2;\n\nconst PREFIX_PAD = 0;\nconst PREFIX_NAV = 4;\n\nfunction updatemappings() {\n  padoffset = round(page * pageoctaveoffset * octavesteps + noteoffset);\n\n  let dofit = octavesteps < 8; //should we try to map octaves vetically\n\n  notemapping.clear();\n\n  for (let row = 0; row < 4; row++) {\n    for (let col = 0; col < 8; col++) {\n      let pad = row * 8 + col;\n      let v: list = [];\n      if (dofit) {\n        let note = padoffset + row * octavesteps + col;\n        v.push(note);\n        v.push((safemod(col, octavesteps) == 0) ? 1 : 0); //safemod explicit calls work around bug #21960\n\n        if (note >= 0 && note < 128) { //should always be true\n          let tmp = notemapping.lookup(note);\n          tmp.push(pad);\n          notemapping.store(note, tmp);\n        }\n      } else {\n        v.push(pad + padoffset);\n        v.push(safemod(pad + padoffset, octavesteps) == 0 ? 1 : 0);\n      }\n      padmapping.store(pad, v);\n    }\n  }\n\n  if (dofit) {\n    //insert additional pad outputs\n    for (let note = 0; note < 127; note++) {\n      let mapping = notemapping.lookup(note);\n\n      //if more than 1 pad maps to the same note, insert the into padmapping\n      if (mapping.length > 1) {\n        for (let i = 0; i < mapping.length; i++) {\n          let pad = mapping[i];\n          for (let j = 0; j < mapping.length; j++) {\n            let other = mapping[j];\n            if (pad != other) {\n              let tmp = padmapping.lookup(pad);\n              tmp.push(other);\n              padmapping.store(pad, tmp);\n            }\n          }\n        }\n      }\n    }\n  }\n}\n\nfunction listin2(scl: list) {\n  scalenotes = scl[0];\n  octavesteps = scl[0];\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin3(kbm: list) {\n  octavesteps = kbm[0];\n  noteoffset = kbm[3];\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction in4(offset: number) {\n  pageoctaveoffset = offset;\n  updatemappings();\n\n  if (active) {\n    drawall();\n  }\n}\n\nfunction sendnote(note: number, vel: number) {\n  out3 = vel;\n  out2 = note;\n}\n\nfunction drawall() {\n  for (let pad = 0; pad < 32; pad++) {\n    let v = padmapping.lookup(pad);\n    let r = v[MAP_INDEX_COLOR];\n    let g = 0;\n    let b = 0;\n    listout1 = [PREFIX_PAD, pad, r, g, b];\n  }\n  //nav\n  \n  //up, down\n  listout1 = [PREFIX_NAV, 2, 0];\n  listout1 = [PREFIX_NAV, 3, 0];\n\n  let plus = 0;\n  let minus = 0;\n  if (page == 1) {\n    plus = 1;\n  } else if (page == -1) {\n    minus = 1;\n  }\n  listout1 = [PREFIX_NAV, 0, plus];\n  listout1 = [PREFIX_NAV, 1, minus];\n}\n\nlet m = listin1;\n\nif (!active) {\n  return;\n}\n\nlet prefix = m[0];\n\nif (prefix == PREFIX_PAD) { //pads\n  let pad = m[1];\n  let vel = m[2];\n\n  //send mapped note\n  let mapping = padmapping.lookup(pad);\n  let note = mapping[MAP_INDEX_NOTE];\n  sendnote(note, vel);\n\n  let r = 0;\n  let g = 0;\n  let b = 0;\n  if (vel > 0) {\n    g = vel / 127.0;\n  } else {\n    r = mapping[MAP_INDEX_COLOR];\n  }\n\n  listout1 = [0, pad, r, g, b];\n  //additional pads to light\n  for (let i = MAP_INDEX_EXTRA; i < mapping.length; i++) {\n    listout1 = [0, mapping[i], r, g, b];\n  }\n} else if (prefix == PREFIX_NAV) { //nav\n  if (m[2] == 0) { //value\n    return;\n  }\n  let btn = m[1];\n  if (btn == 0) { //plus\n    page = clamp(page + 1, -1, 1);\n  } else if (btn == 1) { //minus\n    page = clamp(page - 1, -1, 1);\n  } else {\n    return;\n  }\n  updatemappings();\n  drawall();\n}\n",
+									"code" : "//listout1 = control\n//listout2 = note out\n//listout3 = poly out\n\n@param active = 0;\n\n@state scalenotes = 12; //computed from scl\n@state octavesteps = 12; //computed from scl or kbm\n@state noteoffset = 60; //computed from kbm\n\n//pad -> note, offcolor, [, output pad 1..]\n@state padmapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 32, \"preset\": false});\n\n//map of note number -> pads\n@state notemapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 128, \"preset\": false});\n\nconst MAP_INDEX_NOTE: Index = 0;\nconst MAP_INDEX_COLOR: Index = 1;\nconst MAP_INDEX_EXTRA: Index = 2;\n\n@state page = 0;\n@state padoffset = 0; //computed from page\n@state pageoctaveoffset = 2;\n\nconst PREFIX_PAD = 0;\nconst PREFIX_NAV = 4;\n\nfunction updatemappings() {\n  padoffset = round(page * pageoctaveoffset * octavesteps + noteoffset);\n\n  let dofit = octavesteps < 8; //should we try to map octaves vetically\n\n  notemapping.clear();\n\n  for (let row = 0; row < 4; row++) {\n    for (let col = 0; col < 8; col++) {\n      let pad = row * 8 + col;\n      let v: list = [];\n      if (dofit) {\n        let note = padoffset + row * octavesteps + col;\n        v.push(note);\n        v.push((safemod(col, octavesteps) == 0) ? 1 : 0); //safemod explicit calls work around bug #21960\n\n        if (note >= 0 && note < 128) { //should always be true\n          let tmp = notemapping.lookup(note);\n          tmp.push(pad);\n          notemapping.store(pad, tmp);\n        }\n      } else {\n        v.push(pad + padoffset);\n        v.push(safemod(pad + padoffset, octavesteps) == 0 ? 1 : 0);\n      }\n      padmapping.store(pad, v);\n    }\n  }\n\n  if (dofit) {\n    //insert additional pad outputs\n    for (let note = 0; note < 127; note++) {\n      let mapping = notemapping.lookup(note);\n\n      //if more than 1 pad maps to the same note, insert the into padmapping\n      if (mapping.length > 1) {\n        for (let i = 0; i < mapping.length; i++) {\n          let pad = mapping[i];\n          for (let j = 0; j < mapping.length; j++) {\n            let other = mapping[j];\n            if (pad != other) {\n              let tmp = padmapping.lookup(pad);\n              tmp.push(other);\n              padmapping.store(pad, tmp);\n            }\n          }\n        }\n      }\n    }\n  }\n}\n\nfunction listin2(scl: list) {\n  scalenotes = scl[0];\n  octavesteps = scl[0];\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin3(kbm: list) {\n  octavesteps = kbm[0];\n  noteoffset = kbm[3];\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction in4(offset: number) {\n  pageoctaveoffset = offset;\n  updatemappings();\n\n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin5(poly: list) {\n  if (active) {\n    let pad = poly[0];\n    let val = poly[1];\n    if (pad >= 0 && pad < 36) {\n      let note = padmapping.lookup(pad)[MAP_INDEX_NOTE];\n      sendpoly(note, val);\n    }\n  }\n}\n\nfunction sendnote(note: number, vel: number) {\n  listout2 = [note, vel];\n}\n\nfunction sendpoly(note: number, val: number) {\n  listout3 = [note, val];\n}\n\nfunction drawall() {\n  for (let pad = 0; pad < 32; pad++) {\n    let v = padmapping.lookup(pad);\n    let r = v[MAP_INDEX_COLOR];\n    let g = 0;\n    let b = 0;\n    listout1 = [PREFIX_PAD, pad, r, g, b];\n  }\n  //nav\n  \n  //up, down\n  listout1 = [PREFIX_NAV, 2, 0];\n  listout1 = [PREFIX_NAV, 3, 0];\n\n  let plus = 0;\n  let minus = 0;\n  if (page == 1) {\n    plus = 1;\n  } else if (page == -1) {\n    minus = 1;\n  }\n  listout1 = [PREFIX_NAV, 0, plus];\n  listout1 = [PREFIX_NAV, 1, minus];\n}\n\nlet m = listin1;\n\nif (!active) {\n  return;\n}\n\nlet prefix = m[0];\n\nif (prefix == PREFIX_PAD) { //pads\n  let pad = m[1];\n  let vel = m[2];\n\n  //send mapped note\n  let mapping = padmapping.lookup(pad);\n  let note = mapping[MAP_INDEX_NOTE];\n  sendnote(note, vel);\n\n  let r = 0;\n  let g = 0;\n  let b = 0;\n  if (vel > 0) {\n    g = vel / 127.0;\n  } else {\n    r = mapping[MAP_INDEX_COLOR];\n  }\n\n  listout1 = [0, pad, r, g, b];\n  //additional pads to light\n  for (let i = MAP_INDEX_EXTRA; i < mapping.length; i++) {\n    listout1 = [0, mapping[i], r, g, b];\n  }\n} else if (prefix == PREFIX_NAV) { //nav\n  if (m[2] == 0) { //value\n    return;\n  }\n  let btn = m[1];\n  if (btn == 0) { //plus page = clamp(page + 1, -1, 1);\n  } else if (btn == 1) { //minus\n    page = clamp(page - 1, -1, 1);\n  } else {\n    return;\n  }\n  updatemappings();\n  drawall();\n}",
 									"fontface" : 0,
 									"fontname" : "<Monospaced>",
 									"fontsize" : 12.0,
 									"id" : "obj-29",
 									"maxclass" : "codebox",
-									"numinlets" : 4,
+									"numinlets" : 5,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "" ],
 									"patching_rect" : [ 41.0, 442.0, 806.0, 625.0 ],
 									"rnbo_classname" : "codebox",
 									"rnbo_extra_attributes" : 									{
-										"code" : "//listout1 = control\n//out2 = note out\n//out3 = velocity out\n\n@param active = 0;\n\n@state scalenotes = 12; //computed from scl\n@state octavesteps = 12; //computed from scl or kbm\n@state noteoffset = 60; //computed from kbm\n\n//pad -> note, offcolor, [, output pad 1..]\n@state padmapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 32, \"preset\": false});\n\n//map of note number -> pads\n@state notemapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 128, \"preset\": false});\n\nconst MAP_INDEX_NOTE: Index = 0;\nconst MAP_INDEX_COLOR: Index = 1;\nconst MAP_INDEX_EXTRA: Index = 2;\n\n@state page = 0;\n@state padoffset = 0; //computed from page\n@state pageoctaveoffset = 2;\n\nconst PREFIX_PAD = 0;\nconst PREFIX_NAV = 4;\n\nfunction updatemappings() {\n  padoffset = round(page * pageoctaveoffset * octavesteps + noteoffset);\n\n  let dofit = octavesteps < 8; //should we try to map octaves vetically\n\n  notemapping.clear();\n\n  for (let row = 0; row < 4; row++) {\n    for (let col = 0; col < 8; col++) {\n      let pad = row * 8 + col;\n      let v: list = [];\n      if (dofit) {\n        let note = padoffset + row * octavesteps + col;\n        v.push(note);\n        v.push((safemod(col, octavesteps) == 0) ? 1 : 0); //safemod explicit calls work around bug #21960\n\n        if (note >= 0 && note < 128) { //should always be true\n          let tmp = notemapping.lookup(note);\n          tmp.push(pad);\n          notemapping.store(note, tmp);\n        }\n      } else {\n        v.push(pad + padoffset);\n        v.push(safemod(pad + padoffset, octavesteps) == 0 ? 1 : 0);\n      }\n      padmapping.store(pad, v);\n    }\n  }\n\n  if (dofit) {\n    //insert additional pad outputs\n    for (let note = 0; note < 127; note++) {\n      let mapping = notemapping.lookup(note);\n\n      //if more than 1 pad maps to the same note, insert the into padmapping\n      if (mapping.length > 1) {\n        for (let i = 0; i < mapping.length; i++) {\n          let pad = mapping[i];\n          for (let j = 0; j < mapping.length; j++) {\n            let other = mapping[j];\n            if (pad != other) {\n              let tmp = padmapping.lookup(pad);\n              tmp.push(other);\n              padmapping.store(pad, tmp);\n            }\n          }\n        }\n      }\n    }\n  }\n}\n\nfunction listin2(scl: list) {\n  scalenotes = scl[0];\n  octavesteps = scl[0];\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin3(kbm: list) {\n  octavesteps = kbm[0];\n  noteoffset = kbm[3];\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction in4(offset: number) {\n  pageoctaveoffset = offset;\n  updatemappings();\n\n  if (active) {\n    drawall();\n  }\n}\n\nfunction sendnote(note: number, vel: number) {\n  out3 = vel;\n  out2 = note;\n}\n\nfunction drawall() {\n  for (let pad = 0; pad < 32; pad++) {\n    let v = padmapping.lookup(pad);\n    let r = v[MAP_INDEX_COLOR];\n    let g = 0;\n    let b = 0;\n    listout1 = [PREFIX_PAD, pad, r, g, b];\n  }\n  //nav\n  \n  //up, down\n  listout1 = [PREFIX_NAV, 2, 0];\n  listout1 = [PREFIX_NAV, 3, 0];\n\n  let plus = 0;\n  let minus = 0;\n  if (page == 1) {\n    plus = 1;\n  } else if (page == -1) {\n    minus = 1;\n  }\n  listout1 = [PREFIX_NAV, 0, plus];\n  listout1 = [PREFIX_NAV, 1, minus];\n}\n\nlet m = listin1;\n\nif (!active) {\n  return;\n}\n\nlet prefix = m[0];\n\nif (prefix == PREFIX_PAD) { //pads\n  let pad = m[1];\n  let vel = m[2];\n\n  //send mapped note\n  let mapping = padmapping.lookup(pad);\n  let note = mapping[MAP_INDEX_NOTE];\n  sendnote(note, vel);\n\n  let r = 0;\n  let g = 0;\n  let b = 0;\n  if (vel > 0) {\n    g = vel / 127.0;\n  } else {\n    r = mapping[MAP_INDEX_COLOR];\n  }\n\n  listout1 = [0, pad, r, g, b];\n  //additional pads to light\n  for (let i = MAP_INDEX_EXTRA; i < mapping.length; i++) {\n    listout1 = [0, mapping[i], r, g, b];\n  }\n} else if (prefix == PREFIX_NAV) { //nav\n  if (m[2] == 0) { //value\n    return;\n  }\n  let btn = m[1];\n  if (btn == 0) { //plus\n    page = clamp(page + 1, -1, 1);\n  } else if (btn == 1) { //minus\n    page = clamp(page - 1, -1, 1);\n  } else {\n    return;\n  }\n  updatemappings();\n  drawall();\n}\n",
-										"nocache" : 0,
+										"code" : "//listout1 = control\n//listout2 = note out\n//listout3 = poly out\n\n@param active = 0;\n\n@state scalenotes = 12; //computed from scl\n@state octavesteps = 12; //computed from scl or kbm\n@state noteoffset = 60; //computed from kbm\n\n//pad -> note, offcolor, [, output pad 1..]\n@state padmapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 32, \"preset\": false});\n\n//map of note number -> pads\n@state notemapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 128, \"preset\": false});\n\nconst MAP_INDEX_NOTE: Index = 0;\nconst MAP_INDEX_COLOR: Index = 1;\nconst MAP_INDEX_EXTRA: Index = 2;\n\n@state page = 0;\n@state padoffset = 0; //computed from page\n@state pageoctaveoffset = 2;\n\nconst PREFIX_PAD = 0;\nconst PREFIX_NAV = 4;\n\nfunction updatemappings() {\n  padoffset = round(page * pageoctaveoffset * octavesteps + noteoffset);\n\n  let dofit = octavesteps < 8; //should we try to map octaves vetically\n\n  notemapping.clear();\n\n  for (let row = 0; row < 4; row++) {\n    for (let col = 0; col < 8; col++) {\n      let pad = row * 8 + col;\n      let v: list = [];\n      if (dofit) {\n        let note = padoffset + row * octavesteps + col;\n        v.push(note);\n        v.push((safemod(col, octavesteps) == 0) ? 1 : 0); //safemod explicit calls work around bug #21960\n\n        if (note >= 0 && note < 128) { //should always be true\n          let tmp = notemapping.lookup(note);\n          tmp.push(pad);\n          notemapping.store(pad, tmp);\n        }\n      } else {\n        v.push(pad + padoffset);\n        v.push(safemod(pad + padoffset, octavesteps) == 0 ? 1 : 0);\n      }\n      padmapping.store(pad, v);\n    }\n  }\n\n  if (dofit) {\n    //insert additional pad outputs\n    for (let note = 0; note < 127; note++) {\n      let mapping = notemapping.lookup(note);\n\n      //if more than 1 pad maps to the same note, insert the into padmapping\n      if (mapping.length > 1) {\n        for (let i = 0; i < mapping.length; i++) {\n          let pad = mapping[i];\n          for (let j = 0; j < mapping.length; j++) {\n            let other = mapping[j];\n            if (pad != other) {\n              let tmp = padmapping.lookup(pad);\n              tmp.push(other);\n              padmapping.store(pad, tmp);\n            }\n          }\n        }\n      }\n    }\n  }\n}\n\nfunction listin2(scl: list) {\n  scalenotes = scl[0];\n  octavesteps = scl[0];\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin3(kbm: list) {\n  octavesteps = kbm[0];\n  noteoffset = kbm[3];\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction in4(offset: number) {\n  pageoctaveoffset = offset;\n  updatemappings();\n\n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin5(poly: list) {\n  if (active) {\n    let pad = poly[0];\n    let val = poly[1];\n    if (pad >= 0 && pad < 36) {\n      let note = padmapping.lookup(pad)[MAP_INDEX_NOTE];\n      sendpoly(note, val);\n    }\n  }\n}\n\nfunction sendnote(note: number, vel: number) {\n  listout2 = [note, vel];\n}\n\nfunction sendpoly(note: number, val: number) {\n  listout3 = [note, val];\n}\n\nfunction drawall() {\n  for (let pad = 0; pad < 32; pad++) {\n    let v = padmapping.lookup(pad);\n    let r = v[MAP_INDEX_COLOR];\n    let g = 0;\n    let b = 0;\n    listout1 = [PREFIX_PAD, pad, r, g, b];\n  }\n  //nav\n  \n  //up, down\n  listout1 = [PREFIX_NAV, 2, 0];\n  listout1 = [PREFIX_NAV, 3, 0];\n\n  let plus = 0;\n  let minus = 0;\n  if (page == 1) {\n    plus = 1;\n  } else if (page == -1) {\n    minus = 1;\n  }\n  listout1 = [PREFIX_NAV, 0, plus];\n  listout1 = [PREFIX_NAV, 1, minus];\n}\n\nlet m = listin1;\n\nif (!active) {\n  return;\n}\n\nlet prefix = m[0];\n\nif (prefix == PREFIX_PAD) { //pads\n  let pad = m[1];\n  let vel = m[2];\n\n  //send mapped note\n  let mapping = padmapping.lookup(pad);\n  let note = mapping[MAP_INDEX_NOTE];\n  sendnote(note, vel);\n\n  let r = 0;\n  let g = 0;\n  let b = 0;\n  if (vel > 0) {\n    g = vel / 127.0;\n  } else {\n    r = mapping[MAP_INDEX_COLOR];\n  }\n\n  listout1 = [0, pad, r, g, b];\n  //additional pads to light\n  for (let i = MAP_INDEX_EXTRA; i < mapping.length; i++) {\n    listout1 = [0, mapping[i], r, g, b];\n  }\n} else if (prefix == PREFIX_NAV) { //nav\n  if (m[2] == 0) { //value\n    return;\n  }\n  let btn = m[1];\n  if (btn == 0) { //plus page = clamp(page + 1, -1, 1);\n  } else if (btn == 1) { //minus\n    page = clamp(page - 1, -1, 1);\n  } else {\n    return;\n  }\n  updatemappings();\n  drawall();\n}",
 										"safemath" : 0,
-										"hot" : 0
+										"hot" : 0,
+										"nocache" : 0
 									}
 ,
-									"rnbo_serial" : 1,
+									"rnbo_serial" : 4,
 									"rnbo_uniqueid" : "codebox_obj-29",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -3286,6 +4097,20 @@
 												"type" : "number"
 											}
 ,
+											"in5" : 											{
+												"attrOrProp" : 1,
+												"digest" : "in5",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"inlet" : 1,
+												"type" : "list"
+											}
+,
 											"out1" : 											{
 												"attrOrProp" : 1,
 												"digest" : "out1",
@@ -3311,7 +4136,7 @@
 												"deprecated" : 0,
 												"touched" : 0,
 												"outlet" : 1,
-												"type" : "number"
+												"type" : "list"
 											}
 ,
 											"out3" : 											{
@@ -3325,7 +4150,7 @@
 												"deprecated" : 0,
 												"touched" : 0,
 												"outlet" : 1,
-												"type" : "number"
+												"type" : "list"
 											}
 ,
 											"active" : 											{
@@ -3426,6 +4251,12 @@
 												"digest" : "in4",
 												"docked" : 0
 											}
+, 											{
+												"name" : "in5",
+												"type" : "list",
+												"digest" : "in5",
+												"docked" : 0
+											}
  ],
 										"outputs" : [ 											{
 												"name" : "out1",
@@ -3435,13 +4266,13 @@
 											}
 , 											{
 												"name" : "out2",
-												"type" : "number",
+												"type" : "list",
 												"digest" : "out2",
 												"docked" : 0
 											}
 , 											{
 												"name" : "out3",
-												"type" : "number",
+												"type" : "list",
 												"digest" : "out3",
 												"docked" : 0
 											}
@@ -3520,20 +4351,20 @@
 									"patching_rect" : [ 65.0, 86.0, 205.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"maximum" : 1.0,
 										"displayname" : "",
-										"exponent" : 1.0,
-										"tonormalized" : "",
+										"steps" : 2.0,
+										"sendinit" : 1,
+										"preset" : 1,
+										"minimum" : 0.0,
 										"displayorder" : "-",
-										"ctlin" : -1.0,
-										"meta" : "",
+										"fromnormalized" : "",
+										"exponent" : 1.0,
 										"unit" : "",
 										"order" : "0",
-										"steps" : 2.0,
-										"minimum" : 0.0,
-										"fromnormalized" : "",
-										"sendinit" : 1,
-										"preset" : 1
+										"tonormalized" : "",
+										"ctlin" : -1.0,
+										"meta" : "",
+										"maximum" : 1.0
 									}
 ,
 									"rnbo_serial" : 2,
@@ -3969,19 +4800,19 @@
 									"patching_rect" : [ 1009.0, 1005.0, 501.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"maximum" : 15.0,
-										"exponent" : 1.0,
-										"tonormalized" : "",
+										"steps" : 16.0,
+										"sendinit" : 1,
+										"preset" : 1,
+										"minimum" : 0.0,
 										"displayorder" : "-",
-										"ctlin" : -1.0,
-										"meta" : "",
+										"fromnormalized" : "",
+										"exponent" : 1.0,
 										"unit" : "",
 										"order" : "0",
-										"steps" : 16.0,
-										"minimum" : 0.0,
-										"fromnormalized" : "",
-										"sendinit" : 1,
-										"preset" : 1
+										"tonormalized" : "",
+										"ctlin" : -1.0,
+										"meta" : "",
+										"maximum" : 15.0
 									}
 ,
 									"rnbo_serial" : 3,
@@ -4453,10 +5284,10 @@
 										"polyphony" : -1.0,
 										"args" : [  ],
 										"receivemode" : "local",
-										"notecontroller" : 0,
 										"exposevoiceparams" : 0,
-										"voicecontrol" : "simple",
-										"uidstyle" : "auto"
+										"uidstyle" : "auto",
+										"notecontroller" : 0,
+										"voicecontrol" : "simple"
 									}
 ,
 									"rnbo_serial" : 1,
@@ -4669,10 +5500,10 @@
 										"polyphony" : -1.0,
 										"args" : [  ],
 										"receivemode" : "local",
-										"notecontroller" : 0,
 										"exposevoiceparams" : 0,
-										"voicecontrol" : "simple",
-										"uidstyle" : "auto"
+										"uidstyle" : "auto",
+										"notecontroller" : 0,
+										"voicecontrol" : "simple"
 									}
 ,
 									"rnbo_serial" : 2,
@@ -4870,7 +5701,7 @@
 												"name" : "out2",
 												"type" : [ "bang", "number", "list" ],
 												"digest" : "out2",
-												"displayName" : "polyout",
+												"displayName" : "polytouch note, value",
 												"docked" : 0
 											}
  ],
@@ -4889,6 +5720,28 @@
  ],
 						"lines" : [ 							{
 								"patchline" : 								{
+									"destination" : [ "obj-8", 0 ],
+									"source" : [ "obj-1", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-1", 0 ],
+									"midpoints" : [ 1013.5, 1142.87109375, 1077.0, 1142.87109375 ],
+									"source" : [ "obj-10", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-12", 0 ],
+									"source" : [ "obj-10", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-39", 0 ],
 									"source" : [ "obj-11", 0 ]
 								}
@@ -4896,7 +5749,24 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"source" : [ "obj-12", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-12", 1 ],
+									"midpoints" : [ 1018.5, 1029.0, 990.0, 1029.0, 990.0, 1152.59375, 1048.0, 1152.59375 ],
+									"order" : 0,
+									"source" : [ "obj-16", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-28", 0 ],
+									"order" : 1,
 									"source" : [ "obj-16", 0 ]
 								}
 
@@ -4904,16 +5774,15 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-30", 0 ],
-									"order" : 1,
 									"source" : [ "obj-19", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-6", 0 ],
-									"order" : 0,
-									"source" : [ "obj-19", 0 ]
+									"destination" : [ "obj-29", 4 ],
+									"midpoints" : [ 186.5, 78.0, 288.0, 78.0, 288.0, 399.0, 813.0, 399.0, 813.0, 429.0, 837.5, 429.0 ],
+									"source" : [ "obj-2", 1 ]
 								}
 
 							}
@@ -4926,13 +5795,6 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-6", 1 ],
-									"source" : [ "obj-2", 1 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-40", 0 ],
 									"source" : [ "obj-21", 0 ]
 								}
@@ -4940,31 +5802,22 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-1", 2 ],
-									"order" : 0,
-									"source" : [ "obj-28", 0 ]
+									"destination" : [ "obj-6", 0 ],
+									"source" : [ "obj-27", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-27", 3 ],
-									"order" : 1,
 									"source" : [ "obj-28", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-27", 1 ],
+									"destination" : [ "obj-10", 0 ],
 									"source" : [ "obj-29", 2 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-27", 0 ],
-									"source" : [ "obj-29", 1 ]
 								}
 
 							}
@@ -4972,6 +5825,13 @@
 								"patchline" : 								{
 									"destination" : [ "obj-3", 0 ],
 									"source" : [ "obj-29", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-7", 0 ],
+									"source" : [ "obj-29", 1 ]
 								}
 
 							}
@@ -5047,29 +5907,29 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-7", 0 ],
-									"source" : [ "obj-6", 0 ]
+									"destination" : [ "obj-27", 1 ],
+									"source" : [ "obj-7", 1 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-9", 0 ],
+									"destination" : [ "obj-27", 0 ],
+									"source" : [ "obj-7", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"source" : [ "obj-8", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
 									"source" : [ "obj-8", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-1", 1 ],
-									"source" : [ "obj-9", 1 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-1", 0 ],
-									"source" : [ "obj-9", 0 ]
 								}
 
 							}
@@ -5293,10 +6153,10 @@
 										"polyphony" : -1.0,
 										"args" : [  ],
 										"receivemode" : "local",
-										"notecontroller" : 0,
 										"exposevoiceparams" : 0,
-										"voicecontrol" : "simple",
-										"uidstyle" : "auto"
+										"uidstyle" : "auto",
+										"notecontroller" : 0,
+										"voicecontrol" : "simple"
 									}
 ,
 									"rnbo_serial" : 1,
@@ -5624,11 +6484,29 @@
 						}
 ,
 						"classnamespace" : "rnbo",
-						"rect" : [ 721.0, 154.0, 1890.0, 1395.0 ],
+						"rect" : [ 34.0, 168.0, 1135.0, 903.0 ],
 						"default_fontname" : "Lato",
 						"gridsize" : [ 15.0, 15.0 ],
 						"title" : "input-outport",
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-3",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 181.0, 104.0, 104.0, 23.0 ],
+									"rnbo_classname" : "outport",
+									"rnbo_extra_attributes" : 									{
+										"meta" : ""
+									}
+,
+									"rnbo_serial" : 1,
+									"rnbo_uniqueid" : "outport_obj-3",
+									"text" : "outport polytouch"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-1",
 									"maxclass" : "newobj",
@@ -5640,7 +6518,7 @@
 										"meta" : ""
 									}
 ,
-									"rnbo_serial" : 1,
+									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "outport_obj-1",
 									"text" : "outport monitor"
 								}
@@ -5674,10 +6552,10 @@
 										"polyphony" : -1.0,
 										"args" : [  ],
 										"receivemode" : "local",
-										"notecontroller" : 0,
 										"exposevoiceparams" : 0,
-										"voicecontrol" : "simple",
-										"uidstyle" : "auto"
+										"uidstyle" : "auto",
+										"notecontroller" : 0,
+										"voicecontrol" : "simple"
 									}
 ,
 									"rnbo_serial" : 1,
@@ -5875,7 +6753,7 @@
 												"name" : "out2",
 												"type" : [ "bang", "number", "list" ],
 												"digest" : "out2",
-												"displayName" : "polyout",
+												"displayName" : "polytouch note, value",
 												"docked" : 0
 											}
  ],
@@ -5896,6 +6774,13 @@
 								"patchline" : 								{
 									"destination" : [ "obj-1", 0 ],
 									"source" : [ "obj-2", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-3", 0 ],
+									"source" : [ "obj-2", 1 ]
 								}
 
 							}
@@ -6250,7 +7135,7 @@
 						}
 ,
 						"classnamespace" : "rnbo",
-						"rect" : [ 721.0, 126.0, 1890.0, 1423.0 ],
+						"rect" : [ 34.0, 168.0, 1660.0, 903.0 ],
 						"default_fontname" : "Lato",
 						"gridsize" : [ 15.0, 15.0 ],
 						"title" : "move-thru",
@@ -6264,8 +7149,8 @@
 									"patching_rect" : [ 46.0, 220.0, 143.0, 23.0 ],
 									"rnbo_classname" : "pack",
 									"rnbo_extra_attributes" : 									{
-										"list" : "",
-										"length" : 0.0
+										"length" : 0.0,
+										"list" : ""
 									}
 ,
 									"rnbo_serial" : 1,
@@ -6605,10 +7490,10 @@
 										"polyphony" : -1.0,
 										"args" : [  ],
 										"receivemode" : "local",
-										"notecontroller" : 0,
 										"exposevoiceparams" : 0,
-										"voicecontrol" : "simple",
-										"uidstyle" : "auto"
+										"uidstyle" : "auto",
+										"notecontroller" : 0,
+										"voicecontrol" : "simple"
 									}
 ,
 									"rnbo_serial" : 1,
@@ -6821,10 +7706,10 @@
 										"polyphony" : -1.0,
 										"args" : [  ],
 										"receivemode" : "local",
-										"notecontroller" : 0,
 										"exposevoiceparams" : 0,
-										"voicecontrol" : "simple",
-										"uidstyle" : "auto"
+										"uidstyle" : "auto",
+										"notecontroller" : 0,
+										"voicecontrol" : "simple"
 									}
 ,
 									"rnbo_serial" : 2,
@@ -7022,7 +7907,7 @@
 												"name" : "out2",
 												"type" : [ "bang", "number", "list" ],
 												"digest" : "out2",
-												"displayName" : "polyout",
+												"displayName" : "polytouch note, value",
 												"docked" : 0
 											}
  ],
@@ -7224,11 +8109,51 @@
 				}
 
 			}
+, 			{
+				"box" : 				{
+					"attr" : "active",
+					"id" : "obj-9",
+					"maxclass" : "attrui",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 4.0, 179.0, 150.0, 22.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"attr" : "inst",
+					"id" : "obj-33",
+					"maxclass" : "attrui",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 835.0, 735.0, 150.0, 22.0 ]
+				}
+
+			}
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
 					"destination" : [ "obj-31", 0 ],
 					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-99", 0 ],
+					"source" : [ "obj-100", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-72", 0 ],
+					"source" : [ "obj-103", 0 ]
 				}
 
 			}
@@ -7360,6 +8285,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-68", 0 ],
+					"source" : [ "obj-33", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-51", 2 ],
 					"source" : [ "obj-34", 0 ]
 				}
@@ -7458,14 +8390,227 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-51", 1 ],
+					"source" : [ "obj-61", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-51", 6 ],
 					"source" : [ "obj-62", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-61", 1 ],
+					"source" : [ "obj-65", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-61", 0 ],
+					"source" : [ "obj-66", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-69", 0 ],
+					"source" : [ "obj-68", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-103", 0 ],
+					"source" : [ "obj-69", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-35", 0 ],
+					"order" : 0,
+					"source" : [ "obj-69", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-72", 1 ],
+					"source" : [ "obj-69", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-94", 0 ],
+					"order" : 1,
+					"source" : [ "obj-69", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-94", 0 ],
+					"source" : [ "obj-72", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-82", 0 ],
+					"source" : [ "obj-81", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-84", 0 ],
+					"source" : [ "obj-81", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-83", 0 ],
+					"source" : [ "obj-82", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-101", 0 ],
+					"source" : [ "obj-86", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-85", 0 ],
+					"source" : [ "obj-87", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-86", 0 ],
+					"source" : [ "obj-87", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-102", 0 ],
+					"source" : [ "obj-89", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-9", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-88", 0 ],
+					"source" : [ "obj-90", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-89", 0 ],
+					"source" : [ "obj-90", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-92", 0 ],
+					"source" : [ "obj-91", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-100", 0 ],
+					"source" : [ "obj-94", 4 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-73", 1 ],
+					"source" : [ "obj-94", 7 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-81", 0 ],
+					"source" : [ "obj-94", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-87", 0 ],
+					"source" : [ "obj-94", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-90", 0 ],
+					"source" : [ "obj-94", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-91", 0 ],
+					"source" : [ "obj-94", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-95", 0 ],
+					"source" : [ "obj-94", 6 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-97", 0 ],
+					"source" : [ "obj-94", 5 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-96", 0 ],
+					"source" : [ "obj-95", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-98", 0 ],
+					"source" : [ "obj-97", 0 ]
 				}
 
 			}
  ],
 		"parameters" : 		{
 			"obj-1" : [ "rnbo~[5]", "rnbo~[5]", 0 ],
+			"obj-104" : [ "rnbo~[7]", "rnbo~[7]", 0 ],
 			"obj-2" : [ "rnbo~[1]", "rnbo~[1]", 0 ],
 			"obj-3" : [ "rnbo~[6]", "rnbo~[6]", 0 ],
 			"obj-5" : [ "rnbo~", "rnbo~", 0 ],
@@ -7535,6 +8680,13 @@
 			}
 , 			{
 				"name" : "led-driver.rnbopat.maxsnap",
+				"bootpath" : "~/Documents/Max 9/Snapshots",
+				"patcherrelativepath" : "../../../Max 9/Snapshots",
+				"type" : "mx@s",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "midi-monitor.maxsnap",
 				"bootpath" : "~/Documents/Max 9/Snapshots",
 				"patcherrelativepath" : "../../../Max 9/Snapshots",
 				"type" : "mx@s",

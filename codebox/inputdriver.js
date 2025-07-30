@@ -9,6 +9,23 @@
 //3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)
 //4 -> nav (plus, minus, left, right)
 
+//parse midi input
+@state parser = new midiparse();
+function in2(bytein: number) {
+  //forward midi output
+  let m = parser.next(bytein);
+  //
+  if (m[0] == 1) { //key pressure
+    let chan = m[3];
+    if (chan == 16) {
+      //using 5 & 6 because midiparse or midiformat are broken 
+      let num = m[5] - 68; //convert to 0 based
+      let val = m[6];
+      listout2 = [num, val];
+    }
+  }
+}
+
 const OUT_PAD = 0;
 const OUT_STEP = 1;
 const OUT_TRACK = 2;

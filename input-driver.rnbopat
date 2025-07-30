@@ -10,54 +10,24 @@
 		}
 ,
 		"classnamespace" : "rnbo",
-		"rect" : [ 507.0, 289.0, 2710.0, 1053.0 ],
+		"rect" : [ 34.0, 196.0, 3285.0, 1338.0 ],
 		"default_fontname" : "Lato",
 		"gridsize" : [ 15.0, 15.0 ],
 		"title" : "input-driver.rnbopat",
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-18",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 964.0, 281.0, 161.0, 21.0 ],
-					"text" : "convert to zero based range"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-11",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 876.5, 280.0, 30.0, 23.0 ],
-					"rnbo_classname" : "-",
-					"rnbo_extra_attributes" : 					{
-						"hot" : 0
-					}
-,
-					"rnbo_serial" : 2,
-					"rnbo_uniqueid" : "-_obj-11",
-					"text" : "- 68"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-17",
+					"id" : "obj-12",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 815.0, 517.0, 142.0, 23.0 ],
+					"patching_rect" : [ 777.0, 1097.0, 224.0, 23.0 ],
 					"rnbo_classname" : "out",
 					"rnbo_extra_attributes" : 					{
 						"meta" : ""
 					}
 ,
-					"rnbo_serial" : 1,
-					"rnbo_uniqueid" : "out_obj-17",
+					"rnbo_serial" : 3,
+					"rnbo_uniqueid" : "out_obj-12",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
 						"argnames" : 						{
@@ -111,7 +81,7 @@
 								"name" : "in1",
 								"type" : [ "bang", "number", "list" ],
 								"digest" : "value sent to outlet with index 2",
-								"displayName" : "polyout",
+								"displayName" : "polytouch note, value",
 								"hot" : 1,
 								"docked" : 0
 							}
@@ -125,268 +95,7 @@
 						"changesPatcherIO" : 1
 					}
 ,
-					"text" : "out 2 @comment polyout"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-15",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 815.0, 481.0, 43.0, 23.0 ],
-					"rnbo_classname" : "list.rev",
-					"rnbo_serial" : 1,
-					"rnbo_uniqueid" : "list.rev_obj-15",
-					"text" : "list.rev"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-14",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 815.0, 439.0, 54.0, 23.0 ],
-					"rnbo_classname" : "route",
-					"rnbo_serial" : 1,
-					"rnbo_uniqueid" : "route_obj-14",
-					"rnboinfo" : 					{
-						"needsInstanceInfo" : 1,
-						"argnames" : 						{
-							"selector1" : 							{
-								"attrOrProp" : 1,
-								"digest" : "Change selector for Match 1",
-								"defaultarg" : 1,
-								"isalias" : 0,
-								"aliases" : [  ],
-								"settable" : 1,
-								"attachable" : 0,
-								"isparam" : 0,
-								"deprecated" : 0,
-								"touched" : 0,
-								"inlet" : 1,
-								"type" : "number",
-								"defaultValue" : "16"
-							}
-
-						}
-,
-						"inputs" : [ 							{
-								"name" : "input",
-								"type" : [ "list", "number", "bang" ],
-								"digest" : "Number or List to be routed",
-								"hot" : 1,
-								"docked" : 0
-							}
-, 							{
-								"name" : "selector1",
-								"type" : "number",
-								"digest" : "Change selector for Match 1",
-								"defaultarg" : 1,
-								"docked" : 0
-							}
- ],
-						"outputs" : [ 							{
-								"name" : "match1",
-								"type" : [ "bang", "number", "list" ],
-								"digest" : "Output if input matches 16",
-								"docked" : 0
-							}
-, 							{
-								"name" : "nomatch",
-								"type" : [ "bang", "number", "list" ],
-								"digest" : "Input if Input Doesn't Match",
-								"docked" : 0
-							}
- ],
-						"helpname" : "route",
-						"aliasOf" : "route",
-						"classname" : "route",
-						"operator" : 0,
-						"versionId" : -73196972,
-						"changesPatcherIO" : 0
-					}
-,
-					"text" : "route 16"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-13",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 815.0, 403.0, 142.0, 23.0 ],
-					"rnbo_classname" : "list.rev",
-					"rnbo_serial" : 2,
-					"rnbo_uniqueid" : "list.rev_obj-13",
-					"text" : "list.rev"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-12",
-					"maxclass" : "newobj",
-					"numinlets" : 3,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 815.0, 343.0, 142.0, 23.0 ],
-					"rnbo_classname" : "pack",
-					"rnbo_extra_attributes" : 					{
-						"length" : 0.0,
-						"list" : ""
-					}
-,
-					"rnbo_serial" : 1,
-					"rnbo_uniqueid" : "pack_obj-12",
-					"rnboinfo" : 					{
-						"needsInstanceInfo" : 1,
-						"argnames" : 						{
-							"out" : 							{
-								"attrOrProp" : 1,
-								"digest" : "out",
-								"isalias" : 0,
-								"aliases" : [  ],
-								"attachable" : 0,
-								"isparam" : 0,
-								"deprecated" : 0,
-								"touched" : 0,
-								"outlet" : 1,
-								"type" : "list"
-							}
-,
-							"in1" : 							{
-								"attrOrProp" : 1,
-								"digest" : "number to be list element 1",
-								"defaultarg" : 1,
-								"isalias" : 0,
-								"aliases" : [  ],
-								"attachable" : 0,
-								"isparam" : 0,
-								"deprecated" : 0,
-								"touched" : 0,
-								"inlet" : 1,
-								"type" : "number"
-							}
-,
-							"in2" : 							{
-								"attrOrProp" : 1,
-								"digest" : "number to be list element 2",
-								"defaultarg" : 2,
-								"isalias" : 0,
-								"aliases" : [  ],
-								"attachable" : 0,
-								"isparam" : 0,
-								"deprecated" : 0,
-								"touched" : 0,
-								"inlet" : 1,
-								"type" : "number"
-							}
-,
-							"in3" : 							{
-								"attrOrProp" : 1,
-								"digest" : "number to be list element 3",
-								"defaultarg" : 3,
-								"isalias" : 0,
-								"aliases" : [  ],
-								"attachable" : 0,
-								"isparam" : 0,
-								"deprecated" : 0,
-								"touched" : 0,
-								"inlet" : 1,
-								"type" : "number"
-							}
-,
-							"length" : 							{
-								"attrOrProp" : 2,
-								"digest" : "how many things to pack",
-								"isalias" : 0,
-								"aliases" : [  ],
-								"settable" : 1,
-								"attachable" : 0,
-								"isparam" : 0,
-								"deprecated" : 0,
-								"touched" : 0,
-								"type" : "number"
-							}
-,
-							"list" : 							{
-								"attrOrProp" : 2,
-								"digest" : "the list to initialize the {@objectname} object with",
-								"isalias" : 0,
-								"aliases" : [  ],
-								"settable" : 1,
-								"attachable" : 0,
-								"isparam" : 0,
-								"deprecated" : 0,
-								"touched" : 0,
-								"type" : "list"
-							}
-
-						}
-,
-						"inputs" : [ 							{
-								"name" : "in1",
-								"type" : [ "number", "bang" ],
-								"digest" : "number to be list element 1",
-								"defaultarg" : 1,
-								"hot" : 1,
-								"docked" : 0
-							}
-, 							{
-								"name" : "in2",
-								"type" : "number",
-								"digest" : "number to be list element 2",
-								"defaultarg" : 2,
-								"docked" : 0
-							}
-, 							{
-								"name" : "in3",
-								"type" : "number",
-								"digest" : "number to be list element 3",
-								"defaultarg" : 3,
-								"docked" : 0
-							}
- ],
-						"outputs" : [ 							{
-								"name" : "out",
-								"type" : "list",
-								"digest" : "out",
-								"docked" : 0
-							}
- ],
-						"helpname" : "pack",
-						"aliasOf" : "pack",
-						"classname" : "pack",
-						"operator" : 0,
-						"versionId" : 1331432417,
-						"changesPatcherIO" : 0
-					}
-,
-					"text" : "pack i i i"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-10",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 3,
-					"outlettype" : [ "", "", "" ],
-					"patching_rect" : [ 815.0, 237.0, 142.0, 23.0 ],
-					"rnbo_classname" : "polyin",
-					"rnbo_serial" : 1,
-					"rnbo_uniqueid" : "polyin_obj-10",
-					"text" : "polyin"
+					"text" : "out 2 @comment \"polytouch note, value\""
 				}
 
 			}
@@ -562,25 +271,25 @@
 			}
 , 			{
 				"box" : 				{
-					"code" : "//input prefix: \n//0 -> note\n//1 -> cc\n//\n//output prefix:\n//0 -> pads\n//1 -> steps\n//2 -> tracks\n//3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)\n//4 -> nav (left, right, plus, minus)\n\nconst OUT_PAD = 0;\nconst OUT_STEP = 1;\nconst OUT_TRACK = 2;\nconst OUT_FUNCTION = 3;\nconst OUT_NAV = 4;\n\nlet m = listin1;\nlet prefix = m[0];\n\nif (prefix == 0) { //note\n  let num = m[1];\n  let vel = m[2];\n  if (num >= 68 && num <= 99) {\n    listout1 = [OUT_PAD, num - 68, vel];\n  } else if (num >= 16 && num <= 31) {\n    listout1 = [OUT_STEP, num - 16, vel];\n  }\n} else if (prefix == 1) { //cc\n  let num = m[2];\n  let val = m[1];\n\n  if (num >= 40 && num <= 43) {\n    listout1 = [OUT_TRACK, num - 40, val];\n  } else {\n    let o = OUT_FUNCTION;\n    let mapped = 0;\n    switch (num) {\n      case 52:\n        mapped = 0;\n        break;\n      case 118:\n        mapped = 1;\n        break;\n      case 58:\n        mapped = 2;\n        break;\n      case 88:\n        mapped = 3;\n        break;\n      case 119:\n        mapped = 4;\n        break;\n      case 60:\n        mapped = 5;\n        break;\n      case 56:\n        mapped = 6;\n        break;\n      case 49:\n        mapped = 7;\n        break;\n      case 86:\n        mapped = 8;\n        break;\n      case 55:\n        o = OUT_NAV;\n        mapped = 0;\n        break;\n      case 54:\n        o = OUT_NAV;\n        mapped = 1;\n        break;\n      case 62:\n        o = OUT_NAV;\n        mapped = 2;\n        break;\n      case 63:\n        o = OUT_NAV;\n        mapped = 3;\n        break;\n      default:\n        return;\n    }\n    listout1 = [o, mapped, val];\n  }\n}",
+					"code" : "//input prefix: \n//0 -> note\n//1 -> cc\n//\n//output prefix:\n//0 -> pads\n//1 -> steps\n//2 -> tracks\n//3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)\n//4 -> nav (plus, minus, left, right)\n\n//parse midi input\n@state parser = new midiparse();\nfunction in2(bytein: number) {\n  //forward midi output\n  let m = parser.next(bytein);\n  //\n  if (m[0] == 1) { //key pressure\n    let chan = m[3];\n    if (chan == 16) {\n      //using 5 & 6 because midiparse or midiformat are broken \n      let num = m[5] - 68; //convert to 0 based\n      let val = m[6];\n      listout2 = [num, val];\n    }\n  }\n}\n\nconst OUT_PAD = 0;\nconst OUT_STEP = 1;\nconst OUT_TRACK = 2;\nconst OUT_FUNCTION = 3;\nconst OUT_NAV = 4;\n\nlet m = listin1;\nlet prefix = m[0];\n\nif (prefix == 0) { //note\n  let num = m[1];\n  let vel = m[2];\n  if (num >= 68 && num <= 99) {\n    listout1 = [OUT_PAD, num - 68, vel];\n  } else if (num >= 16 && num <= 31) {\n    listout1 = [OUT_STEP, num - 16, vel];\n  }\n} else if (prefix == 1) { //cc\n  let val = m[1];\n  let num = m[2];\n\n  if (num >= 40 && num <= 43) {\n    listout1 = [OUT_TRACK, num - 40, val];\n  } else {\n    let o = OUT_FUNCTION;\n    let mapped = 0;\n    switch (num) {\n      case 52:\n        mapped = 0;\n        break;\n      case 118:\n        mapped = 1;\n        break;\n      case 58:\n        mapped = 2;\n        break;\n      case 88:\n        mapped = 3;\n        break;\n      case 119:\n        mapped = 4;\n        break;\n      case 60:\n        mapped = 5;\n        break;\n      case 56:\n        mapped = 6;\n        break;\n      case 49:\n        mapped = 7;\n        break;\n      case 86:\n        mapped = 8;\n        break;\n      case 55:\n        o = OUT_NAV;\n        mapped = 0;\n        break;\n      case 54:\n        o = OUT_NAV;\n        mapped = 1;\n        break;\n      case 62:\n        o = OUT_NAV;\n        mapped = 2;\n        break;\n      case 63:\n        o = OUT_NAV;\n        mapped = 3;\n        break;\n      default:\n        return;\n    }\n    listout1 = [o, mapped, val];\n  }\n}",
 					"fontface" : 0,
 					"fontname" : "<Monospaced>",
 					"fontsize" : 12.0,
 					"id" : "obj-7",
 					"maxclass" : "codebox",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 23.0, 237.0, 773.0, 835.0 ],
 					"rnbo_classname" : "codebox",
 					"rnbo_extra_attributes" : 					{
-						"code" : "//input prefix: \n//0 -> note\n//1 -> cc\n//\n//output prefix:\n//0 -> pads\n//1 -> steps\n//2 -> tracks\n//3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)\n//4 -> nav (left, right, plus, minus)\n\nconst OUT_PAD = 0;\nconst OUT_STEP = 1;\nconst OUT_TRACK = 2;\nconst OUT_FUNCTION = 3;\nconst OUT_NAV = 4;\n\nlet m = listin1;\nlet prefix = m[0];\n\nif (prefix == 0) { //note\n  let num = m[1];\n  let vel = m[2];\n  if (num >= 68 && num <= 99) {\n    listout1 = [OUT_PAD, num - 68, vel];\n  } else if (num >= 16 && num <= 31) {\n    listout1 = [OUT_STEP, num - 16, vel];\n  }\n} else if (prefix == 1) { //cc\n  let num = m[2];\n  let val = m[1];\n\n  if (num >= 40 && num <= 43) {\n    listout1 = [OUT_TRACK, num - 40, val];\n  } else {\n    let o = OUT_FUNCTION;\n    let mapped = 0;\n    switch (num) {\n      case 52:\n        mapped = 0;\n        break;\n      case 118:\n        mapped = 1;\n        break;\n      case 58:\n        mapped = 2;\n        break;\n      case 88:\n        mapped = 3;\n        break;\n      case 119:\n        mapped = 4;\n        break;\n      case 60:\n        mapped = 5;\n        break;\n      case 56:\n        mapped = 6;\n        break;\n      case 49:\n        mapped = 7;\n        break;\n      case 86:\n        mapped = 8;\n        break;\n      case 55:\n        o = OUT_NAV;\n        mapped = 0;\n        break;\n      case 54:\n        o = OUT_NAV;\n        mapped = 1;\n        break;\n      case 62:\n        o = OUT_NAV;\n        mapped = 2;\n        break;\n      case 63:\n        o = OUT_NAV;\n        mapped = 3;\n        break;\n      default:\n        return;\n    }\n    listout1 = [o, mapped, val];\n  }\n}",
-						"nocache" : 0,
+						"code" : "//input prefix: \n//0 -> note\n//1 -> cc\n//\n//output prefix:\n//0 -> pads\n//1 -> steps\n//2 -> tracks\n//3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)\n//4 -> nav (plus, minus, left, right)\n\n//parse midi input\n@state parser = new midiparse();\nfunction in2(bytein: number) {\n  //forward midi output\n  let m = parser.next(bytein);\n  //\n  if (m[0] == 1) { //key pressure\n    let chan = m[3];\n    if (chan == 16) {\n      //using 5 & 6 because midiparse or midiformat are broken \n      let num = m[5] - 68; //convert to 0 based\n      let val = m[6];\n      listout2 = [num, val];\n    }\n  }\n}\n\nconst OUT_PAD = 0;\nconst OUT_STEP = 1;\nconst OUT_TRACK = 2;\nconst OUT_FUNCTION = 3;\nconst OUT_NAV = 4;\n\nlet m = listin1;\nlet prefix = m[0];\n\nif (prefix == 0) { //note\n  let num = m[1];\n  let vel = m[2];\n  if (num >= 68 && num <= 99) {\n    listout1 = [OUT_PAD, num - 68, vel];\n  } else if (num >= 16 && num <= 31) {\n    listout1 = [OUT_STEP, num - 16, vel];\n  }\n} else if (prefix == 1) { //cc\n  let val = m[1];\n  let num = m[2];\n\n  if (num >= 40 && num <= 43) {\n    listout1 = [OUT_TRACK, num - 40, val];\n  } else {\n    let o = OUT_FUNCTION;\n    let mapped = 0;\n    switch (num) {\n      case 52:\n        mapped = 0;\n        break;\n      case 118:\n        mapped = 1;\n        break;\n      case 58:\n        mapped = 2;\n        break;\n      case 88:\n        mapped = 3;\n        break;\n      case 119:\n        mapped = 4;\n        break;\n      case 60:\n        mapped = 5;\n        break;\n      case 56:\n        mapped = 6;\n        break;\n      case 49:\n        mapped = 7;\n        break;\n      case 86:\n        mapped = 8;\n        break;\n      case 55:\n        o = OUT_NAV;\n        mapped = 0;\n        break;\n      case 54:\n        o = OUT_NAV;\n        mapped = 1;\n        break;\n      case 62:\n        o = OUT_NAV;\n        mapped = 2;\n        break;\n      case 63:\n        o = OUT_NAV;\n        mapped = 3;\n        break;\n      default:\n        return;\n    }\n    listout1 = [o, mapped, val];\n  }\n}",
 						"safemath" : 1,
-						"hot" : 0
+						"hot" : 0,
+						"nocache" : 0
 					}
 ,
-					"rnbo_serial" : 1,
+					"rnbo_serial" : 4,
 					"rnbo_uniqueid" : "codebox_obj-7",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
@@ -611,9 +320,37 @@
 								"type" : "list"
 							}
 ,
+							"in2" : 							{
+								"attrOrProp" : 1,
+								"digest" : "in2",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"inlet" : 1,
+								"type" : "number"
+							}
+,
 							"out1" : 							{
 								"attrOrProp" : 1,
 								"digest" : "out1",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 0,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"outlet" : 1,
+								"type" : "list"
+							}
+,
+							"out2" : 							{
+								"attrOrProp" : 1,
+								"digest" : "out2",
 								"isalias" : 0,
 								"aliases" : [  ],
 								"settable" : 0,
@@ -691,11 +428,23 @@
 								"hot" : 1,
 								"docked" : 0
 							}
+, 							{
+								"name" : "in2",
+								"type" : "number",
+								"digest" : "in2",
+								"docked" : 0
+							}
  ],
 						"outputs" : [ 							{
 								"name" : "out1",
 								"type" : "list",
 								"digest" : "out1",
+								"docked" : 0
+							}
+, 							{
+								"name" : "out2",
+								"type" : "list",
+								"digest" : "out2",
 								"docked" : 0
 							}
  ],
@@ -1240,62 +989,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-11", 0 ],
-					"source" : [ "obj-10", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-12", 2 ],
-					"source" : [ "obj-10", 2 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-12", 0 ],
-					"source" : [ "obj-10", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-12", 1 ],
-					"source" : [ "obj-11", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-13", 0 ],
-					"source" : [ "obj-12", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-14", 0 ],
-					"source" : [ "obj-13", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-15", 0 ],
-					"source" : [ "obj-14", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-17", 0 ],
-					"source" : [ "obj-15", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-5", 0 ],
 					"source" : [ "obj-2", 0 ]
 				}
@@ -1353,6 +1046,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-12", 0 ],
+					"source" : [ "obj-7", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-8", 0 ],
 					"source" : [ "obj-7", 0 ]
 				}
@@ -1368,17 +1068,17 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-10", 0 ],
-					"midpoints" : [ 32.5, 78.0, 824.5, 78.0 ],
-					"order" : 0,
+					"destination" : [ "obj-2", 0 ],
+					"order" : 1,
 					"source" : [ "obj-9", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-2", 0 ],
-					"order" : 1,
+					"destination" : [ "obj-7", 1 ],
+					"midpoints" : [ 32.5, 78.0, 786.5, 78.0 ],
+					"order" : 0,
 					"source" : [ "obj-9", 0 ]
 				}
 

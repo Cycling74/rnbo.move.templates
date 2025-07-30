@@ -1,6 +1,6 @@
 //listout1 = control
-//out2 = note out
-//out3 = velocity out
+//listout2 = note out
+//listout3 = poly out
 
 @param active = 0;
 
@@ -42,7 +42,9 @@ function updatemappings() {
         v.push((safemod(col, octavesteps) == 0) ? 1 : 0); //safemod explicit calls work around bug #21960
 
         if (note >= 0 && note < 128) { //should always be true
-          notemapping.store(note, pad);
+          let tmp = notemapping.lookup(note);
+          tmp.push(pad);
+          notemapping.store(pad, tmp);
         }
       } else {
         v.push(pad + padoffset);
@@ -106,9 +108,23 @@ function in4(offset: number) {
   }
 }
 
+function listin5(poly: list) {
+  if (active) {
+    let pad = poly[0];
+    let val = poly[1];
+    if (pad >= 0 && pad < 36) {
+      let note = padmapping.lookup(pad)[MAP_INDEX_NOTE];
+      sendpoly(note, val);
+    }
+  }
+}
+
 function sendnote(note: number, vel: number) {
-  out3 = vel;
-  out2 = note;
+  listout2 = [note, vel];
+}
+
+function sendpoly(note: number, val: number) {
+  listout3 = [note, val];
 }
 
 function drawall() {
@@ -172,8 +188,7 @@ if (prefix == PREFIX_PAD) { //pads
     return;
   }
   let btn = m[1];
-  if (btn == 0) { //plus
-    page = clamp(page + 1, -1, 1);
+  if (btn == 0) { //plus page = clamp(page + 1, -1, 1);
   } else if (btn == 1) { //minus
     page = clamp(page - 1, -1, 1);
   } else {
