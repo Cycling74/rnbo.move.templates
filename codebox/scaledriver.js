@@ -44,7 +44,7 @@ function updatemappings() {
         if (note >= 0 && note < 128) { //should always be true
           let tmp = notemapping.lookup(note);
           tmp.push(pad);
-          notemapping.store(pad, tmp);
+          notemapping.store(note, tmp);
         }
       } else {
         v.push(pad + padoffset);
