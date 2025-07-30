@@ -188,7 +188,8 @@ if (prefix == PREFIX_PAD) { //pads
     return;
   }
   let btn = m[1];
-  if (btn == 0) { //plus page = clamp(page + 1, -1, 1);
+  if (btn == 0) { //plus 
+    page = clamp(page + 1, -1, 1);
   } else if (btn == 1) { //minus
     page = clamp(page - 1, -1, 1);
   } else {
