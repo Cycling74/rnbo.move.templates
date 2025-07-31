@@ -4,15 +4,20 @@
 
 @param active = 0;
 
-@state scalenotes = 12; //computed from scl
 @state octavesteps = 12; //computed from scl or kbm
 @state noteoffset = 60; //computed from kbm
+
+@state scl = new scala();
+@state scaleLength = 12; //computed from scl
+@state kbmMid = 60;
+@state kbmOctave = 12;
 
 //pad -> note, offcolor, [, output pad 1..]
 @state padmapping = new liststore({"maxlistsize": 4, "slotcount": 32, "preset": false});
 
-//map of note number -> pads
-@state notemapping = new liststore({"maxlistsize": 4, "slotcount": 128, "preset": false});
+//map of scale degree -> pads
+//TODO could some of these be negative?
+@state degreemapping = new liststore({"maxlistsize": 4, "slotcount": 128, "preset": false});
 
 const MAP_INDEX_NOTE: Index = 0;
 const MAP_INDEX_COLOR: Index = 1;
@@ -26,50 +31,51 @@ const PREFIX_PAD = 0;
 const PREFIX_NAV = 4;
 
 function updatemappings() {
-  padoffset = round(page * pageoctaveoffset * octavesteps + noteoffset);
+  //padoffset = round(page * pageoctaveoffset * octavesteps + noteoffset);
+  
+  //TODO, page etc
+  padoffset = kbmMid;
 
-  let dofit = octavesteps < 8; //should we try to map octaves vetically
+  degreemapping.clear();
 
-  notemapping.clear();
+  for (let pad = 0; pad < 32; pad++) {
+    let color = 0;
+    let note = pad + padoffset;
+    let mapped = scl.applyKBM(note);
 
-  for (let row = 0; row < 4; row++) {
-    for (let col = 0; col < 8; col++) {
-      let pad = row * 8 + col;
-      let v: list = [];
-      if (dofit) {
-        let note = padoffset + row * octavesteps + col;
-        v.push(note);
-        v.push((safemod(col, octavesteps) == 0) ? 1 : 0); //safemod explicit calls work around bug #21960
-
-        if (note >= 0 && note < 128) { //should always be true
-          let tmp = notemapping.lookup(note);
-          tmp.push(pad);
-          notemapping.store(note, tmp);
-        }
-      } else {
-        v.push(pad + padoffset);
-        v.push(safemod(pad + padoffset, octavesteps) == 0 ? 1 : 0);
+    if (mapped[1] > 0) {
+      let degree = mapped[0];
+      //find octaves
+      if (safemod(degree, kbmOctave) == 0) {
+        color = 1;
       }
-      padmapping.store(pad, v);
+
+      //now to deal with notes out of range?
+      if (degree >= 0 && degree < 128) {
+        let tmp = degreemapping.lookup(degree);
+        tmp.push(pad);
+        degreemapping.store(degree, tmp);
+      }
+    } else {
+      //mapping is invalid, what to do? .. just move forward
     }
+    padmapping.store(pad, [note, color]);
   }
 
-  if (dofit) {
-    //insert additional pad outputs
-    for (let note = 0; note < 127; note++) {
-      let mapping = notemapping.lookup(note);
+  //insert additional pad outputs
+  for (let note = 0; note < 127; note++) {
+    let mapping = degreemapping.lookup(note);
 
-      //if more than 1 pad maps to the same note, insert the into padmapping
-      if (mapping.length > 1) {
-        for (let i = 0; i < mapping.length; i++) {
-          let pad = mapping[i];
-          for (let j = 0; j < mapping.length; j++) {
-            let other = mapping[j];
-            if (pad != other) {
-              let tmp = padmapping.lookup(pad);
-              tmp.push(other);
-              padmapping.store(pad, tmp);
-            }
+    //if more than 1 pad maps to the same degree, insert the into padmapping
+    if (mapping.length > 1) {
+      for (let i = 0; i < mapping.length; i++) {
+        let pad = mapping[i];
+        for (let j = 0; j < mapping.length; j++) {
+          let other = mapping[j];
+          if (pad != other) {
+            let tmp = padmapping.lookup(pad);
+            tmp.push(other);
+            padmapping.store(pad, tmp);
           }
         }
       }
@@ -77,10 +83,11 @@ function updatemappings() {
   }
 }
 
-function listin2(scl: list) {
-  scalenotes = scl[0];
-  octavesteps = scl[0];
-
+function listin2(scale: list) {
+  if (scale.length > 0) {
+    scaleLength = scale[0]; //cannot get from scl
+  }
+  scl.updateScale(scale);
   updatemappings();
   
   if (active) {
@@ -89,8 +96,16 @@ function listin2(scl: list) {
 }
 
 function listin3(kbm: list) {
-  octavesteps = kbm[0];
-  noteoffset = kbm[3];
+  //we can't get mid/octave from scl so store it directly
+  if (kbm.length > 4) {
+    kbmMid = kbm[4];
+  }
+  if (kbm.length > 6) {
+    kbmOctave = kbm[6];
+  } else {
+    kbmOctave = scaleLength;
+  }
+  scl.updateMap(kbm);
 
   updatemappings();
   
