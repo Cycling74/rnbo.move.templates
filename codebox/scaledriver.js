@@ -4,13 +4,13 @@
 
 @param active = 0;
 
-@state octavesteps = 12; //computed from scl or kbm
-@state noteoffset = 60; //computed from kbm
-
 @state scl = new scala();
 @state scaleLength = 12; //computed from scl
 @state kbmMid = 60;
+@state kbmLength = 16;
 @state kbmOctave = 12;
+
+@state page = 0;
 
 //pad -> note, offcolor, [, output pad 1..]
 @state padmapping = new liststore({"maxlistsize": 4, "slotcount": 32, "preset": false});
@@ -23,18 +23,24 @@ const MAP_INDEX_NOTE: Index = 0;
 const MAP_INDEX_COLOR: Index = 1;
 const MAP_INDEX_EXTRA: Index = 2;
 
-@state page = 0;
-@state padoffset = 0; //computed from page
-@state pageoctaveoffset = 2;
 
 const PREFIX_PAD = 0;
 const PREFIX_NAV = 4;
 
 function updatemappings() {
-  //padoffset = round(page * pageoctaveoffset * octavesteps + noteoffset);
-  
-  //TODO, page etc
-  padoffset = kbmMid;
+  let padoffset = kbmMid;
+
+  //paging
+  if (page != 0) {
+    //we want to retain 1 octave from the 0 page in each direction if possible
+    //if the octave is greater than 16 notes though we just offset by it
+    if (kbmLength > 16) {
+      padoffset += kbmLength * page;
+    } else {
+      let octaveoffset = max(floor(32.0 / kbmLength) - 1, 1);
+      padoffset += octaveoffset * page * kbmLength;
+    }
+  }
 
   degreemapping.clear();
 
@@ -96,14 +102,18 @@ function listin2(scale: list) {
 }
 
 function listin3(kbm: list) {
-  //we can't get mid/octave from scl so store it directly
-  if (kbm.length > 4) {
-    kbmMid = kbm[4];
+  //we can't get len/mid/octave from scl so store it directly
+  if (kbm.length > 3) {
+    kbmLength = kbm[0];
+    kbmMid = kbm[3];
   }
   if (kbm.length > 6) {
     kbmOctave = kbm[6];
   } else {
     kbmOctave = scaleLength;
+  }
+  if (kbmLength <= 0) {
+    kbmLength = scaleLength;
   }
   scl.updateMap(kbm);
 
@@ -114,16 +124,7 @@ function listin3(kbm: list) {
   }
 }
 
-function in4(offset: number) {
-  pageoctaveoffset = offset;
-  updatemappings();
-
-  if (active) {
-    drawall();
-  }
-}
-
-function listin5(poly: list) {
+function listin4(poly: list) {
   if (active) {
     let pad = poly[0];
     let val = poly[1];
@@ -156,12 +157,12 @@ function drawall() {
   listout1 = [PREFIX_NAV, 2, 0];
   listout1 = [PREFIX_NAV, 3, 0];
 
-  let plus = 0;
-  let minus = 0;
+  let plus = 1;
+  let minus = 1;
   if (page == 1) {
-    plus = 1;
+    plus = 0;
   } else if (page == -1) {
-    minus = 1;
+    minus = 0;
   }
   listout1 = [PREFIX_NAV, 0, plus];
   listout1 = [PREFIX_NAV, 1, minus];
@@ -202,6 +203,7 @@ if (prefix == PREFIX_PAD) { //pads
   if (m[2] == 0) { //value
     return;
   }
+  let prev = page;
   let btn = m[1];
   if (btn == 0) { //plus 
     page = clamp(page + 1, -1, 1);
@@ -210,6 +212,8 @@ if (prefix == PREFIX_PAD) { //pads
   } else {
     return;
   }
-  updatemappings();
-  drawall();
+  if (prev != page) {
+    updatemappings();
+    drawall();
+  }
 }
