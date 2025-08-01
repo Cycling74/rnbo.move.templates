@@ -9,19 +9,7 @@ const COLOR_TYPE_BW = 1;
   * 9 "function" buttons (right side + left side record button) [b/w except 2]
   * 4 nav buttons [b/w]
   * 16 icons [b/w]
-  *
-  * = 
-  *
-  * color storage
-  * 32 + 16 + 4 + 2 = 54 (store in FixedUint32Array) (r << 16 | g << 8 | b)
-  *
-  * bw storage
-  * (9 - 2) + 4 + 16 -> 27 (can store in one 32-bit, using length 1 FixedUint32Array)
-  *
   */
-
-@state storage_color = new FixedUint32Array(54);
-@state storage_bw = new FixedUint32Array(1); 
 
 function processcolor(v: number): list {
   let v = clamp(v * 255.0, 1, 255);
