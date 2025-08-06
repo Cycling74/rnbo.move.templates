@@ -80,6 +80,7 @@ if (prefix == 0) { //note
       case 86:
         mapped = 8;
         break;
+      //TODO play button
       case 55:
         o = OUT_NAV;
         mapped = 0;
