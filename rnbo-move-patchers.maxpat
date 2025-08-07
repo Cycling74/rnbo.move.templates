@@ -15,6 +15,181 @@
 		"boxes" : [ 			{
 				"box" : 				{
 					"autosave" : 1,
+					"id" : "obj-17",
+					"inletInfo" : 					{
+						"IOInfo" : [ 							{
+								"type" : "event",
+								"index" : 1,
+								"tag" : "in1",
+								"comment" : "list"
+							}
+ ]
+					}
+,
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outletInfo" : 					{
+						"IOInfo" : [ 							{
+								"type" : "event",
+								"index" : 1,
+								"tag" : "out1",
+								"comment" : "midi"
+							}
+ ]
+					}
+,
+					"outlettype" : [ "", "list" ],
+					"patching_rect" : [ 35.5, 124.0, 183.0, 22.0 ],
+					"rnboattrcache" : 					{
+						"chan_pad" : 						{
+							"label" : "chan_pad",
+							"isEnum" : 1,
+							"parsestring" : "\"off\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\""
+						}
+,
+						"chan_step" : 						{
+							"label" : "chan_step",
+							"isEnum" : 1,
+							"parsestring" : "\"off\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\""
+						}
+,
+						"chan_track" : 						{
+							"label" : "chan_track",
+							"isEnum" : 1,
+							"parsestring" : "\"off\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\""
+						}
+,
+						"chan_function" : 						{
+							"label" : "chan_function",
+							"isEnum" : 1,
+							"parsestring" : "\"off\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\""
+						}
+,
+						"chan_nav" : 						{
+							"label" : "chan_nav",
+							"isEnum" : 1,
+							"parsestring" : "\"off\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\""
+						}
+
+					}
+,
+					"rnboversion" : "1.4.1",
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_invisible" : 1,
+							"parameter_longname" : "rnbo~[11]",
+							"parameter_modmode" : 0,
+							"parameter_shortname" : "rnbo~[11]",
+							"parameter_type" : 3
+						}
+
+					}
+,
+					"saved_object_attributes" : 					{
+						"optimization" : "O1",
+						"parameter_enable" : 1,
+						"uuid" : "1e441839-73b0-11f0-9839-7683f81cdc8a"
+					}
+,
+					"snapshot" : 					{
+						"filetype" : "C74Snapshot",
+						"version" : 2,
+						"minorversion" : 0,
+						"name" : "snapshotlist",
+						"origin" : "rnbo~",
+						"type" : "list",
+						"subtype" : "Undefined",
+						"embed" : 1,
+						"snapshot" : 						{
+							"chan_nav" : 							{
+								"value" : 0.0
+							}
+,
+							"chan_function" : 							{
+								"value" : 0.0
+							}
+,
+							"chan_step" : 							{
+								"value" : 0.0
+							}
+,
+							"chan_track" : 							{
+								"value" : 0.0
+							}
+,
+							"chan_pad" : 							{
+								"value" : 0.0
+							}
+,
+							"active" : 							{
+								"value" : 1.0
+							}
+,
+							"__presetid" : "thru-driver"
+						}
+,
+						"snapshotlist" : 						{
+							"current_snapshot" : 0,
+							"entries" : [ 								{
+									"filetype" : "C74Snapshot",
+									"version" : 2,
+									"minorversion" : 0,
+									"name" : "thru-driver",
+									"origin" : "thru-driver",
+									"type" : "rnbo",
+									"subtype" : "",
+									"embed" : 0,
+									"snapshot" : 									{
+										"chan_nav" : 										{
+											"value" : 0.0
+										}
+,
+										"chan_function" : 										{
+											"value" : 0.0
+										}
+,
+										"chan_step" : 										{
+											"value" : 0.0
+										}
+,
+										"chan_track" : 										{
+											"value" : 0.0
+										}
+,
+										"chan_pad" : 										{
+											"value" : 0.0
+										}
+,
+										"active" : 										{
+											"value" : 1.0
+										}
+,
+										"__presetid" : "thru-driver"
+									}
+,
+									"fileref" : 									{
+										"name" : "thru-driver",
+										"filename" : "thru-driver.maxsnap",
+										"filepath" : "~/Documents/Max 9/Snapshots",
+										"filepos" : -1,
+										"snapshotfileid" : "0dfe2b1aa951daa50c78ff5726f202f2"
+									}
+
+								}
+ ]
+						}
+
+					}
+,
+					"text" : "rnbo~ @patchername thru-driver",
+					"varname" : "rnbo~[10]"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"autosave" : 1,
 					"id" : "obj-13",
 					"inletInfo" : 					{
 						"IOInfo" : [ 							{
@@ -51,11 +226,313 @@
 						}
 ,
 						"classnamespace" : "rnbo",
-						"rect" : [ 179.0, 206.0, 2494.0, 1511.0 ],
+						"rect" : [ 179.0, 234.0, 2494.0, 1483.0 ],
 						"default_fontname" : "Lato",
 						"gridsize" : [ 15.0, 15.0 ],
 						"title" : "move-thru",
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-17",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 46.0, 316.0, 149.0, 23.0 ],
+									"rnbo_classname" : "p",
+									"rnbo_extra_attributes" : 									{
+										"args" : [  ],
+										"polyphony" : -1.0,
+										"receivemode" : "local",
+										"notecontroller" : 0,
+										"voicecontrol" : "simple",
+										"exposevoiceparams" : 0,
+										"uidstyle" : "auto"
+									}
+,
+									"rnbo_serial" : 2,
+									"rnbo_uniqueid" : "rnbo~[10]",
+									"rnboinfo" : 									{
+										"needsInstanceInfo" : 1,
+										"argnames" : 										{
+											"active" : 											{
+												"attrOrProp" : 1,
+												"digest" : "active",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 1,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "number"
+											}
+,
+											"chan_pad" : 											{
+												"attrOrProp" : 1,
+												"digest" : "chan_pad",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 1,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "number"
+											}
+,
+											"chan_step" : 											{
+												"attrOrProp" : 1,
+												"digest" : "chan_step",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 1,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "number"
+											}
+,
+											"chan_track" : 											{
+												"attrOrProp" : 1,
+												"digest" : "chan_track",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 1,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "number"
+											}
+,
+											"chan_function" : 											{
+												"attrOrProp" : 1,
+												"digest" : "chan_function",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 1,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "number"
+											}
+,
+											"chan_nav" : 											{
+												"attrOrProp" : 1,
+												"digest" : "chan_nav",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 1,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "number"
+											}
+,
+											"target" : 											{
+												"attrOrProp" : 1,
+												"digest" : "target",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 0,
+												"attachable" : 1,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "number",
+												"defaultValue" : "0"
+											}
+,
+											"mute" : 											{
+												"attrOrProp" : 1,
+												"digest" : "mute",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"attachable" : 1,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "number"
+											}
+,
+											"__probingout1" : 											{
+												"attrOrProp" : 1,
+												"digest" : "__probingout1",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "signal"
+											}
+,
+											"polyphony" : 											{
+												"attrOrProp" : 2,
+												"digest" : "Polyphony of the subpatcher.",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "number",
+												"defaultValue" : "-1"
+											}
+,
+											"exposevoiceparams" : 											{
+												"attrOrProp" : 2,
+												"digest" : "Expose per voice versions of the contained parameters (only valid in polyphonic subpatchers).",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "bool",
+												"defaultValue" : "false"
+											}
+,
+											"title" : 											{
+												"attrOrProp" : 2,
+												"digest" : "Title of the subpatcher",
+												"defaultarg" : 1,
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "symbol",
+												"doNotShowInMaxInspector" : 1
+											}
+,
+											"file" : 											{
+												"attrOrProp" : 2,
+												"digest" : "rnbo file to load",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "symbol",
+												"doNotShowInMaxInspector" : 1
+											}
+,
+											"voicecontrol" : 											{
+												"attrOrProp" : 2,
+												"digest" : "Chooses the way that polyphonic voices are controlled. 'simple' (or 'midi') will automatically allocate voices for \tincoming MIDI notes. Setting it to 'user' (or 'none') will switch off MIDI \tvoice allocation and start with all voices unmuted.",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"enum" : [ "simple", "user" ],
+												"type" : "enum",
+												"defaultValue" : "simple"
+											}
+,
+											"notecontroller" : 											{
+												"attrOrProp" : 2,
+												"digest" : "DEPRECATED. Use voicecontrol instead.",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "symbol",
+												"doNotShowInMaxInspector" : 1
+											}
+,
+											"receivemode" : 											{
+												"attrOrProp" : 2,
+												"digest" : "Do receive~ objects get the signal from a send~ inside the patcher directly (without latency), or compensated (with latency, aligned with all other voices).",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"enum" : [ "local", "compensated" ],
+												"type" : "enum",
+												"defaultValue" : "local"
+											}
+,
+											"args" : 											{
+												"attrOrProp" : 2,
+												"digest" : "Replacement args for the subpatcher, everything named #1, #2 etc. will be replaced with the according argument.",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "symbol",
+												"doNotShowInMaxInspector" : 1
+											}
+,
+											"uidstyle" : 											{
+												"attrOrProp" : 2,
+												"digest" : "Behavior of #0 unique ID. auto (default) means abstractions get a local UID, local: start a new local UID, parent: use the one from the parent patcher",
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"enum" : [ "auto", "local", "parent", "global" ],
+												"type" : "enum",
+												"defaultValue" : "auto"
+											}
+
+										}
+,
+										"inputs" : [ 											{
+												"name" : "in1",
+												"type" : [ "bang", "number", "list" ],
+												"digest" : "in1",
+												"displayName" : "list",
+												"hot" : 1,
+												"docked" : 0
+											}
+ ],
+										"outputs" : [ 											{
+												"name" : "out1",
+												"type" : [ "bang", "number", "list" ],
+												"digest" : "out1",
+												"displayName" : "midi",
+												"docked" : 0
+											}
+ ],
+										"helpname" : "patcher",
+										"aliasOf" : "rnbo",
+										"classname" : "p",
+										"operator" : 0,
+										"versionId" : 426236520,
+										"changesPatcherIO" : 0
+									}
+,
+									"text" : "p @file thru-driver.rnbopat",
+									"varname" : "rnbo~[10]"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-10",
 									"maxclass" : "newobj",
@@ -64,7 +541,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 108.0, 270.0, 77.0, 23.0 ],
 									"rnbo_classname" : "set",
-									"rnbo_serial" : 6,
+									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "set_obj-10",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -122,7 +599,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 109.5, 242.0, 102.0, 23.0 ],
 									"rnbo_classname" : "set",
-									"rnbo_serial" : 5,
+									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "set_obj-9",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -180,7 +657,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 106.5, 182.0, 80.0, 23.0 ],
 									"rnbo_classname" : "set",
-									"rnbo_serial" : 4,
+									"rnbo_serial" : 3,
 									"rnbo_uniqueid" : "set_obj-8",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -238,7 +715,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 109.5, 213.0, 84.0, 23.0 ],
 									"rnbo_classname" : "set",
-									"rnbo_serial" : 2,
+									"rnbo_serial" : 4,
 									"rnbo_uniqueid" : "set_obj-7",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -296,7 +773,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 108.0, 144.0, 77.0, 23.0 ],
 									"rnbo_classname" : "set",
-									"rnbo_serial" : 1,
+									"rnbo_serial" : 5,
 									"rnbo_uniqueid" : "set_obj-6",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -437,245 +914,11 @@
 									"maxclass" : "newobj",
 									"numinlets" : 2,
 									"numoutlets" : 0,
-									"patching_rect" : [ 46.0, 1106.0, 49.0, 23.0 ],
+									"patching_rect" : [ 46.0, 361.0, 49.0, 23.0 ],
 									"rnbo_classname" : "midiout",
 									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "midiout_obj-3",
 									"text" : "midiout"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"code" : "//reconstruct remapped midi, potentially changing channel\n\n//default off\n@param chan_pad = 0;\n@param chan_step = 0;\n@param chan_track = 0;\n@param chan_function = 0;\n@param chan_nav = 0;\n\n@param active = 1;\n\nconst PREFIX_PAD = 0;\nconst PREFIX_STEP = 1;\nconst PREFIX_TRACK = 2;\nconst PREFIX_FUNCTION = 3;\nconst PREFIX_NAV = 4;\n\nfunction sendnote(num: number, vel: number, chan: number) {\n  if (vel == 0) {\n    out1 = 0x80 | (chan - 1);\n  } else {\n    out1 = 0x90 | (chan - 1);\n  }\n  out1 = num;\n  out1 = vel;\n}\n\nfunction sendcc(num: number, val: number, chan: number) {\n  out1 = 0xB0 | (chan - 1);\n  out1 = num;\n  out1 = val;\n}\n\nlet m = listin1;\nlet prefix = m[0];\nlet num = m[1];\n\nif (num < 0 || active == 0)\n  return;\n\nswitch (prefix) {\n  case PREFIX_PAD:\n    if (num < 32 && chan_pad > 0 && chan_pad <= 16) {\n      sendnote(num + 68, m[2], chan_pad);\n    }\n    break;\n  case PREFIX_STEP:\n    if (num < 16 && chan_step > 0 && chan_step <= 16) {\n      sendnote(num + 16, m[2], chan_step);\n    }\n    break;\n  case PREFIX_TRACK:\n    if (num < 4 && chan_track > 0 && chan_track <= 16) {\n      sendcc(num + 40, m[2], chan_track);\n    }\n    break;\n  case PREFIX_FUNCTION:\n    if (chan_function > 0 && chan_function <= 16) {\n      switch (num) {\n        case 0:\n          sendcc(52, m[2], chan_function);\n          break;\n        case 1:\n          sendcc(118, m[2], chan_function);\n          break;\n        case 2:\n          sendcc(58, m[2], chan_function);\n          break;\n        case 3:\n          sendcc(88, m[2], chan_function);\n          break;\n        case 4:\n          sendcc(119, m[2], chan_function);\n          break;\n        case 5:\n          sendcc(60, m[2], chan_function);\n          break;\n        case 6:\n          sendcc(56, m[2], chan_function);\n          break;\n        case 7:\n          sendcc(49, m[2], chan_function);\n          break;\n        case 8:\n          sendcc(86, m[2], chan_function);\n          break;\n          //TODO play button\n        default:\n          break;\n      }\n    }\n    break;\n  case PREFIX_NAV:\n    if (chan_nav > 0 && chan_nav <= 16) {\n      switch (num) {\n        case 0:\n          sendcc(55, m[2], chan_nav);\n          break;\n        case 1:\n          sendcc(54, m[2], chan_nav);\n          break;\n        case 2:\n          sendcc(62, m[2], chan_nav);\n          break;\n        case 3:\n          sendcc(63, m[2], chan_nav);\n          break;\n        default:\n          break;\n      }\n    }\n    break;\n  default:\n    //error?\n    break;\n}\n",
-									"fontface" : 0,
-									"fontname" : "<Monospaced>",
-									"fontsize" : 12.0,
-									"id" : "obj-1",
-									"maxclass" : "codebox",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 46.0, 310.0, 742.0, 783.0 ],
-									"rnbo_classname" : "codebox",
-									"rnbo_extra_attributes" : 									{
-										"code" : "//reconstruct remapped midi, potentially changing channel\n\n//default off\n@param chan_pad = 0;\n@param chan_step = 0;\n@param chan_track = 0;\n@param chan_function = 0;\n@param chan_nav = 0;\n\n@param active = 1;\n\nconst PREFIX_PAD = 0;\nconst PREFIX_STEP = 1;\nconst PREFIX_TRACK = 2;\nconst PREFIX_FUNCTION = 3;\nconst PREFIX_NAV = 4;\n\nfunction sendnote(num: number, vel: number, chan: number) {\n  if (vel == 0) {\n    out1 = 0x80 | (chan - 1);\n  } else {\n    out1 = 0x90 | (chan - 1);\n  }\n  out1 = num;\n  out1 = vel;\n}\n\nfunction sendcc(num: number, val: number, chan: number) {\n  out1 = 0xB0 | (chan - 1);\n  out1 = num;\n  out1 = val;\n}\n\nlet m = listin1;\nlet prefix = m[0];\nlet num = m[1];\n\nif (num < 0 || active == 0)\n  return;\n\nswitch (prefix) {\n  case PREFIX_PAD:\n    if (num < 32 && chan_pad > 0 && chan_pad <= 16) {\n      sendnote(num + 68, m[2], chan_pad);\n    }\n    break;\n  case PREFIX_STEP:\n    if (num < 16 && chan_step > 0 && chan_step <= 16) {\n      sendnote(num + 16, m[2], chan_step);\n    }\n    break;\n  case PREFIX_TRACK:\n    if (num < 4 && chan_track > 0 && chan_track <= 16) {\n      sendcc(num + 40, m[2], chan_track);\n    }\n    break;\n  case PREFIX_FUNCTION:\n    if (chan_function > 0 && chan_function <= 16) {\n      switch (num) {\n        case 0:\n          sendcc(52, m[2], chan_function);\n          break;\n        case 1:\n          sendcc(118, m[2], chan_function);\n          break;\n        case 2:\n          sendcc(58, m[2], chan_function);\n          break;\n        case 3:\n          sendcc(88, m[2], chan_function);\n          break;\n        case 4:\n          sendcc(119, m[2], chan_function);\n          break;\n        case 5:\n          sendcc(60, m[2], chan_function);\n          break;\n        case 6:\n          sendcc(56, m[2], chan_function);\n          break;\n        case 7:\n          sendcc(49, m[2], chan_function);\n          break;\n        case 8:\n          sendcc(86, m[2], chan_function);\n          break;\n          //TODO play button\n        default:\n          break;\n      }\n    }\n    break;\n  case PREFIX_NAV:\n    if (chan_nav > 0 && chan_nav <= 16) {\n      switch (num) {\n        case 0:\n          sendcc(55, m[2], chan_nav);\n          break;\n        case 1:\n          sendcc(54, m[2], chan_nav);\n          break;\n        case 2:\n          sendcc(62, m[2], chan_nav);\n          break;\n        case 3:\n          sendcc(63, m[2], chan_nav);\n          break;\n        default:\n          break;\n      }\n    }\n    break;\n  default:\n    //error?\n    break;\n}\n",
-										"nocache" : 0,
-										"safemath" : 1,
-										"hot" : 0
-									}
-,
-									"rnbo_serial" : 5,
-									"rnbo_uniqueid" : "codebox_obj-1",
-									"rnboinfo" : 									{
-										"needsInstanceInfo" : 1,
-										"argnames" : 										{
-											"reset" : 											{
-												"attrOrProp" : 1,
-												"digest" : "Reset all state and params to initial values",
-												"isalias" : 0,
-												"aliases" : [  ],
-												"attachable" : 1,
-												"isparam" : 0,
-												"deprecated" : 0,
-												"touched" : 0,
-												"type" : "bang"
-											}
-,
-											"in1" : 											{
-												"attrOrProp" : 1,
-												"digest" : "in1",
-												"isalias" : 0,
-												"aliases" : [  ],
-												"settable" : 1,
-												"attachable" : 0,
-												"isparam" : 0,
-												"deprecated" : 0,
-												"touched" : 0,
-												"inlet" : 1,
-												"type" : "list"
-											}
-,
-											"out1" : 											{
-												"attrOrProp" : 1,
-												"digest" : "out1",
-												"isalias" : 0,
-												"aliases" : [  ],
-												"settable" : 0,
-												"attachable" : 0,
-												"isparam" : 0,
-												"deprecated" : 0,
-												"touched" : 0,
-												"outlet" : 1,
-												"type" : "number"
-											}
-,
-											"chan_pad" : 											{
-												"attrOrProp" : 1,
-												"digest" : "chan_pad",
-												"isalias" : 0,
-												"aliases" : [  ],
-												"settable" : 1,
-												"attachable" : 1,
-												"isparam" : 0,
-												"deprecated" : 0,
-												"touched" : 0,
-												"type" : "number",
-												"defaultValue" : "0"
-											}
-,
-											"chan_step" : 											{
-												"attrOrProp" : 1,
-												"digest" : "chan_step",
-												"isalias" : 0,
-												"aliases" : [  ],
-												"settable" : 1,
-												"attachable" : 1,
-												"isparam" : 0,
-												"deprecated" : 0,
-												"touched" : 0,
-												"type" : "number",
-												"defaultValue" : "0"
-											}
-,
-											"chan_track" : 											{
-												"attrOrProp" : 1,
-												"digest" : "chan_track",
-												"isalias" : 0,
-												"aliases" : [  ],
-												"settable" : 1,
-												"attachable" : 1,
-												"isparam" : 0,
-												"deprecated" : 0,
-												"touched" : 0,
-												"type" : "number",
-												"defaultValue" : "0"
-											}
-,
-											"chan_function" : 											{
-												"attrOrProp" : 1,
-												"digest" : "chan_function",
-												"isalias" : 0,
-												"aliases" : [  ],
-												"settable" : 1,
-												"attachable" : 1,
-												"isparam" : 0,
-												"deprecated" : 0,
-												"touched" : 0,
-												"type" : "number",
-												"defaultValue" : "0"
-											}
-,
-											"chan_nav" : 											{
-												"attrOrProp" : 1,
-												"digest" : "chan_nav",
-												"isalias" : 0,
-												"aliases" : [  ],
-												"settable" : 1,
-												"attachable" : 1,
-												"isparam" : 0,
-												"deprecated" : 0,
-												"touched" : 0,
-												"type" : "number",
-												"defaultValue" : "0"
-											}
-,
-											"active" : 											{
-												"attrOrProp" : 1,
-												"digest" : "active",
-												"isalias" : 0,
-												"aliases" : [  ],
-												"settable" : 1,
-												"attachable" : 1,
-												"isparam" : 0,
-												"deprecated" : 0,
-												"touched" : 0,
-												"type" : "number",
-												"defaultValue" : "1"
-											}
-,
-											"expr" : 											{
-												"attrOrProp" : 2,
-												"digest" : "expr",
-												"defaultarg" : 1,
-												"isalias" : 0,
-												"aliases" : [  ],
-												"settable" : 1,
-												"attachable" : 0,
-												"isparam" : 0,
-												"deprecated" : 0,
-												"touched" : 0,
-												"type" : "symbol",
-												"doNotShowInMaxInspector" : 1
-											}
-,
-											"hot" : 											{
-												"attrOrProp" : 2,
-												"digest" : "Trigger computation on all inlets.",
-												"isalias" : 0,
-												"aliases" : [  ],
-												"settable" : 1,
-												"attachable" : 0,
-												"isparam" : 0,
-												"deprecated" : 0,
-												"touched" : 0,
-												"type" : "bool",
-												"defaultValue" : "false"
-											}
-,
-											"safemath" : 											{
-												"attrOrProp" : 2,
-												"digest" : "Use safe math expressions (e.g.: division by 0 will not crash).",
-												"isalias" : 0,
-												"aliases" : [  ],
-												"settable" : 1,
-												"attachable" : 0,
-												"isparam" : 0,
-												"deprecated" : 0,
-												"touched" : 0,
-												"type" : "bool",
-												"defaultValue" : "true"
-											}
-,
-											"nocache" : 											{
-												"attrOrProp" : 2,
-												"digest" : "Do not use parsing cache. This is only useful with very very big code sizes. Code generation will then take a looooong time.",
-												"isalias" : 0,
-												"aliases" : [  ],
-												"settable" : 1,
-												"attachable" : 0,
-												"isparam" : 0,
-												"deprecated" : 0,
-												"touched" : 0,
-												"type" : "bool",
-												"defaultValue" : "false"
-											}
-
-										}
-,
-										"inputs" : [ 											{
-												"name" : "in1",
-												"type" : "list",
-												"digest" : "in1",
-												"hot" : 1,
-												"docked" : 0
-											}
- ],
-										"outputs" : [ 											{
-												"name" : "out1",
-												"type" : "number",
-												"digest" : "out1",
-												"docked" : 0
-											}
- ],
-										"helpname" : "codebox",
-										"aliasOf" : "expr",
-										"classname" : "codebox",
-										"operator" : 0,
-										"versionId" : 835263063,
-										"changesPatcherIO" : 0
-									}
-
 								}
 
 							}
@@ -707,13 +950,13 @@
 										"args" : [  ],
 										"polyphony" : -1.0,
 										"receivemode" : "local",
-										"exposevoiceparams" : 0,
 										"notecontroller" : 0,
 										"voicecontrol" : "simple",
+										"exposevoiceparams" : 0,
 										"uidstyle" : "auto"
 									}
 ,
-									"rnbo_serial" : 2,
+									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "p_obj-2",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -927,22 +1170,21 @@
  ],
 						"lines" : [ 							{
 								"patchline" : 								{
-									"destination" : [ "obj-3", 0 ],
-									"source" : [ "obj-1", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-1", 0 ],
-									"midpoints" : [ 117.5, 294.0, 55.5, 294.0 ],
+									"destination" : [ "obj-17", 0 ],
 									"source" : [ "obj-10", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-1", 0 ],
+									"destination" : [ "obj-3", 0 ],
+									"source" : [ "obj-17", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-17", 0 ],
 									"source" : [ "obj-2", 0 ]
 								}
 
@@ -996,32 +1238,28 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-1", 0 ],
-									"midpoints" : [ 117.5, 180.0, 55.5, 180.0 ],
+									"destination" : [ "obj-17", 0 ],
 									"source" : [ "obj-6", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-1", 0 ],
-									"midpoints" : [ 119.0, 237.0, 55.5, 237.0 ],
+									"destination" : [ "obj-17", 0 ],
 									"source" : [ "obj-7", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-1", 0 ],
-									"midpoints" : [ 116.0, 207.0, 55.5, 207.0 ],
+									"destination" : [ "obj-17", 0 ],
 									"source" : [ "obj-8", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-1", 0 ],
-									"midpoints" : [ 119.0, 267.0, 55.5, 267.0 ],
+									"destination" : [ "obj-17", 0 ],
 									"source" : [ "obj-9", 0 ]
 								}
 
@@ -1031,6 +1269,41 @@
 ,
 					"patching_rect" : [ 295.0, 163.0, 131.0, 22.0 ],
 					"rnboattrcache" : 					{
+						"rnbo~[10]/active" : 						{
+							"label" : "active",
+							"isEnum" : 1,
+							"parsestring" : "\"off\" \"on\""
+						}
+,
+						"rnbo~[10]/chan_pad" : 						{
+							"label" : "chan_pad",
+							"isEnum" : 1,
+							"parsestring" : "\"off\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\""
+						}
+,
+						"rnbo~[10]/chan_step" : 						{
+							"label" : "chan_step",
+							"isEnum" : 1,
+							"parsestring" : "\"off\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\""
+						}
+,
+						"rnbo~[10]/chan_track" : 						{
+							"label" : "chan_track",
+							"isEnum" : 1,
+							"parsestring" : "\"off\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\""
+						}
+,
+						"rnbo~[10]/chan_function" : 						{
+							"label" : "chan_function",
+							"isEnum" : 1,
+							"parsestring" : "\"off\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\""
+						}
+,
+						"rnbo~[10]/chan_nav" : 						{
+							"label" : "chan_nav",
+							"isEnum" : 1,
+							"parsestring" : "\"off\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\""
+						}
 
 					}
 ,
@@ -1066,6 +1339,33 @@
 								"p_obj-2" : 								{
 
 								}
+,
+								"rnbo~[10]" : 								{
+									"chan_nav" : 									{
+										"value" : 0.0
+									}
+,
+									"chan_function" : 									{
+										"value" : 0.0
+									}
+,
+									"chan_step" : 									{
+										"value" : 0.0
+									}
+,
+									"chan_track" : 									{
+										"value" : 0.0
+									}
+,
+									"chan_pad" : 									{
+										"value" : 0.0
+									}
+,
+									"active" : 									{
+										"value" : 1.0
+									}
+
+								}
 
 							}
 ,
@@ -1086,6 +1386,33 @@
 									"snapshot" : 									{
 										"__sps" : 										{
 											"p_obj-2" : 											{
+
+											}
+,
+											"rnbo~[10]" : 											{
+												"chan_nav" : 												{
+													"value" : 0.0
+												}
+,
+												"chan_function" : 												{
+													"value" : 0.0
+												}
+,
+												"chan_step" : 												{
+													"value" : 0.0
+												}
+,
+												"chan_track" : 												{
+													"value" : 0.0
+												}
+,
+												"chan_pad" : 												{
+													"value" : 0.0
+												}
+,
+												"active" : 												{
+													"value" : 1.0
+												}
 
 											}
 
@@ -1276,6 +1603,10 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 84.0, 262.0, 29.5, 23.0 ],
 									"rnbo_classname" : "t",
+									"rnbo_extra_attributes" : 									{
+										"triggers" : ""
+									}
+,
 									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "t_obj-13",
 									"rnboinfo" : 									{
@@ -1369,6 +1700,10 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 163.0, 106.0, 30.0, 23.0 ],
 									"rnbo_classname" : "t",
+									"rnbo_extra_attributes" : 									{
+										"triggers" : ""
+									}
+,
 									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "t_obj-28",
 									"rnboinfo" : 									{
@@ -1520,6 +1855,10 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 255.0, 141.0, 30.0, 23.0 ],
 									"rnbo_classname" : "t",
+									"rnbo_extra_attributes" : 									{
+										"triggers" : ""
+									}
+,
 									"rnbo_serial" : 3,
 									"rnbo_uniqueid" : "t_obj-26",
 									"rnboinfo" : 									{
@@ -1671,6 +2010,10 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 335.0, 179.0, 30.0, 23.0 ],
 									"rnbo_classname" : "t",
+									"rnbo_extra_attributes" : 									{
+										"triggers" : ""
+									}
+,
 									"rnbo_serial" : 4,
 									"rnbo_uniqueid" : "t_obj-22",
 									"rnboinfo" : 									{
@@ -2094,6 +2437,10 @@
 													"outlettype" : [ "", "" ],
 													"patching_rect" : [ 44.0, 55.0, 56.0, 23.0 ],
 													"rnbo_classname" : "t",
+													"rnbo_extra_attributes" : 													{
+														"triggers" : ""
+													}
+,
 													"rnbo_serial" : 1,
 													"rnbo_uniqueid" : "t_obj-16",
 													"rnboinfo" : 													{
@@ -2238,9 +2585,9 @@
 										"args" : [  ],
 										"polyphony" : -1.0,
 										"receivemode" : "local",
-										"exposevoiceparams" : 0,
 										"notecontroller" : 0,
 										"voicecontrol" : "simple",
+										"exposevoiceparams" : 0,
 										"uidstyle" : "auto"
 									}
 ,
@@ -2458,6 +2805,10 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 396.0, 218.0, 30.0, 23.0 ],
 									"rnbo_classname" : "t",
+									"rnbo_extra_attributes" : 									{
+										"triggers" : ""
+									}
+,
 									"rnbo_serial" : 5,
 									"rnbo_uniqueid" : "t_obj-12",
 									"rnboinfo" : 									{
@@ -2610,19 +2961,19 @@
 									"patching_rect" : [ 396.0, 179.0, 302.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"unit" : "",
-										"minimum" : 0.0,
-										"order" : "0",
-										"fromnormalized" : "",
-										"displayname" : "",
 										"meta" : "",
+										"unit" : "",
+										"fromnormalized" : "",
 										"maximum" : 1.0,
-										"steps" : 2.0,
+										"order" : "0",
+										"exponent" : 1.0,
 										"tonormalized" : "",
 										"preset" : 1,
+										"displayname" : "",
+										"minimum" : 0.0,
 										"sendinit" : 1,
 										"ctlin" : -1.0,
-										"exponent" : 1.0
+										"steps" : 2.0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -3058,17 +3409,17 @@
 									"patching_rect" : [ 335.0, 141.0, 401.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"unit" : "",
-										"order" : "0",
-										"fromnormalized" : "",
-										"displayname" : "",
-										"meta" : "",
 										"enum" : "",
+										"meta" : "",
+										"unit" : "",
+										"fromnormalized" : "",
+										"order" : "0",
+										"exponent" : 1.0,
 										"tonormalized" : "",
 										"preset" : 1,
+										"displayname" : "",
 										"sendinit" : 1,
-										"ctlin" : -1.0,
-										"exponent" : 1.0
+										"ctlin" : -1.0
 									}
 ,
 									"rnbo_serial" : 2,
@@ -3500,17 +3851,17 @@
 									"patching_rect" : [ 163.0, 71.0, 404.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"unit" : "",
-										"order" : "0",
-										"fromnormalized" : "",
-										"displayname" : "",
-										"meta" : "",
 										"enum" : "",
+										"meta" : "",
+										"unit" : "",
+										"fromnormalized" : "",
+										"order" : "0",
+										"exponent" : 1.0,
 										"tonormalized" : "",
 										"preset" : 1,
+										"displayname" : "",
 										"sendinit" : 1,
-										"ctlin" : -1.0,
-										"exponent" : 1.0
+										"ctlin" : -1.0
 									}
 ,
 									"rnbo_serial" : 3,
@@ -3942,18 +4293,18 @@
 									"patching_rect" : [ 255.0, 102.0, 347.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"unit" : "",
-										"order" : "0",
-										"fromnormalized" : "",
-										"displayname" : "",
-										"meta" : "",
-										"steps" : 0.0,
 										"enum" : "",
+										"meta" : "",
+										"unit" : "",
+										"fromnormalized" : "",
+										"order" : "0",
+										"exponent" : 1.0,
 										"tonormalized" : "",
 										"preset" : 1,
+										"displayname" : "",
 										"sendinit" : 1,
 										"ctlin" : -1.0,
-										"exponent" : 1.0
+										"steps" : 0.0
 									}
 ,
 									"rnbo_serial" : 4,
@@ -4775,12 +5126,6 @@
 ,
 					"patching_rect" : [ 233.0, 341.0, 177.0, 22.0 ],
 					"rnboattrcache" : 					{
-						"Tuning" : 						{
-							"label" : "Tuning",
-							"isEnum" : 0,
-							"parsestring" : ""
-						}
-,
 						"MIDIRef" : 						{
 							"label" : "MIDIRef",
 							"isEnum" : 0,
@@ -4789,6 +5134,12 @@
 ,
 						"MIDIMid" : 						{
 							"label" : "MIDIMid",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
+						"Tuning" : 						{
+							"label" : "Tuning",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -5740,7 +6091,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 154.0, 193.0, 67.0, 22.0 ],
+					"patching_rect" : [ 147.0, 273.0, 67.0, 22.0 ],
 					"text" : "r movemidi"
 				}
 
@@ -6017,20 +6368,20 @@
 									"patching_rect" : [ 118.0, 97.0, 253.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"unit" : "",
-										"minimum" : 0.0,
-										"order" : "0",
-										"fromnormalized" : "",
-										"displayorder" : "-",
-										"displayname" : "",
 										"meta" : "",
+										"unit" : "",
+										"fromnormalized" : "",
 										"maximum" : 2.0,
-										"steps" : 3.0,
+										"order" : "0",
+										"displayorder" : "-",
+										"exponent" : 1.0,
 										"tonormalized" : "",
 										"preset" : 1,
+										"displayname" : "",
+										"minimum" : 0.0,
 										"sendinit" : 1,
 										"ctlin" : -1.0,
-										"exponent" : 1.0
+										"steps" : 3.0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -6739,7 +7090,7 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 881.0, 1027.0, 49.0, 23.0 ],
 									"rnbo_classname" : "midiout",
-									"rnbo_serial" : 2,
+									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "midiout_obj-25",
 									"text" : "midiout"
 								}
@@ -6755,22 +7106,22 @@
 									"patching_rect" : [ 931.0, 339.0, 605.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"unit" : "",
-										"minimum" : 0.0,
-										"order" : "0",
-										"fromnormalized" : "",
-										"displayorder" : "-",
 										"meta" : "",
+										"unit" : "",
+										"fromnormalized" : "",
 										"maximum" : 16.0,
-										"steps" : 17.0,
+										"order" : "0",
+										"displayorder" : "-",
+										"exponent" : 1.0,
 										"tonormalized" : "",
 										"preset" : 1,
+										"minimum" : 0.0,
 										"sendinit" : 1,
 										"ctlin" : -1.0,
-										"exponent" : 1.0
+										"steps" : 17.0
 									}
 ,
-									"rnbo_serial" : 5,
+									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "fnchannel",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -7202,7 +7553,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 931.0, 376.0, 102.0, 23.0 ],
 									"rnbo_classname" : "set",
-									"rnbo_serial" : 6,
+									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "set_obj-23",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -7271,7 +7622,7 @@
 										"hot" : 0
 									}
 ,
-									"rnbo_serial" : 7,
+									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "codebox_obj-15",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -7494,6 +7845,10 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 304.0, 57.0, 32.0, 23.0 ],
 									"rnbo_classname" : "t",
+									"rnbo_extra_attributes" : 									{
+										"triggers" : ""
+									}
+,
 									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "t_obj-14",
 									"rnboinfo" : 									{
@@ -7621,6 +7976,10 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 828.0, 1244.0, 43.0, 23.0 ],
 									"rnbo_classname" : "t",
+									"rnbo_extra_attributes" : 									{
+										"triggers" : ""
+									}
+,
 									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "t_obj-10",
 									"rnboinfo" : 									{
@@ -7867,7 +8226,7 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 852.0, 1401.0, 49.0, 23.0 ],
 									"rnbo_classname" : "midiout",
-									"rnbo_serial" : 1,
+									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "midiout_obj-6",
 									"text" : "midiout"
 								}
@@ -8069,7 +8428,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 65.0, 197.0, 59.0, 23.0 ],
 									"rnbo_classname" : "set",
-									"rnbo_serial" : 1,
+									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "set_obj-30",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -8138,7 +8497,7 @@
 										"hot" : 0
 									}
 ,
-									"rnbo_serial" : 1,
+									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "codebox_obj-29",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -8445,23 +8804,23 @@
 									"patching_rect" : [ 65.0, 98.0, 205.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"unit" : "",
-										"minimum" : 0.0,
-										"order" : "0",
-										"fromnormalized" : "",
-										"displayorder" : "-",
-										"displayname" : "",
 										"meta" : "",
+										"unit" : "",
+										"fromnormalized" : "",
 										"maximum" : 1.0,
-										"steps" : 2.0,
+										"order" : "0",
+										"displayorder" : "-",
+										"exponent" : 1.0,
 										"tonormalized" : "",
 										"preset" : 1,
+										"displayname" : "",
+										"minimum" : 0.0,
 										"sendinit" : 1,
 										"ctlin" : -1.0,
-										"exponent" : 1.0
+										"steps" : 2.0
 									}
 ,
-									"rnbo_serial" : 1,
+									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "Active",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -8894,22 +9253,22 @@
 									"patching_rect" : [ 833.0, 1138.0, 501.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"unit" : "",
-										"minimum" : 0.0,
-										"order" : "0",
-										"fromnormalized" : "",
-										"displayorder" : "-",
 										"meta" : "",
+										"unit" : "",
+										"fromnormalized" : "",
 										"maximum" : 15.0,
-										"steps" : 16.0,
+										"order" : "0",
+										"displayorder" : "-",
+										"exponent" : 1.0,
 										"tonormalized" : "",
 										"preset" : 1,
+										"minimum" : 0.0,
 										"sendinit" : 1,
 										"ctlin" : -1.0,
-										"exponent" : 1.0
+										"steps" : 16.0
 									}
 ,
-									"rnbo_serial" : 2,
+									"rnbo_serial" : 3,
 									"rnbo_uniqueid" : "channel",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -9378,9 +9737,9 @@
 										"args" : [  ],
 										"polyphony" : -1.0,
 										"receivemode" : "local",
-										"exposevoiceparams" : 0,
 										"notecontroller" : 0,
 										"voicecontrol" : "simple",
+										"exposevoiceparams" : 0,
 										"uidstyle" : "auto"
 									}
 ,
@@ -9594,9 +9953,9 @@
 										"args" : [  ],
 										"polyphony" : -1.0,
 										"receivemode" : "local",
-										"exposevoiceparams" : 0,
 										"notecontroller" : 0,
 										"voicecontrol" : "simple",
+										"exposevoiceparams" : 0,
 										"uidstyle" : "auto"
 									}
 ,
@@ -10054,7 +10413,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 33.0, 234.0, 140.0, 22.0 ],
+					"patching_rect" : [ 26.0, 314.0, 140.0, 22.0 ],
 					"rnboattrcache" : 					{
 						"Active" : 						{
 							"label" : "Active",
@@ -10271,9 +10630,9 @@
 										"args" : [  ],
 										"polyphony" : -1.0,
 										"receivemode" : "local",
-										"exposevoiceparams" : 0,
 										"notecontroller" : 0,
 										"voicecontrol" : "simple",
+										"exposevoiceparams" : 0,
 										"uidstyle" : "auto"
 									}
 ,
@@ -10670,9 +11029,9 @@
 										"args" : [  ],
 										"polyphony" : -1.0,
 										"receivemode" : "local",
-										"exposevoiceparams" : 0,
 										"notecontroller" : 0,
 										"voicecontrol" : "simple",
+										"exposevoiceparams" : 0,
 										"uidstyle" : "auto"
 									}
 ,
@@ -11608,9 +11967,9 @@
 										"args" : [  ],
 										"polyphony" : -1.0,
 										"receivemode" : "local",
-										"exposevoiceparams" : 0,
 										"notecontroller" : 0,
 										"voicecontrol" : "simple",
+										"exposevoiceparams" : 0,
 										"uidstyle" : "auto"
 									}
 ,
@@ -11824,9 +12183,9 @@
 										"args" : [  ],
 										"polyphony" : -1.0,
 										"receivemode" : "local",
-										"exposevoiceparams" : 0,
 										"notecontroller" : 0,
 										"voicecontrol" : "simple",
+										"exposevoiceparams" : 0,
 										"uidstyle" : "auto"
 									}
 ,
@@ -12208,7 +12567,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 33.0, 129.0, 150.0, 22.0 ]
+					"patching_rect" : [ 26.0, 209.0, 150.0, 22.0 ]
 				}
 
 			}
@@ -12241,6 +12600,7 @@
 			"obj-12::obj-1::obj-1" : [ "rnbo~[8]", "rnbo~", 0 ],
 			"obj-13" : [ "rnbo~[10]", "rnbo~[1]", 0 ],
 			"obj-15" : [ "rnbo~[9]", "rnbo~[9]", 0 ],
+			"obj-17" : [ "rnbo~[11]", "rnbo~[11]", 0 ],
 			"obj-2" : [ "rnbo~[1]", "rnbo~[1]", 0 ],
 			"obj-3" : [ "rnbo~[6]", "rnbo~[6]", 0 ],
 			"obj-5" : [ "rnbo~", "rnbo~", 0 ],
@@ -12348,6 +12708,20 @@
 				"bootpath" : "~/Documents/Max 9/Snapshots",
 				"patcherrelativepath" : "../../../Max 9/Snapshots",
 				"type" : "mx@s",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "thru-driver.maxsnap",
+				"bootpath" : "~/Documents/Max 9/Snapshots",
+				"patcherrelativepath" : "../../../Max 9/Snapshots",
+				"type" : "mx@s",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "thru-driver.rnbopat",
+				"bootpath" : "~/Documents/rnbo/move/templates",
+				"patcherrelativepath" : ".",
+				"type" : "RBOP",
 				"implicit" : 1
 			}
 , 			{
