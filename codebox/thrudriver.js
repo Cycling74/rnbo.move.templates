@@ -31,6 +31,19 @@ function sendcc(num: number, val: number, chan: number) {
   out1 = val;
 }
 
+//key pressure
+function listin2(v: list) {
+  if (v.length == 2) {
+    let index = v[0];
+
+    if (index >= 0 && index < 32 && chan_pad > 0 && chan_pad <= 16) {
+      out1 = 0xA0 | (chan_pad - 1);
+      out1 = index + 68;
+      out1 = v[1];
+    }
+  }
+}
+
 let m = listin1;
 let prefix = m[0];
 let num = m[1];
