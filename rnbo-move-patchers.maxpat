@@ -10,9 +10,46 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 179.0, 206.0, 3019.0, 1511.0 ],
+		"rect" : [ 34.0, 128.0, 1660.0, 955.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
+		"assistshowspatchername" : 0,
+		"commentary" : "",
+		"showcommentary" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-21",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 28.000000417232513, 340.000005066394806, 150.0, 33.0 ],
+					"text" : "scale system based on abstractions above"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-19",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 35.5, 6.400000095367432, 150.0, 20.0 ],
+					"text" : "abstractions to reuse"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-16",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 295.5, 6.400000095367432, 150.0, 20.0 ],
+					"text" : "example/debug"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"autosave" : 1,
 					"id" : "obj-17",
@@ -40,7 +77,7 @@
 					}
 ,
 					"outlettype" : [ "", "list" ],
-					"patching_rect" : [ 35.5, 124.0, 183.0, 22.0 ],
+					"patching_rect" : [ 35.5, 108.000001609325409, 183.0, 22.0 ],
 					"rnboattrcache" : 					{
 						"chan_pad" : 						{
 							"label" : "chan_pad",
@@ -226,9 +263,12 @@
 						}
 ,
 						"classnamespace" : "rnbo",
-						"rect" : [ 179.0, 234.0, 2494.0, 1483.0 ],
+						"rect" : [ 34.0, 156.0, 1137.0, 927.0 ],
 						"default_fontname" : "Lato",
 						"gridsize" : [ 15.0, 15.0 ],
+						"assistshowspatchername" : 0,
+						"commentary" : "",
+						"showcommentary" : 0,
 						"title" : "move-thru",
 						"boxes" : [ 							{
 								"box" : 								{
@@ -240,16 +280,16 @@
 									"patching_rect" : [ 46.0, 316.0, 149.0, 23.0 ],
 									"rnbo_classname" : "p",
 									"rnbo_extra_attributes" : 									{
-										"args" : [  ],
-										"polyphony" : -1.0,
-										"receivemode" : "local",
-										"notecontroller" : 0,
-										"voicecontrol" : "simple",
+										"uidstyle" : "auto",
 										"exposevoiceparams" : 0,
-										"uidstyle" : "auto"
+										"voicecontrol" : "simple",
+										"args" : [  ],
+										"receivemode" : "local",
+										"polyphony" : -1.0,
+										"notecontroller" : 0
 									}
 ,
-									"rnbo_serial" : 2,
+									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "rnbo~[10]",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -947,16 +987,16 @@
 									"patching_rect" : [ 46.0, 66.0, 154.0, 23.0 ],
 									"rnbo_classname" : "p",
 									"rnbo_extra_attributes" : 									{
-										"args" : [  ],
-										"polyphony" : -1.0,
-										"receivemode" : "local",
-										"notecontroller" : 0,
-										"voicecontrol" : "simple",
+										"uidstyle" : "auto",
 										"exposevoiceparams" : 0,
-										"uidstyle" : "auto"
+										"voicecontrol" : "simple",
+										"args" : [  ],
+										"receivemode" : "local",
+										"polyphony" : -1.0,
+										"notecontroller" : 0
 									}
 ,
-									"rnbo_serial" : 1,
+									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "p_obj-2",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -1267,7 +1307,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 295.0, 163.0, 131.0, 22.0 ],
+					"patching_rect" : [ 296.000004410743713, 143.200002133846283, 131.0, 22.0 ],
 					"rnboattrcache" : 					{
 						"rnbo~[10]/active" : 						{
 							"label" : "active",
@@ -1488,6 +1528,9 @@
 						"rect" : [ 179.0, 206.0, 2508.0, 1103.0 ],
 						"default_fontname" : "Lato",
 						"gridsize" : [ 15.0, 15.0 ],
+						"assistshowspatchername" : 0,
+						"commentary" : "",
+						"showcommentary" : 0,
 						"title" : "Pad KBM Builder",
 						"boxes" : [ 							{
 								"box" : 								{
@@ -1603,10 +1646,6 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 84.0, 262.0, 29.5, 23.0 ],
 									"rnbo_classname" : "t",
-									"rnbo_extra_attributes" : 									{
-										"triggers" : ""
-									}
-,
 									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "t_obj-13",
 									"rnboinfo" : 									{
@@ -1700,10 +1739,6 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 163.0, 106.0, 30.0, 23.0 ],
 									"rnbo_classname" : "t",
-									"rnbo_extra_attributes" : 									{
-										"triggers" : ""
-									}
-,
 									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "t_obj-28",
 									"rnboinfo" : 									{
@@ -1855,10 +1890,6 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 255.0, 141.0, 30.0, 23.0 ],
 									"rnbo_classname" : "t",
-									"rnbo_extra_attributes" : 									{
-										"triggers" : ""
-									}
-,
 									"rnbo_serial" : 3,
 									"rnbo_uniqueid" : "t_obj-26",
 									"rnboinfo" : 									{
@@ -2010,10 +2041,6 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 335.0, 179.0, 30.0, 23.0 ],
 									"rnbo_classname" : "t",
-									"rnbo_extra_attributes" : 									{
-										"triggers" : ""
-									}
-,
 									"rnbo_serial" : 4,
 									"rnbo_uniqueid" : "t_obj-22",
 									"rnboinfo" : 									{
@@ -2197,6 +2224,9 @@
 										"rect" : [ 1132.0, 223.0, 1595.0, 1155.0 ],
 										"default_fontname" : "Lato",
 										"gridsize" : [ 15.0, 15.0 ],
+										"assistshowspatchername" : 0,
+										"commentary" : "",
+										"showcommentary" : 0,
 										"title" : "hysteresis",
 										"boxes" : [ 											{
 												"box" : 												{
@@ -2437,10 +2467,6 @@
 													"outlettype" : [ "", "" ],
 													"patching_rect" : [ 44.0, 55.0, 56.0, 23.0 ],
 													"rnbo_classname" : "t",
-													"rnbo_extra_attributes" : 													{
-														"triggers" : ""
-													}
-,
 													"rnbo_serial" : 1,
 													"rnbo_uniqueid" : "t_obj-16",
 													"rnboinfo" : 													{
@@ -2582,13 +2608,13 @@
 									"patching_rect" : [ 127.0, 297.0, 70.0, 23.0 ],
 									"rnbo_classname" : "p",
 									"rnbo_extra_attributes" : 									{
-										"args" : [  ],
-										"polyphony" : -1.0,
-										"receivemode" : "local",
-										"notecontroller" : 0,
-										"voicecontrol" : "simple",
+										"uidstyle" : "auto",
 										"exposevoiceparams" : 0,
-										"uidstyle" : "auto"
+										"voicecontrol" : "simple",
+										"args" : [  ],
+										"receivemode" : "local",
+										"polyphony" : -1.0,
+										"notecontroller" : 0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -2805,10 +2831,6 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 396.0, 218.0, 30.0, 23.0 ],
 									"rnbo_classname" : "t",
-									"rnbo_extra_attributes" : 									{
-										"triggers" : ""
-									}
-,
 									"rnbo_serial" : 5,
 									"rnbo_uniqueid" : "t_obj-12",
 									"rnboinfo" : 									{
@@ -2961,19 +2983,19 @@
 									"patching_rect" : [ 396.0, 179.0, 302.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"meta" : "",
-										"unit" : "",
-										"fromnormalized" : "",
-										"maximum" : 1.0,
-										"order" : "0",
-										"exponent" : 1.0,
-										"tonormalized" : "",
-										"preset" : 1,
-										"displayname" : "",
 										"minimum" : 0.0,
-										"sendinit" : 1,
+										"displayname" : "",
+										"fromnormalized" : "",
+										"steps" : 2.0,
+										"meta" : "",
 										"ctlin" : -1.0,
-										"steps" : 2.0
+										"unit" : "",
+										"tonormalized" : "",
+										"exponent" : 1.0,
+										"order" : "0",
+										"sendinit" : 1,
+										"maximum" : 1.0,
+										"preset" : 1
 									}
 ,
 									"rnbo_serial" : 1,
@@ -3409,17 +3431,17 @@
 									"patching_rect" : [ 335.0, 141.0, 401.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
+										"displayname" : "",
+										"fromnormalized" : "",
 										"enum" : "",
 										"meta" : "",
+										"ctlin" : -1.0,
 										"unit" : "",
-										"fromnormalized" : "",
-										"order" : "0",
-										"exponent" : 1.0,
 										"tonormalized" : "",
-										"preset" : 1,
-										"displayname" : "",
+										"exponent" : 1.0,
+										"order" : "0",
 										"sendinit" : 1,
-										"ctlin" : -1.0
+										"preset" : 1
 									}
 ,
 									"rnbo_serial" : 2,
@@ -3851,17 +3873,17 @@
 									"patching_rect" : [ 163.0, 71.0, 404.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
+										"displayname" : "",
+										"fromnormalized" : "",
 										"enum" : "",
 										"meta" : "",
+										"ctlin" : -1.0,
 										"unit" : "",
-										"fromnormalized" : "",
-										"order" : "0",
-										"exponent" : 1.0,
 										"tonormalized" : "",
-										"preset" : 1,
-										"displayname" : "",
+										"exponent" : 1.0,
+										"order" : "0",
 										"sendinit" : 1,
-										"ctlin" : -1.0
+										"preset" : 1
 									}
 ,
 									"rnbo_serial" : 3,
@@ -4293,18 +4315,18 @@
 									"patching_rect" : [ 255.0, 102.0, 347.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
+										"displayname" : "",
+										"fromnormalized" : "",
+										"steps" : 0.0,
 										"enum" : "",
 										"meta" : "",
-										"unit" : "",
-										"fromnormalized" : "",
-										"order" : "0",
-										"exponent" : 1.0,
-										"tonormalized" : "",
-										"preset" : 1,
-										"displayname" : "",
-										"sendinit" : 1,
 										"ctlin" : -1.0,
-										"steps" : 0.0
+										"unit" : "",
+										"tonormalized" : "",
+										"exponent" : 1.0,
+										"order" : "0",
+										"sendinit" : 1,
+										"preset" : 1
 									}
 ,
 									"rnbo_serial" : 4,
@@ -4740,10 +4762,10 @@
 									"patching_rect" : [ 127.0, 385.0, 919.0, 537.0 ],
 									"rnbo_classname" : "codebox",
 									"rnbo_extra_attributes" : 									{
-										"code" : "@param fit = 1;\n@param mid = 60;\n@param tuning = 440.0;\n@param ref = 69;\n\nlet scl = listin1;\n\nif (scl.length == 0) {\n  return;\n}\n\n//build up kbm\nlet scalelen = scl[0];\n\nif (fit && scalelen < 32) {\n  let kbmoctave = scalelen;\n  let kbmlen = ceil(scalelen / 8) * 8;\n\n  //build up a kbm, simply map notes in order, if kbmlen isn't a multiple of 8, there will be duplicated notes\n  let kbm: list = [kbmlen, 0, 0, mid, ref, tuning, kbmoctave];\n  for (let i = 0; i < kbmlen; i++) {\n    kbm.push(i);\n  }\n\n  listout1 = kbm;\n} else {\n  //linear\n  listout1 = [0, 0, 0, mid, ref, tuning];\n}",
 										"nocache" : 0,
+										"hot" : 0,
 										"safemath" : 1,
-										"hot" : 0
+										"code" : "@param fit = 1;\n@param mid = 60;\n@param tuning = 440.0;\n@param ref = 69;\n\nlet scl = listin1;\n\nif (scl.length == 0) {\n  return;\n}\n\n//build up kbm\nlet scalelen = scl[0];\n\nif (fit && scalelen < 32) {\n  let kbmoctave = scalelen;\n  let kbmlen = ceil(scalelen / 8) * 8;\n\n  //build up a kbm, simply map notes in order, if kbmlen isn't a multiple of 8, there will be duplicated notes\n  let kbm: list = [kbmlen, 0, 0, mid, ref, tuning, kbmoctave];\n  for (let i = 0; i < kbmlen; i++) {\n    kbm.push(i);\n  }\n\n  listout1 = kbm;\n} else {\n  //linear\n  listout1 = [0, 0, 0, mid, ref, tuning];\n}"
 									}
 ,
 									"rnbo_serial" : 1,
@@ -5124,7 +5146,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 233.0, 341.0, 177.0, 22.0 ],
+					"patching_rect" : [ 28.000000417232513, 610.400009095668793, 177.0, 22.0 ],
 					"rnboattrcache" : 					{
 						"MIDIRef" : 						{
 							"label" : "MIDIRef",
@@ -5282,6 +5304,9 @@
 						"classnamespace" : "box",
 						"rect" : [ 1132.0, 251.0, 2120.0, 1127.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
+						"assistshowspatchername" : 0,
+						"commentary" : "",
+						"showcommentary" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-1",
@@ -5301,6 +5326,9 @@
 										"classnamespace" : "box",
 										"rect" : [ 1132.0, 251.0, 2120.0, 1127.0 ],
 										"gridsize" : [ 15.0, 15.0 ],
+										"assistshowspatchername" : 0,
+										"commentary" : "",
+										"showcommentary" : 0,
 										"boxes" : [ 											{
 												"box" : 												{
 													"id" : "obj-16",
@@ -5532,6 +5560,9 @@
 														"rect" : [ 1226.0, 202.0, 2093.0, 1043.0 ],
 														"default_fontname" : "Lato",
 														"gridsize" : [ 15.0, 15.0 ],
+														"assistshowspatchername" : 0,
+														"commentary" : "",
+														"showcommentary" : 0,
 														"title" : "untitled",
 														"boxes" : [ 															{
 																"box" : 																{
@@ -5738,10 +5769,10 @@
 																	"patching_rect" : [ 116.0, 236.0, 582.0, 289.0 ],
 																	"rnbo_classname" : "codebox",
 																	"rnbo_extra_attributes" : 																	{
-																		"code" : "@state parser = new scala();\n\nfunction listin2(kbm: list) {\n\tparser.updateMap(kbm);\n}\n\nlet v = in1;\n\nlet mapped = parser.applyKBM(v);\n\nif (mapped[1]) {\n  out1 = mapped[0];\n}\n",
 																		"nocache" : 0,
+																		"hot" : 0,
 																		"safemath" : 1,
-																		"hot" : 0
+																		"code" : "@state parser = new scala();\n\nfunction listin2(kbm: list) {\n\tparser.updateMap(kbm);\n}\n\nlet v = in1;\n\nlet mapped = parser.applyKBM(v);\n\nif (mapped[1]) {\n  out1 = mapped[0];\n}\n"
 																	}
 ,
 																	"rnbo_serial" : 1,
@@ -6091,7 +6122,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 147.0, 273.0, 67.0, 22.0 ],
+					"patching_rect" : [ 149.600002229213715, 451.200006723403931, 67.0, 22.0 ],
 					"text" : "r movemidi"
 				}
 
@@ -6129,9 +6160,12 @@
 						}
 ,
 						"classnamespace" : "rnbo",
-						"rect" : [ 34.0, 196.0, 2462.0, 1338.0 ],
+						"rect" : [ 34.0, 156.0, 1660.0, 927.0 ],
 						"default_fontname" : "Lato",
 						"gridsize" : [ 15.0, 15.0 ],
+						"assistshowspatchername" : 0,
+						"commentary" : "",
+						"showcommentary" : 0,
 						"title" : "midi-monitor",
 						"boxes" : [ 							{
 								"box" : 								{
@@ -6177,7 +6211,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 309.090906143188477, 461.038956642150879, 143.0, 22.0 ],
+					"patching_rect" : [ 295.5, 179.200002670288086, 143.0, 22.0 ],
 					"rnboattrcache" : 					{
 
 					}
@@ -6277,6 +6311,9 @@
 						"rect" : [ 1226.0, 202.0, 2093.0, 1059.0 ],
 						"default_fontname" : "Lato",
 						"gridsize" : [ 15.0, 15.0 ],
+						"assistshowspatchername" : 0,
+						"commentary" : "",
+						"showcommentary" : 0,
 						"title" : "Scale",
 						"boxes" : [ 							{
 								"box" : 								{
@@ -6368,20 +6405,20 @@
 									"patching_rect" : [ 118.0, 97.0, 253.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"meta" : "",
-										"unit" : "",
-										"fromnormalized" : "",
-										"maximum" : 2.0,
-										"order" : "0",
 										"displayorder" : "-",
-										"exponent" : 1.0,
-										"tonormalized" : "",
-										"preset" : 1,
-										"displayname" : "",
 										"minimum" : 0.0,
-										"sendinit" : 1,
+										"displayname" : "",
+										"fromnormalized" : "",
+										"steps" : 3.0,
+										"meta" : "",
 										"ctlin" : -1.0,
-										"steps" : 3.0
+										"unit" : "",
+										"tonormalized" : "",
+										"exponent" : 1.0,
+										"order" : "0",
+										"sendinit" : 1,
+										"maximum" : 2.0,
+										"preset" : 1
 									}
 ,
 									"rnbo_serial" : 1,
@@ -6956,7 +6993,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 233.0, 299.0, 107.0, 22.0 ],
+					"patching_rect" : [ 28.000000417232513, 568.800008475780487, 107.0, 22.0 ],
 					"rnboattrcache" : 					{
 						"Scale" : 						{
 							"label" : "Scale",
@@ -6995,7 +7032,7 @@
 						"embed" : 1,
 						"snapshot" : 						{
 							"Scale" : 							{
-								"value" : 0.0
+								"value" : 1.0
 							}
 ,
 							"__presetid" : "Scale"
@@ -7014,7 +7051,7 @@
 									"embed" : 0,
 									"snapshot" : 									{
 										"Scale" : 										{
-											"value" : 0.0
+											"value" : 1.0
 										}
 ,
 										"__presetid" : "Scale"
@@ -7078,9 +7115,12 @@
 						}
 ,
 						"classnamespace" : "rnbo",
-						"rect" : [ 179.0, 206.0, 2491.0, 1511.0 ],
+						"rect" : [ 34.0, 156.0, 1660.0, 927.0 ],
 						"default_fontname" : "Lato",
 						"gridsize" : [ 15.0, 15.0 ],
+						"assistshowspatchername" : 0,
+						"commentary" : "",
+						"showcommentary" : 0,
 						"title" : "Pad Scale",
 						"boxes" : [ 							{
 								"box" : 								{
@@ -7106,19 +7146,19 @@
 									"patching_rect" : [ 931.0, 339.0, 605.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"meta" : "",
-										"unit" : "",
-										"fromnormalized" : "",
-										"maximum" : 16.0,
-										"order" : "0",
 										"displayorder" : "-",
-										"exponent" : 1.0,
-										"tonormalized" : "",
-										"preset" : 1,
 										"minimum" : 0.0,
-										"sendinit" : 1,
+										"fromnormalized" : "",
+										"steps" : 17.0,
+										"meta" : "",
 										"ctlin" : -1.0,
-										"steps" : 17.0
+										"unit" : "",
+										"tonormalized" : "",
+										"exponent" : 1.0,
+										"order" : "0",
+										"sendinit" : 1,
+										"maximum" : 16.0,
+										"preset" : 1
 									}
 ,
 									"rnbo_serial" : 1,
@@ -7616,10 +7656,10 @@
 									"patching_rect" : [ 881.0, 442.0, 833.0, 556.0 ],
 									"rnbo_classname" : "codebox",
 									"rnbo_extra_attributes" : 									{
-										"code" : "//reconstruct remapped midi, potentially changing channel\n\n//default off\n@param chan_pad = 0;\n@param chan_step = 0;\n@param chan_track = 0;\n@param chan_function = 0;\n@param chan_nav = 0;\n\n@param active = 1;\n\nconst PREFIX_PAD = 0;\nconst PREFIX_STEP = 1;\nconst PREFIX_TRACK = 2;\nconst PREFIX_FUNCTION = 3;\nconst PREFIX_NAV = 4;\n\nfunction sendnote(num: number, vel: number, chan: number) {\n  if (vel == 0) {\n    out1 = 0x80 | (chan - 1);\n  } else {\n    out1 = 0x90 | (chan - 1);\n  }\n  out1 = num;\n  out1 = vel;\n}\n\nfunction sendcc(num: number, val: number, chan: number) {\n  out1 = 0xB0 | (chan - 1);\n  out1 = num;\n  out1 = val;\n}\n\nlet m = listin1;\nlet prefix = m[0];\nlet num = m[1];\n\nif (num < 0 || active == 0)\n  return;\n\nswitch (prefix) {\n  case PREFIX_PAD:\n    if (num < 32 && chan_pad > 0 && chan_pad <= 16) {\n      sendnote(num + 68, m[2], chan_pad);\n    }\n    break;\n  case PREFIX_STEP:\n    if (num < 16 && chan_step > 0 && chan_step <= 16) {\n      sendnote(num + 16, m[2], chan_step);\n    }\n    break;\n  case PREFIX_TRACK:\n    if (num < 4 && chan_track > 0 && chan_track <= 16) {\n      sendcc(num + 40, m[2], chan_track);\n    }\n    break;\n  case PREFIX_FUNCTION:\n    if (chan_function > 0 && chan_function <= 16) {\n      switch (num) {\n        case 0:\n          sendcc(52, m[2], chan_function);\n          break;\n        case 1:\n          sendcc(118, m[2], chan_function);\n          break;\n        case 2:\n          sendcc(58, m[2], chan_function);\n          break;\n        case 3:\n          sendcc(88, m[2], chan_function);\n          break;\n        case 4:\n          sendcc(119, m[2], chan_function);\n          break;\n        case 5:\n          sendcc(60, m[2], chan_function);\n          break;\n        case 6:\n          sendcc(56, m[2], chan_function);\n          break;\n        case 7:\n          sendcc(49, m[2], chan_function);\n          break;\n        case 8:\n          sendcc(86, m[2], chan_function);\n          break;\n          //TODO play button\n        default:\n          break;\n      }\n    }\n    break;\n  case PREFIX_NAV:\n    if (chan_nav > 0 && chan_nav <= 16) {\n      switch (num) {\n        case 0:\n          sendcc(55, m[2], chan_nav);\n          break;\n        case 1:\n          sendcc(54, m[2], chan_nav);\n          break;\n        case 2:\n          sendcc(62, m[2], chan_nav);\n          break;\n        case 3:\n          sendcc(63, m[2], chan_nav);\n          break;\n        default:\n          break;\n      }\n    }\n    break;\n  default:\n    //error?\n    break;\n}\n",
 										"nocache" : 0,
+										"hot" : 0,
 										"safemath" : 1,
-										"hot" : 0
+										"code" : "//reconstruct remapped midi, potentially changing channel\n\n//default off\n@param chan_pad = 0;\n@param chan_step = 0;\n@param chan_track = 0;\n@param chan_function = 0;\n@param chan_nav = 0;\n\n@param active = 1;\n\nconst PREFIX_PAD = 0;\nconst PREFIX_STEP = 1;\nconst PREFIX_TRACK = 2;\nconst PREFIX_FUNCTION = 3;\nconst PREFIX_NAV = 4;\n\nfunction sendnote(num: number, vel: number, chan: number) {\n  if (vel == 0) {\n    out1 = 0x80 | (chan - 1);\n  } else {\n    out1 = 0x90 | (chan - 1);\n  }\n  out1 = num;\n  out1 = vel;\n}\n\nfunction sendcc(num: number, val: number, chan: number) {\n  out1 = 0xB0 | (chan - 1);\n  out1 = num;\n  out1 = val;\n}\n\nlet m = listin1;\nlet prefix = m[0];\nlet num = m[1];\n\nif (num < 0 || active == 0)\n  return;\n\nswitch (prefix) {\n  case PREFIX_PAD:\n    if (num < 32 && chan_pad > 0 && chan_pad <= 16) {\n      sendnote(num + 68, m[2], chan_pad);\n    }\n    break;\n  case PREFIX_STEP:\n    if (num < 16 && chan_step > 0 && chan_step <= 16) {\n      sendnote(num + 16, m[2], chan_step);\n    }\n    break;\n  case PREFIX_TRACK:\n    if (num < 4 && chan_track > 0 && chan_track <= 16) {\n      sendcc(num + 40, m[2], chan_track);\n    }\n    break;\n  case PREFIX_FUNCTION:\n    if (chan_function > 0 && chan_function <= 16) {\n      switch (num) {\n        case 0:\n          sendcc(52, m[2], chan_function);\n          break;\n        case 1:\n          sendcc(118, m[2], chan_function);\n          break;\n        case 2:\n          sendcc(58, m[2], chan_function);\n          break;\n        case 3:\n          sendcc(88, m[2], chan_function);\n          break;\n        case 4:\n          sendcc(119, m[2], chan_function);\n          break;\n        case 5:\n          sendcc(60, m[2], chan_function);\n          break;\n        case 6:\n          sendcc(56, m[2], chan_function);\n          break;\n        case 7:\n          sendcc(49, m[2], chan_function);\n          break;\n        case 8:\n          sendcc(86, m[2], chan_function);\n          break;\n          //TODO play button\n        default:\n          break;\n      }\n    }\n    break;\n  case PREFIX_NAV:\n    if (chan_nav > 0 && chan_nav <= 16) {\n      switch (num) {\n        case 0:\n          sendcc(55, m[2], chan_nav);\n          break;\n        case 1:\n          sendcc(54, m[2], chan_nav);\n          break;\n        case 2:\n          sendcc(62, m[2], chan_nav);\n          break;\n        case 3:\n          sendcc(63, m[2], chan_nav);\n          break;\n        default:\n          break;\n      }\n    }\n    break;\n  default:\n    //error?\n    break;\n}\n"
 									}
 ,
 									"rnbo_serial" : 1,
@@ -7845,10 +7885,6 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 304.0, 57.0, 32.0, 23.0 ],
 									"rnbo_classname" : "t",
-									"rnbo_extra_attributes" : 									{
-										"triggers" : ""
-									}
-,
 									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "t_obj-14",
 									"rnboinfo" : 									{
@@ -7976,10 +8012,6 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 828.0, 1244.0, 43.0, 23.0 ],
 									"rnbo_classname" : "t",
-									"rnbo_extra_attributes" : 									{
-										"triggers" : ""
-									}
-,
 									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "t_obj-10",
 									"rnboinfo" : 									{
@@ -8491,10 +8523,10 @@
 									"patching_rect" : [ 41.0, 442.0, 806.0, 625.0 ],
 									"rnbo_classname" : "codebox",
 									"rnbo_extra_attributes" : 									{
-										"code" : "//listout1 = control\n//listout2 = note out\n//listout3 = poly out\n\n@param active = 0;\n\n@state scl = new scala();\n@state scaleLength = 12; //computed from scl\n@state kbmMid = 60;\n@state kbmLength = 16;\n@state kbmOctave = 12;\n\n@state page = 0;\n\n//pad -> note, offcolor, [, output pad 1..]\n@state padmapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 32, \"preset\": false});\n\n//map of scale degree -> pads\n//TODO could some of these be negative?\n@state degreemapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 128, \"preset\": false});\n\nconst MAP_INDEX_NOTE: Index = 0;\nconst MAP_INDEX_COLOR: Index = 1;\nconst MAP_INDEX_EXTRA: Index = 2;\n\n\nconst PREFIX_PAD = 0;\nconst PREFIX_NAV = 4;\n\nfunction updatemappings() {\n  let padoffset = kbmMid;\n\n  //paging\n  if (page != 0) {\n    //we want to retain 1 octave from the 0 page in each direction if possible\n    //if the octave is greater than 16 notes though we just offset by it\n    if (kbmLength > 16) {\n      padoffset += kbmLength * page;\n    } else {\n      let octaveoffset = max(floor(32.0 / kbmLength) - 1, 1);\n      padoffset += octaveoffset * page * kbmLength;\n    }\n  }\n\n  degreemapping.clear();\n\n  for (let pad = 0; pad < 32; pad++) {\n    let color = 0;\n    let note = pad + padoffset;\n    let mapped = scl.applyKBM(note);\n\n    if (mapped[1] > 0) {\n      let degree = mapped[0];\n      //find octaves\n      if (safemod(degree, kbmOctave) == 0) {\n        color = 1;\n      }\n\n      //now to deal with notes out of range?\n      if (degree >= 0 && degree < 128) {\n        let tmp = degreemapping.lookup(degree);\n        tmp.push(pad);\n        degreemapping.store(degree, tmp);\n      }\n    } else {\n      //mapping is invalid, what to do? .. just move forward\n    }\n    padmapping.store(pad, [note, color]);\n  }\n\n  //insert additional pad outputs\n  for (let note = 0; note < 127; note++) {\n    let mapping = degreemapping.lookup(note);\n\n    //if more than 1 pad maps to the same degree, insert the into padmapping\n    if (mapping.length > 1) {\n      for (let i = 0; i < mapping.length; i++) {\n        let pad = mapping[i];\n        for (let j = 0; j < mapping.length; j++) {\n          let other = mapping[j];\n          if (pad != other) {\n            let tmp = padmapping.lookup(pad);\n            tmp.push(other);\n            padmapping.store(pad, tmp);\n          }\n        }\n      }\n    }\n  }\n}\n\nfunction listin2(scale: list) {\n  if (scale.length > 0) {\n    scaleLength = scale[0]; //cannot get from scl\n  }\n  scl.updateScale(scale);\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin3(kbm: list) {\n  //we can't get len/mid/octave from scl so store it directly\n  if (kbm.length > 3) {\n    kbmLength = kbm[0];\n    kbmMid = kbm[3];\n  }\n  if (kbm.length > 6) {\n    kbmOctave = kbm[6];\n  } else {\n    kbmOctave = scaleLength;\n  }\n  if (kbmLength <= 0) {\n    kbmLength = scaleLength;\n  }\n  scl.updateMap(kbm);\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin4(poly: list) {\n  if (active) {\n    let pad = poly[0];\n    let val = poly[1];\n    if (pad >= 0 && pad < 36) {\n      let note = padmapping.lookup(pad)[MAP_INDEX_NOTE];\n      sendpoly(note, val);\n    }\n  }\n}\n\nfunction sendnote(note: number, vel: number) {\n  listout2 = [note, vel];\n}\n\nfunction sendpoly(note: number, val: number) {\n  listout3 = [note, val];\n}\n\nfunction drawall() {\n  for (let pad = 0; pad < 32; pad++) {\n    let v = padmapping.lookup(pad);\n    let r = v[MAP_INDEX_COLOR];\n    let g = 0;\n    let b = 0;\n    listout1 = [PREFIX_PAD, pad, r, g, b];\n  }\n  //nav\n  \n  //up, down\n  listout1 = [PREFIX_NAV, 2, 0];\n  listout1 = [PREFIX_NAV, 3, 0];\n\n  let plus = 1;\n  let minus = 1;\n  if (page == 1) {\n    plus = 0;\n  } else if (page == -1) {\n    minus = 0;\n  }\n  listout1 = [PREFIX_NAV, 0, plus];\n  listout1 = [PREFIX_NAV, 1, minus];\n}\n\nlet m = listin1;\n\nif (!active) {\n  return;\n}\n\nlet prefix = m[0];\n\nif (prefix == PREFIX_PAD) { //pads\n  let pad = m[1];\n  let vel = m[2];\n\n  //send mapped note\n  let mapping = padmapping.lookup(pad);\n  let note = mapping[MAP_INDEX_NOTE];\n  sendnote(note, vel);\n\n  let r = 0;\n  let g = 0;\n  let b = 0;\n  if (vel > 0) {\n    g = vel / 127.0;\n  } else {\n    r = mapping[MAP_INDEX_COLOR];\n  }\n\n  listout1 = [0, pad, r, g, b];\n  //additional pads to light\n  for (let i = MAP_INDEX_EXTRA; i < mapping.length; i++) {\n    listout1 = [0, mapping[i], r, g, b];\n  }\n} else if (prefix == PREFIX_NAV) { //nav\n  if (m[2] == 0) { //value\n    return;\n  }\n  let prev = page;\n  let btn = m[1];\n  if (btn == 0) { //plus \n    page = clamp(page + 1, -1, 1);\n  } else if (btn == 1) { //minus\n    page = clamp(page - 1, -1, 1);\n  } else {\n    return;\n  }\n  if (prev != page) {\n    updatemappings();\n    drawall();\n  }\n}\n",
 										"nocache" : 0,
+										"hot" : 0,
 										"safemath" : 0,
-										"hot" : 0
+										"code" : "//listout1 = control\n//listout2 = note out\n//listout3 = poly out\n\n@param active = 0;\n\n@state scl = new scala();\n@state scaleLength = 12; //computed from scl\n@state kbmMid = 60;\n@state kbmLength = 16;\n@state kbmOctave = 12;\n\n@state page = 0;\n\n//pad -> note, offcolor, [, output pad 1..]\n@state padmapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 32, \"preset\": false});\n\n//map of scale degree -> pads\n//TODO could some of these be negative?\n@state degreemapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 128, \"preset\": false});\n\nconst MAP_INDEX_NOTE: Index = 0;\nconst MAP_INDEX_COLOR: Index = 1;\nconst MAP_INDEX_EXTRA: Index = 2;\n\n\nconst PREFIX_PAD = 0;\nconst PREFIX_NAV = 4;\n\nfunction updatemappings() {\n  let padoffset = kbmMid;\n\n  //paging\n  if (page != 0) {\n    //we want to retain 1 octave from the 0 page in each direction if possible\n    //if the octave is greater than 16 notes though we just offset by it\n    if (kbmLength > 16) {\n      padoffset += kbmLength * page;\n    } else {\n      let octaveoffset = max(floor(32.0 / kbmLength) - 1, 1);\n      padoffset += octaveoffset * page * kbmLength;\n    }\n  }\n\n  degreemapping.clear();\n\n  for (let pad = 0; pad < 32; pad++) {\n    let color = 0;\n    let note = pad + padoffset;\n    let mapped = scl.applyKBM(note);\n\n    if (mapped[1] > 0) {\n      let degree = mapped[0];\n      //find octaves\n      if (safemod(degree, kbmOctave) == 0) {\n        color = 1;\n      }\n\n      //now to deal with notes out of range?\n      if (degree >= 0 && degree < 128) {\n        let tmp = degreemapping.lookup(degree);\n        tmp.push(pad);\n        degreemapping.store(degree, tmp);\n      }\n    } else {\n      //mapping is invalid, what to do? .. just move forward\n    }\n    padmapping.store(pad, [note, color]);\n  }\n\n  //insert additional pad outputs\n  for (let note = 0; note < 127; note++) {\n    let mapping = degreemapping.lookup(note);\n\n    //if more than 1 pad maps to the same degree, insert the into padmapping\n    if (mapping.length > 1) {\n      for (let i = 0; i < mapping.length; i++) {\n        let pad = mapping[i];\n        for (let j = 0; j < mapping.length; j++) {\n          let other = mapping[j];\n          if (pad != other) {\n            let tmp = padmapping.lookup(pad);\n            tmp.push(other);\n            padmapping.store(pad, tmp);\n          }\n        }\n      }\n    }\n  }\n}\n\nfunction listin2(scale: list) {\n  if (scale.length > 0) {\n    scaleLength = scale[0]; //cannot get from scl\n  }\n  scl.updateScale(scale);\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin3(kbm: list) {\n  //we can't get len/mid/octave from scl so store it directly\n  if (kbm.length > 3) {\n    kbmLength = kbm[0];\n    kbmMid = kbm[3];\n  }\n  if (kbm.length > 6) {\n    kbmOctave = kbm[6];\n  } else {\n    kbmOctave = scaleLength;\n  }\n  if (kbmLength <= 0) {\n    kbmLength = scaleLength;\n  }\n  scl.updateMap(kbm);\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin4(poly: list) {\n  if (active) {\n    let pad = poly[0];\n    let val = poly[1];\n    if (pad >= 0 && pad < 36) {\n      let note = padmapping.lookup(pad)[MAP_INDEX_NOTE];\n      sendpoly(note, val);\n    }\n  }\n}\n\nfunction sendnote(note: number, vel: number) {\n  listout2 = [note, vel];\n}\n\nfunction sendpoly(note: number, val: number) {\n  listout3 = [note, val];\n}\n\nfunction drawall() {\n  for (let pad = 0; pad < 32; pad++) {\n    let v = padmapping.lookup(pad);\n    let r = v[MAP_INDEX_COLOR];\n    let g = 0;\n    let b = 0;\n    listout1 = [PREFIX_PAD, pad, r, g, b];\n  }\n  //nav\n  \n  //up, down\n  listout1 = [PREFIX_NAV, 2, 0];\n  listout1 = [PREFIX_NAV, 3, 0];\n\n  let plus = 1;\n  let minus = 1;\n  if (page == 1) {\n    plus = 0;\n  } else if (page == -1) {\n    minus = 0;\n  }\n  listout1 = [PREFIX_NAV, 0, plus];\n  listout1 = [PREFIX_NAV, 1, minus];\n}\n\nlet m = listin1;\n\nif (!active) {\n  return;\n}\n\nlet prefix = m[0];\n\nif (prefix == PREFIX_PAD) { //pads\n  let pad = m[1];\n  let vel = m[2];\n\n  //send mapped note\n  let mapping = padmapping.lookup(pad);\n  let note = mapping[MAP_INDEX_NOTE];\n  sendnote(note, vel);\n\n  let r = 0;\n  let g = 0;\n  let b = 0;\n  if (vel > 0) {\n    g = vel / 127.0;\n  } else {\n    r = mapping[MAP_INDEX_COLOR];\n  }\n\n  listout1 = [0, pad, r, g, b];\n  //additional pads to light\n  for (let i = MAP_INDEX_EXTRA; i < mapping.length; i++) {\n    listout1 = [0, mapping[i], r, g, b];\n  }\n} else if (prefix == PREFIX_NAV) { //nav\n  if (m[2] == 0) { //value\n    return;\n  }\n  let prev = page;\n  let btn = m[1];\n  if (btn == 0) { //plus \n    page = clamp(page + 1, -1, 1);\n  } else if (btn == 1) { //minus\n    page = clamp(page - 1, -1, 1);\n  } else {\n    return;\n  }\n  if (prev != page) {\n    updatemappings();\n    drawall();\n  }\n}\n"
 									}
 ,
 									"rnbo_serial" : 2,
@@ -8804,20 +8836,20 @@
 									"patching_rect" : [ 65.0, 98.0, 205.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"meta" : "",
-										"unit" : "",
-										"fromnormalized" : "",
-										"maximum" : 1.0,
-										"order" : "0",
 										"displayorder" : "-",
-										"exponent" : 1.0,
-										"tonormalized" : "",
-										"preset" : 1,
-										"displayname" : "",
 										"minimum" : 0.0,
-										"sendinit" : 1,
+										"displayname" : "",
+										"fromnormalized" : "",
+										"steps" : 2.0,
+										"meta" : "",
 										"ctlin" : -1.0,
-										"steps" : 2.0
+										"unit" : "",
+										"tonormalized" : "",
+										"exponent" : 1.0,
+										"order" : "0",
+										"sendinit" : 1,
+										"maximum" : 1.0,
+										"preset" : 1
 									}
 ,
 									"rnbo_serial" : 2,
@@ -9253,19 +9285,19 @@
 									"patching_rect" : [ 833.0, 1138.0, 501.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"meta" : "",
-										"unit" : "",
-										"fromnormalized" : "",
-										"maximum" : 15.0,
-										"order" : "0",
 										"displayorder" : "-",
-										"exponent" : 1.0,
-										"tonormalized" : "",
-										"preset" : 1,
 										"minimum" : 0.0,
-										"sendinit" : 1,
+										"fromnormalized" : "",
+										"steps" : 16.0,
+										"meta" : "",
 										"ctlin" : -1.0,
-										"steps" : 16.0
+										"unit" : "",
+										"tonormalized" : "",
+										"exponent" : 1.0,
+										"order" : "0",
+										"sendinit" : 1,
+										"maximum" : 15.0,
+										"preset" : 1
 									}
 ,
 									"rnbo_serial" : 3,
@@ -9734,13 +9766,13 @@
 									"patching_rect" : [ 41.0, 1167.0, 143.0, 23.0 ],
 									"rnbo_classname" : "p",
 									"rnbo_extra_attributes" : 									{
-										"args" : [  ],
-										"polyphony" : -1.0,
-										"receivemode" : "local",
-										"notecontroller" : 0,
-										"voicecontrol" : "simple",
+										"uidstyle" : "auto",
 										"exposevoiceparams" : 0,
-										"uidstyle" : "auto"
+										"voicecontrol" : "simple",
+										"args" : [  ],
+										"receivemode" : "local",
+										"polyphony" : -1.0,
+										"notecontroller" : 0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -9950,13 +9982,13 @@
 									"patching_rect" : [ 42.0, 54.0, 154.0, 23.0 ],
 									"rnbo_classname" : "p",
 									"rnbo_extra_attributes" : 									{
-										"args" : [  ],
-										"polyphony" : -1.0,
-										"receivemode" : "local",
-										"notecontroller" : 0,
-										"voicecontrol" : "simple",
+										"uidstyle" : "auto",
 										"exposevoiceparams" : 0,
-										"uidstyle" : "auto"
+										"voicecontrol" : "simple",
+										"args" : [  ],
+										"receivemode" : "local",
+										"polyphony" : -1.0,
+										"notecontroller" : 0
 									}
 ,
 									"rnbo_serial" : 2,
@@ -10413,7 +10445,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 26.0, 314.0, 140.0, 22.0 ],
+					"patching_rect" : [ 28.000000417232513, 492.800007343292236, 140.0, 22.0 ],
 					"rnboattrcache" : 					{
 						"Active" : 						{
 							"label" : "Active",
@@ -10595,9 +10627,12 @@
 						}
 ,
 						"classnamespace" : "rnbo",
-						"rect" : [ 721.0, 154.0, 1890.0, 1395.0 ],
+						"rect" : [ 34.0, 156.0, 1660.0, 927.0 ],
 						"default_fontname" : "Lato",
 						"gridsize" : [ 15.0, 15.0 ],
+						"assistshowspatchername" : 0,
+						"commentary" : "",
+						"showcommentary" : 0,
 						"title" : "inport-leds",
 						"boxes" : [ 							{
 								"box" : 								{
@@ -10627,13 +10662,13 @@
 									"patching_rect" : [ 46.0, 66.0, 143.0, 23.0 ],
 									"rnbo_classname" : "p",
 									"rnbo_extra_attributes" : 									{
-										"args" : [  ],
-										"polyphony" : -1.0,
-										"receivemode" : "local",
-										"notecontroller" : 0,
-										"voicecontrol" : "simple",
+										"uidstyle" : "auto",
 										"exposevoiceparams" : 0,
-										"uidstyle" : "auto"
+										"voicecontrol" : "simple",
+										"args" : [  ],
+										"receivemode" : "local",
+										"polyphony" : -1.0,
+										"notecontroller" : 0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -10844,7 +10879,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 295.0, 116.0, 133.0, 22.0 ],
+					"patching_rect" : [ 295.000004410743713, 108.000001609325409, 133.0, 22.0 ],
 					"rnboattrcache" : 					{
 
 					}
@@ -10961,11 +10996,385 @@
 						}
 ,
 						"classnamespace" : "rnbo",
-						"rect" : [ 1132.0, 223.0, 1595.0, 1155.0 ],
+						"rect" : [ 34.0, 156.0, 1660.0, 927.0 ],
 						"default_fontname" : "Lato",
 						"gridsize" : [ 15.0, 15.0 ],
+						"assistshowspatchername" : 0,
+						"commentary" : "",
+						"showcommentary" : 0,
 						"title" : "input-outport",
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-11",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 46.0, 114.0, 40.0, 23.0 ],
+									"rnbo_classname" : "t",
+									"rnbo_serial" : 1,
+									"rnbo_uniqueid" : "t_obj-11",
+									"rnboinfo" : 									{
+										"needsInstanceInfo" : 1,
+										"argnames" : 										{
+											"out1" : 											{
+												"attrOrProp" : 1,
+												"digest" : "Output order 2 (list).",
+												"defaultarg" : 1,
+												"isalias" : 0,
+												"aliases" : [  ],
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"outlet" : 1,
+												"type" : "list"
+											}
+,
+											"out2" : 											{
+												"attrOrProp" : 1,
+												"digest" : "Output order 1 (list).",
+												"defaultarg" : 2,
+												"isalias" : 0,
+												"aliases" : [  ],
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"outlet" : 1,
+												"type" : "list"
+											}
+,
+											"triggers" : 											{
+												"attrOrProp" : 2,
+												"digest" : "The number of arguments determines the number of outlets. \t\t\t\t\t\tEach outlet sends out either a whole number, float, bang or list, \t\t\t\t\t\tas identified by symbol arguments (i, f, b, l). \t\t\t\t\t\tIf there are no arguments, there are two outlets, both of which send a float.",
+												"defaultarg" : 1,
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"type" : "list"
+											}
+
+										}
+,
+										"inputs" : [ 											{
+												"name" : "input",
+												"type" : [ "bang", "number", "list" ],
+												"digest" : "input to distribute",
+												"hot" : 1,
+												"docked" : 0
+											}
+ ],
+										"outputs" : [ 											{
+												"name" : "out1",
+												"type" : "list",
+												"digest" : "Output order 2 (list).",
+												"defaultarg" : 1,
+												"docked" : 0
+											}
+, 											{
+												"name" : "out2",
+												"type" : "list",
+												"digest" : "Output order 1 (list).",
+												"defaultarg" : 2,
+												"docked" : 0
+											}
+ ],
+										"helpname" : "trigger",
+										"aliasOf" : "trigger",
+										"classname" : "t",
+										"operator" : 0,
+										"versionId" : 1624904035,
+										"changesPatcherIO" : 0
+									}
+,
+									"text" : "t l l"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-10",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 101.0, 243.0, 70.0, 23.0 ],
+									"rnbo_classname" : "outport",
+									"rnbo_extra_attributes" : 									{
+										"meta" : ""
+									}
+,
+									"rnbo_serial" : 7,
+									"rnbo_uniqueid" : "outport_obj-10",
+									"text" : "outport nav"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-9",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 87.0, 273.5, 96.0, 23.0 ],
+									"rnbo_classname" : "outport",
+									"rnbo_extra_attributes" : 									{
+										"meta" : ""
+									}
+,
+									"rnbo_serial" : 11,
+									"rnbo_uniqueid" : "outport_obj-9",
+									"text" : "outport function"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-8",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 73.0, 304.0, 78.0, 23.0 ],
+									"rnbo_classname" : "outport",
+									"rnbo_extra_attributes" : 									{
+										"meta" : ""
+									}
+,
+									"rnbo_serial" : 10,
+									"rnbo_uniqueid" : "outport_obj-8",
+									"text" : "outport track"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-7",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 60.0, 334.5, 74.0, 23.0 ],
+									"rnbo_classname" : "outport",
+									"rnbo_extra_attributes" : 									{
+										"meta" : ""
+									}
+,
+									"rnbo_serial" : 9,
+									"rnbo_uniqueid" : "outport_obj-7",
+									"text" : "outport step"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-6",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 46.0, 365.0, 71.0, 23.0 ],
+									"rnbo_classname" : "outport",
+									"rnbo_extra_attributes" : 									{
+										"meta" : ""
+									}
+,
+									"rnbo_serial" : 8,
+									"rnbo_uniqueid" : "outport_obj-6",
+									"text" : "outport pad"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-5",
+									"maxclass" : "newobj",
+									"numinlets" : 6,
+									"numoutlets" : 6,
+									"outlettype" : [ "", "", "", "", "", "" ],
+									"patching_rect" : [ 46.0, 195.0, 87.0, 23.0 ],
+									"rnbo_classname" : "route",
+									"rnbo_serial" : 1,
+									"rnbo_uniqueid" : "route_obj-5",
+									"rnboinfo" : 									{
+										"needsInstanceInfo" : 1,
+										"argnames" : 										{
+											"selector1" : 											{
+												"attrOrProp" : 1,
+												"digest" : "Change selector for Match 1",
+												"defaultarg" : 1,
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"inlet" : 1,
+												"type" : "number",
+												"defaultValue" : "0"
+											}
+,
+											"selector2" : 											{
+												"attrOrProp" : 1,
+												"digest" : "Change selector for Match 2",
+												"defaultarg" : 2,
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"inlet" : 1,
+												"type" : "number",
+												"defaultValue" : "1"
+											}
+,
+											"selector3" : 											{
+												"attrOrProp" : 1,
+												"digest" : "Change selector for Match 3",
+												"defaultarg" : 3,
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"inlet" : 1,
+												"type" : "number",
+												"defaultValue" : "2"
+											}
+,
+											"selector4" : 											{
+												"attrOrProp" : 1,
+												"digest" : "Change selector for Match 4",
+												"defaultarg" : 4,
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"inlet" : 1,
+												"type" : "number",
+												"defaultValue" : "3"
+											}
+,
+											"selector5" : 											{
+												"attrOrProp" : 1,
+												"digest" : "Change selector for Match 5",
+												"defaultarg" : 5,
+												"isalias" : 0,
+												"aliases" : [  ],
+												"settable" : 1,
+												"attachable" : 0,
+												"isparam" : 0,
+												"deprecated" : 0,
+												"touched" : 0,
+												"inlet" : 1,
+												"type" : "number",
+												"defaultValue" : "4"
+											}
+
+										}
+,
+										"inputs" : [ 											{
+												"name" : "input",
+												"type" : [ "list", "number", "bang" ],
+												"digest" : "Number or List to be routed",
+												"hot" : 1,
+												"docked" : 0
+											}
+, 											{
+												"name" : "selector1",
+												"type" : "number",
+												"digest" : "Change selector for Match 1",
+												"defaultarg" : 1,
+												"docked" : 0
+											}
+, 											{
+												"name" : "selector2",
+												"type" : "number",
+												"digest" : "Change selector for Match 2",
+												"defaultarg" : 2,
+												"docked" : 0
+											}
+, 											{
+												"name" : "selector3",
+												"type" : "number",
+												"digest" : "Change selector for Match 3",
+												"defaultarg" : 3,
+												"docked" : 0
+											}
+, 											{
+												"name" : "selector4",
+												"type" : "number",
+												"digest" : "Change selector for Match 4",
+												"defaultarg" : 4,
+												"docked" : 0
+											}
+, 											{
+												"name" : "selector5",
+												"type" : "number",
+												"digest" : "Change selector for Match 5",
+												"defaultarg" : 5,
+												"docked" : 0
+											}
+ ],
+										"outputs" : [ 											{
+												"name" : "match1",
+												"type" : [ "bang", "number", "list" ],
+												"digest" : "Output if input matches 0",
+												"docked" : 0
+											}
+, 											{
+												"name" : "match2",
+												"type" : [ "bang", "number", "list" ],
+												"digest" : "Output if input matches 1",
+												"docked" : 0
+											}
+, 											{
+												"name" : "match3",
+												"type" : [ "bang", "number", "list" ],
+												"digest" : "Output if input matches 2",
+												"docked" : 0
+											}
+, 											{
+												"name" : "match4",
+												"type" : [ "bang", "number", "list" ],
+												"digest" : "Output if input matches 3",
+												"docked" : 0
+											}
+, 											{
+												"name" : "match5",
+												"type" : [ "bang", "number", "list" ],
+												"digest" : "Output if input matches 4",
+												"docked" : 0
+											}
+, 											{
+												"name" : "nomatch",
+												"type" : [ "bang", "number", "list" ],
+												"digest" : "Input if Input Doesn't Match",
+												"docked" : 0
+											}
+ ],
+										"helpname" : "route",
+										"aliasOf" : "route",
+										"classname" : "route",
+										"operator" : 0,
+										"versionId" : -73196972,
+										"changesPatcherIO" : 0
+									}
+,
+									"text" : "route 0 1 2 3 4"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-3",
 									"maxclass" : "newobj",
@@ -10977,7 +11386,7 @@
 										"meta" : ""
 									}
 ,
-									"rnbo_serial" : 1,
+									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "outport_obj-3",
 									"text" : "outport polytouch"
 								}
@@ -10989,15 +11398,15 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 46.0, 104.0, 93.0, 23.0 ],
+									"patching_rect" : [ 67.0, 156.0, 63.0, 23.0 ],
 									"rnbo_classname" : "outport",
 									"rnbo_extra_attributes" : 									{
 										"meta" : ""
 									}
 ,
-									"rnbo_serial" : 2,
+									"rnbo_serial" : 3,
 									"rnbo_uniqueid" : "outport_obj-1",
-									"text" : "outport monitor"
+									"text" : "outport all"
 								}
 
 							}
@@ -11026,13 +11435,13 @@
 									"patching_rect" : [ 46.0, 66.0, 154.0, 23.0 ],
 									"rnbo_classname" : "p",
 									"rnbo_extra_attributes" : 									{
-										"args" : [  ],
-										"polyphony" : -1.0,
-										"receivemode" : "local",
-										"notecontroller" : 0,
-										"voicecontrol" : "simple",
+										"uidstyle" : "auto",
 										"exposevoiceparams" : 0,
-										"uidstyle" : "auto"
+										"voicecontrol" : "simple",
+										"args" : [  ],
+										"receivemode" : "local",
+										"polyphony" : -1.0,
+										"notecontroller" : 0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -11250,6 +11659,20 @@
 						"lines" : [ 							{
 								"patchline" : 								{
 									"destination" : [ "obj-1", 0 ],
+									"source" : [ "obj-11", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-5", 0 ],
+									"source" : [ "obj-11", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-11", 0 ],
 									"source" : [ "obj-2", 0 ]
 								}
 
@@ -11268,10 +11691,45 @@
 								}
 
 							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-10", 0 ],
+									"source" : [ "obj-5", 4 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"source" : [ "obj-5", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-7", 0 ],
+									"source" : [ "obj-5", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-8", 0 ],
+									"source" : [ "obj-5", 2 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-9", 0 ],
+									"source" : [ "obj-5", 3 ]
+								}
+
+							}
  ]
 					}
 ,
-					"patching_rect" : [ 295.0, 79.0, 144.0, 22.0 ],
+					"patching_rect" : [ 295.0, 71.500000804662704, 144.0, 22.0 ],
 					"rnboattrcache" : 					{
 
 					}
@@ -11405,7 +11863,7 @@
 					}
 ,
 					"outlettype" : [ "", "", "list" ],
-					"patching_rect" : [ 33.0, 79.0, 188.0, 22.0 ],
+					"patching_rect" : [ 33.0, 35.0, 188.0, 22.0 ],
 					"rnboattrcache" : 					{
 
 					}
@@ -11503,7 +11961,7 @@
 					}
 ,
 					"outlettype" : [ "int", "list" ],
-					"patching_rect" : [ 33.0, 35.0, 222.0, 22.0 ],
+					"patching_rect" : [ 33.0, 71.500000804662704, 178.0, 22.0 ],
 					"rnboattrcache" : 					{
 
 					}
@@ -11536,7 +11994,7 @@
 						"subtype" : "Undefined",
 						"embed" : 1,
 						"snapshot" : 						{
-							"__presetid" : "led-driver.rnbopat"
+							"__presetid" : "led-driver"
 						}
 ,
 						"snapshotlist" : 						{
@@ -11545,21 +12003,21 @@
 									"filetype" : "C74Snapshot",
 									"version" : 2,
 									"minorversion" : 0,
-									"name" : "led-driver.rnbopat",
-									"origin" : "led-driver.rnbopat",
+									"name" : "led-driver",
+									"origin" : "led-driver",
 									"type" : "rnbo",
 									"subtype" : "",
 									"embed" : 0,
 									"snapshot" : 									{
-										"__presetid" : "led-driver.rnbopat"
+										"__presetid" : "led-driver"
 									}
 ,
 									"fileref" : 									{
-										"name" : "led-driver.rnbopat",
-										"filename" : "led-driver.rnbopat.maxsnap",
+										"name" : "led-driver",
+										"filename" : "led-driver.maxsnap",
 										"filepath" : "~/Documents/Max 9/Snapshots",
 										"filepos" : -1,
-										"snapshotfileid" : "a02586ebbb00ce46b333a1028686f136"
+										"snapshotfileid" : "87e8e386911b111b6d2e103a5022534b"
 									}
 
 								}
@@ -11568,7 +12026,7 @@
 
 					}
 ,
-					"text" : "rnbo~ @patchername led-driver.rnbopat",
+					"text" : "rnbo~ @patchername led-driver",
 					"varname" : "rnbo~"
 				}
 
@@ -11612,9 +12070,12 @@
 						}
 ,
 						"classnamespace" : "rnbo",
-						"rect" : [ 34.0, 224.0, 2760.0, 1310.0 ],
+						"rect" : [ 34.0, 156.0, 1660.0, 927.0 ],
 						"default_fontname" : "Lato",
 						"gridsize" : [ 15.0, 15.0 ],
+						"assistshowspatchername" : 0,
+						"commentary" : "",
+						"showcommentary" : 0,
 						"title" : "move-thru-led",
 						"boxes" : [ 							{
 								"box" : 								{
@@ -11626,8 +12087,8 @@
 									"patching_rect" : [ 46.0, 220.0, 143.0, 23.0 ],
 									"rnbo_classname" : "pack",
 									"rnbo_extra_attributes" : 									{
-										"length" : 0.0,
-										"list" : ""
+										"list" : "",
+										"length" : 0.0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -11964,13 +12425,13 @@
 									"patching_rect" : [ 46.0, 276.0, 143.0, 23.0 ],
 									"rnbo_classname" : "p",
 									"rnbo_extra_attributes" : 									{
-										"args" : [  ],
-										"polyphony" : -1.0,
-										"receivemode" : "local",
-										"notecontroller" : 0,
-										"voicecontrol" : "simple",
+										"uidstyle" : "auto",
 										"exposevoiceparams" : 0,
-										"uidstyle" : "auto"
+										"voicecontrol" : "simple",
+										"args" : [  ],
+										"receivemode" : "local",
+										"polyphony" : -1.0,
+										"notecontroller" : 0
 									}
 ,
 									"rnbo_serial" : 1,
@@ -12180,13 +12641,13 @@
 									"patching_rect" : [ 46.0, 66.0, 154.0, 23.0 ],
 									"rnbo_classname" : "p",
 									"rnbo_extra_attributes" : 									{
-										"args" : [  ],
-										"polyphony" : -1.0,
-										"receivemode" : "local",
-										"notecontroller" : 0,
-										"voicecontrol" : "simple",
+										"uidstyle" : "auto",
 										"exposevoiceparams" : 0,
-										"uidstyle" : "auto"
+										"voicecontrol" : "simple",
+										"args" : [  ],
+										"receivemode" : "local",
+										"polyphony" : -1.0,
+										"notecontroller" : 0
 									}
 ,
 									"rnbo_serial" : 2,
@@ -12554,7 +13015,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 233.0, 269.0, 150.0, 22.0 ]
+					"patching_rect" : [ 28.000000417232513, 538.400008022785187, 150.0, 22.0 ]
 				}
 
 			}
@@ -12567,7 +13028,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 26.0, 209.0, 150.0, 22.0 ]
+					"patching_rect" : [ 28.000000417232513, 387.200005769729614, 150.0, 22.0 ]
 				}
 
 			}
@@ -12669,17 +13130,17 @@
 				"implicit" : 1
 			}
 , 			{
+				"name" : "led-driver.maxsnap",
+				"bootpath" : "~/Documents/Max 9/Snapshots",
+				"patcherrelativepath" : "../../../Max 9/Snapshots",
+				"type" : "mx@s",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "led-driver.rnbopat",
 				"bootpath" : "~/Documents/rnbo/move/templates",
 				"patcherrelativepath" : ".",
 				"type" : "RBOP",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "led-driver.rnbopat.maxsnap",
-				"bootpath" : "~/Documents/Max 9/Snapshots",
-				"patcherrelativepath" : "../../../Max 9/Snapshots",
-				"type" : "mx@s",
 				"implicit" : 1
 			}
 , 			{
