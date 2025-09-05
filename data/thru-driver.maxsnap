@@ -1,0 +1,38 @@
+{
+	"filetype" : "C74Snapshot",
+	"version" : 2,
+	"minorversion" : 0,
+	"name" : "thru-driver",
+	"origin" : "thru-driver",
+	"type" : "rnbo",
+	"subtype" : "",
+	"embed" : 0,
+	"snapshot" : 	{
+		"chan_nav" : 		{
+			"value" : 0.0
+		}
+,
+		"chan_function" : 		{
+			"value" : 0.0
+		}
+,
+		"chan_step" : 		{
+			"value" : 0.0
+		}
+,
+		"enable" : 		{
+			"value" : 1.0
+		}
+,
+		"chan_track" : 		{
+			"value" : 0.0
+		}
+,
+		"chan_pad" : 		{
+			"value" : 0.0
+		}
+,
+		"__presetid" : "thru-driver"
+	}
+
+}

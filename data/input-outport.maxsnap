@@ -1,0 +1,24 @@
+{
+	"filetype" : "C74Snapshot",
+	"version" : 2,
+	"minorversion" : 0,
+	"name" : "input-outport",
+	"origin" : "input-outport",
+	"type" : "rnbo",
+	"subtype" : "",
+	"embed" : 0,
+	"snapshot" : 	{
+		"__sps" : 		{
+			"p_obj-2" : 			{
+				"zeropressure" : 				{
+					"value" : 1.0
+				}
+
+			}
+
+		}
+,
+		"__presetid" : "input-outport"
+	}
+
+}
