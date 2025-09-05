@@ -1,0 +1,150 @@
+{
+	"filetype" : "C74Snapshot",
+	"version" : 2,
+	"minorversion" : 0,
+	"name" : "Karplus",
+	"origin" : "Karplus Strong",
+	"type" : "rnbo",
+	"subtype" : "",
+	"embed" : 0,
+	"snapshot" : 	{
+		"__sps" : 		{
+			"voice" : [ 				{
+					"__sps" : 					{
+						"karplus" : 						{
+							"decay" : 							{
+								"value" : 10.0
+							}
+,
+							"damping" : 							{
+								"value" : 0.1
+							}
+
+						}
+
+					}
+
+				}
+, 				{
+					"__sps" : 					{
+						"karplus" : 						{
+							"decay" : 							{
+								"value" : 10.0
+							}
+,
+							"damping" : 							{
+								"value" : 0.1
+							}
+
+						}
+
+					}
+
+				}
+, 				{
+					"__sps" : 					{
+						"karplus" : 						{
+							"decay" : 							{
+								"value" : 10.0
+							}
+,
+							"damping" : 							{
+								"value" : 0.1
+							}
+
+						}
+
+					}
+
+				}
+, 				{
+					"__sps" : 					{
+						"karplus" : 						{
+							"decay" : 							{
+								"value" : 10.0
+							}
+,
+							"damping" : 							{
+								"value" : 0.1
+							}
+
+						}
+
+					}
+
+				}
+, 				{
+					"__sps" : 					{
+						"karplus" : 						{
+							"decay" : 							{
+								"value" : 10.0
+							}
+,
+							"damping" : 							{
+								"value" : 0.1
+							}
+
+						}
+
+					}
+
+				}
+, 				{
+					"__sps" : 					{
+						"karplus" : 						{
+							"decay" : 							{
+								"value" : 10.0
+							}
+,
+							"damping" : 							{
+								"value" : 0.1
+							}
+
+						}
+
+					}
+
+				}
+, 				{
+					"__sps" : 					{
+						"karplus" : 						{
+							"decay" : 							{
+								"value" : 10.0
+							}
+,
+							"damping" : 							{
+								"value" : 0.1
+							}
+
+						}
+
+					}
+
+				}
+, 				{
+					"__sps" : 					{
+						"karplus" : 						{
+							"decay" : 							{
+								"value" : 10.0
+							}
+,
+							"damping" : 							{
+								"value" : 0.1
+							}
+
+						}
+
+					}
+
+				}
+ ]
+		}
+,
+		"midichan" : 		{
+			"value" : 0.0
+		}
+,
+		"__presetid" : "Karplus Strong"
+	}
+
+}

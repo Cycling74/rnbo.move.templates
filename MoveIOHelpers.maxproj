@@ -2,14 +2,19 @@
 	"name" : "MoveIOHelpers",
 	"version" : 1,
 	"creationdate" : 3839954767,
-	"modificationdate" : 3839956181,
-	"viewrect" : [ 994.0, 243.0, 1731.0, 843.0 ],
+	"modificationdate" : 3839956665,
+	"viewrect" : [ 994.0, 271.0, 1731.0, 815.0 ],
 	"autoorganize" : 0,
 	"hideprojectwindow" : 0,
 	"showdependencies" : 1,
 	"autolocalize" : 1,
 	"contents" : 	{
 		"patchers" : 		{
+			"rnbo-karplus.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
 			"MoveIOHelpers.maxpat" : 			{
 				"kind" : "patcher",
 				"local" : 1,
