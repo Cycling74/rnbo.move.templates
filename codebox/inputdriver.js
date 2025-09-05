@@ -57,6 +57,7 @@ if (prefix == 0) { //note
     if (sendzeropressure && vel == 0) {
       let mask: Int = 1 << num;
       if ((mask & activepressure) != 0) {
+        activepressure = activepressure & ~mask;
         listout2 = [num, 0];
       }
     }
