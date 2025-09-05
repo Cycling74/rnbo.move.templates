@@ -10,11 +10,531 @@
 		}
 ,
 		"classnamespace" : "rnbo",
-		"rect" : [ 34.0, 196.0, 3285.0, 1338.0 ],
+		"rect" : [ 1028.0, 215.0, 1663.0, 871.0 ],
 		"default_fontname" : "Lato",
 		"gridsize" : [ 15.0, 15.0 ],
-		"title" : "input-driver.rnbopat",
+		"assistshowspatchername" : 0,
+		"commentary" : "",
+		"showcommentary" : 0,
+		"title" : "input-driver",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-14",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 201.0, 84.0, 458.0, 21.0 ],
+					"text" : "should we \"fixup\" key pressure by sending a 0 out if there isn't one before a note off?"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-10",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 201.0, 143.0, 120.0, 23.0 ],
+					"rnbo_classname" : "set",
+					"rnbo_serial" : 2,
+					"rnbo_uniqueid" : "set_obj-10",
+					"rnboinfo" : 					{
+						"needsInstanceInfo" : 1,
+						"argnames" : 						{
+							"name" : 							{
+								"attrOrProp" : 2,
+								"digest" : "attribute/param to control",
+								"defaultarg" : 1,
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"type" : "symbol",
+								"mandatory" : 1
+							}
+
+						}
+,
+						"inputs" : [ 							{
+								"name" : "input",
+								"type" : [ "bang", "number", "list", "signal" ],
+								"digest" : "attribute or parameter value (bang, number, list)",
+								"hot" : 1,
+								"docked" : 0
+							}
+ ],
+						"outputs" : [ 							{
+								"name" : "output",
+								"type" : [ "bang", "number", "list", "signal" ],
+								"digest" : "connect to first inlet of gen or subpatcher",
+								"docked" : 0
+							}
+ ],
+						"helpname" : "set",
+						"aliasOf" : "set",
+						"classname" : "set",
+						"operator" : 0,
+						"versionId" : 1197449671,
+						"changesPatcherIO" : 0
+					}
+,
+					"text" : "set sendzeropressure"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-11",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 201.0, 110.0, 343.0, 23.0 ],
+					"rnbo_classname" : "param",
+					"rnbo_extra_attributes" : 					{
+						"unit" : "",
+						"exponent" : 1.0,
+						"sendinit" : 1,
+						"order" : "0",
+						"preset" : 1,
+						"tonormalized" : "",
+						"displayorder" : "-",
+						"maximum" : 1.0,
+						"steps" : 2.0,
+						"fromnormalized" : "",
+						"ctlin" : -1.0,
+						"minimum" : 0.0,
+						"displayname" : ""
+					}
+,
+					"rnbo_serial" : 2,
+					"rnbo_uniqueid" : "zeropressure",
+					"rnboinfo" : 					{
+						"needsInstanceInfo" : 1,
+						"argnames" : 						{
+							"value" : 							{
+								"attrOrProp" : 1,
+								"digest" : "Parameter value",
+								"defaultarg" : 2,
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 1,
+								"deprecated" : 0,
+								"touched" : 0,
+								"inlet" : 1,
+								"type" : "number",
+								"defaultValue" : "1"
+							}
+,
+							"normalizedvalue" : 							{
+								"attrOrProp" : 1,
+								"digest" : "Set value normalized. ",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"inlet" : 1,
+								"type" : "number"
+							}
+,
+							"reset" : 							{
+								"attrOrProp" : 1,
+								"digest" : "Reset param to initial value",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"attachable" : 1,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"type" : "bang"
+							}
+,
+							"normalized" : 							{
+								"attrOrProp" : 1,
+								"digest" : "Normalized parameter value.",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"outlet" : 1,
+								"type" : "number"
+							}
+,
+							"maximum" : 							{
+								"attrOrProp" : 2,
+								"digest" : "Maximum value",
+								"isalias" : 0,
+								"aliases" : [ "max" ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 1,
+								"type" : "number",
+								"defaultValue" : "1",
+								"label" : "Maximum",
+								"displayorder" : 2,
+								"disabledInMaxInspector" : 1
+							}
+,
+							"max" : 							{
+								"attrOrProp" : 2,
+								"digest" : "Maximum value",
+								"isalias" : 1,
+								"aliasOf" : "maximum",
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"type" : "number",
+								"defaultValue" : "1",
+								"label" : "Maximum",
+								"displayorder" : 2
+							}
+,
+							"minimum" : 							{
+								"attrOrProp" : 2,
+								"digest" : "Minimum value",
+								"isalias" : 0,
+								"aliases" : [ "min" ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 1,
+								"type" : "number",
+								"defaultValue" : "0",
+								"label" : "Minimum",
+								"displayorder" : 1,
+								"disabledInMaxInspector" : 1
+							}
+,
+							"min" : 							{
+								"attrOrProp" : 2,
+								"digest" : "Minimum value",
+								"isalias" : 1,
+								"aliasOf" : "minimum",
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"type" : "number",
+								"defaultValue" : "0",
+								"label" : "Minimum",
+								"displayorder" : 1
+							}
+,
+							"steps" : 							{
+								"attrOrProp" : 2,
+								"digest" : "Divide the output into a number of discrete steps",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 1,
+								"type" : "number",
+								"defaultValue" : "2",
+								"label" : "Steps",
+								"displayorder" : 8,
+								"disabledInMaxInspector" : 1
+							}
+,
+							"exponent" : 							{
+								"attrOrProp" : 2,
+								"digest" : "Scale values exponentially",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 1,
+								"type" : "number",
+								"defaultValue" : "1",
+								"label" : "Exponent",
+								"displayorder" : 7,
+								"disabledInMaxInspector" : 1
+							}
+,
+							"name" : 							{
+								"attrOrProp" : 2,
+								"digest" : "Name of the parameter",
+								"defaultarg" : 1,
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"type" : "symbol",
+								"label" : "Parameter Name",
+								"mandatory" : 1
+							}
+,
+							"enum" : 							{
+								"attrOrProp" : 2,
+								"digest" : "Use an enumerated output",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"type" : "list",
+								"label" : "Enum Values",
+								"displayorder" : 6
+							}
+,
+							"displayName" : 							{
+								"attrOrProp" : 2,
+								"digest" : "DEPRECATED: Use the lower case 'displayname' instead",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 1,
+								"touched" : 0,
+								"type" : "symbol",
+								"label" : "Display Name"
+							}
+,
+							"displayname" : 							{
+								"attrOrProp" : 2,
+								"digest" : "A more readable name for the parameter in an external RNBO target",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"type" : "symbol",
+								"defaultValue" : "",
+								"label" : "Display Name",
+								"displayorder" : 14
+							}
+,
+							"unit" : 							{
+								"attrOrProp" : 2,
+								"digest" : "A symbol to describe the unit of the parameter in an external RNBO target",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"type" : "symbol",
+								"defaultValue" : "",
+								"label" : "Unit",
+								"displayorder" : 15
+							}
+,
+							"tonormalized" : 							{
+								"attrOrProp" : 2,
+								"digest" : "Converts a real parameter value to its normalized form",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"type" : "symbol",
+								"label" : "To Normalized Expression",
+								"displayorder" : 10
+							}
+,
+							"fromnormalized" : 							{
+								"attrOrProp" : 2,
+								"digest" : "Converts a normalized parameter into its actual parameter value",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"type" : "symbol",
+								"label" : "From Normalized Expression",
+								"displayorder" : 9
+							}
+,
+							"order" : 							{
+								"attrOrProp" : 2,
+								"digest" : "Order in which initial parameter values will be sent out on patcher load. The order can be numeric or symbolic ('first' and 'last')",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"type" : "symbol",
+								"defaultValue" : "0",
+								"label" : "Restore Order",
+								"displayorder" : 12
+							}
+,
+							"displayorder" : 							{
+								"attrOrProp" : 2,
+								"digest" : "Order in which parameters will show up in a list of all parameters. The order can be numeric or symbolic ('first' and 'last')",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"type" : "symbol",
+								"defaultValue" : "-",
+								"label" : "Display Order",
+								"displayorder" : 13
+							}
+,
+							"sendinit" : 							{
+								"attrOrProp" : 2,
+								"digest" : "Send initial value",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"type" : "bool",
+								"defaultValue" : "true",
+								"label" : "Send Init",
+								"displayorder" : 4
+							}
+,
+							"ctlin" : 							{
+								"attrOrProp" : 2,
+								"digest" : "MIDI controller number to control this parameter.",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"type" : "number",
+								"defaultValue" : "-1",
+								"label" : "MIDI Controller Number.",
+								"displayorder" : 16
+							}
+,
+							"meta" : 							{
+								"attrOrProp" : 2,
+								"digest" : "A JSON formatted string containing metadata for use by the exported code",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"type" : "symbol",
+								"defaultValue" : "",
+								"label" : "Metadata",
+								"displayorder" : 17
+							}
+,
+							"nopreset" : 							{
+								"attrOrProp" : 2,
+								"digest" : "Do not add this value to the preset [DEPRECATED - USE @preset 0 instead].",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 1,
+								"touched" : 0,
+								"type" : "bool",
+								"defaultValue" : "false"
+							}
+,
+							"preset" : 							{
+								"attrOrProp" : 2,
+								"digest" : "Add this value to the preset.",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 0,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"type" : "bool",
+								"defaultValue" : "true",
+								"label" : "Include In Preset",
+								"displayorder" : 11
+							}
+
+						}
+,
+						"inputs" : [ 							{
+								"name" : "value",
+								"type" : "number",
+								"digest" : "Parameter value",
+								"defaultarg" : 2,
+								"hot" : 1,
+								"docked" : 0
+							}
+, 							{
+								"name" : "normalizedvalue",
+								"type" : "number",
+								"digest" : "Set value normalized. ",
+								"docked" : 0
+							}
+ ],
+						"outputs" : [ 							{
+								"name" : "value",
+								"type" : "number",
+								"digest" : "Parameter value",
+								"defaultarg" : 2,
+								"hot" : 1,
+								"docked" : 0
+							}
+, 							{
+								"name" : "normalized",
+								"type" : "number",
+								"digest" : "Normalized parameter value.",
+								"docked" : 0
+							}
+ ],
+						"helpname" : "param",
+						"aliasOf" : "param",
+						"classname" : "param",
+						"operator" : 0,
+						"versionId" : -1661410411,
+						"changesPatcherIO" : 0
+					}
+,
+					"text" : "param zeropressure @enum off on @value 1 @meta hidden:true",
+					"varname" : "zeropressure"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-12",
 					"maxclass" : "newobj",
@@ -26,7 +546,7 @@
 						"meta" : ""
 					}
 ,
-					"rnbo_serial" : 3,
+					"rnbo_serial" : 1,
 					"rnbo_uniqueid" : "out_obj-12",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
@@ -271,7 +791,7 @@
 			}
 , 			{
 				"box" : 				{
-					"code" : "//input prefix: \n//0 -> note\n//1 -> cc\n//\n//output prefix:\n//0 -> pads\n//1 -> steps\n//2 -> tracks\n//3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)\n//4 -> nav (plus, minus, left, right)\n\n//parse midi input\n@state parser = new midiparse();\nfunction in2(bytein: number) {\n  //forward midi output\n  let m = parser.next(bytein);\n  //\n  if (m[0] == 1) { //key pressure\n    let chan = m[3];\n    if (chan == 16) {\n      //using 5 & 6 because midiparse or midiformat are broken \n      let num = m[5] - 68; //convert to 0 based\n      let val = m[6];\n      listout2 = [num, val];\n    }\n  }\n}\n\nconst OUT_PAD = 0;\nconst OUT_STEP = 1;\nconst OUT_TRACK = 2;\nconst OUT_FUNCTION = 3;\nconst OUT_NAV = 4;\n\nlet m = listin1;\nlet prefix = m[0];\n\nif (prefix == 0) { //note\n  let num = m[1];\n  let vel = m[2];\n  if (num >= 68 && num <= 99) {\n    listout1 = [OUT_PAD, num - 68, vel];\n  } else if (num >= 16 && num <= 31) {\n    listout1 = [OUT_STEP, num - 16, vel];\n  }\n} else if (prefix == 1) { //cc\n  let val = m[1];\n  let num = m[2];\n\n  if (num >= 40 && num <= 43) {\n    listout1 = [OUT_TRACK, num - 40, val];\n  } else {\n    let o = OUT_FUNCTION;\n    let mapped = 0;\n    switch (num) {\n      case 52:\n        mapped = 0;\n        break;\n      case 118:\n        mapped = 1;\n        break;\n      case 58:\n        mapped = 2;\n        break;\n      case 88:\n        mapped = 3;\n        break;\n      case 119:\n        mapped = 4;\n        break;\n      case 60:\n        mapped = 5;\n        break;\n      case 56:\n        mapped = 6;\n        break;\n      case 49:\n        mapped = 7;\n        break;\n      case 86:\n        mapped = 8;\n        break;\n      case 55:\n        o = OUT_NAV;\n        mapped = 0;\n        break;\n      case 54:\n        o = OUT_NAV;\n        mapped = 1;\n        break;\n      case 62:\n        o = OUT_NAV;\n        mapped = 2;\n        break;\n      case 63:\n        o = OUT_NAV;\n        mapped = 3;\n        break;\n      default:\n        return;\n    }\n    listout1 = [o, mapped, val];\n  }\n}",
+					"code" : "//input prefix: \n//0 -> note\n//1 -> cc\n//\n//output prefix:\n//0 -> pads\n//1 -> steps\n//2 -> tracks\n//3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)\n//4 -> nav (plus, minus, left, right)\n\n//when we get a note off, should we send a zero key pressure if one hasn't already been sent?\n@param sendzeropressure = 1;\n\n//parse midi input\n@state parser = new midiparse();\n@state activepressure: Int = 0; //we know that this is at least 32-bits\n\nfunction in2(bytein: number) {\n  //forward midi output\n  let m = parser.next(bytein);\n  //\n  if (m[0] == 1) { //key pressure\n    let chan = m[3];\n    let num = m[5] - 68; //convert to 0 based\n    if (chan == 16 && num >= 0 && num < 32) {\n      //using 5 & 6 because midiparse or midiformat are broken \n      let val = m[6];\n      listout2 = [num, val];\n\n      let mask: Int = 1 << num;\n      if (val == 0) {\n        activepressure = activepressure & ~mask;\n      } else {\n        activepressure |= mask;\n      }\n    }\n  }\n}\n\nconst OUT_PAD = 0;\nconst OUT_STEP = 1;\nconst OUT_TRACK = 2;\nconst OUT_FUNCTION = 3;\nconst OUT_NAV = 4;\n\nlet m = listin1;\nlet prefix = m[0];\n\nif (prefix == 0) { //note\n  let num = m[1];\n  let vel = m[2];\n  if (num >= 68 && num <= 99) {\n    num -= 68;\n\n    //send a zero pressure if none has already been sent\n    if (sendzeropressure && vel == 0) {\n      let mask: Int = 1 << num;\n      if ((mask & activepressure) != 0) {\n        activepressure = activepressure & ~mask;\n        listout2 = [num, 0];\n      }\n    }\n\n    listout1 = [OUT_PAD, num, vel];\n  } else if (num >= 16 && num <= 31) {\n    listout1 = [OUT_STEP, num - 16, vel];\n  }\n} else if (prefix == 1) { //cc\n  let val = m[1];\n  let num = m[2];\n\n  if (num >= 40 && num <= 43) {\n    listout1 = [OUT_TRACK, num - 40, val];\n  } else {\n    let o = OUT_FUNCTION;\n    let mapped = 0;\n    switch (num) {\n      case 52:\n        mapped = 0;\n        break;\n      case 118:\n        mapped = 1;\n        break;\n      case 58:\n        mapped = 2;\n        break;\n      case 88:\n        mapped = 3;\n        break;\n      case 119:\n        mapped = 4;\n        break;\n      case 60:\n        mapped = 5;\n        break;\n      case 56:\n        mapped = 6;\n        break;\n      case 49:\n        mapped = 7;\n        break;\n      case 86:\n        mapped = 8;\n        break;\n      //TODO play button\n      case 55:\n        o = OUT_NAV;\n        mapped = 0;\n        break;\n      case 54:\n        o = OUT_NAV;\n        mapped = 1;\n        break;\n      case 62:\n        o = OUT_NAV;\n        mapped = 2;\n        break;\n      case 63:\n        o = OUT_NAV;\n        mapped = 3;\n        break;\n      default:\n        return;\n    }\n    listout1 = [o, mapped, val];\n  }\n}\n\n",
 					"fontface" : 0,
 					"fontname" : "<Monospaced>",
 					"fontsize" : 12.0,
@@ -283,13 +803,13 @@
 					"patching_rect" : [ 23.0, 237.0, 773.0, 835.0 ],
 					"rnbo_classname" : "codebox",
 					"rnbo_extra_attributes" : 					{
-						"code" : "//input prefix: \n//0 -> note\n//1 -> cc\n//\n//output prefix:\n//0 -> pads\n//1 -> steps\n//2 -> tracks\n//3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)\n//4 -> nav (plus, minus, left, right)\n\n//parse midi input\n@state parser = new midiparse();\nfunction in2(bytein: number) {\n  //forward midi output\n  let m = parser.next(bytein);\n  //\n  if (m[0] == 1) { //key pressure\n    let chan = m[3];\n    if (chan == 16) {\n      //using 5 & 6 because midiparse or midiformat are broken \n      let num = m[5] - 68; //convert to 0 based\n      let val = m[6];\n      listout2 = [num, val];\n    }\n  }\n}\n\nconst OUT_PAD = 0;\nconst OUT_STEP = 1;\nconst OUT_TRACK = 2;\nconst OUT_FUNCTION = 3;\nconst OUT_NAV = 4;\n\nlet m = listin1;\nlet prefix = m[0];\n\nif (prefix == 0) { //note\n  let num = m[1];\n  let vel = m[2];\n  if (num >= 68 && num <= 99) {\n    listout1 = [OUT_PAD, num - 68, vel];\n  } else if (num >= 16 && num <= 31) {\n    listout1 = [OUT_STEP, num - 16, vel];\n  }\n} else if (prefix == 1) { //cc\n  let val = m[1];\n  let num = m[2];\n\n  if (num >= 40 && num <= 43) {\n    listout1 = [OUT_TRACK, num - 40, val];\n  } else {\n    let o = OUT_FUNCTION;\n    let mapped = 0;\n    switch (num) {\n      case 52:\n        mapped = 0;\n        break;\n      case 118:\n        mapped = 1;\n        break;\n      case 58:\n        mapped = 2;\n        break;\n      case 88:\n        mapped = 3;\n        break;\n      case 119:\n        mapped = 4;\n        break;\n      case 60:\n        mapped = 5;\n        break;\n      case 56:\n        mapped = 6;\n        break;\n      case 49:\n        mapped = 7;\n        break;\n      case 86:\n        mapped = 8;\n        break;\n      case 55:\n        o = OUT_NAV;\n        mapped = 0;\n        break;\n      case 54:\n        o = OUT_NAV;\n        mapped = 1;\n        break;\n      case 62:\n        o = OUT_NAV;\n        mapped = 2;\n        break;\n      case 63:\n        o = OUT_NAV;\n        mapped = 3;\n        break;\n      default:\n        return;\n    }\n    listout1 = [o, mapped, val];\n  }\n}",
-						"safemath" : 1,
 						"hot" : 0,
-						"nocache" : 0
+						"nocache" : 0,
+						"safemath" : 1,
+						"code" : "//input prefix: \n//0 -> note\n//1 -> cc\n//\n//output prefix:\n//0 -> pads\n//1 -> steps\n//2 -> tracks\n//3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)\n//4 -> nav (plus, minus, left, right)\n\n//when we get a note off, should we send a zero key pressure if one hasn't already been sent?\n@param sendzeropressure = 1;\n\n//parse midi input\n@state parser = new midiparse();\n@state activepressure: Int = 0; //we know that this is at least 32-bits\n\nfunction in2(bytein: number) {\n  //forward midi output\n  let m = parser.next(bytein);\n  //\n  if (m[0] == 1) { //key pressure\n    let chan = m[3];\n    let num = m[5] - 68; //convert to 0 based\n    if (chan == 16 && num >= 0 && num < 32) {\n      //using 5 & 6 because midiparse or midiformat are broken \n      let val = m[6];\n      listout2 = [num, val];\n\n      let mask: Int = 1 << num;\n      if (val == 0) {\n        activepressure = activepressure & ~mask;\n      } else {\n        activepressure |= mask;\n      }\n    }\n  }\n}\n\nconst OUT_PAD = 0;\nconst OUT_STEP = 1;\nconst OUT_TRACK = 2;\nconst OUT_FUNCTION = 3;\nconst OUT_NAV = 4;\n\nlet m = listin1;\nlet prefix = m[0];\n\nif (prefix == 0) { //note\n  let num = m[1];\n  let vel = m[2];\n  if (num >= 68 && num <= 99) {\n    num -= 68;\n\n    //send a zero pressure if none has already been sent\n    if (sendzeropressure && vel == 0) {\n      let mask: Int = 1 << num;\n      if ((mask & activepressure) != 0) {\n        activepressure = activepressure & ~mask;\n        listout2 = [num, 0];\n      }\n    }\n\n    listout1 = [OUT_PAD, num, vel];\n  } else if (num >= 16 && num <= 31) {\n    listout1 = [OUT_STEP, num - 16, vel];\n  }\n} else if (prefix == 1) { //cc\n  let val = m[1];\n  let num = m[2];\n\n  if (num >= 40 && num <= 43) {\n    listout1 = [OUT_TRACK, num - 40, val];\n  } else {\n    let o = OUT_FUNCTION;\n    let mapped = 0;\n    switch (num) {\n      case 52:\n        mapped = 0;\n        break;\n      case 118:\n        mapped = 1;\n        break;\n      case 58:\n        mapped = 2;\n        break;\n      case 88:\n        mapped = 3;\n        break;\n      case 119:\n        mapped = 4;\n        break;\n      case 60:\n        mapped = 5;\n        break;\n      case 56:\n        mapped = 6;\n        break;\n      case 49:\n        mapped = 7;\n        break;\n      case 86:\n        mapped = 8;\n        break;\n      //TODO play button\n      case 55:\n        o = OUT_NAV;\n        mapped = 0;\n        break;\n      case 54:\n        o = OUT_NAV;\n        mapped = 1;\n        break;\n      case 62:\n        o = OUT_NAV;\n        mapped = 2;\n        break;\n      case 63:\n        o = OUT_NAV;\n        mapped = 3;\n        break;\n      default:\n        return;\n    }\n    listout1 = [o, mapped, val];\n  }\n}\n\n"
 					}
 ,
-					"rnbo_serial" : 4,
+					"rnbo_serial" : 2,
 					"rnbo_uniqueid" : "codebox_obj-7",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
@@ -360,6 +880,20 @@
 								"touched" : 0,
 								"outlet" : 1,
 								"type" : "list"
+							}
+,
+							"sendzeropressure" : 							{
+								"attrOrProp" : 1,
+								"digest" : "sendzeropressure",
+								"isalias" : 0,
+								"aliases" : [  ],
+								"settable" : 1,
+								"attachable" : 1,
+								"isparam" : 0,
+								"deprecated" : 0,
+								"touched" : 0,
+								"type" : "number",
+								"defaultValue" : "1"
 							}
 ,
 							"expr" : 							{
@@ -468,10 +1002,6 @@
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 96.0, 135.0, 29.5, 23.0 ],
 					"rnbo_classname" : "t",
-					"rnbo_extra_attributes" : 					{
-						"triggers" : ""
-					}
-,
 					"rnbo_serial" : 1,
 					"rnbo_uniqueid" : "t_obj-5",
 					"rnboinfo" : 					{
@@ -570,7 +1100,7 @@
 						"list" : ""
 					}
 ,
-					"rnbo_serial" : 2,
+					"rnbo_serial" : 1,
 					"rnbo_uniqueid" : "pack_obj-6",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
@@ -709,10 +1239,6 @@
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 23.0, 135.0, 29.5, 23.0 ],
 					"rnbo_classname" : "t",
-					"rnbo_extra_attributes" : 					{
-						"triggers" : ""
-					}
-,
 					"rnbo_serial" : 2,
 					"rnbo_uniqueid" : "t_obj-4",
 					"rnboinfo" : 					{
@@ -811,7 +1337,7 @@
 						"list" : ""
 					}
 ,
-					"rnbo_serial" : 3,
+					"rnbo_serial" : 2,
 					"rnbo_uniqueid" : "pack_obj-3",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
@@ -989,6 +1515,21 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"midpoints" : [ 210.5, 222.0, 32.5, 222.0 ],
+					"source" : [ "obj-10", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-10", 0 ],
+					"source" : [ "obj-11", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-5", 0 ],
 					"source" : [ "obj-2", 0 ]
 				}
@@ -1040,6 +1581,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-7", 0 ],
+					"midpoints" : [ 105.5, 222.0, 32.5, 222.0 ],
 					"source" : [ "obj-6", 0 ]
 				}
 
@@ -1061,7 +1603,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"order" : 2,
+					"order" : 1,
 					"source" : [ "obj-9", 0 ]
 				}
 
@@ -1069,7 +1611,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
-					"order" : 1,
+					"order" : 0,
 					"source" : [ "obj-9", 0 ]
 				}
 
@@ -1078,7 +1620,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-7", 1 ],
 					"midpoints" : [ 32.5, 78.0, 786.5, 78.0 ],
-					"order" : 0,
+					"order" : 2,
 					"source" : [ "obj-9", 0 ]
 				}
 
