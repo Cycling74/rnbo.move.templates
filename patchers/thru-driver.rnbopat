@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "rnbo",
-		"rect" : [ 665.0, 199.0, 1660.0, 899.0 ],
+		"rect" : [ 758.0, 451.0, 1000.0, 752.0 ],
 		"default_fontname" : "Lato",
 		"gridsize" : [ 15.0, 15.0 ],
 		"assistshowspatchername" : 0,
@@ -24,13 +24,13 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1005.0, 24.0, 146.0, 23.0 ],
+					"patching_rect" : [ 813.0, 24.0, 146.0, 23.0 ],
 					"rnbo_classname" : "in",
 					"rnbo_extra_attributes" : 					{
 						"meta" : ""
 					}
 ,
-					"rnbo_serial" : 2,
+					"rnbo_serial" : 1,
 					"rnbo_uniqueid" : "in_obj-16",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
@@ -170,22 +170,22 @@
 					"patching_rect" : [ 70.0, 53.0, 311.0, 23.0 ],
 					"rnbo_classname" : "param",
 					"rnbo_extra_attributes" : 					{
-						"exponent" : 1.0,
-						"preset" : 1,
-						"sendinit" : 1,
-						"maximum" : 1.0,
 						"displayname" : "",
-						"fromnormalized" : "",
-						"ctlin" : -1.0,
-						"steps" : 2.0,
-						"unit" : "",
-						"minimum" : 0.0,
-						"tonormalized" : "",
+						"preset" : 1,
 						"order" : "0",
-						"displayorder" : "-"
+						"tonormalized" : "",
+						"displayorder" : "-",
+						"exponent" : 1.0,
+						"fromnormalized" : "",
+						"maximum" : 1.0,
+						"ctlin" : -1.0,
+						"minimum" : 0.0,
+						"sendinit" : 1,
+						"steps" : 2.0,
+						"unit" : ""
 					}
 ,
-					"rnbo_serial" : 7,
+					"rnbo_serial" : 1,
 					"rnbo_uniqueid" : "enable",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
@@ -676,19 +676,19 @@
 					"patching_rect" : [ 157.0, 379.0, 467.0, 23.0 ],
 					"rnbo_classname" : "param",
 					"rnbo_extra_attributes" : 					{
-						"exponent" : 1.0,
-						"preset" : 1,
-						"sendinit" : 1,
-						"maximum" : 16.0,
 						"displayname" : "",
-						"fromnormalized" : "",
-						"ctlin" : -1.0,
-						"steps" : 17.0,
-						"unit" : "",
-						"minimum" : 0.0,
-						"tonormalized" : "",
+						"preset" : 1,
 						"order" : "0",
-						"displayorder" : "-"
+						"tonormalized" : "",
+						"displayorder" : "-",
+						"exponent" : 1.0,
+						"fromnormalized" : "",
+						"maximum" : 16.0,
+						"ctlin" : -1.0,
+						"minimum" : 0.0,
+						"sendinit" : 1,
+						"steps" : 17.0,
+						"unit" : ""
 					}
 ,
 					"rnbo_serial" : 2,
@@ -1182,19 +1182,19 @@
 					"patching_rect" : [ 134.0, 313.0, 492.0, 23.0 ],
 					"rnbo_classname" : "param",
 					"rnbo_extra_attributes" : 					{
-						"exponent" : 1.0,
-						"preset" : 1,
-						"sendinit" : 1,
-						"maximum" : 16.0,
 						"displayname" : "",
-						"fromnormalized" : "",
-						"ctlin" : -1.0,
-						"steps" : 17.0,
-						"unit" : "",
-						"minimum" : 0.0,
-						"tonormalized" : "",
+						"preset" : 1,
 						"order" : "0",
-						"displayorder" : "-"
+						"tonormalized" : "",
+						"displayorder" : "-",
+						"exponent" : 1.0,
+						"fromnormalized" : "",
+						"maximum" : 16.0,
+						"ctlin" : -1.0,
+						"minimum" : 0.0,
+						"sendinit" : 1,
+						"steps" : 17.0,
+						"unit" : ""
 					}
 ,
 					"rnbo_serial" : 3,
@@ -1688,19 +1688,19 @@
 					"patching_rect" : [ 117.0, 247.0, 475.0, 23.0 ],
 					"rnbo_classname" : "param",
 					"rnbo_extra_attributes" : 					{
-						"exponent" : 1.0,
-						"preset" : 1,
-						"sendinit" : 1,
-						"maximum" : 16.0,
 						"displayname" : "",
-						"fromnormalized" : "",
-						"ctlin" : -1.0,
-						"steps" : 17.0,
-						"unit" : "",
-						"minimum" : 0.0,
-						"tonormalized" : "",
+						"preset" : 1,
 						"order" : "0",
-						"displayorder" : "-"
+						"tonormalized" : "",
+						"displayorder" : "-",
+						"exponent" : 1.0,
+						"fromnormalized" : "",
+						"maximum" : 16.0,
+						"ctlin" : -1.0,
+						"minimum" : 0.0,
+						"sendinit" : 1,
+						"steps" : 17.0,
+						"unit" : ""
 					}
 ,
 					"rnbo_serial" : 4,
@@ -2194,19 +2194,19 @@
 					"patching_rect" : [ 99.0, 183.0, 471.0, 23.0 ],
 					"rnbo_classname" : "param",
 					"rnbo_extra_attributes" : 					{
-						"exponent" : 1.0,
-						"preset" : 1,
-						"sendinit" : 1,
-						"maximum" : 16.0,
 						"displayname" : "",
-						"fromnormalized" : "",
-						"ctlin" : -1.0,
-						"steps" : 17.0,
-						"unit" : "",
-						"minimum" : 0.0,
-						"tonormalized" : "",
+						"preset" : 1,
 						"order" : "0",
-						"displayorder" : "-"
+						"tonormalized" : "",
+						"displayorder" : "-",
+						"exponent" : 1.0,
+						"fromnormalized" : "",
+						"maximum" : 16.0,
+						"ctlin" : -1.0,
+						"minimum" : 0.0,
+						"sendinit" : 1,
+						"steps" : 17.0,
+						"unit" : ""
 					}
 ,
 					"rnbo_serial" : 5,
@@ -2700,19 +2700,19 @@
 					"patching_rect" : [ 88.0, 120.0, 468.0, 23.0 ],
 					"rnbo_classname" : "param",
 					"rnbo_extra_attributes" : 					{
-						"exponent" : 1.0,
-						"preset" : 1,
-						"sendinit" : 1,
-						"maximum" : 16.0,
 						"displayname" : "",
-						"fromnormalized" : "",
-						"ctlin" : -1.0,
-						"steps" : 17.0,
-						"unit" : "",
-						"minimum" : 0.0,
-						"tonormalized" : "",
+						"preset" : 1,
 						"order" : "0",
-						"displayorder" : "-"
+						"tonormalized" : "",
+						"displayorder" : "-",
+						"exponent" : 1.0,
+						"fromnormalized" : "",
+						"maximum" : 16.0,
+						"ctlin" : -1.0,
+						"minimum" : 0.0,
+						"sendinit" : 1,
+						"steps" : 17.0,
+						"unit" : ""
 					}
 ,
 					"rnbo_serial" : 6,
@@ -3144,7 +3144,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 44.0, 1360.0, 124.0, 23.0 ],
+					"patching_rect" : [ 44.0, 716.0, 124.0, 23.0 ],
 					"rnbo_classname" : "out",
 					"rnbo_extra_attributes" : 					{
 						"meta" : ""
@@ -3236,7 +3236,7 @@
 						"meta" : ""
 					}
 ,
-					"rnbo_serial" : 1,
+					"rnbo_serial" : 2,
 					"rnbo_uniqueid" : "in_obj-2",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
@@ -3319,13 +3319,13 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 44.0, 451.0, 980.0, 889.0 ],
+					"patching_rect" : [ 44.0, 444.0, 884.0, 248.0 ],
 					"rnbo_classname" : "codebox",
 					"rnbo_extra_attributes" : 					{
-						"nocache" : 0,
-						"hot" : 0,
+						"code" : "//reconstruct remapped midi, potentially changing channel\n\n//default off\n@param chan_pad = 0;\n@param chan_step = 0;\n@param chan_track = 0;\n@param chan_function = 0;\n@param chan_nav = 0;\n\n@param active = 1;\n\nconst PREFIX_PAD = 0;\nconst PREFIX_STEP = 1;\nconst PREFIX_TRACK = 2;\nconst PREFIX_FUNCTION = 3;\nconst PREFIX_NAV = 4;\n\nfunction sendnote(num: number, vel: number, chan: number) {\n  if (vel == 0) {\n    out1 = 0x80 | (chan - 1);\n  } else {\n    out1 = 0x90 | (chan - 1);\n  }\n  out1 = num;\n  out1 = vel;\n}\n\nfunction sendcc(num: number, val: number, chan: number) {\n  out1 = 0xB0 | (chan - 1);\n  out1 = num;\n  out1 = val;\n}\n\n//key pressure\nfunction listin2(v: list) {\n  if (v.length == 2) {\n    let index = v[0];\n\n    if (index >= 0 && index < 32 && chan_pad > 0 && chan_pad <= 16) {\n      out1 = 0xA0 | (chan_pad - 1);\n      out1 = index + 68;\n      out1 = v[1];\n    }\n  }\n}\n\nlet m = listin1;\nlet prefix = m[0];\nlet num = m[1];\n\nif (num < 0 || active == 0)\n  return;\n\nswitch (prefix) {\n  case PREFIX_PAD:\n    if (num < 32 && chan_pad > 0 && chan_pad <= 16) {\n      sendnote(num + 68, m[2], chan_pad);\n    }\n    break;\n  case PREFIX_STEP:\n    if (num < 16 && chan_step > 0 && chan_step <= 16) {\n      sendnote(num + 16, m[2], chan_step);\n    }\n    break;\n  case PREFIX_TRACK:\n    if (num < 4 && chan_track > 0 && chan_track <= 16) {\n      sendcc(num + 40, m[2], chan_track);\n    }\n    break;\n  case PREFIX_FUNCTION:\n    if (chan_function > 0 && chan_function <= 16) {\n      switch (num) {\n        case 0:\n          sendcc(52, m[2], chan_function);\n          break;\n        case 1:\n          sendcc(118, m[2], chan_function);\n          break;\n        case 2:\n          sendcc(58, m[2], chan_function);\n          break;\n        case 3:\n          sendcc(88, m[2], chan_function);\n          break;\n        case 4:\n          sendcc(119, m[2], chan_function);\n          break;\n        case 5:\n          sendcc(60, m[2], chan_function);\n          break;\n        case 6:\n          sendcc(56, m[2], chan_function);\n          break;\n        case 7:\n          sendcc(49, m[2], chan_function);\n          break;\n        case 8:\n          sendcc(86, m[2], chan_function);\n          break;\n          //TODO play button\n        default:\n          break;\n      }\n    }\n    break;\n  case PREFIX_NAV:\n    if (chan_nav > 0 && chan_nav <= 16) {\n      switch (num) {\n        case 0:\n          sendcc(55, m[2], chan_nav);\n          break;\n        case 1:\n          sendcc(54, m[2], chan_nav);\n          break;\n        case 2:\n          sendcc(62, m[2], chan_nav);\n          break;\n        case 3:\n          sendcc(63, m[2], chan_nav);\n          break;\n        default:\n          break;\n      }\n    }\n    break;\n  default:\n    //error?\n    break;\n}\n",
 						"safemath" : 1,
-						"code" : "//reconstruct remapped midi, potentially changing channel\n\n//default off\n@param chan_pad = 0;\n@param chan_step = 0;\n@param chan_track = 0;\n@param chan_function = 0;\n@param chan_nav = 0;\n\n@param active = 1;\n\nconst PREFIX_PAD = 0;\nconst PREFIX_STEP = 1;\nconst PREFIX_TRACK = 2;\nconst PREFIX_FUNCTION = 3;\nconst PREFIX_NAV = 4;\n\nfunction sendnote(num: number, vel: number, chan: number) {\n  if (vel == 0) {\n    out1 = 0x80 | (chan - 1);\n  } else {\n    out1 = 0x90 | (chan - 1);\n  }\n  out1 = num;\n  out1 = vel;\n}\n\nfunction sendcc(num: number, val: number, chan: number) {\n  out1 = 0xB0 | (chan - 1);\n  out1 = num;\n  out1 = val;\n}\n\n//key pressure\nfunction listin2(v: list) {\n  if (v.length == 2) {\n    let index = v[0];\n\n    if (index >= 0 && index < 32 && chan_pad > 0 && chan_pad <= 16) {\n      out1 = 0xA0 | (chan_pad - 1);\n      out1 = index + 68;\n      out1 = v[1];\n    }\n  }\n}\n\nlet m = listin1;\nlet prefix = m[0];\nlet num = m[1];\n\nif (num < 0 || active == 0)\n  return;\n\nswitch (prefix) {\n  case PREFIX_PAD:\n    if (num < 32 && chan_pad > 0 && chan_pad <= 16) {\n      sendnote(num + 68, m[2], chan_pad);\n    }\n    break;\n  case PREFIX_STEP:\n    if (num < 16 && chan_step > 0 && chan_step <= 16) {\n      sendnote(num + 16, m[2], chan_step);\n    }\n    break;\n  case PREFIX_TRACK:\n    if (num < 4 && chan_track > 0 && chan_track <= 16) {\n      sendcc(num + 40, m[2], chan_track);\n    }\n    break;\n  case PREFIX_FUNCTION:\n    if (chan_function > 0 && chan_function <= 16) {\n      switch (num) {\n        case 0:\n          sendcc(52, m[2], chan_function);\n          break;\n        case 1:\n          sendcc(118, m[2], chan_function);\n          break;\n        case 2:\n          sendcc(58, m[2], chan_function);\n          break;\n        case 3:\n          sendcc(88, m[2], chan_function);\n          break;\n        case 4:\n          sendcc(119, m[2], chan_function);\n          break;\n        case 5:\n          sendcc(60, m[2], chan_function);\n          break;\n        case 6:\n          sendcc(56, m[2], chan_function);\n          break;\n        case 7:\n          sendcc(49, m[2], chan_function);\n          break;\n        case 8:\n          sendcc(86, m[2], chan_function);\n          break;\n          //TODO play button\n        default:\n          break;\n      }\n    }\n    break;\n  case PREFIX_NAV:\n    if (chan_nav > 0 && chan_nav <= 16) {\n      switch (num) {\n        case 0:\n          sendcc(55, m[2], chan_nav);\n          break;\n        case 1:\n          sendcc(54, m[2], chan_nav);\n          break;\n        case 2:\n          sendcc(62, m[2], chan_nav);\n          break;\n        case 3:\n          sendcc(63, m[2], chan_nav);\n          break;\n        default:\n          break;\n      }\n    }\n    break;\n  default:\n    //error?\n    break;\n}\n"
+						"nocache" : 0,
+						"hot" : 0
 					}
 ,
 					"rnbo_serial" : 3,
@@ -3615,6 +3615,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 1 ],
+					"midpoints" : [ 822.5, 429.0, 918.5, 429.0 ],
 					"source" : [ "obj-16", 0 ]
 				}
 

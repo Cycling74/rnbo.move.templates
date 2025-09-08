@@ -1,0 +1,37 @@
+{
+	"filetype" : "C74Snapshot",
+	"version" : 2,
+	"minorversion" : 0,
+	"name" : "Pad KBM Builder",
+	"origin" : "Pad KBM Builder",
+	"type" : "rnbo",
+	"subtype" : "",
+	"embed" : 1,
+	"snapshot" : 	{
+		"FitScale" : 		{
+			"value" : 1.0
+		}
+,
+		"MIDIRef" : 		{
+			"value" : 69.0
+		}
+,
+		"__presetid" : "Pad KBM Builder",
+		"Tuning" : 		{
+			"value" : 440.0
+		}
+,
+		"__sps" : 		{
+			"hysteresis" : 			{
+
+			}
+
+		}
+,
+		"MIDIMid" : 		{
+			"value" : 60.0
+		}
+
+	}
+
+}
