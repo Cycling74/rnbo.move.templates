@@ -1,13 +1,14 @@
-//input prefix: 
-//0 -> note
-//1 -> cc
-//
-//output prefix:
+//output zone prefix:
 //0 -> pads
 //1 -> steps
 //2 -> tracks
 //3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)
 //4 -> nav (plus, minus, left, right)
+//
+//input prefix: 
+//0 -> note
+//1 -> cc
+//
 
 //when we get a note off, should we send a zero key pressure if one hasn't already been sent?
 @param sendzeropressure = 1;

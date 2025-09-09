@@ -19,11 +19,23 @@
 		"title" : "input-driver",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-16",
+					"linecount" : 4,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 190.0, 7.0, 807.0, 64.0 ],
+					"text" : "This patcher processes the MIDI from Move and converts in into a simple list format that is more intutive to parse. It also reformats key pressure messages to align with the list values.\nThe list format, from out 1, is in the format: zone, address, velocity/value. The zones are listed in the codebox below and the addresses are all 0-indexed.\nThe key pressure list comes from out 2 and uses the same index as the corresponding pad message from out 1."
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-14",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 201.0, 84.0, 458.0, 21.0 ],
+					"patching_rect" : [ 174.0, 124.0, 458.0, 21.0 ],
 					"text" : "should we \"fixup\" key pressure by sending a 0 out if there isn't one before a note off?"
 				}
 
@@ -35,7 +47,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 201.0, 143.0, 120.0, 23.0 ],
+					"patching_rect" : [ 174.0, 183.0, 120.0, 23.0 ],
 					"rnbo_classname" : "set",
 					"rnbo_serial" : 1,
 					"rnbo_uniqueid" : "set_obj-10",
@@ -93,22 +105,22 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 201.0, 110.0, 343.0, 23.0 ],
+					"patching_rect" : [ 174.0, 150.0, 343.0, 23.0 ],
 					"rnbo_classname" : "param",
 					"rnbo_extra_attributes" : 					{
-						"displayname" : "",
 						"preset" : 1,
-						"order" : "0",
-						"tonormalized" : "",
-						"displayorder" : "-",
-						"exponent" : 1.0,
-						"fromnormalized" : "",
-						"maximum" : 1.0,
-						"ctlin" : -1.0,
 						"minimum" : 0.0,
-						"sendinit" : 1,
+						"fromnormalized" : "",
+						"displayname" : "",
 						"steps" : 2.0,
-						"unit" : ""
+						"displayorder" : "-",
+						"unit" : "",
+						"ctlin" : -1.0,
+						"sendinit" : 1,
+						"order" : "0",
+						"exponent" : 1.0,
+						"maximum" : 1.0,
+						"tonormalized" : ""
 					}
 ,
 					"rnbo_serial" : 1,
@@ -540,13 +552,13 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 749.0, 722.0, 224.0, 23.0 ],
+					"patching_rect" : [ 749.0, 722.0, 241.0, 23.0 ],
 					"rnbo_classname" : "out",
 					"rnbo_extra_attributes" : 					{
 						"meta" : ""
 					}
 ,
-					"rnbo_serial" : 1,
+					"rnbo_serial" : 5,
 					"rnbo_uniqueid" : "out_obj-12",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
@@ -601,7 +613,7 @@
 								"name" : "in1",
 								"type" : [ "bang", "number", "list" ],
 								"digest" : "value sent to outlet with index 2",
-								"displayName" : "polytouch note, value",
+								"displayName" : "keypressure: index, value",
 								"hot" : 1,
 								"docked" : 0
 							}
@@ -615,7 +627,7 @@
 						"changesPatcherIO" : 1
 					}
 ,
-					"text" : "out 2 @comment \"polytouch note, value\""
+					"text" : "out 2 @comment \"keypressure: index, value\""
 				}
 
 			}
@@ -710,13 +722,13 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 23.0, 722.0, 264.0, 23.0 ],
+					"patching_rect" : [ 23.0, 722.0, 259.0, 23.0 ],
 					"rnbo_classname" : "out",
 					"rnbo_extra_attributes" : 					{
 						"meta" : ""
 					}
 ,
-					"rnbo_serial" : 2,
+					"rnbo_serial" : 4,
 					"rnbo_uniqueid" : "out_obj-8",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
@@ -771,7 +783,7 @@
 								"name" : "in1",
 								"type" : [ "bang", "number", "list" ],
 								"digest" : "value sent to outlet with index 1",
-								"displayName" : "prefix, address, velocity|value",
+								"displayName" : "zone, address, velocity|value",
 								"hot" : 1,
 								"docked" : 0
 							}
@@ -785,13 +797,13 @@
 						"changesPatcherIO" : 1
 					}
 ,
-					"text" : "out 1 @comment \"prefix, address, velocity|value\""
+					"text" : "out 1 @comment \"zone, address, velocity|value\""
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"code" : "//input prefix: \n//0 -> note\n//1 -> cc\n//\n//output prefix:\n//0 -> pads\n//1 -> steps\n//2 -> tracks\n//3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)\n//4 -> nav (plus, minus, left, right)\n\n//when we get a note off, should we send a zero key pressure if one hasn't already been sent?\n@param sendzeropressure = 1;\n\n//parse midi input\n@state parser = new midiparse();\n@state activepressure: Int = 0; //we know that this is at least 32-bits\n\nfunction in2(bytein: number) {\n  //forward midi output\n  let m = parser.next(bytein);\n  //\n  if (m[0] == 1) { //key pressure\n    let chan = m[3];\n    let num = m[5] - 68; //convert to 0 based\n    if (chan == 16 && num >= 0 && num < 32) {\n      //using 5 & 6 because midiparse or midiformat are broken \n      let val = m[6];\n      listout2 = [num, val];\n\n      let mask: Int = 1 << num;\n      if (val == 0) {\n        activepressure = activepressure & ~mask;\n      } else {\n        activepressure |= mask;\n      }\n    }\n  }\n}\n\nconst OUT_PAD = 0;\nconst OUT_STEP = 1;\nconst OUT_TRACK = 2;\nconst OUT_FUNCTION = 3;\nconst OUT_NAV = 4;\n\nlet m = listin1;\nlet prefix = m[0];\n\nif (prefix == 0) { //note\n  let num = m[1];\n  let vel = m[2];\n  if (num >= 68 && num <= 99) {\n    num -= 68;\n\n    //send a zero pressure if none has already been sent\n    if (sendzeropressure && vel == 0) {\n      let mask: Int = 1 << num;\n      if ((mask & activepressure) != 0) {\n        activepressure = activepressure & ~mask;\n        listout2 = [num, 0];\n      }\n    }\n\n    listout1 = [OUT_PAD, num, vel];\n  } else if (num >= 16 && num <= 31) {\n    listout1 = [OUT_STEP, num - 16, vel];\n  }\n} else if (prefix == 1) { //cc\n  let val = m[1];\n  let num = m[2];\n\n  if (num >= 40 && num <= 43) {\n    listout1 = [OUT_TRACK, num - 40, val];\n  } else {\n    let o = OUT_FUNCTION;\n    let mapped = 0;\n    switch (num) {\n      case 52:\n        mapped = 0;\n        break;\n      case 118:\n        mapped = 1;\n        break;\n      case 58:\n        mapped = 2;\n        break;\n      case 88:\n        mapped = 3;\n        break;\n      case 119:\n        mapped = 4;\n        break;\n      case 60:\n        mapped = 5;\n        break;\n      case 56:\n        mapped = 6;\n        break;\n      case 49:\n        mapped = 7;\n        break;\n      case 86:\n        mapped = 8;\n        break;\n      //TODO play button\n      case 55:\n        o = OUT_NAV;\n        mapped = 0;\n        break;\n      case 54:\n        o = OUT_NAV;\n        mapped = 1;\n        break;\n      case 62:\n        o = OUT_NAV;\n        mapped = 2;\n        break;\n      case 63:\n        o = OUT_NAV;\n        mapped = 3;\n        break;\n      default:\n        return;\n    }\n    listout1 = [o, mapped, val];\n  }\n}\n\n",
+					"code" : "//output zone prefix:\n//0 -> pads\n//1 -> steps\n//2 -> tracks\n//3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)\n//4 -> nav (plus, minus, left, right)\n//\n//input prefix: \n//0 -> note\n//1 -> cc\n//\n\n//when we get a note off, should we send a zero key pressure if one hasn't already been sent?\n@param sendzeropressure = 1;\n\n//parse midi input\n@state parser = new midiparse();\n@state activepressure: Int = 0; //we know that this is at least 32-bits\n\nfunction in2(bytein: number) {\n  //forward midi output\n  let m = parser.next(bytein);\n  //\n  if (m[0] == 1) { //key pressure\n    let chan = m[3];\n    let num = m[5] - 68; //convert to 0 based\n    if (chan == 16 && num >= 0 && num < 32) {\n      //using 5 & 6 because midiparse or midiformat are broken \n      let val = m[6];\n      listout2 = [num, val];\n\n      let mask: Int = 1 << num;\n      if (val == 0) {\n        activepressure = activepressure & ~mask;\n      } else {\n        activepressure |= mask;\n      }\n    }\n  }\n}\n\nconst OUT_PAD = 0;\nconst OUT_STEP = 1;\nconst OUT_TRACK = 2;\nconst OUT_FUNCTION = 3;\nconst OUT_NAV = 4;\n\nlet m = listin1;\nlet prefix = m[0];\n\nif (prefix == 0) { //note\n  let num = m[1];\n  let vel = m[2];\n  if (num >= 68 && num <= 99) {\n    num -= 68;\n\n    //send a zero pressure if none has already been sent\n    if (sendzeropressure && vel == 0) {\n      let mask: Int = 1 << num;\n      if ((mask & activepressure) != 0) {\n        activepressure = activepressure & ~mask;\n        listout2 = [num, 0];\n      }\n    }\n\n    listout1 = [OUT_PAD, num, vel];\n  } else if (num >= 16 && num <= 31) {\n    listout1 = [OUT_STEP, num - 16, vel];\n  }\n} else if (prefix == 1) { //cc\n  let val = m[1];\n  let num = m[2];\n\n  if (num >= 40 && num <= 43) {\n    listout1 = [OUT_TRACK, num - 40, val];\n  } else {\n    let o = OUT_FUNCTION;\n    let mapped = 0;\n    switch (num) {\n      case 52:\n        mapped = 0;\n        break;\n      case 118:\n        mapped = 1;\n        break;\n      case 58:\n        mapped = 2;\n        break;\n      case 88:\n        mapped = 3;\n        break;\n      case 119:\n        mapped = 4;\n        break;\n      case 60:\n        mapped = 5;\n        break;\n      case 56:\n        mapped = 6;\n        break;\n      case 49:\n        mapped = 7;\n        break;\n      case 86:\n        mapped = 8;\n        break;\n      //TODO play button\n      case 55:\n        o = OUT_NAV;\n        mapped = 0;\n        break;\n      case 54:\n        o = OUT_NAV;\n        mapped = 1;\n        break;\n      case 62:\n        o = OUT_NAV;\n        mapped = 2;\n        break;\n      case 63:\n        o = OUT_NAV;\n        mapped = 3;\n        break;\n      default:\n        return;\n    }\n    listout1 = [o, mapped, val];\n  }\n}",
 					"fontface" : 0,
 					"fontname" : "<Monospaced>",
 					"fontsize" : 12.0,
@@ -803,13 +815,13 @@
 					"patching_rect" : [ 23.0, 237.0, 745.0, 472.0 ],
 					"rnbo_classname" : "codebox",
 					"rnbo_extra_attributes" : 					{
-						"code" : "//input prefix: \n//0 -> note\n//1 -> cc\n//\n//output prefix:\n//0 -> pads\n//1 -> steps\n//2 -> tracks\n//3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)\n//4 -> nav (plus, minus, left, right)\n\n//when we get a note off, should we send a zero key pressure if one hasn't already been sent?\n@param sendzeropressure = 1;\n\n//parse midi input\n@state parser = new midiparse();\n@state activepressure: Int = 0; //we know that this is at least 32-bits\n\nfunction in2(bytein: number) {\n  //forward midi output\n  let m = parser.next(bytein);\n  //\n  if (m[0] == 1) { //key pressure\n    let chan = m[3];\n    let num = m[5] - 68; //convert to 0 based\n    if (chan == 16 && num >= 0 && num < 32) {\n      //using 5 & 6 because midiparse or midiformat are broken \n      let val = m[6];\n      listout2 = [num, val];\n\n      let mask: Int = 1 << num;\n      if (val == 0) {\n        activepressure = activepressure & ~mask;\n      } else {\n        activepressure |= mask;\n      }\n    }\n  }\n}\n\nconst OUT_PAD = 0;\nconst OUT_STEP = 1;\nconst OUT_TRACK = 2;\nconst OUT_FUNCTION = 3;\nconst OUT_NAV = 4;\n\nlet m = listin1;\nlet prefix = m[0];\n\nif (prefix == 0) { //note\n  let num = m[1];\n  let vel = m[2];\n  if (num >= 68 && num <= 99) {\n    num -= 68;\n\n    //send a zero pressure if none has already been sent\n    if (sendzeropressure && vel == 0) {\n      let mask: Int = 1 << num;\n      if ((mask & activepressure) != 0) {\n        activepressure = activepressure & ~mask;\n        listout2 = [num, 0];\n      }\n    }\n\n    listout1 = [OUT_PAD, num, vel];\n  } else if (num >= 16 && num <= 31) {\n    listout1 = [OUT_STEP, num - 16, vel];\n  }\n} else if (prefix == 1) { //cc\n  let val = m[1];\n  let num = m[2];\n\n  if (num >= 40 && num <= 43) {\n    listout1 = [OUT_TRACK, num - 40, val];\n  } else {\n    let o = OUT_FUNCTION;\n    let mapped = 0;\n    switch (num) {\n      case 52:\n        mapped = 0;\n        break;\n      case 118:\n        mapped = 1;\n        break;\n      case 58:\n        mapped = 2;\n        break;\n      case 88:\n        mapped = 3;\n        break;\n      case 119:\n        mapped = 4;\n        break;\n      case 60:\n        mapped = 5;\n        break;\n      case 56:\n        mapped = 6;\n        break;\n      case 49:\n        mapped = 7;\n        break;\n      case 86:\n        mapped = 8;\n        break;\n      //TODO play button\n      case 55:\n        o = OUT_NAV;\n        mapped = 0;\n        break;\n      case 54:\n        o = OUT_NAV;\n        mapped = 1;\n        break;\n      case 62:\n        o = OUT_NAV;\n        mapped = 2;\n        break;\n      case 63:\n        o = OUT_NAV;\n        mapped = 3;\n        break;\n      default:\n        return;\n    }\n    listout1 = [o, mapped, val];\n  }\n}\n\n",
 						"safemath" : 1,
 						"nocache" : 0,
+						"code" : "//output zone prefix:\n//0 -> pads\n//1 -> steps\n//2 -> tracks\n//3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)\n//4 -> nav (plus, minus, left, right)\n//\n//input prefix: \n//0 -> note\n//1 -> cc\n//\n\n//when we get a note off, should we send a zero key pressure if one hasn't already been sent?\n@param sendzeropressure = 1;\n\n//parse midi input\n@state parser = new midiparse();\n@state activepressure: Int = 0; //we know that this is at least 32-bits\n\nfunction in2(bytein: number) {\n  //forward midi output\n  let m = parser.next(bytein);\n  //\n  if (m[0] == 1) { //key pressure\n    let chan = m[3];\n    let num = m[5] - 68; //convert to 0 based\n    if (chan == 16 && num >= 0 && num < 32) {\n      //using 5 & 6 because midiparse or midiformat are broken \n      let val = m[6];\n      listout2 = [num, val];\n\n      let mask: Int = 1 << num;\n      if (val == 0) {\n        activepressure = activepressure & ~mask;\n      } else {\n        activepressure |= mask;\n      }\n    }\n  }\n}\n\nconst OUT_PAD = 0;\nconst OUT_STEP = 1;\nconst OUT_TRACK = 2;\nconst OUT_FUNCTION = 3;\nconst OUT_NAV = 4;\n\nlet m = listin1;\nlet prefix = m[0];\n\nif (prefix == 0) { //note\n  let num = m[1];\n  let vel = m[2];\n  if (num >= 68 && num <= 99) {\n    num -= 68;\n\n    //send a zero pressure if none has already been sent\n    if (sendzeropressure && vel == 0) {\n      let mask: Int = 1 << num;\n      if ((mask & activepressure) != 0) {\n        activepressure = activepressure & ~mask;\n        listout2 = [num, 0];\n      }\n    }\n\n    listout1 = [OUT_PAD, num, vel];\n  } else if (num >= 16 && num <= 31) {\n    listout1 = [OUT_STEP, num - 16, vel];\n  }\n} else if (prefix == 1) { //cc\n  let val = m[1];\n  let num = m[2];\n\n  if (num >= 40 && num <= 43) {\n    listout1 = [OUT_TRACK, num - 40, val];\n  } else {\n    let o = OUT_FUNCTION;\n    let mapped = 0;\n    switch (num) {\n      case 52:\n        mapped = 0;\n        break;\n      case 118:\n        mapped = 1;\n        break;\n      case 58:\n        mapped = 2;\n        break;\n      case 88:\n        mapped = 3;\n        break;\n      case 119:\n        mapped = 4;\n        break;\n      case 60:\n        mapped = 5;\n        break;\n      case 56:\n        mapped = 6;\n        break;\n      case 49:\n        mapped = 7;\n        break;\n      case 86:\n        mapped = 8;\n        break;\n      //TODO play button\n      case 55:\n        o = OUT_NAV;\n        mapped = 0;\n        break;\n      case 54:\n        o = OUT_NAV;\n        mapped = 1;\n        break;\n      case 62:\n        o = OUT_NAV;\n        mapped = 2;\n        break;\n      case 63:\n        o = OUT_NAV;\n        mapped = 3;\n        break;\n      default:\n        return;\n    }\n    listout1 = [o, mapped, val];\n  }\n}",
 						"hot" : 0
 					}
 ,
-					"rnbo_serial" : 3,
+					"rnbo_serial" : 2,
 					"rnbo_uniqueid" : "codebox_obj-7",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
@@ -1524,7 +1536,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-7", 0 ],
-					"midpoints" : [ 210.5, 222.0, 32.5, 222.0 ],
+					"midpoints" : [ 183.5, 222.0, 32.5, 222.0 ],
 					"source" : [ "obj-10", 0 ]
 				}
 
@@ -1611,7 +1623,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"order" : 2,
+					"order" : 1,
 					"source" : [ "obj-9", 0 ]
 				}
 
@@ -1620,7 +1632,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
 					"midpoints" : [ 32.5, 78.0, 105.5, 78.0 ],
-					"order" : 1,
+					"order" : 0,
 					"source" : [ "obj-9", 0 ]
 				}
 
@@ -1629,7 +1641,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-7", 1 ],
 					"midpoints" : [ 32.5, 78.0, 758.5, 78.0 ],
-					"order" : 0,
+					"order" : 2,
 					"source" : [ "obj-9", 0 ]
 				}
 

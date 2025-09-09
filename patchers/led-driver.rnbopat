@@ -19,18 +19,30 @@
 		"title" : "led-driver",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-2",
+					"linecount" : 11,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 263.0, 17.0, 636.0, 165.0 ],
+					"text" : "This patcher takes a list and converts with an intiutive format and converts it to the appropriate MIDI messages needed to light up the various LEDs on the Move. It handles constructing the SYSEX messages you need to create precise colors for you, all you have to provide is value of 0..1 for each of the red, blue and green channels.\n\nthe list format is as follows:\n\nzone, address, r, g, b for RGB LEDs or\nzone, address, 0/1 for black and white LEDs \n\nThe zone is listed to the left, the address is a 0-indexed value, and r, g, and b are a floating point value from 0 to 1 where 0 is off and 1 is maximum brightness. If the LED is just black and white, 1 will turn it on, and 0 will turn it off."
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-7",
 					"maxclass" : "newobj",
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 18.0, 17.0, 213.0, 23.0 ],
+					"patching_rect" : [ 18.0, 17.0, 208.0, 23.0 ],
 					"rnbo_classname" : "in",
 					"rnbo_extra_attributes" : 					{
 						"meta" : ""
 					}
 ,
-					"rnbo_serial" : 1,
+					"rnbo_serial" : 2,
 					"rnbo_uniqueid" : "in_obj-7",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
@@ -86,7 +98,7 @@
 								"name" : "out1",
 								"type" : [ "bang", "number", "list" ],
 								"digest" : "value from inlet with index 1",
-								"displayName" : "prefix, address, r, g, b",
+								"displayName" : "zone, address, r, g, b",
 								"docked" : 0
 							}
  ],
@@ -98,19 +110,19 @@
 						"changesPatcherIO" : 1
 					}
 ,
-					"text" : "in 1 @comment \"prefix, address, r, g, b\""
+					"text" : "in 1 @comment \"zone, address, r, g, b\""
 				}
 
 			}
 , 			{
 				"box" : 				{
 					"id" : "obj-6",
-					"linecount" : 11,
+					"linecount" : 7,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 252.0, 17.0, 323.0, 165.0 ],
-					"text" : "listin1 - prefix, address, r, g, b\n\nif the LED is b/w then we just use r = 0 for off, != 0 for on\n\nprefix:\n0 - pads\n1 - steps\n2 - track\n3 - functions (capture.. shift, record)\n4 - nav (left, right, plus, minus)\n5 - icons"
+					"patching_rect" : [ 51.0, 60.0, 202.0, 107.0 ],
+					"text" : "zones:\n0 - pads\n1 - steps\n2 - track\n3 - functions (capture.. shift, record)\n4 - nav (left, right, plus, minus)\n5 - icons"
 				}
 
 			}
@@ -120,7 +132,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 876.0, 719.0, 49.0, 23.0 ],
+					"patching_rect" : [ 880.0, 719.0, 49.0, 23.0 ],
 					"rnbo_classname" : "midiout",
 					"rnbo_serial" : 1,
 					"rnbo_uniqueid" : "midiout_obj-19",
@@ -142,13 +154,13 @@
 					"patching_rect" : [ 18.0, 187.0, 881.0, 524.0 ],
 					"rnbo_classname" : "codebox",
 					"rnbo_extra_attributes" : 					{
-						"code" : "const COLOR_TYPE_RGB = 0;\nconst COLOR_TYPE_BW = 1;\n\n\n/*\n  * 32 pad buttons\n  * 16 step buttons\n  * 4  track buttons\n  * 9 \"function\" buttons (right side + left side record button) [b/w except 2]\n  * 4 nav buttons [b/w]\n  * 16 icons [b/w]\n  */\n\nfunction processcolor(v: number): list {\n  let v = clamp(v * 255.0, 1, 255);\n  let v0 = v & 0x7F;\n  let v1 = v >> 7;\n  return [v0, v1];\n}\n\nfunction mapdest(dest: number, index: number): list {\n  if (index < 0) {\n    return [];\n  }\n  let channel = 0; //0 == note, 1 == ctrl\n  let colortype = COLOR_TYPE_RGB;\n  switch (dest) {\n    case 0: { //buttons\n      //range check\n      if (index >= 32) {\n        return [];\n      }\n      index += 68;\n      break;\n    }\n    case 1: { //steps\n      if (index >= 16) {\n        return [];\n      }\n      index += 16;\n      break;\n    }\n    case 2: { //tracks\n      if (index >= 4) {\n        return [];\n      }\n      index += 40;\n      channel = 1;\n      break;\n    }\n    case 3: { //functions\n      colortype = COLOR_TYPE_BW;\n      channel = 1;\n      switch (index) {\n        case 0: //capture\n          index = 52;\n          break;\n        case 1: //sampling\n          colortype = COLOR_TYPE_RGB;\n          index = 118;\n          break;\n        case 2: //repeat\n          index = 58;\n          break;\n        case 3: //mute\n          index = 88;\n          break;\n        case 4: //delete\n            index = 119;\n          break;\n        case 5: //duplicate\n          index = 60;\n          break;\n        case 6: //undo \n          index = 56;\n          break;\n        case 7: //shift\n          index = 49;\n          break;\n        case 8: //record\n          colortype = COLOR_TYPE_RGB;\n          index = 86;\n          break;\n        default:\n          return [];\n      }\n      break;\n    }\n    case 4: { //nav\n      colortype = COLOR_TYPE_BW;\n      channel = 1;\n      switch (index) {\n        case 0: //plus\n          index = 55;\n          break;\n        case 1: //minus\n          index = 54;\n          break;\n        case 2: //left\n          index = 62;\n          break;\n        case 3: //right\n          index = 63;\n          break;\n        default:\n          return [];\n      }\n      break;\n    }\n    case 5: { //icons\n      colortype = COLOR_TYPE_BW;\n      channel = 1;\n      if (index >= 16) {\n        return [];\n      }\n      index += 16;\n      break;\n    }\n    default:\n      return [];\n  }\n\n  return [colortype, channel, index];\n}\n\nlet led = listin1; //dest, index, r (or b/w), g, b\n\nif (led.length < 2) {\n  return;\n}\n\nlet dest = led[0];\nlet index = led[1];\n\nlet r = 0; \nlet g = 0;\nlet b = 0; \n\nswitch (led.length) {\n  case 5:\n    b = led[4];\n  case 4:\n    g = led[3];\n  case 3:\n    r = led[2];\n  default:\n    break;\n}\n\nlet mapped = mapdest(dest, index);\n\nif (mapped.length == 0) {\n  return;\n}\n\nlet colortype = mapped[0];\nlet channel = mapped[1];\nlet mappedindex = mapped[2];\n\nif (colortype == COLOR_TYPE_RGB) {\n  //sysex\n  let o: list = [240, 0, 33, 29, 1, 1, 59];\n\n  //clamping to 1 because 0 doesn't seem to work\n  r = clamp(r * 255.0, 1.0, 255.0);\n  g = clamp(g * 255.0, 1.0, 255.0);\n  b = clamp(b * 255.0, 1.0, 255.0);\n\n  listout1 = o.concat([channel << 4, mappedindex, r & 0x7F, r >> 7, g & 0x7F, g >> 7, b & 0x7F, b >> 7, 247]);\n} else if (channel == 1) { //should all be 1 if colortype == COLOR_TYPE_BW\n  out2 = 0xBF;\n  out2 = mappedindex;\n  out2 = r > 0 ? 127 : 0;\n}",
 						"safemath" : 1,
 						"nocache" : 0,
+						"code" : "const COLOR_TYPE_RGB = 0;\nconst COLOR_TYPE_BW = 1;\n\n\n/*\n  * 32 pad buttons\n  * 16 step buttons\n  * 4  track buttons\n  * 9 \"function\" buttons (right side + left side record button) [b/w except 2]\n  * 4 nav buttons [b/w]\n  * 16 icons [b/w]\n  */\n\nfunction processcolor(v: number): list {\n  let v = clamp(v * 255.0, 1, 255);\n  let v0 = v & 0x7F;\n  let v1 = v >> 7;\n  return [v0, v1];\n}\n\nfunction mapdest(dest: number, index: number): list {\n  if (index < 0) {\n    return [];\n  }\n  let channel = 0; //0 == note, 1 == ctrl\n  let colortype = COLOR_TYPE_RGB;\n  switch (dest) {\n    case 0: { //buttons\n      //range check\n      if (index >= 32) {\n        return [];\n      }\n      index += 68;\n      break;\n    }\n    case 1: { //steps\n      if (index >= 16) {\n        return [];\n      }\n      index += 16;\n      break;\n    }\n    case 2: { //tracks\n      if (index >= 4) {\n        return [];\n      }\n      index += 40;\n      channel = 1;\n      break;\n    }\n    case 3: { //functions\n      colortype = COLOR_TYPE_BW;\n      channel = 1;\n      switch (index) {\n        case 0: //capture\n          index = 52;\n          break;\n        case 1: //sampling\n          colortype = COLOR_TYPE_RGB;\n          index = 118;\n          break;\n        case 2: //repeat\n          index = 58;\n          break;\n        case 3: //mute\n          index = 88;\n          break;\n        case 4: //delete\n            index = 119;\n          break;\n        case 5: //duplicate\n          index = 60;\n          break;\n        case 6: //undo \n          index = 56;\n          break;\n        case 7: //shift\n          index = 49;\n          break;\n        case 8: //record\n          colortype = COLOR_TYPE_RGB;\n          index = 86;\n          break;\n        default:\n          return [];\n      }\n      break;\n    }\n    case 4: { //nav\n      colortype = COLOR_TYPE_BW;\n      channel = 1;\n      switch (index) {\n        case 0: //plus\n          index = 55;\n          break;\n        case 1: //minus\n          index = 54;\n          break;\n        case 2: //left\n          index = 62;\n          break;\n        case 3: //right\n          index = 63;\n          break;\n        default:\n          return [];\n      }\n      break;\n    }\n    case 5: { //icons\n      colortype = COLOR_TYPE_BW;\n      channel = 1;\n      if (index >= 16) {\n        return [];\n      }\n      index += 16;\n      break;\n    }\n    default:\n      return [];\n  }\n\n  return [colortype, channel, index];\n}\n\nlet led = listin1; //dest, index, r (or b/w), g, b\n\nif (led.length < 2) {\n  return;\n}\n\nlet dest = led[0];\nlet index = led[1];\n\nlet r = 0; \nlet g = 0;\nlet b = 0; \n\nswitch (led.length) {\n  case 5:\n    b = led[4];\n  case 4:\n    g = led[3];\n  case 3:\n    r = led[2];\n  default:\n    break;\n}\n\nlet mapped = mapdest(dest, index);\n\nif (mapped.length == 0) {\n  return;\n}\n\nlet colortype = mapped[0];\nlet channel = mapped[1];\nlet mappedindex = mapped[2];\n\nif (colortype == COLOR_TYPE_RGB) {\n  //sysex\n  let o: list = [240, 0, 33, 29, 1, 1, 59];\n\n  //clamping to 1 because 0 doesn't seem to work\n  r = clamp(r * 255.0, 1.0, 255.0);\n  g = clamp(g * 255.0, 1.0, 255.0);\n  b = clamp(b * 255.0, 1.0, 255.0);\n\n  listout1 = o.concat([channel << 4, mappedindex, r & 0x7F, r >> 7, g & 0x7F, g >> 7, b & 0x7F, b >> 7, 247]);\n} else if (channel == 1) { //should all be 1 if colortype == COLOR_TYPE_BW\n  out2 = 0xBF;\n  out2 = mappedindex;\n  out2 = r > 0 ? 127 : 0;\n}",
 						"hot" : 0
 					}
 ,
-					"rnbo_serial" : 3,
+					"rnbo_serial" : 1,
 					"rnbo_uniqueid" : "codebox_obj-10",
 					"rnboinfo" : 					{
 						"needsInstanceInfo" : 1,
