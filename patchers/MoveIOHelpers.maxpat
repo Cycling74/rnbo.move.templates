@@ -435,7 +435,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 128.0, 301.0, 101.0, 23.0 ],
 									"rnbo_classname" : "set",
-									"rnbo_serial" : 6,
+									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "set_obj-1",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -828,7 +828,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 108.0, 270.0, 77.0, 23.0 ],
 									"rnbo_classname" : "set",
-									"rnbo_serial" : 1,
+									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "set_obj-10",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -886,7 +886,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 109.5, 242.0, 102.0, 23.0 ],
 									"rnbo_classname" : "set",
-									"rnbo_serial" : 2,
+									"rnbo_serial" : 3,
 									"rnbo_uniqueid" : "set_obj-9",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -944,7 +944,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 106.5, 182.0, 80.0, 23.0 ],
 									"rnbo_classname" : "set",
-									"rnbo_serial" : 3,
+									"rnbo_serial" : 4,
 									"rnbo_uniqueid" : "set_obj-8",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -1002,7 +1002,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 109.5, 213.0, 84.0, 23.0 ],
 									"rnbo_classname" : "set",
-									"rnbo_serial" : 4,
+									"rnbo_serial" : 5,
 									"rnbo_uniqueid" : "set_obj-7",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -1060,7 +1060,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 108.0, 144.0, 77.0, 23.0 ],
 									"rnbo_classname" : "set",
-									"rnbo_serial" : 5,
+									"rnbo_serial" : 6,
 									"rnbo_uniqueid" : "set_obj-6",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -11845,7 +11845,7 @@
 										"meta" : ""
 									}
 ,
-									"rnbo_serial" : 2,
+									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "inport_obj-1",
 									"text" : "inport reset"
 								}
@@ -11876,7 +11876,7 @@
 										"meta" : ""
 									}
 ,
-									"rnbo_serial" : 1,
+									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "inport_obj-4",
 									"text" : "inport leds"
 								}
@@ -13423,7 +13423,7 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 132.0, 506.0, 33.0, 23.0 ],
 									"rnbo_classname" : "t",
-									"rnbo_serial" : 3,
+									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "t_obj-16",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -13516,7 +13516,7 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 150.0, 402.0, 33.0, 23.0 ],
 									"rnbo_classname" : "sel",
-									"rnbo_serial" : 2,
+									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "sel_obj-14",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -13643,7 +13643,7 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 211.5, 506.0, 33.0, 23.0 ],
 									"rnbo_classname" : "t",
-									"rnbo_serial" : 1,
+									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "t_obj-30",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -13736,7 +13736,7 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 170.5, 506.0, 33.0, 23.0 ],
 									"rnbo_classname" : "t",
-									"rnbo_serial" : 2,
+									"rnbo_serial" : 3,
 									"rnbo_uniqueid" : "t_obj-29",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -14013,7 +14013,7 @@
 									"outlettype" : [ "", "", "" ],
 									"patching_rect" : [ 170.5, 471.0, 101.398602426052094, 23.0 ],
 									"rnbo_classname" : "sel",
-									"rnbo_serial" : 1,
+									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "sel_obj-25",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
