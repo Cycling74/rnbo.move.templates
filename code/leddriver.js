@@ -116,6 +116,14 @@ function mapdest(dest: number, index: number): list {
       index += 16;
       break;
     }
+    case 6: { //encoders
+      if (index >= 8) {
+        return [];
+      }
+      channel = 1;
+      index += 71;
+      break;
+    }
     default:
       return [];
   }

@@ -4,6 +4,7 @@
 //2 -> tracks
 //3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)
 //4 -> nav (plus, minus, left, right)
+//6 -> encoders [index, touch=non zero, direction pos=right]
 //
 //input prefix: 
 //0 -> note
@@ -44,6 +45,8 @@ const OUT_STEP = 1;
 const OUT_TRACK = 2;
 const OUT_FUNCTION = 3;
 const OUT_NAV = 4;
+//there is no output from the icons
+const OUT_ENCODER = 6;
 
 let m = listin1;
 let prefix = m[0];
@@ -66,6 +69,9 @@ if (prefix == 0) { //note
     listout1 = [OUT_PAD, num, vel];
   } else if (num >= 16 && num <= 31) {
     listout1 = [OUT_STEP, num - 16, vel];
+  } else if (num >= 0  && num < 8) {
+    //encoders
+    listout1 = [OUT_ENCODER, num, vel, 0]; //up or down but no movement
   }
 } else if (prefix == 1) { //cc
   let val = m[1];
@@ -73,6 +79,12 @@ if (prefix == 0) { //note
 
   if (num >= 40 && num <= 43) {
     listout1 = [OUT_TRACK, num - 40, val];
+  } else if (num >= 71 && num <= 78) {
+    //2's complement
+    if (val > 64) {
+      val -= 128;
+    }
+    listout1 = [OUT_ENCODER, num - 71, 127, val]; //down and movement
   } else {
     let o = OUT_FUNCTION;
     let mapped = 0;

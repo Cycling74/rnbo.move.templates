@@ -6,6 +6,7 @@
 @param chan_track = 0;
 @param chan_function = 0;
 @param chan_nav = 0;
+@param chan_encoder = 0;
 
 @param active = 1;
 
@@ -14,6 +15,7 @@ const PREFIX_STEP = 1;
 const PREFIX_TRACK = 2;
 const PREFIX_FUNCTION = 3;
 const PREFIX_NAV = 4;
+const PREFIX_ENCODER = 6;
 
 function sendnote(num: number, vel: number, chan: number) {
   if (vel == 0) {
@@ -120,6 +122,19 @@ switch (prefix) {
           break;
         default:
           break;
+      }
+    }
+    break;
+  case PREFIX_ENCODER:
+    if (chan_encoder > 0 && chan_encoder <= 16 && num >= 0 && num < 8) {
+      let down = m[2];
+      let val = m[3];
+      if (val == 0) {
+        sendnote(num, down, chan_encoder);
+      } else if (val < 0) {
+        sendcc(num + 71, val + 128, chan_encoder);
+      } else {
+        sendcc(num + 71, val, chan_encoder);
       }
     }
     break;
