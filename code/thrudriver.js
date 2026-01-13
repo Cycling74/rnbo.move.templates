@@ -99,7 +99,9 @@ switch (prefix) {
         case 8:
           sendcc(86, m[2], chan_function);
           break;
-          //TODO play button
+        case 9:
+          sendcc(85, m[2], chan_function);
+          break;
         default:
           break;
       }

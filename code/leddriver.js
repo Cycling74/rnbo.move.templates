@@ -81,6 +81,10 @@ function mapdest(dest: number, index: number): list {
           colortype = COLOR_TYPE_RGB;
           index = 86;
           break;
+        case 9: //play
+          colortype = COLOR_TYPE_RGB;
+          index = 85;
+          break;
         default:
           return [];
       }

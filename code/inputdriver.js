@@ -2,7 +2,7 @@
 //0 -> pads
 //1 -> steps
 //2 -> tracks
-//3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record)
+//3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record, play)
 //4 -> nav (plus, minus, left, right)
 //6 -> encoders [index, touch=non zero, direction pos=right]
 //
@@ -116,7 +116,9 @@ if (prefix == 0) { //note
       case 86:
         mapped = 8;
         break;
-      //TODO play button
+      case 85:
+        mapped = 9;
+        break;
       case 55:
         o = OUT_NAV;
         mapped = 0;
