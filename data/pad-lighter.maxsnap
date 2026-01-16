@@ -1,0 +1,17 @@
+{
+    "filetype": "C74Snapshot",
+    "version": 2,
+    "minorversion": 0,
+    "name": "pad-lighter",
+    "origin": "pad-lighter",
+    "type": "rnbo",
+    "subtype": "",
+    "embed": 0,
+    "snapshot": {
+        "__sps": {
+            "p_obj-3": {            }
+        },
+        "listreg_02": {        },
+        "__presetid": "pad-lighter"
+    }
+}
