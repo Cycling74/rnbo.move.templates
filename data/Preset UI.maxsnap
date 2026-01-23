@@ -1,0 +1,22 @@
+{
+    "filetype": "C74Snapshot",
+    "version": 2,
+    "minorversion": 0,
+    "name": "Preset UI",
+    "origin": "Preset UI",
+    "type": "rnbo",
+    "subtype": "",
+    "embed": 0,
+    "snapshot": {
+        "__sps": {
+            "p_obj-10": {            },
+            "p_obj-3": {            },
+            "p_obj-9": {
+                "zeropressure": {
+                    "value": 1.0
+                }
+            }
+        },
+        "__presetid": "Preset UI"
+    }
+}

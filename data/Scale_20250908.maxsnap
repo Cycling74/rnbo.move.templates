@@ -8,6 +8,9 @@
     "subtype": "",
     "embed": 1,
     "snapshot": {
+        "__sps": {
+            "p_obj-4": {            }
+        },
         "Scale": {
             "value": 0.0
         },
