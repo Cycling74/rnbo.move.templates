@@ -2,16 +2,20 @@
     "filetype": "C74Snapshot",
     "version": 2,
     "minorversion": 0,
-    "name": "pad-lighter",
-    "origin": "pad-lighter",
+    "name": "midi-monitor",
+    "origin": "UI Control",
     "type": "rnbo",
     "subtype": "",
     "embed": 0,
     "snapshot": {
         "__sps": {
+            "p_obj-2": {
+                "zeropressure": {
+                    "value": 1.0
+                }
+            },
             "p_obj-3": {            }
         },
-        "listreg_02": {        },
-        "__presetid": "pad-lighter"
+        "__presetid": "UI Control"
     }
 }
