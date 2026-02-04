@@ -5,6 +5,7 @@
 //3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record, play)
 //4 -> nav (plus, minus, left, right)
 //6 -> encoders [index, touch=non zero, direction pos=right]
+//7 -> jacks [index, pluged = 127] (audio in, audio out)
 //
 //input prefix: 
 //0 -> note
@@ -47,6 +48,7 @@ const OUT_FUNCTION = 3;
 const OUT_NAV = 4;
 //there is no output from the icons
 const OUT_ENCODER = 6;
+const OUT_JACK = 7;
 
 let m = listin1;
 let prefix = m[0];
@@ -85,6 +87,8 @@ if (prefix == 0) { //note
       val -= 128;
     }
     listout1 = [OUT_ENCODER, num - 71, 127, val]; //down and movement
+  } else if (num >= 114 && num <= 115) {
+    listout1 = [OUT_JACK, num - 114, val];
   } else {
     let o = OUT_FUNCTION;
     let mapped = 0;
