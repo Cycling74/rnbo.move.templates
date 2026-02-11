@@ -1,0 +1,21 @@
+{
+    "filetype": "C74Snapshot",
+    "version": 2,
+    "minorversion": 0,
+    "name": "Input Switcher",
+    "origin": "Input Switcher",
+    "type": "rnbo",
+    "subtype": "",
+    "embed": 0,
+    "snapshot": {
+        "__sps": {
+            "p_obj-16": {            },
+            "p_obj-2": {
+                "zeropressure": {
+                    "value": 1.0
+                }
+            }
+        },
+        "__presetid": "Input Switcher"
+    }
+}

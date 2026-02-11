@@ -2,7 +2,7 @@
     "name": "MoveIOHelpers",
     "version": 1,
     "creationdate": 3839954767,
-    "modificationdate": 3852458507,
+    "modificationdate": 3853672740,
     "viewrect": [ 254.0, 151.0, 1068.0, 752.0 ],
     "autoorganize": 0,
     "hideprojectwindow": 0,
@@ -18,8 +18,7 @@
             "MoveIOHelpers.maxpat": {
                 "kind": "patcher",
                 "local": 1,
-                "toplevel": 1,
-                "disclosed": 0
+                "toplevel": 1
             },
             "UserModeTest.maxpat": {
                 "kind": "patcher",
