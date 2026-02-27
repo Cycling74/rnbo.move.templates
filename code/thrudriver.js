@@ -102,6 +102,9 @@ switch (prefix) {
         case 9:
           sendcc(85, m[2], chan_function);
           break;
+        case 10:
+          sendcc(50, m[2], chan_function);
+          break;
         default:
           break;
       }

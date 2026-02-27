@@ -6,7 +6,7 @@ const COLOR_TYPE_BW = 1;
   * 32 pad buttons
   * 16 step buttons
   * 4  track buttons
-  * 9 "function" buttons (right side + left side record button) [b/w except 2]
+  * 9 "function" buttons (right side + left side record button, play button, session/note button) [b/w except 2]
   * 4 nav buttons [b/w]
   * 16 icons [b/w]
   */
@@ -84,6 +84,9 @@ function mapdest(dest: number, index: number): list {
         case 9: //play
           colortype = COLOR_TYPE_RGB;
           index = 85;
+          break;
+        case 10: //session/note
+          index = 50;
           break;
         default:
           return [];
