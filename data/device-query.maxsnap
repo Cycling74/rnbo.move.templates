@@ -1,0 +1,13 @@
+{
+    "filetype": "C74Snapshot",
+    "version": 2,
+    "minorversion": 0,
+    "name": "device-query",
+    "origin": "device-query",
+    "type": "rnbo",
+    "subtype": "",
+    "embed": 1,
+    "snapshot": {
+        "__presetid": "device-query"
+    }
+}
