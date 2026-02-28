@@ -1,6 +1,7 @@
-@state page: Index = 0;
+@state page: Int = 0;
 @state loaded: Int = -1;
 @state slots = new FixedUint16Array(16);
+@state jumpedpage: Index = 0;
 
 const MODE_LOAD: Index = 0;
 const MODE_SAVE: Index = 1;
@@ -24,6 +25,18 @@ function drawpage() {
 			v[2] = 0.5;
 		}
 		listout1 = v;
+	}
+}
+
+function drawpager() {
+	for (let i = 0; i < 16; i++) {
+		if (i == page) {
+			listout1 = [1, i, 0, 0.5, 0];
+		} else if (slots[i] != 0) {
+			listout1 = [1, i, 0.5, 0, 0];
+		} else {
+			listout1 = [1, i, 0.5, 0.5, 0.5];
+		}
 	}
 }
 
@@ -71,6 +84,11 @@ let down = n[2] != 0;
 switch (zone) {
 	case 1: { //steps
 		if (mode == MODE_PAGE) {
+			if (down) {
+				jumpedpage = 1;
+				page = i;
+				drawpager();
+			}
 		} else if (down) {
 			listout2 = [mode, page * 16 + i];
 		}
@@ -89,11 +107,32 @@ switch (zone) {
 	}
 	case 4: { //nav
 		switch (i) {
-			case 0: //left
+			case 2: //left
 				mode = down ? MODE_PAGE : MODE_LOAD;
+				if (!down) {
+					mode = MODE_LOAD;
+					if (!jumpedpage) {
+						page = clamp(page - 1, 0, 15);
+					}
+					jumpedpage = 0;
+					drawpage();
+				} else {
+					mode = MODE_PAGE;
+					drawpager();
+				}
 				break;
-			case 1: //right
-				mode = down ? MODE_PAGE : MODE_LOAD;
+			case 3: //right
+				if (!down) {
+					mode = MODE_LOAD;
+					if (!jumpedpage) {
+						page = clamp(page + 1, 0, 15);
+					}
+					jumpedpage = 0;
+					drawpage();
+				} else {
+					mode = MODE_PAGE;
+					drawpager();
+				}
 				break;
 		}
 		break;
