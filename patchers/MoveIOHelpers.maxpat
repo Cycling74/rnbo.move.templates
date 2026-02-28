@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 396.0, 106.0, 1015.0, 983.0 ],
+        "rect": [ 1312.0, 879.0, 1015.0, 983.0 ],
         "boxes": [
             {
                 "box": {
@@ -6617,10 +6617,277 @@
                             "modernui": 1
                         },
                         "classnamespace": "rnbo",
-                        "rect": [ 35.0, 100.0, 1257.0, 982.0 ],
+                        "rect": [ 1667.0, 87.0, 1257.0, 982.0 ],
                         "default_fontname": "Lato",
                         "title": "Preset UI",
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-37",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 434.0, 246.0, 42.0, 23.0 ],
+                                    "rnbo_classname": "list.len",
+                                    "rnbo_serial": 2,
+                                    "rnbo_uniqueid": "list.len_obj-37",
+                                    "text": "list.len"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-36",
+                                    "linecount": 2,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 461.0, 213.0, 150.0, 35.0 ],
+                                    "text": "work around empty list being a bang"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-33",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "" ],
+                                    "patching_rect": [ 372.0, 212.0, 81.0, 23.0 ],
+                                    "rnbo_classname": "t",
+                                    "rnbo_extra_attributes": {
+                                        "triggers": ""
+                                    },
+                                    "rnbo_serial": 4,
+                                    "rnbo_uniqueid": "t_obj-33",
+                                    "rnboinfo": {
+                                        "needsInstanceInfo": 1,
+                                        "argnames": {
+                                            "out1": {
+                                                "attrOrProp": 1,
+                                                "digest": "Output order 2 (list).",
+                                                "defaultarg": 1,
+                                                "isalias": 0,
+                                                "aliases": [],
+                                                "attachable": 0,
+                                                "isparam": 0,
+                                                "deprecated": 0,
+                                                "touched": 0,
+                                                "outlet": 1,
+                                                "type": "list"
+                                            },
+                                            "out2": {
+                                                "attrOrProp": 1,
+                                                "digest": "Output order 1 (list).",
+                                                "defaultarg": 2,
+                                                "isalias": 0,
+                                                "aliases": [],
+                                                "attachable": 0,
+                                                "isparam": 0,
+                                                "deprecated": 0,
+                                                "touched": 0,
+                                                "outlet": 1,
+                                                "type": "list"
+                                            },
+                                            "triggers": {
+                                                "attrOrProp": 2,
+                                                "digest": "The number of arguments determines the number of outlets. \t\t\t\t\t\tEach outlet sends out either a whole number, float, bang or list, \t\t\t\t\t\tas identified by symbol arguments (i, f, b, l). \t\t\t\t\t\tIf there are no arguments, there are two outlets, both of which send a float.",
+                                                "defaultarg": 1,
+                                                "isalias": 0,
+                                                "aliases": [],
+                                                "settable": 1,
+                                                "attachable": 0,
+                                                "isparam": 0,
+                                                "deprecated": 0,
+                                                "touched": 0,
+                                                "type": "list"
+                                            }
+                                        },
+                                        "inputs": [
+                                            {
+                                                "name": "input",
+                                                "type": [ "bang", "number", "list" ],
+                                                "digest": "input to distribute",
+                                                "hot": 1,
+                                                "docked": 0
+                                            }
+                                        ],
+                                        "outputs": [
+                                            {
+                                                "name": "out1",
+                                                "type": "list",
+                                                "digest": "Output order 2 (list).",
+                                                "defaultarg": 1,
+                                                "docked": 0
+                                            },
+                                            {
+                                                "name": "out2",
+                                                "type": "list",
+                                                "digest": "Output order 1 (list).",
+                                                "defaultarg": 2,
+                                                "docked": 0
+                                            }
+                                        ],
+                                        "helpname": "trigger",
+                                        "aliasOf": "trigger",
+                                        "classname": "t",
+                                        "operator": 0,
+                                        "versionId": 1624904035,
+                                        "changesPatcherIO": 0
+                                    },
+                                    "text": "t l l"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-28",
+                                    "linecount": 4,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 772.5, 78.5, 150.0, 64.0 ],
+                                    "text": "inport doesn't give us an empty list out, we get a bang, so we also look for the count being 0"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-26",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "" ],
+                                    "patching_rect": [ 434.0, 276.0, 33.0, 23.0 ],
+                                    "rnbo_classname": "sel",
+                                    "rnbo_serial": 1,
+                                    "rnbo_uniqueid": "sel_obj-26",
+                                    "rnboinfo": {
+                                        "needsInstanceInfo": 1,
+                                        "argnames": {
+                                            "input": {
+                                                "attrOrProp": 1,
+                                                "digest": "Number to test",
+                                                "isalias": 0,
+                                                "aliases": [],
+                                                "attachable": 0,
+                                                "isparam": 0,
+                                                "deprecated": 0,
+                                                "touched": 0,
+                                                "inlet": 1,
+                                                "type": "number"
+                                            },
+                                            "test1": {
+                                                "attrOrProp": 1,
+                                                "digest": "Set Value (1) to Match",
+                                                "defaultarg": 1,
+                                                "isalias": 0,
+                                                "aliases": [],
+                                                "settable": 1,
+                                                "attachable": 0,
+                                                "isparam": 0,
+                                                "deprecated": 0,
+                                                "touched": 0,
+                                                "inlet": 1,
+                                                "type": "number",
+                                                "defaultValue": "0"
+                                            },
+                                            "match1": {
+                                                "attrOrProp": 1,
+                                                "digest": "Bang if input matches 0",
+                                                "isalias": 0,
+                                                "aliases": [],
+                                                "attachable": 0,
+                                                "isparam": 0,
+                                                "deprecated": 0,
+                                                "touched": 0,
+                                                "outlet": 1,
+                                                "type": "bang"
+                                            },
+                                            "nomatch": {
+                                                "attrOrProp": 1,
+                                                "digest": "Input if Input Doesn't Match",
+                                                "isalias": 0,
+                                                "aliases": [],
+                                                "attachable": 0,
+                                                "isparam": 0,
+                                                "deprecated": 0,
+                                                "touched": 0,
+                                                "outlet": 1,
+                                                "type": "number",
+                                                "defaultValue": "0"
+                                            }
+                                        },
+                                        "inputs": [
+                                            {
+                                                "name": "input",
+                                                "type": [ "number", "bang" ],
+                                                "digest": "Number to test",
+                                                "hot": 1,
+                                                "docked": 0
+                                            },
+                                            {
+                                                "name": "test1",
+                                                "type": "number",
+                                                "digest": "Set Value (1) to Match",
+                                                "defaultarg": 1,
+                                                "docked": 0
+                                            }
+                                        ],
+                                        "outputs": [
+                                            {
+                                                "name": "match1",
+                                                "type": "bang",
+                                                "digest": "Bang if input matches 0",
+                                                "docked": 0
+                                            },
+                                            {
+                                                "name": "nomatch",
+                                                "type": [ "number", "bang" ],
+                                                "digest": "Input if Input Doesn't Match",
+                                                "docked": 0
+                                            }
+                                        ],
+                                        "helpname": "select",
+                                        "aliasOf": "select",
+                                        "classname": "sel",
+                                        "operator": 0,
+                                        "versionId": 902197102,
+                                        "changesPatcherIO": 0
+                                    },
+                                    "text": "sel 0"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-25",
+                                    "maxclass": "newobj",
+                                    "numinlets": 0,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 321.0, 99.0, 341.0, 23.0 ],
+                                    "rnbo_classname": "inport",
+                                    "rnbo_serial": 10,
+                                    "rnbo_uniqueid": "inport_obj-25",
+                                    "text": "inport count @meta osc:'/rnbo/inst/control/sets/presets/count'"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-21",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 434.0, 307.0, 43.0, 23.0 ],
+                                    "rnbo_classname": "list.reg",
+                                    "rnbo_extra_attributes": {
+                                        "order": "",
+                                        "preset": 0
+                                    },
+                                    "rnbo_serial": 2,
+                                    "rnbo_uniqueid": "list.reg_obj-21",
+                                    "text": "list.reg"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-16",
@@ -6860,7 +7127,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
-                                    "patching_rect": [ 36.0, 294.0, 691.0, 387.0 ],
+                                    "patching_rect": [ 36.0, 343.0, 691.0, 347.0 ],
                                     "rnbo_classname": "codebox",
                                     "rnbo_extra_attributes": {
                                         "hot": 0,
@@ -7045,20 +7312,6 @@
                                         "versionId": 835263063,
                                         "changesPatcherIO": 0
                                     }
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-66",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 36.0, 107.0, 56.0, 23.0 ],
-                                    "rnbo_classname": "loadbang",
-                                    "rnbo_serial": 1,
-                                    "rnbo_uniqueid": "loadbang_obj-66",
-                                    "text": "loadbang"
                                 }
                             },
                             {
@@ -7533,24 +7786,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 108.5, 108.0, 150.0, 21.0 ],
-                                    "text": "query the count"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-4",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 36.0, 174.0, 252.0, 23.0 ],
-                                    "rnbo_classname": "outport",
-                                    "rnbo_extra_attributes": {
-                                        "meta": ""
-                                    },
-                                    "rnbo_serial": 4,
-                                    "rnbo_uniqueid": "outport_obj-4",
-                                    "text": "outport /rnbo/inst/control/sets/presets/count"
+                                    "patching_rect": [ 843.0, 405.0, 150.0, 21.0 ],
+                                    "text": "query the state"
                                 }
                             },
                             {
@@ -7561,7 +7798,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 36.0, 20.0, 441.0, 64.0 ],
-                                    "text": "an example graph preset controller, uses the \"step\" buttons to display a list of presets that you can load by pressing\nto delete you can hold the \"X\" button and press the preset you'd like to delete\nto capture a new preset you can press the capture button"
+                                    "text": "an example graph preset controller, uses the \"step\" buttons to display a list of presets that you can load by pressing\nto delete you can hold the \"X\" button and press the preset you'd like to delete\nto capture a new preset you can hold the capture button and press a step"
                                 }
                             }
                         ],
@@ -7600,8 +7837,38 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-1", 1 ],
+                                    "source": [ "obj-21", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-21", 0 ],
+                                    "source": [ "obj-26", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-1", 1 ],
+                                    "source": [ "obj-33", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-37", 0 ],
+                                    "source": [ "obj-33", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-9", 0 ],
                                     "source": [ "obj-35", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-26", 0 ],
+                                    "source": [ "obj-37", 0 ]
                                 }
                             },
                             {
@@ -7624,13 +7891,7 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-4", 0 ],
-                                    "source": [ "obj-66", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-1", 1 ],
+                                    "destination": [ "obj-33", 0 ],
                                     "source": [ "obj-7", 0 ]
                                 }
                             },
