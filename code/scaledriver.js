@@ -151,12 +151,9 @@ function drawall() {
     let b = 0;
     listout1 = [PREFIX_PAD, pad, r, g, b];
   }
-  //nav
-  
-  //up, down
-  listout1 = [PREFIX_NAV, 2, 0];
-  listout1 = [PREFIX_NAV, 3, 0];
 
+  //nav
+  //up, down
   let plus = 1;
   let minus = 1;
   if (page == 1) {
