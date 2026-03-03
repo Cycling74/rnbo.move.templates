@@ -1,0 +1,25 @@
+{
+	"name" : "RNBO Move Templates",
+	"displayname" : "",
+	"version" : "1.0.0",
+	"author" : "Cycling ’74",
+	"description" : "Template RNBO patchers for common Move use cases.",
+	"tags" : [ "examples", "RNBO", "Move", "templates"],
+	"website" : "http://cycling74.com",
+	"max_version_min" : "9.0.0",
+	"max_version_max" : "none",
+	"os" : 	{
+		"macintosh" : 		{
+			"min_version" : "10.12.x",
+			"platform" : [ "x64", "aarch64" ]
+		}
+,
+		"windows" : 		{
+			"min_version" : "10",
+			"platform" : [ "x64" ]
+		}
+
+	}
+,
+	"homepatcher" : "RNBO Move Templates.maxpat",
+}
