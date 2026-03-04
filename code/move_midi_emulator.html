@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ableton Move MIDI Emulator</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #1a1a1a;
+  --device-bg: #2a2a2a;
+  --device-border: #383838;
+  --pad-bg: #d0d0d0;
+  --pad-active: #7cb8ff;
+  --btn-bg: #3a3a3a;
+  --btn-border: #505050;
+  --btn-active: #666;
+  --step-bg: #4a4a4a;
+  --step-active: #7cb8ff;
+  --encoder-bg: #333;
+  --encoder-knob: #555;
+  --text: #ccc;
+  --text-dim: #777;
+  --log-bg: #111;
+  --log-text: #4ade80;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+h1 { font-size: 14px; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; margin: 0; white-space: nowrap; }
+
+/* === DEVICE CONTAINER === */
+#device {
+  background: var(--device-bg);
+  border: 2px solid var(--device-border);
+  border-radius: 5px;
+  padding: 16px;
+  position: relative;
+  display: grid;
+  grid-template-areas:
+    "screen  .       encoders  volume"
+    "left    tracks  pads      funcs"
+    "playrec .       steprow   nav"
+    ".       .       iconrow   .";
+  grid-template-columns: 80px 28px 1fr 100px;
+  grid-template-rows: auto auto auto auto;
+  gap: 8px;
+  width: 900px;
+  max-width: 95vw;
+}
+
+/* === SCREEN PLACEHOLDER === */
+#screen-area {
+  grid-area: screen;
+  background: #111;
+  border-radius: 6px;
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--text-dim);
+  min-height: 48px;
+}
+
+/* === ENCODER ROW (grid-aligned with pad columns) === */
+#encoder-row {
+  grid-area: encoders;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+  padding: 0 4px;
+  align-items: center;
+  justify-items: center;
+}
+
+.encoder-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.encoder-led {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #333;
+  border: 1px solid #444;
+  transition: background 0.1s, box-shadow 0.1s;
+}
+.encoder-led.lit {
+  background: var(--led-color, #fff);
+  box-shadow: 0 0 6px var(--led-color, #fff);
+}
+
+.encoder {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--encoder-bg);
+  border: 2px solid #444;
+  position: relative;
+  cursor: grab;
+}
+.encoder .notch {
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  width: 2px;
+  height: 6px;
+  background: #888;
+  border-radius: 1px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.encoder.turning .notch { opacity: 1; }
+.encoder .ring {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  pointer-events: none;
+  transition: border-color 0.1s;
+}
+.encoder.touched .ring { border-color: #5588bb; }
+.encoder.touched { background: #3a4a55; }
+
+/* === VOLUME KNOB (same size as func buttons, centered above right func column) === */
+#volume-area {
+  grid-area: volume;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+#volume-knob {
+  grid-column: 2;
+  width: 38px;
+  height: 38px;
+}
+
+/* === LEFT COLUMN (grid-aligned with pad rows) === */
+#left-col {
+  grid-area: left;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 6px;
+  padding: 4px 0;
+  justify-items: center;
+  align-items: center;
+}
+
+/* Wheel spans rows 1-2, centered between pad rows 1 and 2 */
+.wheel-container {
+  grid-row: 1 / 3;
+  align-self: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #333;
+  border: 2px solid #444;
+  position: relative;
+  cursor: grab;
+}
+.wheel-container .notch {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  width: 3px;
+  height: 12px;
+  background: #888;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.wheel-container.turning .notch { opacity: 1; }
+.wheel-container .wheel-press-zone {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.wheel-container:hover .wheel-press-zone {
+  opacity: 1;
+  background: #2a2a2a;
+  border-color: #444;
+}
+.wheel-container .wheel-press-zone.active { opacity: 1; background: #555; border-color: #555; }
+.wheel-container.touched { background: #3a4a55; border-color: #5588bb; }
+
+/* Back/Session in row 3, aligned with 3rd pad row */
+.left-pair {
+  grid-row: 3;
+  display: flex;
+  gap: 6px;
+}
+
+.left-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  color: var(--text-dim);
+  transition: background 0.1s;
+  position: relative;
+}
+.left-btn:active, .left-btn.active { background: var(--btn-active); }
+.left-btn.has-rgb .led-dot {
+  position: absolute;
+  bottom: -2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #444;
+}
+
+/* === PLAY/RECORD (bottom left, vertically centered with step row) === */
+#playrec-area {
+  grid-area: playrec;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* === TRACK BUTTONS (capsule aligned with pad rows) === */
+#track-col {
+  grid-area: tracks;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  align-items: stretch;
+  justify-items: center;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.track-btn {
+  width: 18px;
+  border-radius: 9px;
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  cursor: pointer;
+  transition: background 0.1s;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.track-btn:active, .track-btn.active { background: var(--btn-active); }
+.track-btn .led-indicator {
+  width: 4px;
+  height: 64%;
+  border-radius: 2px;
+  background: #444;
+  pointer-events: none;
+}
+.track-btn.led-on .led-indicator {
+  background: var(--led-color);
+}
+
+/* === PAD GRID === */
+#pad-grid {
+  grid-area: pads;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(4, auto);
+  gap: 4px 6px;
+  padding: 4px 6px;
+}
+
+.pad {
+  aspect-ratio: 3 / 2;
+  min-width: 40px;
+  border-radius: 0;
+  background: var(--pad-bg);
+  cursor: pointer;
+  transition: background 0.1s, box-shadow 0.1s;
+  position: relative;
+}
+.pad:active, .pad.active {
+  background: var(--pad-active);
+  box-shadow: 0 0 12px rgba(124, 184, 255, 0.5);
+}
+.pad .led-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+/* === FUNCTION BUTTONS (2x4 grid, row-aligned with pads) === */
+#func-col {
+  grid-area: funcs;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 4px 6px;
+  padding: 4px 0;
+  justify-items: center;
+  align-items: center;
+}
+
+.func-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  transition: background 0.1s;
+  position: relative;
+}
+.func-btn:active, .func-btn.active { background: var(--btn-active); }
+.func-btn svg, .nav-btn svg { pointer-events: none; }
+
+/* === NAV CLUSTER (wider horizontal, compact vertical) === */
+#nav-cluster {
+  grid-area: nav;
+  display: grid;
+  grid-template-areas:
+    "left plus  right"
+    "left minus right";
+  grid-template-columns: 24px 24px 24px;
+  grid-template-rows: 24px 24px;
+  gap: 2px;
+  justify-self: center;
+  align-self: center;
+}
+
+.nav-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  transition: background 0.1s;
+  align-self: center;
+  justify-self: center;
+}
+.nav-btn:active, .nav-btn.active { background: var(--btn-active); }
+.nav-plus { grid-area: plus; }
+.nav-minus { grid-area: minus; }
+.nav-left { grid-area: left; }
+.nav-right { grid-area: right; }
+
+/* === STEP ROW (evenly spaced circular buttons) === */
+#step-row {
+  grid-area: steprow;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  gap: 4px;
+  padding: 8px 4px 4px;
+  align-items: start;
+  justify-items: center;
+  align-self: end;
+}
+
+.step-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  min-height: 28px;
+}
+
+.step {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  cursor: pointer;
+  transition: background 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step:active, .step.active { background: #555; }
+.step .step-led {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #555;
+  pointer-events: none;
+  transition: background 0.1s, box-shadow 0.1s;
+}
+.step.active .step-led {
+  background: var(--step-active);
+  box-shadow: 0 0 4px rgba(124, 184, 255, 0.6);
+}
+.step .step-led.rgb-lit {
+  background: var(--led-color, #fff);
+  box-shadow: 0 0 4px var(--led-color, #fff);
+}
+
+.step-tick {
+  width: 10px;
+  height: 2px;
+  background: #555;
+  border-radius: 1px;
+  margin-top: 4px;
+}
+
+/* === ICON LED ROW (B/W LEDs below step buttons, CC16-31 ch16) === */
+#icon-row {
+  grid-area: iconrow;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  gap: 4px;
+  padding: 0 4px;
+  justify-items: center;
+}
+
+.icon-led {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #333;
+  border: 1px solid #444;
+  transition: background 0.1s, box-shadow 0.1s;
+  position: relative;
+}
+.icon-led.lit {
+  background: #fff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+}
+
+/* === MIDI LOG === */
+#midi-log-container {
+  width: 900px;
+  max-width: 95vw;
+  margin-top: 12px;
+}
+
+#log-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+#log-toggle {
+  font-size: 10px;
+  color: var(--text-dim);
+  transition: transform 0.15s;
+  display: inline-block;
+}
+#midi-log-container.collapsed #log-toggle { transform: rotate(-90deg); }
+#log-header span { font-size: 11px; color: var(--text-dim); }
+#log-header-right { margin-left: auto; }
+#clear-log {
+  background: #333;
+  border: 1px solid #555;
+  color: var(--text);
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#midi-log {
+  background: var(--log-bg);
+  border: 1px solid #333;
+  border-radius: 8px;
+  height: 180px;
+  overflow-y: auto;
+  padding: 8px;
+  font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  font-size: 11px;
+  color: var(--log-text);
+  line-height: 1.5;
+}
+#midi-log-container.collapsed #midi-log { display: none; }
+#midi-log .log-entry { white-space: pre; }
+#midi-log .log-aftertouch { color: #888; }
+#midi-log .log-in { color: #6cb4ff; }
+
+/* === LABELS === */
+.ctrl-label {
+  font-size: 7px;
+  color: var(--text-dim);
+  text-align: center;
+  margin-top: 1px;
+  pointer-events: none;
+}
+
+/* === OVERLAY TOOLBAR === */
+#overlay-toolbar {
+  width: 900px;
+  max-width: 95vw;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+#overlay-toolbar h1 { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+#overlay-help {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #333;
+  border: 1px solid #555;
+  color: #888;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  transition: background 0.15s, color 0.15s;
+}
+#overlay-help:hover { background: #444; color: #ccc; }
+#overlay-select {
+  background: #333;
+  border: 1px solid #555;
+  color: #ccc;
+  font-size: 11px;
+  font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
+#overlay-select:hover { border-color: #777; }
+#overlay-select option { background: #333; color: #ccc; }
+
+.ctrl-overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 10;
+  flex-direction: column;
+  gap: 1px;
+  font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  font-size: 9px;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: 700;
+  overflow: visible;
+  white-space: nowrap;
+  text-shadow: 0 0 3px rgba(0,0,0,0.9), 0 0 6px rgba(0,0,0,0.7);
+}
+body.show-overlay-midi .overlay-midi,
+body.show-overlay-sysex .overlay-sysex { display: flex; }
+body.show-overlay-zones .overlay-zones { display: flex; }
+.overlay-sysex { line-height: 0.5; }
+.overlay-zones {
+  font-size: 8px;
+  line-height: 1;
+  text-shadow: none;
+}
+.zone-addr {
+  background: #22cc44;
+  color: #000;
+  font-weight: 700;
+  padding: 0 2px;
+  border-radius: 1px;
+  font-size: 8px;
+}
+
+.midi-tag-touch { color: #00e5ff; }
+.midi-tag-dial-touch { color: #ff3333; }
+.midi-tag-turn { color: #ffea00; }
+.midi-tag-press { color: #ff4081; }
+.midi-tag-dial-press { color: #4488ff; }
+.midi-tag-cc { color: #d580ff; }
+.midi-tag-sysex { color: #ff9933; }
+.midi-tag-bw { color: #88ccff; }
+.led-type-icon { display: inline-block; width: 10px; height: 5px; border-radius: 1px; vertical-align: middle; }
+.led-type-rgb { background: linear-gradient(to right, #ff0000, #ff0000 33%, #00ff00 33%, #00ff00 66%, #0000ff 66%, #0000ff); }
+.led-type-bw { background: linear-gradient(to right, #000, #000 50%, #fff 50%, #fff); border: 0.5px solid #555; }
+
+/* Ensure controls with overlays have position:relative */
+.pad, .encoder, .func-btn, .nav-btn, .step, .left-btn, .track-btn, .wheel-container { position: relative; }
+
+/* Dim controls and allow overflow when overlay is active */
+body.show-overlay-midi .pad,
+body.show-overlay-sysex .pad,
+body.show-overlay-zones .pad { background: #777; }
+body.show-overlay-midi .encoder,
+body.show-overlay-sysex .encoder { background: #222; }
+body.show-overlay-midi .step,
+body.show-overlay-midi .nav-btn,
+body.show-overlay-midi .track-btn,
+body.show-overlay-midi .left-btn,
+body.show-overlay-midi .func-btn,
+body.show-overlay-midi .encoder,
+body.show-overlay-midi .wheel-container,
+body.show-overlay-sysex .step,
+body.show-overlay-sysex .nav-btn,
+body.show-overlay-sysex .track-btn,
+body.show-overlay-sysex .left-btn,
+body.show-overlay-sysex .func-btn,
+body.show-overlay-sysex .encoder,
+body.show-overlay-sysex .wheel-container,
+body.show-overlay-zones .step,
+body.show-overlay-zones .nav-btn,
+body.show-overlay-zones .track-btn,
+body.show-overlay-zones .left-btn,
+body.show-overlay-zones .func-btn,
+body.show-overlay-zones .encoder,
+body.show-overlay-zones .wheel-container { overflow: visible; }
+
+/* Zone overlay rectangles */
+.zone-rect {
+  position: absolute;
+  border: 2px dashed;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 10;
+  display: none;
+}
+body.show-overlay-zones .zone-rect { display: block; }
+.zone-label {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-shadow: 0 0 3px rgba(0,0,0,0.9);
+}
+.zone-label-right {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  left: auto;
+  font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-shadow: 0 0 3px rgba(0,0,0,0.9);
+}
+
+/* Help panel */
+#help-panel {
+  display: none;
+  width: 900px;
+  max-width: 95vw;
+  max-height: 60vh;
+  overflow-y: auto;
+  background: #1e1e1e;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #ccc;
+  user-select: text;
+  -webkit-user-select: text;
+}
+#help-panel.visible { display: block; }
+#help-panel h2 { font-size: 13px; color: #eee; margin: 16px 0 6px; letter-spacing: 1px; text-transform: uppercase; }
+#help-panel h2:first-child { margin-top: 0; }
+#help-panel p { margin: 4px 0; }
+#help-panel code { background: #2a2a2a; padding: 1px 4px; border-radius: 3px; font-family: 'SF Mono', 'Menlo', 'Consolas', monospace; font-size: 11px; color: #e0e0e0; }
+#help-panel table { border-collapse: collapse; margin: 6px 0; width: 100%; font-size: 11px; }
+#help-panel th, #help-panel td { padding: 3px 8px; border: 1px solid #333; text-align: left; }
+#help-panel th { background: #2a2a2a; color: #aaa; font-weight: 600; }
+#help-panel td { color: #ccc; }
+#help-panel .color-swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; vertical-align: middle; margin-right: 4px; }
+
+/* Scrollbar styling */
+#midi-log::-webkit-scrollbar, #help-panel::-webkit-scrollbar { width: 6px; }
+#midi-log::-webkit-scrollbar-track, #help-panel::-webkit-scrollbar-track { background: transparent; }
+#midi-log::-webkit-scrollbar-thumb, #help-panel::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+</style>
+</head>
+<body>
+<div id="overlay-toolbar">
+  <h1>Ableton Move MIDI Emulator</h1>
+  <button id="overlay-help" title="Help">?</button>
+  <select id="overlay-select" title="Overlay mode">
+    <option value="">--</option>
+    <option value="midi">midi</option>
+    <option value="sysex">sysex</option>
+    <option value="zones">zones</option>
+  </select>
+</div>
+<div id="help-panel">
+<h2>MIDI Output (Controls to Host)</h2>
+<p>All control messages are sent on <code>ch16</code> (MIDI channel 16).</p>
+<p><b>Pads</b> (4x8 grid) send <code>Note On/Off</code> with velocity mapped to vertical press position.
+Aftertouch is sent as <code>Key Pressure</code> while held. Note numbers: 68-99 (bottom-left pad = nn68, top-right = nn99).</p>
+<p><b>Step buttons</b> (16) send <code>Note On/Off</code> nn16-31, velocity 127.</p>
+<p><b>Encoders</b> (8) send <code>Note On/Off</code> nn0-7 for touch, and relative <code>CC</code> 71-78 for turning.
+Relative values use 2's complement 7-bit: CW = 1-63, CCW = 65-127.</p>
+<p><b>Volume knob</b> sends <code>Note On/Off</code> nn8 (touch) and relative <code>CC 79</code> (turn).</p>
+<p><b>Scroll wheel</b> sends <code>Note On/Off</code> nn9 (touch), relative <code>CC 14</code> (turn), and <code>CC 3</code> (press).</p>
+<p><b>Buttons</b> (function, nav, track, play, record, back, session) send <code>CC</code> with value 127 on press and 0 on release.</p>
+
+<h2>MIDI/SysEx Input (Host to LEDs)</h2>
+<p>The Move has two types of LEDs controlled by different protocols:</p>
+<p><b>RGB LEDs</b> are set via SysEx messages with 14-bit color values per channel:</p>
+<p><code>F0 00 21 1D 01 01 3B [ch&lt;&lt;4] [index] [rLo] [rHi] [gLo] [gHi] [bLo] [bHi] F7</code></p>
+<p>Each color component is 14-bit: <code>value = (lo &amp; 0x7F) | ((hi &amp; 0x7F) &lt;&lt; 7)</code>.
+RGB LEDs can also be set via <code>Note On</code> (nn) or <code>CC</code> using an indexed color table (value 0-127).</p>
+<p><b>B/W LEDs</b> are set via <code>CC</code> on ch16 using the color table's white-balance value for brightness.</p>
+
+<h2>Overlay: midi</h2>
+<p>Shows the MIDI note number (<code>nn</code>) or CC number (<code>cc</code>) for each control.
+Color coding: <span style="color:#00e5ff">cyan</span> = note (touch/press),
+<span style="color:#ffea00">yellow</span> = CC (turn),
+<span style="color:#ff3333">red</span> = encoder touch,
+<span style="color:#d580ff">purple</span> = button CC.</p>
+
+<h2>Overlay: sysex</h2>
+<p>Shows LED addressing for each control. The <span class="led-type-icon led-type-rgb"></span> icon marks RGB LEDs; <span class="led-type-icon led-type-bw"></span> marks B/W LEDs.</p>
+<p><b>RGB labels</b> show two values in <span style="color:#ff9933">orange</span>:</p>
+<ul style="margin:4px 0 4px 20px;">
+<li><code>D{n}:I{n}</code> — LED driver destination and index (used by the RNBO leddriver <code>mapdest()</code> function)</li>
+<li><code>ch{n}:{n}</code> — SysEx channel and LED index in the SysEx message</li>
+</ul>
+<p><b>B/W labels</b> show the CC number in <span style="color:#88ccff">light blue</span>.</p>
+
+<table>
+<tr><th>Control</th><th>Type</th><th>Dest:Index</th><th>SysEx ch:led</th></tr>
+<tr><td>Pads 0-31</td><td>RGB</td><td>D0:I0-31</td><td>ch0:68-99</td></tr>
+<tr><td>Steps 0-15</td><td>RGB</td><td>D1:I0-15</td><td>ch0:16-31</td></tr>
+<tr><td>Tracks 0-3</td><td>RGB</td><td>D2:I0-3</td><td>ch1:40-43</td></tr>
+<tr><td>Sampling</td><td>RGB</td><td>D3:I1</td><td>ch1:118</td></tr>
+<tr><td>Delete</td><td>RGB</td><td>D3:I4</td><td>ch1:119</td></tr>
+<tr><td>Record</td><td>RGB</td><td>D3:I8</td><td>ch1:86</td></tr>
+<tr><td>Play</td><td>RGB</td><td>D3:I9</td><td>ch1:85</td></tr>
+<tr><td>Encoders 0-7</td><td>RGB</td><td>D6:I0-7</td><td>ch1:71-78</td></tr>
+<tr><td>Capture, Repeat, Mute, etc.</td><td>B/W</td><td>—</td><td>CC on ch16</td></tr>
+<tr><td>Icons 0-15</td><td>B/W</td><td>—</td><td>CC 16-31 on ch16</td></tr>
+</table>
+
+<h2>Overlay: zones</h2>
+<p>Shows dashed rectangles around control groups corresponding to the RNBO driver's zone numbering.
+Each control displays a <span class="zone-addr">green badge</span> with its address index within the zone.
+The RNBO input/LED drivers use <code>(zone, address)</code> pairs to identify controls.</p>
+<table>
+<tr><th>Zone</th><th>Controls</th><th>Addresses</th><th>Color</th></tr>
+<tr><td>0: pads</td><td>4x8 pad grid</td><td>0-31</td><td><span class="color-swatch" style="background:#ffea00"></span>yellow</td></tr>
+<tr><td>1: steps</td><td>16 step buttons</td><td>0-15</td><td><span class="color-swatch" style="background:#44dd44"></span>green</td></tr>
+<tr><td>2: tracks</td><td>4 track buttons</td><td>0-3</td><td><span class="color-swatch" style="background:#ff9933"></span>orange</td></tr>
+<tr><td>3: functions</td><td>capture, sampling, repeat, mute, delete, duplicate, undo, shift, record, play, session (note: back button is owned by RNBO Control app)</td><td>0-10</td><td><span class="color-swatch" style="background:#ff4444"></span>red</td></tr>
+<tr><td>4: nav</td><td>plus, minus, left, right</td><td>0-3</td><td><span class="color-swatch" style="background:#00cccc"></span>cyan</td></tr>
+<tr><td>5: icons</td><td>16 icon LEDs (managed by RNBO Control app)</td><td>0-15</td><td><span class="color-swatch" style="background:#4466dd"></span>royal blue</td></tr>
+<tr><td>6: encoders</td><td>8 encoders (note: volume knob is owned by RNBO Control app)</td><td>0-7</td><td><span class="color-swatch" style="background:#cc44cc"></span>magenta</td></tr>
+<tr><td>7: jacks</td><td>Hardware I/O (not emulated)</td><td>0-1</td><td>—</td></tr>
+</table>
+</div>
+<div id="device"></div>
+<div id="midi-log-container">
+  <div id="log-header">
+    <span id="log-toggle">&#9660;</span>
+    <span>MIDI Log</span>
+    <span id="log-header-right"><button id="clear-log">Clear</button></span>
+  </div>
+  <div id="midi-log"></div>
+</div>
+
+<script>
+/* ============================================================
+   MidiProtocol - MIDI byte construction and constants
+   ============================================================ */
+const MidiProtocol = (() => {
+  // Channel is 1-based in the API, 0-based in bytes
+  const noteOn = (ch, note, vel) => [0x90 | (ch - 1), note, vel];
+  const noteOff = (ch, note) => [0x80 | (ch - 1), note, 0];
+  const cc = (ch, ccNum, val) => [0xB0 | (ch - 1), ccNum, val];
+  const keyPressure = (ch, note, pressure) => [0xA0 | (ch - 1), note, pressure];
+
+  // 2's complement 7-bit: positive 1-63 = CW, negative as 65-127 = CCW
+  const encodeRelative = (delta) => {
+    if (delta === 0) return 0;
+    if (delta > 0) return Math.min(delta, 63);
+    return (delta + 128) & 0x7F; // e.g. -1 -> 127, -2 -> 126
+  };
+
+  // Pad note numbers: row 0 (top) = 92-99, row 3 (bottom) = 68-75
+  const padNote = (row, col) => 68 + (3 - row) * 8 + col;
+
+  // Step note numbers: 16-31
+  const stepNote = (index) => 16 + index;
+
+  // Encoder touch notes: 0-7
+  const encoderNote = (index) => index;
+
+  // Volume knob: touch=nn8, turn=cc79
+  const VOLUME_NOTE = 8;
+  const VOLUME_CC = 79;
+
+  // Wheel: touch=nn9, turn=cc14, press=cc3
+  const WHEEL_NOTE = 9;
+  const WHEEL_TURN_CC = 14;
+  const WHEEL_PRESS_CC = 3;
+
+  // Encoder turn CCs: 71-78
+  const encoderCC = (index) => 71 + index;
+
+  // Track button CCs: 40-43 (index 0=bottom T0 cc40, index 3=top T3 cc43)
+  const trackCC = (index) => 40 + index;
+
+  // Function button CCs by function index
+  const FUNC_CCS = {
+    capture: 52, sampling: 118, repeat: 58, mute: 88,
+    delete: 119, duplicate: 60, undo: 56, shift: 49,
+    record: 86, play: 85, session: 50, back: 51
+  };
+
+  // Nav button CCs
+  const NAV_CCS = { plus: 55, minus: 54, left: 62, right: 63 };
+
+  // Icon LED CCs (ch16): 16-31
+  const iconCC = (index) => 16 + index;
+
+  // Human-readable descriptions
+  const describeBytes = (bytes) => {
+    if (bytes.length < 2) return '';
+    const status = bytes[0] & 0xF0;
+    const ch = (bytes[0] & 0x0F) + 1;
+    const d1 = bytes[1];
+    const d2 = bytes.length > 2 ? bytes[2] : 0;
+
+    switch (status) {
+      case 0x90: return `Note On ch${ch} note=${d1} vel=${d2}`;
+      case 0x80: return `Note Off ch${ch} note=${d1}`;
+      case 0xB0: return `CC ch${ch} cc=${d1} val=${d2}`;
+      case 0xA0: return `Key Pressure ch${ch} note=${d1} pressure=${d2}`;
+      default: return `[${status.toString(16)}] ch${ch}`;
+    }
+  };
+
+  return {
+    noteOn, noteOff, cc, keyPressure, encodeRelative,
+    padNote, stepNote, encoderNote, encoderCC, trackCC,
+    FUNC_CCS, NAV_CCS, iconCC,
+    VOLUME_NOTE, VOLUME_CC, WHEEL_NOTE, WHEEL_TURN_CC, WHEEL_PRESS_CC,
+    describeBytes
+  };
+})();
+
+/* ============================================================
+   ControlRegistry - maps DOM elements to control configs
+   ============================================================ */
+const ControlRegistry = (() => {
+  const map = new Map();
+
+  const register = (el, config) => {
+    map.set(el, config);
+    el.dataset.ctrlType = config.type;
+  };
+
+  const get = (el) => {
+    // Walk up to find registered element
+    let node = el;
+    while (node && node !== document.body) {
+      if (map.has(node)) return { el: node, config: map.get(node) };
+      node = node.parentElement;
+    }
+    return null;
+  };
+
+  return { register, get, map };
+})();
+
+/* ============================================================
+   MidiLog - scrolling MIDI log display
+   ============================================================ */
+const MidiLog = (() => {
+  const MAX_ENTRIES = 200;
+  let logEl = null;
+  let startTime = performance.now();
+  let entryCount = 0;
+
+  const init = () => {
+    logEl = document.getElementById('midi-log');
+    document.getElementById('clear-log').addEventListener('click', clear);
+    document.getElementById('log-header').addEventListener('click', (e) => {
+      if (e.target.id === 'clear-log') return;
+      document.getElementById('midi-log-container').classList.toggle('collapsed');
+    });
+  };
+
+  const clear = () => {
+    logEl.innerHTML = '';
+    entryCount = 0;
+    startTime = performance.now();
+  };
+
+  const log = (bytes, label, isAftertouch) => {
+    if (!logEl) return;
+    const t = ((performance.now() - startTime) / 1000).toFixed(1).padStart(7);
+    const hex = bytes.map(b => b.toString(16).toUpperCase().padStart(2, '0')).join(' ');
+    const desc = MidiProtocol.describeBytes(bytes);
+    const suffix = label ? ` [${label}]` : '';
+
+    const div = document.createElement('div');
+    div.className = 'log-entry' + (isAftertouch ? ' log-aftertouch' : '');
+    div.textContent = `${t}  OUT  ${hex.padEnd(12)} ${desc}${suffix}`;
+    logEl.appendChild(div);
+    entryCount++;
+
+    // Prune old entries
+    while (entryCount > MAX_ENTRIES) {
+      logEl.removeChild(logEl.firstChild);
+      entryCount--;
+    }
+
+    logEl.scrollTop = logEl.scrollHeight;
+  };
+
+  const logIn = (bytes, label) => {
+    if (!logEl) return;
+    const t = ((performance.now() - startTime) / 1000).toFixed(1).padStart(7);
+    const hex = bytes.map(b => b.toString(16).toUpperCase().padStart(2, '0')).join(' ');
+    const desc = MidiProtocol.describeBytes(bytes);
+    const suffix = label ? ` [${label}]` : '';
+
+    const div = document.createElement('div');
+    div.className = 'log-entry log-in';
+    div.textContent = `${t}   IN  ${hex.padEnd(12)} ${desc}${suffix}`;
+    logEl.appendChild(div);
+    entryCount++;
+
+    while (entryCount > MAX_ENTRIES) {
+      logEl.removeChild(logEl.firstChild);
+      entryCount--;
+    }
+
+    logEl.scrollTop = logEl.scrollHeight;
+  };
+
+  return { init, log, logIn, clear };
+})();
+
+/* ============================================================
+   MaxBridge - jweb communication (stubbed for Phase 1)
+   ============================================================ */
+const MaxBridge = (() => {
+  const isMax = typeof window.max !== 'undefined';
+
+  const send = (bytes) => {
+    if (isMax) {
+      window.max.outlet('midi', ...bytes);
+    }
+  };
+
+  const init = () => {
+    if (isMax) {
+      window.max.bindInlet('midi', (...args) => LedState.handleMidi(args));
+      window.max.bindInlet('sysex', (...args) => LedState.handleSysEx(args));
+      window.max.bindInlet('cc', (...args) => LedState.handleCC(args));
+      window.max.bindInlet('midireset', () => LedState.resetAll());
+    }
+  };
+
+  return { init, send, isMax };
+})();
+
+/* ============================================================
+   LedState - LED visual state management
+   ============================================================ */
+const LedState = (() => {
+  // Phase 1: self-feedback on press. Phase 2: Max-driven.
+
+  const setPadColor = (el, r, g, b) => {
+    if (r === 0 && g === 0 && b === 0) {
+      el.style.background = '';
+      el.style.boxShadow = '';
+    } else {
+      el.style.background = `rgb(${r},${g},${b})`;
+      el.style.boxShadow = `0 0 12px rgba(${r},${g},${b},0.5)`;
+    }
+  };
+
+  const setActive = (el, active, velocity) => {
+    if (active) {
+      el.classList.add('active');
+      if (velocity !== undefined) {
+        const intensity = velocity / 127;
+        const r = Math.round(124 + (255 - 124) * intensity);
+        const g = Math.round(184 + (255 - 184) * intensity);
+        const b = 255;
+        el.style.background = `rgb(${r},${g},${b})`;
+        el.style.boxShadow = `0 0 ${8 + 12 * intensity}px rgba(${r},${g},${b},${0.3 + 0.4 * intensity})`;
+      }
+    } else {
+      el.classList.remove('active');
+      el.style.background = '';
+      el.style.boxShadow = '';
+    }
+  };
+
+  const encoderResetTimers = {};
+
+  const showEncoderNotch = (el, angleDelta) => {
+    const notch = el.querySelector('.notch');
+    if (!notch) return;
+    el.classList.add('turning');
+    const current = parseFloat(el.dataset.angle || '0');
+    const next = current + angleDelta * 15;
+    el.dataset.angle = next;
+    notch.style.transform = `translateX(-50%) rotate(${next}deg)`;
+    // Clear any pending reset
+    const id = el.dataset.index || el.id || 'wheel';
+    if (encoderResetTimers[id]) clearTimeout(encoderResetTimers[id]);
+  };
+
+  const resetEncoderNotch = (el, delay) => {
+    const id = el.dataset.index || el.id || 'wheel';
+    if (encoderResetTimers[id]) clearTimeout(encoderResetTimers[id]);
+    const doReset = () => {
+      el.classList.remove('turning');
+      el.dataset.angle = '0';
+      const notch = el.querySelector('.notch');
+      if (notch) notch.style.transform = 'translateX(-50%) rotate(0deg)';
+    };
+    if (delay > 0) {
+      encoderResetTimers[id] = setTimeout(doReset, delay);
+    } else {
+      doReset();
+    }
+  };
+
+  // Full 128-entry indexed color table: [RGB hex, white balance]
+  // Index = MIDI value. RGB for color LEDs, white balance for greyscale LEDs.
+  const COLOR_TABLE = [
+    [0x000000,0],[0xFF4032,2],[0x800400,4],[0xC93C00,6],[0xAC1F00,8],
+    [0x8C5018,10],[0x491804,12],[0xFADC3B,14],[0xFFC516,16],[0xB6FF0E,18],
+    [0x79FF18,20],[0x34C216,22],[0x4F8A04,24],[0x62FF55,26],[0x297D53,28],
+    [0x269E72,30],[0x31ADFF,32],[0x3663FC,34],[0x1A34FF,36],[0x1C0CE6,38],
+    [0x153999,40],[0x3937FF,42],[0x5722FF,44],[0x972BFF,46],[0x852178,48],
+    [0xFF1032,50],[0xFF2BD4,52],[0xA63421,54],[0x995628,56],[0x876700,58],
+    [0x90821F,60],[0x4A8700,62],[0x007F12,64],[0x1853B2,66],[0x624BAD,68],
+    [0x733A67,70],[0xF8BCAF,72],[0xFF9B76,74],[0xFFBF5F,76],[0xD9AF71,78],
+    [0xFFF480,80],[0xBFBA69,80],[0xBCCC88,81],[0xAEFF99,81],[0x7CDD9F,82],
+    [0x89B47D,82],[0x80F3FF,83],[0x7ACEFC,83],[0x68A1D3,84],[0x858FC2,85],
+    [0xBBAAF2,85],[0xCDBBE4,86],[0xEF8BB0,86],[0x859D8C,87],[0x6B756E,87],
+    [0x84909B,88],[0x6A7075,88],[0x88859D,89],[0x6C6A75,90],[0x9D859C,90],
+    [0x746A74,91],[0x9C9D85,91],[0x74756A,92],[0x9D8484,92],[0x756A6A,93],
+    [0x661914,93],[0x210806,94],[0x460300,94],[0x280000,95],[0x5D1700,96],
+    [0x200D00,96],[0x470C00,97],[0x1C0800,97],[0x3B2B14,98],[0x1C130A,98],
+    [0x250E05,99],[0x0D0602,99],[0x645817,100],[0x201C07,101],[0x664E08,101],
+    [0x211902,102],[0x486605,102],[0x172101,103],[0x306609,103],[0x0F2103,104],
+    [0x144D08,104],[0x061902,105],[0x1F3701,106],[0x0A1100,106],[0x276622,107],
+    [0x0C210B,107],[0x143E29,108],[0x081910,108],[0x004D36,109],[0x00180E,109],
+    [0x134566,110],[0x061621,110],[0x152764,111],[0x070C20,112],[0x0A1466,112],
+    [0x030621,113],[0x0B045C,113],[0x03011D,114],[0x0A1C4C,114],[0x040B1E,115],
+    [0x161666,115],[0x070721,116],[0x220D66,117],[0x0B0421,117],[0x3C1166,118],
+    [0x130521,118],[0x350D30,119],[0x11040F,119],[0x660614,120],[0x210206,120],
+    [0x661154,121],[0x21051B,122],[0x000000,122],[0x595959,123],[0x1A1A1A,123],
+    [0xFFFFFF,124],[0x595959,124],[0xCCCCCC,125],[0x404040,125],[0x141414,126],
+    [0x0000FF,126],[0x00FF00,127],[0xFF0000,127],
+  ];
+
+  const colorFromValue = (val) => {
+    if (val <= 0 || val > 127) return null;
+    const hex = COLOR_TABLE[val][0];
+    return [(hex >> 16) & 0xFF, (hex >> 8) & 0xFF, hex & 0xFF];
+  };
+
+  const grayFromValue = (val) => {
+    if (val <= 0) return null;
+    const wb = COLOR_TABLE[val][1];
+    const brightness = Math.round((wb / 127) * 255);
+    return [brightness, brightness, brightness];
+  };
+
+  // Greyscale-only CC numbers (B/W LEDs)
+  const GREYSCALE_CCS = new Set([
+    51,  // back
+    50,  // session
+    52,  // capture
+    58,  // repeat
+    88,  // mute
+    119, // delete
+    60,  // duplicate
+    56,  // undo
+    49,  // shift
+    55,  // plus
+    54,  // minus
+    62,  // left
+    63,  // right
+    // icon LEDs cc16-31 handled separately
+  ]);
+
+  // Lookup maps built after DOM is ready
+  let ccToEl = null;
+  let noteToEl = null;
+
+  const buildLookups = () => {
+    if (ccToEl) return;
+    ccToEl = {};
+    noteToEl = {};
+    ControlRegistry.map.forEach((config, el) => {
+      if (config.type === 'cc-button' && config.cc !== undefined) {
+        ccToEl[config.cc] = el;
+      }
+      if (config.type === 'pad' && config.note !== undefined) {
+        noteToEl[config.note] = el;
+      }
+    });
+  };
+
+  // RGB CC numbers (color LEDs)
+  const RGB_CCS = new Set([
+    40, 41, 42, 43,  // track buttons
+    118,             // sampling
+    86,              // record
+    85,              // play
+  ]);
+
+  // Main MIDI message handler for LED feedback from Max
+  // Accepts raw MIDI bytes: [status, data1, data2]
+  const handleMidi = (args) => {
+    if (args.length < 1) return;
+
+    // MIDI System Reset (0xFF) - reset all LEDs
+    if (args[0] === 0xFF) { resetAll(); return; }
+
+    if (args.length < 2) return;
+    MidiLog.logIn(args, 'LED');
+    buildLookups();
+
+    const status = args[0] & 0xF0;
+    const d1 = args[1];
+    const d2 = args.length > 2 ? args[2] : 0;
+
+    if (status === 0x90) {
+      // Note On - pad LEDs (nn68-99, RGB) and step LEDs (nn16-31, RGB)
+      const rgb = colorFromValue(d2); // null if d2=0
+      if (d1 >= 68 && d1 <= 99 && noteToEl[d1]) {
+        setPadColor(noteToEl[d1], ...(rgb || [0, 0, 0]));
+      } else if (d1 >= 16 && d1 <= 31) {
+        setStepLed(d1 - 16, ...(rgb || [0, 0, 0]));
+      }
+    } else if (status === 0x80) {
+      // Note Off - clear LED
+      if (d1 >= 68 && d1 <= 99 && noteToEl[d1]) {
+        setPadColor(noteToEl[d1], 0, 0, 0);
+      } else if (d1 >= 16 && d1 <= 31) {
+        setStepLed(d1 - 16, 0, 0, 0);
+      }
+    } else if (status === 0xB0) {
+      // CC - button/knob LEDs
+      // Icon LEDs (cc16-31): greyscale
+      if (d1 >= 16 && d1 <= 31) {
+        setIconLedBrightness(d1 - 16, d2);
+      }
+      // Encoder LEDs (cc71-78): RGB
+      else if (d1 >= 71 && d1 <= 78) {
+        const rgb = colorFromValue(d2);
+        setEncoderLed(d1 - 71, ...(rgb || [0, 0, 0]));
+      }
+      // RGB buttons (tracks, sampling, record, play)
+      else if (RGB_CCS.has(d1) && ccToEl[d1]) {
+        const rgb = colorFromValue(d2);
+        setButtonLed(ccToEl[d1], ...(rgb || [0, 0, 0]));
+      }
+      // Greyscale buttons
+      else if (GREYSCALE_CCS.has(d1) && ccToEl[d1]) {
+        const gray = grayFromValue(d2);
+        setButtonLed(ccToEl[d1], ...(gray || [0, 0, 0]));
+      }
+    }
+  };
+
+  const setButtonLed = (el, r, g, b) => {
+    if (!el) return;
+    if (r === 0 && g === 0 && b === 0) {
+      el.style.removeProperty('--led-color');
+      el.style.background = '';
+      el.style.borderColor = '';
+      el.style.boxShadow = '';
+      el.style.color = '';
+      el.classList.remove('led-on');
+    } else {
+      const color = `rgb(${r},${g},${b})`;
+      el.style.setProperty('--led-color', color);
+      el.style.borderColor = color;
+      el.style.boxShadow = `0 0 8px rgba(${r},${g},${b},0.4)`;
+      el.style.color = color;
+      el.classList.add('led-on');
+    }
+  };
+
+  const setIconLedBrightness = (index, value) => {
+    const led = document.getElementById(`icon-led-${index}`);
+    if (!led) return;
+    if (value === 0) {
+      led.classList.remove('lit');
+      led.style.background = '';
+      led.style.boxShadow = '';
+    } else {
+      const gray = grayFromValue(value);
+      if (!gray) { led.classList.remove('lit'); led.style.background = ''; led.style.boxShadow = ''; return; }
+      led.style.background = `rgb(${gray[0]},${gray[1]},${gray[2]})`;
+      led.style.boxShadow = `0 0 6px rgba(${gray[0]},${gray[1]},${gray[2]},0.6)`;
+      led.classList.add('lit');
+    }
+  };
+
+  // SysEx RGB LED handler
+  // Format: [F0 00 21 1D 01 01 3B (chan<<4) index rLo rHi gLo gHi bLo bHi F7]
+  const SYSEX_HEADER = [0xF0, 0x00, 0x21, 0x1D, 0x01, 0x01, 0x3B];
+
+  const handleSysEx = (args) => {
+    // Validate header
+    if (args.length < 15) return;
+    for (let i = 0; i < SYSEX_HEADER.length; i++) {
+      if (args[i] !== SYSEX_HEADER[i]) return;
+    }
+    const index = args[8];
+    const r = (args[9] & 0x7F) | ((args[10] & 0x7F) << 7);
+    const g = (args[11] & 0x7F) | ((args[12] & 0x7F) << 7);
+    const b = (args[13] & 0x7F) | ((args[14] & 0x7F) << 7);
+    MidiLog.logIn(args.slice(0, 15), `SysEx idx=${index} rgb(${r},${g},${b})`);
+
+    // Step LEDs: SysEx indices 16-31 (RGB)
+    if (index >= 16 && index <= 31) {
+      setStepLed(index - 16, r, g, b);
+    }
+    // Encoder LEDs: SysEx indices 71-78
+    if (index >= 71 && index <= 78) {
+      setEncoderLed(index - 71, r, g, b);
+    }
+  };
+
+  const setRgbLed = (led, r, g, b) => {
+    if (!led) return;
+    if (r === 0 && g === 0 && b === 0) {
+      led.classList.remove('lit', 'rgb-lit');
+      led.style.removeProperty('--led-color');
+    } else {
+      const color = `rgb(${r},${g},${b})`;
+      led.style.setProperty('--led-color', color);
+      led.classList.add(led.classList.contains('step-led') ? 'rgb-lit' : 'lit');
+    }
+  };
+
+  const setEncoderLed = (encIndex, r, g, b) => {
+    setRgbLed(document.getElementById(`encoder-led-${encIndex}`), r, g, b);
+  };
+
+  const setStepLed = (stepIndex, r, g, b) => {
+    setRgbLed(document.getElementById(`step-led-${stepIndex}`), r, g, b);
+  };
+
+  // B/W LED CC handler (ch16): message is [0xBF, ccNum, value]
+  const handleCC = (args) => {
+    if (args.length < 3) return;
+    const status = args[0];
+    if ((status & 0xF0) !== 0xB0 || (status & 0x0F) !== 15) return; // must be CC ch16
+    const ccNum = args[1];
+    const value = args[2];
+    MidiLog.logIn(args, 'B/W LED');
+
+    // Icon LEDs: CC 16-31 on ch16
+    if (ccNum >= 16 && ccNum <= 31) {
+      setIconLed(ccNum - 16, value > 0);
+    }
+  };
+
+  const setIconLed = (index, on) => {
+    const led = document.getElementById(`icon-led-${index}`);
+    if (!led) return;
+    led.classList.toggle('lit', on);
+  };
+
+  // Reset all LEDs to default (off) state
+  const resetAll = () => {
+    // Pads
+    document.querySelectorAll('.pad').forEach(p => {
+      p.style.background = '';
+      p.style.boxShadow = '';
+      p.classList.remove('active');
+    });
+    // Step LEDs
+    for (let i = 0; i < 16; i++) setStepLed(i, 0, 0, 0);
+    // Encoder LEDs
+    for (let i = 0; i < 8; i++) setEncoderLed(i, 0, 0, 0);
+    // Icon LEDs
+    for (let i = 0; i < 16; i++) {
+      const led = document.getElementById(`icon-led-${i}`);
+      if (led) { led.classList.remove('lit'); led.style.background = ''; led.style.boxShadow = ''; }
+    }
+    // All buttons (func, nav, track, play, rec, back, session)
+    buildLookups();
+    Object.values(ccToEl).forEach(el => {
+      el.style.removeProperty('--led-color');
+      el.style.background = '';
+      el.style.borderColor = '';
+      el.style.boxShadow = '';
+      el.classList.remove('led-on', 'active');
+    });
+  };
+
+  return { setActive, showEncoderNotch, resetEncoderNotch, setPadColor, setEncoderLed, setStepLed, setIconLed, setIconLedBrightness, setButtonLed, handleMidi, handleSysEx, handleCC, resetAll };
+})();
+
+/* ============================================================
+   DOM Builder - programmatic control generation
+   ============================================================ */
+const Builder = (() => {
+  const el = (tag, cls, parent) => {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (parent) parent.appendChild(e);
+    return e;
+  };
+
+  const buildScreenPlaceholder = (device) => {
+    const area = el('div', null, device);
+    area.id = 'screen-area';
+    area.textContent = 'SCREEN';
+    return area;
+  };
+
+  const buildEncoders = (device) => {
+    const row = el('div', null, device);
+    row.id = 'encoder-row';
+    for (let i = 0; i < 8; i++) {
+      const cell = el('div', 'encoder-cell', row);
+      const enc = el('div', 'encoder', cell);
+      enc.dataset.index = i;
+      el('div', 'notch', enc);
+      el('div', 'ring', enc);
+      const led = el('div', 'encoder-led', cell);
+      led.id = `encoder-led-${i}`;
+      led.dataset.sysexIndex = 71 + i;
+      ControlRegistry.register(enc, {
+        type: 'encoder', index: i,
+        note: MidiProtocol.encoderNote(i),
+        cc: MidiProtocol.encoderCC(i)
+      });
+    }
+    return row;
+  };
+
+  const buildVolumeKnob = (device) => {
+    const area = el('div', null, device);
+    area.id = 'volume-area';
+    const knob = el('div', 'encoder', area);
+    knob.id = 'volume-knob';
+    el('div', 'notch', knob);
+    el('div', 'ring', knob);
+    ControlRegistry.register(knob, {
+      type: 'encoder', index: 8,
+      note: MidiProtocol.VOLUME_NOTE,
+      cc: MidiProtocol.VOLUME_CC,
+      label: 'Volume'
+    });
+    return area;
+  };
+
+  const buildLeftColumn = (device) => {
+    const col = el('div', null, device);
+    col.id = 'left-col';
+
+    // Wheel
+    const wheel = el('div', 'wheel-container', col);
+    el('div', 'notch', wheel);
+    const pressZone = el('div', 'wheel-press-zone', wheel);
+    ControlRegistry.register(pressZone, {
+      type: 'cc-button',
+      cc: MidiProtocol.WHEEL_PRESS_CC,
+      label: 'Wheel press'
+    });
+    ControlRegistry.register(wheel, {
+      type: 'wheel',
+      note: MidiProtocol.WHEEL_NOTE,
+      turnCC: MidiProtocol.WHEEL_TURN_CC,
+      pressCC: MidiProtocol.WHEEL_PRESS_CC
+    });
+
+    // Back + Session/Note side by side
+    const pair = el('div', 'left-pair', col);
+    const backBtn = el('div', 'left-btn', pair);
+    backBtn.innerHTML = '<svg viewBox="0 0 16 16" width="16" height="16"><path d="M10,4 L6,8 L10,12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    ControlRegistry.register(backBtn, { type: 'cc-button', cc: MidiProtocol.FUNC_CCS.back, label: 'Back' });
+
+    const sessBtn = el('div', 'left-btn', pair);
+    sessBtn.innerHTML = '<svg viewBox="0 0 16 16" width="16" height="16"><line x1="2" y1="3.5" x2="14" y2="3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><line x1="2" y1="8" x2="14" y2="8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><line x1="2" y1="12.5" x2="14" y2="12.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>';
+    ControlRegistry.register(sessBtn, { type: 'cc-button', cc: MidiProtocol.FUNC_CCS.session, label: 'Sess' });
+
+    return col;
+  };
+
+  const buildPlayRecArea = (device) => {
+    const area = el('div', null, device);
+    area.id = 'playrec-area';
+
+    const playBtn = el('div', 'left-btn', area);
+    playBtn.innerHTML = '<svg viewBox="0 0 16 16" width="16" height="16"><polygon points="3,1 14,8 3,15" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>';
+    ControlRegistry.register(playBtn, { type: 'cc-button', cc: MidiProtocol.FUNC_CCS.play, label: 'Play' });
+
+    const recBtn = el('div', 'left-btn', area);
+    recBtn.innerHTML = '<svg viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>';
+    ControlRegistry.register(recBtn, { type: 'cc-button', cc: MidiProtocol.FUNC_CCS.record, label: 'Rec' });
+
+    return area;
+  };
+
+  const buildTrackButtons = (device) => {
+    const col = el('div', null, device);
+    col.id = 'track-col';
+    // Top to bottom: T3 (cc43), T2 (cc42), T1 (cc41), T0 (cc40)
+    for (let i = 3; i >= 0; i--) {
+      const btn = el('div', 'track-btn', col);
+      el('div', 'led-indicator', btn);
+      ControlRegistry.register(btn, {
+        type: 'cc-button',
+        cc: MidiProtocol.trackCC(i),
+        label: `T${i}`
+      });
+    }
+    return col;
+  };
+
+  const buildPadGrid = (device) => {
+    const grid = el('div', null, device);
+    grid.id = 'pad-grid';
+    // Row 0 (top) = nn92-99, Row 3 (bottom) = nn68-75
+    for (let row = 0; row < 4; row++) {
+      for (let col = 0; col < 8; col++) {
+        const pad = el('div', 'pad', grid);
+        const nn = MidiProtocol.padNote(row, col);
+        pad.dataset.row = row;
+        pad.dataset.col = col;
+        pad.dataset.note = nn;
+        el('div', 'led-dot', pad);
+        ControlRegistry.register(pad, {
+          type: 'pad', row, col, note: nn
+        });
+      }
+    }
+    return grid;
+  };
+
+  const buildFuncButtons = (device) => {
+    const funcGrid = el('div', null, device);
+    funcGrid.id = 'func-col';
+
+    // SVG icons for each function button (16x16 viewBox)
+    const icons = {
+      capture: `<svg viewBox="0 0 16 16" width="16" height="16"><path d="M1,4 L1,1 L4,1 M12,1 L15,1 L15,4 M15,12 L15,15 L12,15 M4,15 L1,15 L1,12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+      sampling: `<svg viewBox="0 0 16 16" width="14" height="14"><circle cx="8" cy="8" r="6" fill="currentColor"/></svg>`,
+      repeat: `<svg viewBox="-1 -1 18 18" width="16" height="16" overflow="visible"><path d="M4,3 L12,3 A3.5,3.5 0 0,1 12,13 L4,13 A3.5,3.5 0 0,1 4,3" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M9,15.5 L6,13 L9,10.5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+      mute: `<svg viewBox="0 0 16 16" width="16" height="16"><path d="M3,13 L3,3 L8,10 L13,3 L13,13" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+      delete: `<svg viewBox="0 0 16 16" width="16" height="16"><line x1="2.3" y1="2.3" x2="13.7" y2="13.7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><line x1="13.7" y1="2.3" x2="2.3" y2="13.7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>`,
+      duplicate: `<svg viewBox="-1 -1 16 16" width="17" height="17"><rect x="1" y="4" width="8" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><rect x="5" y="1" width="8" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>`,
+      undo: `<svg viewBox="0 0 16 16" width="16" height="16"><path d="M5,4.5 L3,7 L5,9.5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M3,7 L11,7 A3.5,3.5 0 0,1 11,13 L9,13" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>`,
+      shift: `<svg viewBox="0 0 16 16" width="14" height="14"><circle cx="3" cy="8" r="1.3" fill="currentColor"/><circle cx="8" cy="8" r="1.3" fill="currentColor"/><circle cx="13" cy="8" r="1.3" fill="currentColor"/></svg>`,
+    };
+
+    const funcs = [
+      { name: 'capture', cc: 52 },
+      { name: 'sampling', cc: 118, hasRgb: true },
+      { name: 'repeat', cc: 58 },
+      { name: 'mute', cc: 88 },
+      { name: 'delete', cc: 119 },
+      { name: 'duplicate', cc: 60 },
+      { name: 'undo', cc: 56 },
+      { name: 'shift', cc: 49 },
+    ];
+    for (const f of funcs) {
+      const btn = el('div', 'func-btn', funcGrid);
+      btn.innerHTML = icons[f.name];
+      ControlRegistry.register(btn, {
+        type: 'cc-button', cc: f.cc, label: f.name, hasRgb: f.hasRgb || false
+      });
+    }
+    return funcGrid;
+  };
+
+  const buildNavCluster = (device) => {
+    const cluster = el('div', null, device);
+    cluster.id = 'nav-cluster';
+    const navSvgs = {
+      plus: `<svg viewBox="0 0 16 16" width="12" height="12"><line x1="8" y1="3" x2="8" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="3" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+      minus: `<svg viewBox="0 0 16 16" width="12" height="12"><line x1="3" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+      left: `<svg viewBox="0 0 16 16" width="12" height="12"><path d="M10,4 L6,8 L10,12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+      right: `<svg viewBox="0 0 16 16" width="12" height="12"><path d="M6,4 L10,8 L6,12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    };
+    const navs = [
+      { name: 'plus', cls: 'nav-plus', cc: 55 },
+      { name: 'left', cls: 'nav-left', cc: 62 },
+      { name: 'right', cls: 'nav-right', cc: 63 },
+      { name: 'minus', cls: 'nav-minus', cc: 54 },
+    ];
+    for (const n of navs) {
+      const btn = el('div', `nav-btn ${n.cls}`, cluster);
+      btn.innerHTML = navSvgs[n.name];
+      ControlRegistry.register(btn, { type: 'cc-button', cc: n.cc, label: n.name });
+    }
+    return cluster;
+  };
+
+  const buildStepRow = (device) => {
+    const row = el('div', null, device);
+    row.id = 'step-row';
+    // 16 evenly spaced circular step buttons
+    for (let i = 0; i < 16; i++) {
+      const cell = el('div', 'step-cell', row);
+      const step = el('div', 'step', cell);
+      const led = el('div', 'step-led', step);
+      led.id = `step-led-${i}`;
+      led.dataset.sysexIndex = 16 + i;
+      step.dataset.index = i;
+      ControlRegistry.register(step, {
+        type: 'step', index: i,
+        note: MidiProtocol.stepNote(i)
+      });
+      // Tick mark under every 4th button (index 0, 4, 8, 12)
+      if (i % 4 === 0) {
+        el('div', 'step-tick', cell);
+      }
+    }
+    return row;
+  };
+
+  const buildIconRow = (device) => {
+    const row = el('div', null, device);
+    row.id = 'icon-row';
+    for (let i = 0; i < 16; i++) {
+      const led = el('div', 'icon-led', row);
+      led.id = `icon-led-${i}`;
+      led.dataset.ccNum = 16 + i;
+    }
+    return row;
+  };
+
+  const buildAll = () => {
+    const device = document.getElementById('device');
+    buildScreenPlaceholder(device);
+    buildEncoders(device);
+    buildVolumeKnob(device);
+    buildLeftColumn(device);
+    buildTrackButtons(device);
+    buildPadGrid(device);
+    buildFuncButtons(device);
+    buildNavCluster(device);
+    buildStepRow(device);
+    buildIconRow(device);
+    buildPlayRecArea(device);
+  };
+
+  return { buildAll };
+})();
+
+/* ============================================================
+   InputHandler - mouse/touch/wheel events -> MIDI messages
+   ============================================================ */
+const InputHandler = (() => {
+  let activeControl = null; // { el, config, startY, lastY, pressed }
+  let lastAftertouchTime = 0;
+  const AFTERTOUCH_THROTTLE = 30; // ms
+
+  const emitMidi = (bytes, label, isAftertouch) => {
+    MidiLog.log(bytes, label, isAftertouch);
+    MaxBridge.send(bytes);
+  };
+
+  const velocityFromY = (pad, clientY) => {
+    const rect = pad.getBoundingClientRect();
+    const ratio = (clientY - rect.top) / rect.height;
+    // Top of pad = high velocity, bottom = low velocity
+    return Math.max(1, Math.min(127, Math.round((1 - ratio) * 126 + 1)));
+  };
+
+  const handlePointerDown = (e) => {
+    e.preventDefault();
+    const hit = ControlRegistry.get(e.target);
+    if (!hit) return;
+
+    const { el: ctrlEl, config } = hit;
+
+    switch (config.type) {
+      case 'pad': {
+        const vel = velocityFromY(ctrlEl, e.clientY);
+        emitMidi(MidiProtocol.noteOn(16, config.note, vel), `Pad r${config.row}c${config.col}`);
+        LedState.setActive(ctrlEl, true, vel);
+        activeControl = { el: ctrlEl, config, startY: e.clientY, lastY: e.clientY, pressed: true };
+        break;
+      }
+      case 'step': {
+        emitMidi(MidiProtocol.noteOn(16, config.note, 127), `Step ${config.index}`);
+        LedState.setActive(ctrlEl, true);
+        activeControl = { el: ctrlEl, config, pressed: true };
+        break;
+      }
+      case 'cc-button': {
+        emitMidi(MidiProtocol.cc(16, config.cc, 127), config.label);
+        LedState.setActive(ctrlEl, true);
+        activeControl = { el: ctrlEl, config, pressed: true };
+        break;
+      }
+      case 'encoder': {
+        emitMidi(MidiProtocol.noteOn(16, config.note, 127), config.label || `Enc ${config.index}`);
+        ctrlEl.classList.add('touched');
+        activeControl = { el: ctrlEl, config, startY: e.clientY, lastY: e.clientY, pressed: true, accumY: 0 };
+        break;
+      }
+      case 'wheel': {
+        emitMidi(MidiProtocol.noteOn(16, config.note, 127), 'Wheel touch');
+        ctrlEl.classList.add('touched');
+        activeControl = { el: ctrlEl, config, startY: e.clientY, lastY: e.clientY, pressed: true, accumY: 0 };
+        break;
+      }
+    }
+  };
+
+  const handlePointerMove = (e) => {
+    if (!activeControl) return;
+    const { el: ctrlEl, config } = activeControl;
+
+    if (config.type === 'pad') {
+      // Aftertouch from Y position
+      const now = performance.now();
+      if (now - lastAftertouchTime < AFTERTOUCH_THROTTLE) return;
+      lastAftertouchTime = now;
+      const rect = ctrlEl.getBoundingClientRect();
+      const ratio = (e.clientY - rect.top) / rect.height;
+      const pressure = Math.max(0, Math.min(127, Math.round((1 - ratio) * 127)));
+      emitMidi(MidiProtocol.keyPressure(16, config.note, pressure), `Pad r${config.row}c${config.col} AT`, true);
+    }
+
+    if (config.type === 'encoder' || config.type === 'wheel') {
+      const dy = activeControl.lastY - e.clientY; // up = positive
+      activeControl.lastY = e.clientY;
+      activeControl.accumY += dy;
+
+      const PX_PER_INCREMENT = 4;
+      const increments = Math.trunc(activeControl.accumY / PX_PER_INCREMENT);
+      if (increments !== 0) {
+        activeControl.accumY -= increments * PX_PER_INCREMENT;
+        const encoded = MidiProtocol.encodeRelative(increments);
+        const turnCC = config.type === 'wheel' ? config.turnCC : config.cc;
+        const label = config.type === 'wheel' ? 'Wheel turn' : (config.label || `Enc ${config.index}`);
+        emitMidi(MidiProtocol.cc(16, turnCC, encoded), label);
+        LedState.showEncoderNotch(ctrlEl, increments);
+      }
+    }
+  };
+
+  const handlePointerUp = (e) => {
+    if (!activeControl) return;
+    const { el: ctrlEl, config } = activeControl;
+
+    switch (config.type) {
+      case 'pad':
+        emitMidi(MidiProtocol.noteOff(16, config.note), `Pad r${config.row}c${config.col}`);
+        LedState.setActive(ctrlEl, false);
+        break;
+      case 'step':
+        emitMidi(MidiProtocol.noteOff(16, config.note), `Step ${config.index}`);
+        LedState.setActive(ctrlEl, false);
+        break;
+      case 'cc-button':
+        emitMidi(MidiProtocol.cc(16, config.cc, 0), config.label);
+        LedState.setActive(ctrlEl, false);
+        break;
+      case 'encoder':
+        emitMidi(MidiProtocol.noteOff(16, config.note), config.label || `Enc ${config.index}`);
+        ctrlEl.classList.remove('touched');
+        LedState.resetEncoderNotch(ctrlEl, 0);
+        break;
+      case 'wheel':
+        emitMidi(MidiProtocol.noteOff(16, config.note), 'Wheel touch');
+        ctrlEl.classList.remove('touched');
+        LedState.resetEncoderNotch(ctrlEl, 0);
+        break;
+    }
+    activeControl = null;
+  };
+
+  const handleWheel = (e) => {
+    const hit = ControlRegistry.get(e.target);
+    if (!hit) return;
+    const { el: ctrlEl, config } = hit;
+    if (config.type !== 'encoder' && config.type !== 'wheel') return;
+
+    e.preventDefault();
+    const delta = e.deltaY > 0 ? -1 : 1; // scroll up = CW = positive
+    const encoded = MidiProtocol.encodeRelative(delta);
+    const turnCC = config.type === 'wheel' ? config.turnCC : config.cc;
+    const label = config.type === 'wheel' ? 'Wheel turn' : (config.label || `Enc ${config.index}`);
+    emitMidi(MidiProtocol.cc(16, turnCC, encoded), label);
+    LedState.showEncoderNotch(ctrlEl, delta);
+    LedState.resetEncoderNotch(ctrlEl, 300);
+  };
+
+  const handleContextMenu = (e) => {
+    const hit = ControlRegistry.get(e.target);
+    if (hit) e.preventDefault();
+  };
+
+  const init = () => {
+    const device = document.getElementById('device');
+    device.addEventListener('pointerdown', handlePointerDown);
+    document.addEventListener('pointermove', handlePointerMove);
+    document.addEventListener('pointerup', handlePointerUp);
+    device.addEventListener('wheel', handleWheel, { passive: false });
+    device.addEventListener('contextmenu', handleContextMenu);
+  };
+
+  return { init };
+})();
+
+/* ============================================================
+   MidiOverlay - multi-mode overlay system (midi/sysex/zones)
+   ============================================================ */
+const MidiOverlay = (() => {
+  let currentMode = '';
+  let midiBuilt = false;
+  let sysexBuilt = false;
+  let zonesBuilt = false;
+
+  const tag = (cls, text) => `<span class="${cls}">${text}</span>`;
+
+  const addOverlay = (el, html, modeClass) => {
+    const div = document.createElement('div');
+    div.className = 'ctrl-overlay ' + modeClass;
+    div.innerHTML = html;
+    el.appendChild(div);
+  };
+
+  const buildMidi = () => {
+    if (midiBuilt) return;
+    midiBuilt = true;
+
+    ControlRegistry.map.forEach((config, el) => {
+      switch (config.type) {
+        case 'pad':
+          addOverlay(el, tag('midi-tag-touch', `nn${config.note}`), 'overlay-midi');
+          break;
+        case 'step':
+          addOverlay(el, tag('midi-tag-touch', `nn${config.note}`), 'overlay-midi');
+          break;
+        case 'encoder':
+          addOverlay(el,
+            tag('midi-tag-dial-touch', `nn${config.note}`) + '<br>' +
+            tag('midi-tag-turn', `cc${config.cc}`),
+            'overlay-midi'
+          );
+          break;
+        case 'wheel':
+          addOverlay(el,
+            tag('midi-tag-dial-touch', `nn${config.note}`) + '<br>' +
+            tag('midi-tag-turn', `cc${config.turnCC}`) + '<br>' +
+            tag('midi-tag-dial-press', `cc${config.pressCC}`),
+            'overlay-midi'
+          );
+          break;
+        case 'cc-button':
+          addOverlay(el, tag('midi-tag-cc', `cc${config.cc}`), 'overlay-midi');
+          break;
+      }
+    });
+
+    // Icon LED row
+    for (let i = 0; i < 16; i++) {
+      const led = document.getElementById(`icon-led-${i}`);
+      if (led) addOverlay(led, tag('midi-tag-turn', `cc${16 + i}`), 'overlay-midi');
+    }
+  };
+
+  const buildSysex = () => {
+    if (sysexBuilt) return;
+    sysexBuilt = true;
+
+    const rgbIcon = '<span class="led-type-icon led-type-rgb"></span>';
+    const bwIcon = '<span class="led-type-icon led-type-bw"></span>';
+
+    // RGB controls with SysEx LED addressing
+    const rgbCCs = {
+      40: { dest: 2, idx: 0, ch: 1, led: 40 },
+      41: { dest: 2, idx: 1, ch: 1, led: 41 },
+      42: { dest: 2, idx: 2, ch: 1, led: 42 },
+      43: { dest: 2, idx: 3, ch: 1, led: 43 },
+      118: { dest: 3, idx: 1, ch: 1, led: 118 },
+      119: { dest: 3, idx: 4, ch: 1, led: 119 },
+      86: { dest: 3, idx: 8, ch: 1, led: 86 },
+      85: { dest: 3, idx: 9, ch: 1, led: 85 },
+    };
+    const bwCCs = new Set([52, 58, 88, 60, 56, 49, 50, 51, 55, 54, 62, 63]);
+
+    ControlRegistry.map.forEach((config, el) => {
+      let html = '';
+      switch (config.type) {
+        case 'pad': {
+          const i = config.note - 68;
+          html = rgbIcon + '<br>' +
+                 tag('midi-tag-sysex', `D0:I${i}`) + '<br>' +
+                 tag('midi-tag-sysex', `ch0:${config.note}`);
+          break;
+        }
+        case 'step': {
+          const i = config.note - 16;
+          html = rgbIcon + '<br>' +
+                 tag('midi-tag-sysex', `D1:I${i}`) + '<br>' +
+                 tag('midi-tag-sysex', `ch0:${config.note}`);
+          break;
+        }
+        case 'encoder': {
+          if (config.index >= 8) return; // skip volume knob
+          html = rgbIcon + '<br>' +
+                 tag('midi-tag-sysex', `D6:I${config.index}`) + '<br>' +
+                 tag('midi-tag-sysex', `ch1:${71 + config.index}`);
+          break;
+        }
+        case 'cc-button': {
+          const cc = config.cc;
+          if (rgbCCs[cc]) {
+            const s = rgbCCs[cc];
+            html = rgbIcon + '<br>' +
+                   tag('midi-tag-sysex', `D${s.dest}:I${s.idx}`) + '<br>' +
+                   tag('midi-tag-sysex', `ch${s.ch}:${s.led}`);
+          } else if (bwCCs.has(cc)) {
+            html = bwIcon + '<br>' +
+                   tag('midi-tag-bw', `cc${cc}`);
+          }
+          break;
+        }
+      }
+      if (html) addOverlay(el, html, 'overlay-sysex');
+    });
+
+    // Icon LEDs (B/W)
+    for (let i = 0; i < 16; i++) {
+      const led = document.getElementById(`icon-led-${i}`);
+      if (led) {
+        addOverlay(led,
+          bwIcon + '<br>' +
+          tag('midi-tag-bw', `cc${16 + i}`),
+          'overlay-sysex'
+        );
+      }
+    }
+  };
+
+  const buildZones = () => {
+    if (zonesBuilt) return;
+    zonesBuilt = true;
+
+    const device = document.getElementById('device');
+    const dr = device.getBoundingClientRect();
+    const m = 2; // inset from control edges (negative = shrink rect inward)
+
+    const makeRect = (targetEl, color, label, labelCls, extra) => {
+      const ex = extra ? extra.x || 0 : 0;
+      const ey = extra ? extra.y || 0 : 0;
+      const r = targetEl.getBoundingClientRect();
+      const div = document.createElement('div');
+      div.className = 'zone-rect';
+      div.style.left = (r.left - dr.left - m - ex) + 'px';
+      div.style.top = (r.top - dr.top - m - ey) + 'px';
+      div.style.width = (r.width + (m + ex) * 2) + 'px';
+      div.style.height = (r.height + (m + ey) * 2) + 'px';
+      div.style.borderColor = color;
+      if (label) div.innerHTML = `<span class="${labelCls || 'zone-label'}" style="color:${color}">${label}</span>`;
+      device.appendChild(div);
+    };
+
+    const makeSpanRect = (el1, el2, color, label) => {
+      const r1 = el1.getBoundingClientRect();
+      const r2 = el2.getBoundingClientRect();
+      const left = Math.min(r1.left, r2.left);
+      const top = Math.min(r1.top, r2.top);
+      const right = Math.max(r1.right, r2.right);
+      const bottom = Math.max(r1.bottom, r2.bottom);
+      const div = document.createElement('div');
+      div.className = 'zone-rect';
+      div.style.left = (left - dr.left - m) + 'px';
+      div.style.top = (top - dr.top - m) + 'px';
+      div.style.width = (right - left + m * 2) + 'px';
+      div.style.height = (bottom - top + m * 2) + 'px';
+      div.style.borderColor = color;
+      if (label) div.innerHTML = `<span class="zone-label" style="color:${color}">${label}</span>`;
+      device.appendChild(div);
+    };
+
+    makeRect(document.getElementById('pad-grid'), '#ffea00', '0: pads');
+    const steps = document.querySelectorAll('#step-row .step');
+    makeSpanRect(steps[0], steps[steps.length - 1], '#44dd44', '1: steps');
+    makeRect(document.getElementById('track-col'), '#ff9933', '2: tracks', 'zone-label-right');
+    makeRect(document.getElementById('func-col'), '#ff4444', '3: functions');
+    makeRect(document.getElementById('playrec-area'), '#ff4444');
+    // Session button only (back is owned by RNBO Control app)
+    let sessEl = null;
+    ControlRegistry.map.forEach((cfg, el) => { if (cfg.cc === 50) sessEl = el; });
+    if (sessEl) makeRect(sessEl, '#ff4444');
+    makeRect(document.getElementById('nav-cluster'), '#00cccc', '4: nav');
+    makeRect(document.getElementById('icon-row'), '#4466dd', '5: icons', null, {x: -5, y: 5});
+    makeRect(document.getElementById('encoder-row'), '#cc44cc', '6: encoders');
+
+    // Zone address indices on each control
+    const addr = (n) => `<span class="zone-addr">${n}</span>`;
+
+    // Zone 3 function CC -> address mapping
+    const funcAddr = {52:0, 118:1, 58:2, 88:3, 119:4, 60:5, 56:6, 49:7, 86:8, 85:9, 50:10};
+    // Zone 4 nav CC -> address mapping
+    const navAddr = {55:0, 54:1, 62:2, 63:3};
+
+    ControlRegistry.map.forEach((config, el) => {
+      let idx = null;
+      switch (config.type) {
+        case 'pad':
+          idx = config.note - 68;
+          break;
+        case 'step':
+          idx = config.note - 16;
+          break;
+        case 'encoder':
+          if (config.index < 8) idx = config.index;
+          break;
+        case 'cc-button': {
+          const cc = config.cc;
+          if (cc >= 40 && cc <= 43) idx = cc - 40; // tracks
+          else if (funcAddr[cc] !== undefined) idx = funcAddr[cc];
+          else if (navAddr[cc] !== undefined) idx = navAddr[cc];
+          break;
+        }
+      }
+      if (idx !== null) addOverlay(el, addr(idx), 'overlay-zones');
+    });
+
+    // Icon LEDs (zone 5)
+    for (let i = 0; i < 16; i++) {
+      const led = document.getElementById(`icon-led-${i}`);
+      if (led) addOverlay(led, addr(i), 'overlay-zones');
+    }
+  };
+
+  const setMode = (mode) => {
+    document.body.classList.remove('show-overlay-midi', 'show-overlay-sysex', 'show-overlay-zones');
+    currentMode = mode;
+    if (!mode) return;
+    switch (mode) {
+      case 'midi': buildMidi(); break;
+      case 'sysex': buildSysex(); break;
+      case 'zones': buildZones(); break;
+    }
+    document.body.classList.add('show-overlay-' + mode);
+  };
+
+  const init = () => {
+    document.getElementById('overlay-select').addEventListener('change', (e) => {
+      setMode(e.target.value);
+    });
+    const helpBtn = document.getElementById('overlay-help');
+    const helpPanel = document.getElementById('help-panel');
+    helpBtn.addEventListener('click', () => {
+      helpPanel.classList.toggle('visible');
+    });
+  };
+
+  return { init };
+})();
+
+/* ============================================================
+   Init
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', () => {
+  Builder.buildAll();
+  MidiLog.init();
+  InputHandler.init();
+  MaxBridge.init();
+  MidiOverlay.init();
+});
+</script>
+</body>
+</html>
