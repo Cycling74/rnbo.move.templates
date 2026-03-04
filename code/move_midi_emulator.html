@@ -514,6 +514,8 @@ h1 { font-size: 14px; color: var(--text-dim); letter-spacing: 2px; text-transfor
   font-size: 11px;
   color: var(--log-text);
   line-height: 1.5;
+  user-select: text;
+  -webkit-user-select: text;
 }
 #midi-log-container.collapsed #midi-log { display: none; }
 #midi-log .log-entry { white-space: pre; }
@@ -1135,6 +1137,7 @@ const MaxBridge = (() => {
       window.max.bindInlet('midi', (...args) => LedState.handleMidi(args));
       window.max.bindInlet('sysex', (...args) => LedState.handleSysEx(args));
       window.max.bindInlet('cc', (...args) => LedState.handleCC(args));
+      window.max.bindInlet('midiraw', (...args) => LedState.handleMidiRaw(args));
       window.max.bindInlet('midireset', () => LedState.resetAll());
     }
   };
@@ -1149,7 +1152,7 @@ const LedState = (() => {
   // Phase 1: self-feedback on press. Phase 2: Max-driven.
 
   const setPadColor = (el, r, g, b) => {
-    if (r === 0 && g === 0 && b === 0) {
+    if (r <= 1 && g <= 1 && b <= 1) {
       el.style.background = '';
       el.style.boxShadow = '';
     } else {
@@ -1395,19 +1398,29 @@ const LedState = (() => {
     for (let i = 0; i < SYSEX_HEADER.length; i++) {
       if (args[i] !== SYSEX_HEADER[i]) return;
     }
+    const ch = (args[7] >> 4) & 0x0F;
     const index = args[8];
     const r = (args[9] & 0x7F) | ((args[10] & 0x7F) << 7);
     const g = (args[11] & 0x7F) | ((args[12] & 0x7F) << 7);
     const b = (args[13] & 0x7F) | ((args[14] & 0x7F) << 7);
-    MidiLog.logIn(args.slice(0, 15), `SysEx idx=${index} rgb(${r},${g},${b})`);
+    MidiLog.logIn(args.slice(0, 15), `SysEx ch${ch} idx=${index} rgb(${r},${g},${b})`);
+    buildLookups();
 
-    // Step LEDs: SysEx indices 16-31 (RGB)
-    if (index >= 16 && index <= 31) {
-      setStepLed(index - 16, r, g, b);
-    }
-    // Encoder LEDs: SysEx indices 71-78
-    if (index >= 71 && index <= 78) {
-      setEncoderLed(index - 71, r, g, b);
+    if (ch === 0) {
+      // Ch0: Pads (index 68-99), Steps (index 16-31)
+      if (index >= 68 && index <= 99 && noteToEl[index]) {
+        setPadColor(noteToEl[index], r, g, b);
+      } else if (index >= 16 && index <= 31) {
+        setStepLed(index - 16, r, g, b);
+      }
+    } else if (ch === 1) {
+      // Ch1: Encoders (index 71-78), Tracks (index 40-43),
+      //       Sampling (118), Delete (119), Record (86), Play (85)
+      if (index >= 71 && index <= 78) {
+        setEncoderLed(index - 71, r, g, b);
+      } else if (ccToEl[index]) {
+        setButtonLed(ccToEl[index], r, g, b);
+      }
     }
   };
 
@@ -1440,9 +1453,21 @@ const LedState = (() => {
     const value = args[2];
     MidiLog.logIn(args, 'B/W LED');
 
+    buildLookups();
+
     // Icon LEDs: CC 16-31 on ch16
     if (ccNum >= 16 && ccNum <= 31) {
-      setIconLed(ccNum - 16, value > 0);
+      setIconLedBrightness(ccNum - 16, value);
+    }
+    // B/W button LEDs (greyscale)
+    else if (GREYSCALE_CCS.has(ccNum) && ccToEl[ccNum]) {
+      const gray = grayFromValue(value);
+      setButtonLed(ccToEl[ccNum], ...(gray || [0, 0, 0]));
+    }
+    // RGB button LEDs (tracks, sampling, record, play)
+    else if (RGB_CCS.has(ccNum) && ccToEl[ccNum]) {
+      const rgb = colorFromValue(value);
+      setButtonLed(ccToEl[ccNum], ...(rgb || [0, 0, 0]));
     }
   };
 
@@ -1450,6 +1475,57 @@ const LedState = (() => {
     const led = document.getElementById(`icon-led-${index}`);
     if (!led) return;
     led.classList.toggle('lit', on);
+  };
+
+  // Raw MIDI byte stream parser
+  // Accepts individual bytes or arrays of bytes; accumulates and dispatches
+  // complete messages to handleMidi, handleSysEx, or handleCC.
+  let rawBuf = [];
+  let inSysex = false;
+
+  const handleMidiRaw = (args) => {
+    const bytes = Array.isArray(args) ? args.flat() : [args];
+    for (let i = 0; i < bytes.length; i++) {
+      const b = bytes[i] & 0xFF;
+
+      if (b === 0xF0) {
+        // Start SysEx
+        rawBuf = [0xF0];
+        inSysex = true;
+      } else if (inSysex) {
+        rawBuf.push(b);
+        if (b === 0xF7) {
+          // Complete SysEx - dispatch
+          handleSysEx(rawBuf);
+          rawBuf = [];
+          inSysex = false;
+        }
+      } else if (b & 0x80) {
+        // Status byte (non-SysEx)
+        if (b === 0xFF) {
+          handleMidi([0xFF]);
+          rawBuf = [];
+        } else {
+          rawBuf = [b];
+        }
+      } else if (rawBuf.length > 0) {
+        // Data byte
+        rawBuf.push(b);
+        const status = rawBuf[0] & 0xF0;
+        const needed = (status === 0xC0 || status === 0xD0) ? 2 : 3;
+        if (rawBuf.length >= needed) {
+          // Complete channel message - route based on type
+          const ch = rawBuf[0] & 0x0F;
+          if (status === 0xB0 && ch === 0x0F) {
+            handleCC(rawBuf.slice());
+          } else {
+            handleMidi(rawBuf.slice());
+          }
+          // Keep running status (status byte stays, clear data)
+          rawBuf = [rawBuf[0]];
+        }
+      }
+    }
   };
 
   // Reset all LEDs to default (off) state
@@ -1480,7 +1556,7 @@ const LedState = (() => {
     });
   };
 
-  return { setActive, showEncoderNotch, resetEncoderNotch, setPadColor, setEncoderLed, setStepLed, setIconLed, setIconLedBrightness, setButtonLed, handleMidi, handleSysEx, handleCC, resetAll };
+  return { setActive, showEncoderNotch, resetEncoderNotch, setPadColor, setEncoderLed, setStepLed, setIconLed, setIconLedBrightness, setButtonLed, handleMidi, handleSysEx, handleCC, handleMidiRaw, resetAll };
 })();
 
 /* ============================================================

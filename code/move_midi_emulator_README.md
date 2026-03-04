@@ -23,7 +23,7 @@ rnbo.move.templates-main/  # Ableton RNBO driver source (reference)
 
 ## Architecture
 
-The JS is organized as six IIFE modules sharing a flat namespace:
+The JS is organized as eight IIFE modules sharing a flat namespace:
 
 | Module | Purpose |
 |--------|---------|
@@ -120,9 +120,10 @@ The emulator receives LED state via Max `jweb` inlets:
 
 | Inlet | Format | Usage |
 |-------|--------|-------|
-| `midi` | Raw MIDI bytes `[status, d1, d2]` | Button/pad/step LED colors. Also handles `0xFF` system reset. |
-| `sysex` | Full SysEx bytes `[F0 00 21 1D 01 01 3B ch<<4 index rLo rHi gLo gHi bLo bHi F7]` | RGB LEDs for encoders (index 71-78) and steps (index 16-31). Color components are 14-bit: `val = (lo & 0x7F) | ((hi & 0x7F) << 7)`. |
-| `cc` | Raw CC bytes `[0xBF, ccNum, value]` | B/W icon LEDs (cc16-31 on ch16) |
+| `midi` | Raw MIDI bytes `[status, d1, d2]` | LED colors via Note On/Off and CC using the indexed color table. Also handles `0xFF` system reset. |
+| `sysex` | Full SysEx bytes `[F0 00 21 1D 01 01 3B ch<<4 index rLo rHi gLo gHi bLo bHi F7]` | RGB LEDs with 14-bit color per channel. Ch0: pads (index 68-99), steps (index 16-31). Ch1: encoders (index 71-78), tracks (index 40-43), sampling (118), delete (119), record (86), play (85). Color components: `val = (lo & 0x7F) | ((hi & 0x7F) << 7)`. |
+| `cc` | Raw CC bytes `[0xBF, ccNum, value]` | LED colors on ch16 using the indexed color table. B/W buttons (greyscale), RGB buttons (color), and icon LEDs (cc16-31). |
+| `midiraw` | Raw byte stream (individual bytes or lists) | Parses a raw MIDI byte stream into complete messages and routes to `midi`, `sysex`, or `cc` handlers. Supports running status. |
 | `midireset` | No args | Reset all LEDs to default state |
 
 ### Indexed Color Table
@@ -195,9 +196,9 @@ When loaded inside a `jweb` object, the emulator detects `window.max` and:
 
 ```
 [jweb move_midi_emulator.html]
-  |        |        |        |
-[outlet] [inlet]  [inlet]  [inlet]
-  midi    midi     sysex    midireset
+  |        |        |        |        |        |
+[outlet] [inlet]  [inlet]  [inlet]  [inlet]  [inlet]
+  midi    midi     sysex    cc       midiraw  midireset
 ```
 
 ## Implementation Notes
@@ -211,4 +212,6 @@ When loaded inside a `jweb` object, the emulator detects `window.max` and:
 - **CSS custom property `--led-color`**: Set on elements when LEDs are active, used by child elements (track capsule indicators, step LED dots) to pick up the color.
 - **Lazy lookup maps**: `LedState.buildLookups()` builds CC-to-element and note-to-element reverse maps from `ControlRegistry` on first use.
 - **MIDI log**: Collapsible via disclosure chevron. Capped at 200 entries with auto-scroll. Outgoing messages shown in green (`OUT`), incoming LED messages in blue (`IN`). Aftertouch entries are styled dimmer to reduce visual noise. SysEx incoming entries show decoded LED index and RGB values.
+- **Raw MIDI stream parser**: `handleMidiRaw` accepts individual bytes or arrays, accumulates them into a buffer, and dispatches complete messages (3-byte channel messages, 2-byte program/pressure, variable-length SysEx) to the appropriate handler. Supports running status and routes CC ch16 to `handleCC`, SysEx to `handleSysEx`, and everything else to `handleMidi`.
+- **SysEx channel routing**: SysEx messages encode the target channel in byte 7 (`ch<<4`). Ch0 addresses pads and steps; ch1 addresses encoders, tracks, and function buttons. This prevents index collisions (e.g., pad nn85 vs play cc85).
 - **Overlay lazy build**: Each overlay mode (`midi`, `sysex`, `zones`) builds its DOM elements on first activation and reuses them on subsequent selections. Zone rectangles are positioned using `getBoundingClientRect()` relative to the device container.
