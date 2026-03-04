@@ -593,6 +593,8 @@ body.show-overlay-midi .overlay-midi,
 body.show-overlay-sysex .overlay-sysex { display: flex; }
 body.show-overlay-zones .overlay-zones { display: flex; }
 .overlay-sysex { line-height: 0.5; }
+.step .overlay-sysex { top: -10px; justify-content: flex-start; }
+.icon-led .overlay-sysex { top: -16px; justify-content: flex-start; }
 .overlay-zones {
   font-size: 8px;
   line-height: 1;
@@ -1825,11 +1827,10 @@ const MidiOverlay = (() => {
       42: { dest: 2, idx: 2, ch: 1, led: 42 },
       43: { dest: 2, idx: 3, ch: 1, led: 43 },
       118: { dest: 3, idx: 1, ch: 1, led: 118 },
-      119: { dest: 3, idx: 4, ch: 1, led: 119 },
       86: { dest: 3, idx: 8, ch: 1, led: 86 },
       85: { dest: 3, idx: 9, ch: 1, led: 85 },
     };
-    const bwCCs = new Set([52, 58, 88, 60, 56, 49, 50, 51, 55, 54, 62, 63]);
+    const bwCCs = new Set([52, 58, 88, 119, 60, 56, 49, 50, 51, 55, 54, 62, 63]);
 
     ControlRegistry.map.forEach((config, el) => {
       let html = '';
