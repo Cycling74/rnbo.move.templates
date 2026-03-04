@@ -13,6 +13,16 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-20",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 157.0, 151.0, 222.0, 22.0 ],
+                    "text": "midiout \"Ableton Move Standalone Port\""
+                }
+            },
+            {
+                "box": {
                     "id": "obj-19",
                     "maxclass": "message",
                     "numinlets": 2,
@@ -2498,6 +2508,14 @@
             {
                 "patchline": {
                     "destination": [ "obj-11", 0 ],
+                    "order": 1,
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-20", 0 ],
+                    "order": 0,
                     "source": [ "obj-2", 0 ]
                 }
             },
