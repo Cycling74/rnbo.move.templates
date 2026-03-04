@@ -749,7 +749,7 @@ Relative values use 2's complement 7-bit: CW = 1-63, CCW = 65-127.</p>
 <p><b>RGB LEDs</b> are set via SysEx messages with 14-bit color values per channel:</p>
 <p><code>F0 00 21 1D 01 01 3B [ch&lt;&lt;4] [index] [rLo] [rHi] [gLo] [gHi] [bLo] [bHi] F7</code></p>
 <p>Each color component is 14-bit: <code>value = (lo &amp; 0x7F) | ((hi &amp; 0x7F) &lt;&lt; 7)</code>.
-RGB LEDs can also be set via <code>Note On</code> (nn) or <code>CC</code> using an indexed color table (value 0-127).</p>
+RGB LEDs can also be set via <code>Note On</code> (nn) or <code>CC</code> using an indexed color table (value 0-127) [see below].</p>
 <p><b>B/W LEDs</b> are set via <code>CC</code> on ch16 using the color table's white-balance value for brightness.</p>
 
 <h2>Overlay: midi</h2>
@@ -796,6 +796,141 @@ The RNBO input/LED drivers use <code>(zone, address)</code> pairs to identify co
 <tr><td>5: icons</td><td>16 icon LEDs (managed by RNBO Control app)</td><td>0-15</td><td><span class="color-swatch" style="background:#4466dd"></span>royal blue</td></tr>
 <tr><td>6: encoders</td><td>8 encoders (note: volume knob is owned by RNBO Control app)</td><td>0-7</td><td><span class="color-swatch" style="background:#cc44cc"></span>magenta</td></tr>
 <tr><td>7: jacks</td><td>Hardware I/O (not emulated)</td><td>0-1</td><td>—</td></tr>
+</table>
+
+<h2>Indexed Color Table (0-127)</h2>
+<p>MIDI value 0 = LED off. Values 1-127 map to an RGB color (for color LEDs) and a white-balance brightness (WB, for B/W LEDs).
+Values 65-116 are dim variants cycling through the spectrum in pairs (brighter/darker).</p>
+<table style="font-size:10px;">
+<tr><th>Idx</th><th></th><th>Hex</th><th>Color</th><th>WB</th><th></th><th>Idx</th><th></th><th>Hex</th><th>Color</th><th>WB</th></tr>
+<tr><td>0</td><td><span class="color-swatch" style="background:#000000;border:1px solid #444"></span></td><td>#000000</td><td>Off</td><td>0</td><td></td>
+<td>64</td><td><span class="color-swatch" style="background:#756A6A"></span></td><td>#756A6A</td><td>Dim Rosy</td><td>93</td></tr>
+<tr><td>1</td><td><span class="color-swatch" style="background:#FF4032"></span></td><td>#FF4032</td><td>Red</td><td>2</td><td></td>
+<td>65</td><td><span class="color-swatch" style="background:#661914"></span></td><td>#661914</td><td>Dim Red</td><td>93</td></tr>
+<tr><td>2</td><td><span class="color-swatch" style="background:#800400"></span></td><td>#800400</td><td>Dark Maroon</td><td>4</td><td></td>
+<td>66</td><td><span class="color-swatch" style="background:#210806"></span></td><td>#210806</td><td>Near Black Red</td><td>94</td></tr>
+<tr><td>3</td><td><span class="color-swatch" style="background:#C93C00"></span></td><td>#C93C00</td><td>Dark Orange</td><td>6</td><td></td>
+<td>67</td><td><span class="color-swatch" style="background:#460300"></span></td><td>#460300</td><td>Dim Crimson</td><td>94</td></tr>
+<tr><td>4</td><td><span class="color-swatch" style="background:#AC1F00"></span></td><td>#AC1F00</td><td>Burnt Red</td><td>8</td><td></td>
+<td>68</td><td><span class="color-swatch" style="background:#280000"></span></td><td>#280000</td><td>Near Black</td><td>95</td></tr>
+<tr><td>5</td><td><span class="color-swatch" style="background:#8C5018"></span></td><td>#8C5018</td><td>Brown</td><td>10</td><td></td>
+<td>69</td><td><span class="color-swatch" style="background:#5D1700"></span></td><td>#5D1700</td><td>Dim Orange</td><td>96</td></tr>
+<tr><td>6</td><td><span class="color-swatch" style="background:#491804"></span></td><td>#491804</td><td>Dark Brown</td><td>12</td><td></td>
+<td>70</td><td><span class="color-swatch" style="background:#200D00"></span></td><td>#200D00</td><td>Near Black Brown</td><td>96</td></tr>
+<tr><td>7</td><td><span class="color-swatch" style="background:#FADC3B"></span></td><td>#FADC3B</td><td>Yellow</td><td>14</td><td></td>
+<td>71</td><td><span class="color-swatch" style="background:#470C00"></span></td><td>#470C00</td><td>Dim Brown</td><td>97</td></tr>
+<tr><td>8</td><td><span class="color-swatch" style="background:#FFC516"></span></td><td>#FFC516</td><td>Amber</td><td>16</td><td></td>
+<td>72</td><td><span class="color-swatch" style="background:#1C0800"></span></td><td>#1C0800</td><td>Near Black</td><td>97</td></tr>
+<tr><td>9</td><td><span class="color-swatch" style="background:#B6FF0E"></span></td><td>#B6FF0E</td><td>Chartreuse</td><td>18</td><td></td>
+<td>73</td><td><span class="color-swatch" style="background:#3B2B14"></span></td><td>#3B2B14</td><td>Dim Sienna</td><td>98</td></tr>
+<tr><td>10</td><td><span class="color-swatch" style="background:#79FF18"></span></td><td>#79FF18</td><td>Lime</td><td>20</td><td></td>
+<td>74</td><td><span class="color-swatch" style="background:#1C130A"></span></td><td>#1C130A</td><td>Near Black</td><td>98</td></tr>
+<tr><td>11</td><td><span class="color-swatch" style="background:#34C216"></span></td><td>#34C216</td><td>Green</td><td>22</td><td></td>
+<td>75</td><td><span class="color-swatch" style="background:#250E05"></span></td><td>#250E05</td><td>Dim Brown</td><td>99</td></tr>
+<tr><td>12</td><td><span class="color-swatch" style="background:#4F8A04"></span></td><td>#4F8A04</td><td>Dark Green</td><td>24</td><td></td>
+<td>76</td><td><span class="color-swatch" style="background:#0D0602"></span></td><td>#0D0602</td><td>Near Black</td><td>99</td></tr>
+<tr><td>13</td><td><span class="color-swatch" style="background:#62FF55"></span></td><td>#62FF55</td><td>Bright Green</td><td>26</td><td></td>
+<td>77</td><td><span class="color-swatch" style="background:#645817"></span></td><td>#645817</td><td>Dim Olive</td><td>100</td></tr>
+<tr><td>14</td><td><span class="color-swatch" style="background:#297D53"></span></td><td>#297D53</td><td>Sea Green</td><td>28</td><td></td>
+<td>78</td><td><span class="color-swatch" style="background:#201C07"></span></td><td>#201C07</td><td>Near Black</td><td>101</td></tr>
+<tr><td>15</td><td><span class="color-swatch" style="background:#269E72"></span></td><td>#269E72</td><td>Medium Sea Green</td><td>30</td><td></td>
+<td>79</td><td><span class="color-swatch" style="background:#664E08"></span></td><td>#664E08</td><td>Dim Amber</td><td>101</td></tr>
+<tr><td>16</td><td><span class="color-swatch" style="background:#31ADFF"></span></td><td>#31ADFF</td><td>Sky Blue</td><td>32</td><td></td>
+<td>80</td><td><span class="color-swatch" style="background:#211902"></span></td><td>#211902</td><td>Near Black</td><td>102</td></tr>
+<tr><td>17</td><td><span class="color-swatch" style="background:#3663FC"></span></td><td>#3663FC</td><td>Royal Blue</td><td>34</td><td></td>
+<td>81</td><td><span class="color-swatch" style="background:#486605"></span></td><td>#486605</td><td>Dim Olive Green</td><td>102</td></tr>
+<tr><td>18</td><td><span class="color-swatch" style="background:#1A34FF"></span></td><td>#1A34FF</td><td>Blue</td><td>36</td><td></td>
+<td>82</td><td><span class="color-swatch" style="background:#172101"></span></td><td>#172101</td><td>Near Black</td><td>103</td></tr>
+<tr><td>19</td><td><span class="color-swatch" style="background:#1C0CE6"></span></td><td>#1C0CE6</td><td>Indigo</td><td>38</td><td></td>
+<td>83</td><td><span class="color-swatch" style="background:#306609"></span></td><td>#306609</td><td>Dim Green</td><td>103</td></tr>
+<tr><td>20</td><td><span class="color-swatch" style="background:#153999"></span></td><td>#153999</td><td>Dark Blue</td><td>40</td><td></td>
+<td>84</td><td><span class="color-swatch" style="background:#0F2103"></span></td><td>#0F2103</td><td>Near Black</td><td>104</td></tr>
+<tr><td>21</td><td><span class="color-swatch" style="background:#3937FF"></span></td><td>#3937FF</td><td>Electric Blue</td><td>42</td><td></td>
+<td>85</td><td><span class="color-swatch" style="background:#144D08"></span></td><td>#144D08</td><td>Dim Forest Green</td><td>104</td></tr>
+<tr><td>22</td><td><span class="color-swatch" style="background:#5722FF"></span></td><td>#5722FF</td><td>Blue-Violet</td><td>44</td><td></td>
+<td>86</td><td><span class="color-swatch" style="background:#061902"></span></td><td>#061902</td><td>Near Black</td><td>105</td></tr>
+<tr><td>23</td><td><span class="color-swatch" style="background:#972BFF"></span></td><td>#972BFF</td><td>Purple</td><td>46</td><td></td>
+<td>87</td><td><span class="color-swatch" style="background:#1F3701"></span></td><td>#1F3701</td><td>Dim Green</td><td>106</td></tr>
+<tr><td>24</td><td><span class="color-swatch" style="background:#852178"></span></td><td>#852178</td><td>Dark Magenta</td><td>48</td><td></td>
+<td>88</td><td><span class="color-swatch" style="background:#0A1100"></span></td><td>#0A1100</td><td>Near Black</td><td>106</td></tr>
+<tr><td>25</td><td><span class="color-swatch" style="background:#FF1032"></span></td><td>#FF1032</td><td>Crimson</td><td>50</td><td></td>
+<td>89</td><td><span class="color-swatch" style="background:#276622"></span></td><td>#276622</td><td>Dim Green</td><td>107</td></tr>
+<tr><td>26</td><td><span class="color-swatch" style="background:#FF2BD4"></span></td><td>#FF2BD4</td><td>Hot Pink</td><td>52</td><td></td>
+<td>90</td><td><span class="color-swatch" style="background:#0C210B"></span></td><td>#0C210B</td><td>Near Black</td><td>107</td></tr>
+<tr><td>27</td><td><span class="color-swatch" style="background:#A63421"></span></td><td>#A63421</td><td>Brick Red</td><td>54</td><td></td>
+<td>91</td><td><span class="color-swatch" style="background:#143E29"></span></td><td>#143E29</td><td>Dim Teal</td><td>108</td></tr>
+<tr><td>28</td><td><span class="color-swatch" style="background:#995628"></span></td><td>#995628</td><td>Sienna</td><td>56</td><td></td>
+<td>92</td><td><span class="color-swatch" style="background:#081910"></span></td><td>#081910</td><td>Near Black</td><td>108</td></tr>
+<tr><td>29</td><td><span class="color-swatch" style="background:#876700"></span></td><td>#876700</td><td>Dark Goldenrod</td><td>58</td><td></td>
+<td>93</td><td><span class="color-swatch" style="background:#004D36"></span></td><td>#004D36</td><td>Dim Teal</td><td>109</td></tr>
+<tr><td>30</td><td><span class="color-swatch" style="background:#90821F"></span></td><td>#90821F</td><td>Olive</td><td>60</td><td></td>
+<td>94</td><td><span class="color-swatch" style="background:#00180E"></span></td><td>#00180E</td><td>Near Black</td><td>109</td></tr>
+<tr><td>31</td><td><span class="color-swatch" style="background:#4A8700"></span></td><td>#4A8700</td><td>Olive Green</td><td>62</td><td></td>
+<td>95</td><td><span class="color-swatch" style="background:#134566"></span></td><td>#134566</td><td>Dim Steel Blue</td><td>110</td></tr>
+<tr><td>32</td><td><span class="color-swatch" style="background:#007F12"></span></td><td>#007F12</td><td>Forest Green</td><td>64</td><td></td>
+<td>96</td><td><span class="color-swatch" style="background:#061621"></span></td><td>#061621</td><td>Near Black</td><td>110</td></tr>
+<tr><td>33</td><td><span class="color-swatch" style="background:#1853B2"></span></td><td>#1853B2</td><td>Cobalt Blue</td><td>66</td><td></td>
+<td>97</td><td><span class="color-swatch" style="background:#152764"></span></td><td>#152764</td><td>Dim Navy</td><td>111</td></tr>
+<tr><td>34</td><td><span class="color-swatch" style="background:#624BAD"></span></td><td>#624BAD</td><td>Slate Purple</td><td>68</td><td></td>
+<td>98</td><td><span class="color-swatch" style="background:#070C20"></span></td><td>#070C20</td><td>Near Black</td><td>112</td></tr>
+<tr><td>35</td><td><span class="color-swatch" style="background:#733A67"></span></td><td>#733A67</td><td>Plum</td><td>70</td><td></td>
+<td>99</td><td><span class="color-swatch" style="background:#0A1466"></span></td><td>#0A1466</td><td>Dim Blue</td><td>112</td></tr>
+<tr><td>36</td><td><span class="color-swatch" style="background:#F8BCAF"></span></td><td>#F8BCAF</td><td>Peach</td><td>72</td><td></td>
+<td>100</td><td><span class="color-swatch" style="background:#030621"></span></td><td>#030621</td><td>Near Black</td><td>113</td></tr>
+<tr><td>37</td><td><span class="color-swatch" style="background:#FF9B76"></span></td><td>#FF9B76</td><td>Light Salmon</td><td>74</td><td></td>
+<td>101</td><td><span class="color-swatch" style="background:#0B045C"></span></td><td>#0B045C</td><td>Dim Indigo</td><td>113</td></tr>
+<tr><td>38</td><td><span class="color-swatch" style="background:#FFBF5F"></span></td><td>#FFBF5F</td><td>Sandy Yellow</td><td>76</td><td></td>
+<td>102</td><td><span class="color-swatch" style="background:#03011D"></span></td><td>#03011D</td><td>Near Black</td><td>114</td></tr>
+<tr><td>39</td><td><span class="color-swatch" style="background:#D9AF71"></span></td><td>#D9AF71</td><td>Tan</td><td>78</td><td></td>
+<td>103</td><td><span class="color-swatch" style="background:#0A1C4C"></span></td><td>#0A1C4C</td><td>Dim Navy</td><td>114</td></tr>
+<tr><td>40</td><td><span class="color-swatch" style="background:#FFF480"></span></td><td>#FFF480</td><td>Pale Yellow</td><td>80</td><td></td>
+<td>104</td><td><span class="color-swatch" style="background:#040B1E"></span></td><td>#040B1E</td><td>Near Black</td><td>115</td></tr>
+<tr><td>41</td><td><span class="color-swatch" style="background:#BFBA69"></span></td><td>#BFBA69</td><td>Dark Khaki</td><td>80</td><td></td>
+<td>105</td><td><span class="color-swatch" style="background:#161666"></span></td><td>#161666</td><td>Dim Blue-Violet</td><td>115</td></tr>
+<tr><td>42</td><td><span class="color-swatch" style="background:#BCCC88"></span></td><td>#BCCC88</td><td>Sage</td><td>81</td><td></td>
+<td>106</td><td><span class="color-swatch" style="background:#070721"></span></td><td>#070721</td><td>Near Black</td><td>116</td></tr>
+<tr><td>43</td><td><span class="color-swatch" style="background:#AEFF99"></span></td><td>#AEFF99</td><td>Mint Green</td><td>81</td><td></td>
+<td>107</td><td><span class="color-swatch" style="background:#220D66"></span></td><td>#220D66</td><td>Dim Purple</td><td>117</td></tr>
+<tr><td>44</td><td><span class="color-swatch" style="background:#7CDD9F"></span></td><td>#7CDD9F</td><td>Aquamarine</td><td>82</td><td></td>
+<td>108</td><td><span class="color-swatch" style="background:#0B0421"></span></td><td>#0B0421</td><td>Near Black</td><td>117</td></tr>
+<tr><td>45</td><td><span class="color-swatch" style="background:#89B47D"></span></td><td>#89B47D</td><td>Dark Sea Green</td><td>82</td><td></td>
+<td>109</td><td><span class="color-swatch" style="background:#3C1166"></span></td><td>#3C1166</td><td>Dim Purple</td><td>118</td></tr>
+<tr><td>46</td><td><span class="color-swatch" style="background:#80F3FF"></span></td><td>#80F3FF</td><td>Light Cyan</td><td>83</td><td></td>
+<td>110</td><td><span class="color-swatch" style="background:#130521"></span></td><td>#130521</td><td>Near Black</td><td>118</td></tr>
+<tr><td>47</td><td><span class="color-swatch" style="background:#7ACEFC"></span></td><td>#7ACEFC</td><td>Light Sky Blue</td><td>83</td><td></td>
+<td>111</td><td><span class="color-swatch" style="background:#350D30"></span></td><td>#350D30</td><td>Dim Magenta</td><td>119</td></tr>
+<tr><td>48</td><td><span class="color-swatch" style="background:#68A1D3"></span></td><td>#68A1D3</td><td>Steel Blue</td><td>84</td><td></td>
+<td>112</td><td><span class="color-swatch" style="background:#11040F"></span></td><td>#11040F</td><td>Near Black</td><td>119</td></tr>
+<tr><td>49</td><td><span class="color-swatch" style="background:#858FC2"></span></td><td>#858FC2</td><td>Slate Blue</td><td>85</td><td></td>
+<td>113</td><td><span class="color-swatch" style="background:#660614"></span></td><td>#660614</td><td>Dim Crimson</td><td>120</td></tr>
+<tr><td>50</td><td><span class="color-swatch" style="background:#BBAAF2"></span></td><td>#BBAAF2</td><td>Light Purple</td><td>85</td><td></td>
+<td>114</td><td><span class="color-swatch" style="background:#210206"></span></td><td>#210206</td><td>Near Black</td><td>120</td></tr>
+<tr><td>51</td><td><span class="color-swatch" style="background:#CDBBE4"></span></td><td>#CDBBE4</td><td>Lavender</td><td>86</td><td></td>
+<td>115</td><td><span class="color-swatch" style="background:#661154"></span></td><td>#661154</td><td>Dim Magenta</td><td>121</td></tr>
+<tr><td>52</td><td><span class="color-swatch" style="background:#EF8BB0"></span></td><td>#EF8BB0</td><td>Pink</td><td>86</td><td></td>
+<td>116</td><td><span class="color-swatch" style="background:#21051B"></span></td><td>#21051B</td><td>Near Black</td><td>122</td></tr>
+<tr><td>53</td><td><span class="color-swatch" style="background:#859D8C"></span></td><td>#859D8C</td><td>Gray-Green</td><td>87</td><td></td>
+<td>117</td><td><span class="color-swatch" style="background:#000000;border:1px solid #444"></span></td><td>#000000</td><td>Black</td><td>122</td></tr>
+<tr><td>54</td><td><span class="color-swatch" style="background:#6B756E"></span></td><td>#6B756E</td><td>Dim Gray</td><td>87</td><td></td>
+<td>118</td><td><span class="color-swatch" style="background:#595959"></span></td><td>#595959</td><td>Medium Gray</td><td>123</td></tr>
+<tr><td>55</td><td><span class="color-swatch" style="background:#84909B"></span></td><td>#84909B</td><td>Cadet Gray</td><td>88</td><td></td>
+<td>119</td><td><span class="color-swatch" style="background:#1A1A1A"></span></td><td>#1A1A1A</td><td>Very Dark Gray</td><td>123</td></tr>
+<tr><td>56</td><td><span class="color-swatch" style="background:#6A7075"></span></td><td>#6A7075</td><td>Slate Gray</td><td>88</td><td></td>
+<td>120</td><td><span class="color-swatch" style="background:#FFFFFF;border:1px solid #444"></span></td><td>#FFFFFF</td><td>White</td><td>124</td></tr>
+<tr><td>57</td><td><span class="color-swatch" style="background:#88859D"></span></td><td>#88859D</td><td>Gray-Blue</td><td>89</td><td></td>
+<td>121</td><td><span class="color-swatch" style="background:#595959"></span></td><td>#595959</td><td>Medium Gray</td><td>124</td></tr>
+<tr><td>58</td><td><span class="color-swatch" style="background:#6C6A75"></span></td><td>#6C6A75</td><td>Dim Gray</td><td>90</td><td></td>
+<td>122</td><td><span class="color-swatch" style="background:#CCCCCC"></span></td><td>#CCCCCC</td><td>Silver</td><td>125</td></tr>
+<tr><td>59</td><td><span class="color-swatch" style="background:#9D859C"></span></td><td>#9D859C</td><td>Mauve Gray</td><td>90</td><td></td>
+<td>123</td><td><span class="color-swatch" style="background:#404040"></span></td><td>#404040</td><td>Dark Gray</td><td>125</td></tr>
+<tr><td>60</td><td><span class="color-swatch" style="background:#746A74"></span></td><td>#746A74</td><td>Dim Mauve</td><td>91</td><td></td>
+<td>124</td><td><span class="color-swatch" style="background:#141414"></span></td><td>#141414</td><td>Near Black</td><td>126</td></tr>
+<tr><td>61</td><td><span class="color-swatch" style="background:#9C9D85"></span></td><td>#9C9D85</td><td>Olive Gray</td><td>91</td><td></td>
+<td>125</td><td><span class="color-swatch" style="background:#0000FF"></span></td><td>#0000FF</td><td>Pure Blue</td><td>126</td></tr>
+<tr><td>62</td><td><span class="color-swatch" style="background:#74756A"></span></td><td>#74756A</td><td>Dim Olive</td><td>92</td><td></td>
+<td>126</td><td><span class="color-swatch" style="background:#00FF00"></span></td><td>#00FF00</td><td>Pure Green</td><td>127</td></tr>
+<tr><td>63</td><td><span class="color-swatch" style="background:#9D8484"></span></td><td>#9D8484</td><td>Rosy Gray</td><td>92</td><td></td>
+<td>127</td><td><span class="color-swatch" style="background:#FF0000"></span></td><td>#FF0000</td><td>Pure Red</td><td>127</td></tr>
 </table>
 </div>
 <div id="device"></div>
