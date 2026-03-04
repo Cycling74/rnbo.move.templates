@@ -595,6 +595,8 @@ body.show-overlay-zones .overlay-zones { display: flex; }
 .overlay-sysex { line-height: 0.5; }
 .step .overlay-sysex { top: -10px; justify-content: flex-start; }
 .icon-led .overlay-sysex { top: -16px; justify-content: flex-start; }
+.step .overlay-zones { top: 0; }
+.icon-led .overlay-zones { top: -3px; bottom: auto; justify-content: flex-start; }
 .overlay-zones {
   font-size: 8px;
   line-height: 1;
@@ -1941,41 +1943,51 @@ const MidiOverlay = (() => {
     makeRect(document.getElementById('icon-row'), '#4466dd', '5: icons', null, {x: -5, y: 5});
     makeRect(document.getElementById('encoder-row'), '#cc44cc', '6: encoders');
 
-    // Zone address indices on each control
-    const addr = (n) => `<span class="zone-addr">${n}</span>`;
+    // Zone address indices + LED type on each control
+    const rgbIcon = '<span class="led-type-icon led-type-rgb"></span>';
+    const bwIcon = '<span class="led-type-icon led-type-bw"></span>';
+    const addr = (n, icon) => (icon ? icon + ' ' : '') + `<span class="zone-addr">${n}</span>`;
 
     // Zone 3 function CC -> address mapping
     const funcAddr = {52:0, 118:1, 58:2, 88:3, 119:4, 60:5, 56:6, 49:7, 86:8, 85:9, 50:10};
     // Zone 4 nav CC -> address mapping
     const navAddr = {55:0, 54:1, 62:2, 63:3};
+    // RGB function CCs
+    const rgbFuncCCs = new Set([118, 86, 85, 40, 41, 42, 43]);
 
     ControlRegistry.map.forEach((config, el) => {
       let idx = null;
+      let icon = null;
       switch (config.type) {
         case 'pad':
           idx = config.note - 68;
+          icon = rgbIcon;
           break;
         case 'step':
           idx = config.note - 16;
+          icon = rgbIcon;
           break;
         case 'encoder':
-          if (config.index < 8) idx = config.index;
+          if (config.index < 8) { idx = config.index; icon = rgbIcon; }
           break;
         case 'cc-button': {
           const cc = config.cc;
-          if (cc >= 40 && cc <= 43) idx = cc - 40; // tracks
-          else if (funcAddr[cc] !== undefined) idx = funcAddr[cc];
-          else if (navAddr[cc] !== undefined) idx = navAddr[cc];
+          if (cc >= 40 && cc <= 43) { idx = cc - 40; icon = rgbIcon; }
+          else if (funcAddr[cc] !== undefined) {
+            idx = funcAddr[cc];
+            icon = rgbFuncCCs.has(cc) ? rgbIcon : bwIcon;
+          }
+          else if (navAddr[cc] !== undefined) { idx = navAddr[cc]; icon = bwIcon; }
           break;
         }
       }
-      if (idx !== null) addOverlay(el, addr(idx), 'overlay-zones');
+      if (idx !== null) addOverlay(el, addr(idx, icon), 'overlay-zones');
     });
 
     // Icon LEDs (zone 5)
     for (let i = 0; i < 16; i++) {
       const led = document.getElementById(`icon-led-${i}`);
-      if (led) addOverlay(led, addr(i), 'overlay-zones');
+      if (led) addOverlay(led, addr(i, bwIcon), 'overlay-zones');
     }
   };
 
