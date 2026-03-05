@@ -35,7 +35,7 @@ If you press a step you'll load that preset.
 
 ## UI Control
 
-The UI Control is simple utility for controlling the transport play state, toggling recording on and off, and altering parameter editing precision.
+The UI Control is a simple utility for controlling the transport play state, toggling recording on and off, and altering parameter editing precision.
 
 It takes over the following buttons:
 
