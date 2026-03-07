@@ -9,6 +9,7 @@ const MAP_INDEX_EXTRA: Index = 2;
 
 const VERT_MODE_OCTAVE: Index = 0;
 const VERT_MODE_4THS: Index = 1;
+const NON_OCTAVE_LEVEL: number = 0.2;
 
 @param active = 0;
 
@@ -140,9 +141,17 @@ function sendpoly(note: number, val: number) {
 function drawall() {
   for (let pad = 0; pad < 32; pad++) {
     let v = padmapping.lookup(pad);
-    let r = v[MAP_INDEX_COLOR];
+    let isoctave = v[MAP_INDEX_COLOR];
+    let r = 0;
     let g = 0;
     let b = 0;
+    if (isoctave) {
+      r = 1;
+    } else {
+      r = NON_OCTAVE_LEVEL;
+      g = NON_OCTAVE_LEVEL;
+      b = NON_OCTAVE_LEVEL;
+    }
     listout1 = [PREFIX_PAD, pad, r, g, b];
   }
 
@@ -180,10 +189,18 @@ if (prefix == PREFIX_PAD) { //pads
   let r = 0;
   let g = 0;
   let b = 0;
+
   if (vel > 0) {
     g = vel / 127.0;
   } else {
-    r = mapping[MAP_INDEX_COLOR];
+    let isoctave = mapping[MAP_INDEX_COLOR];
+    if (isoctave) {
+      r = 1.0;
+    } else {
+      r = NON_OCTAVE_LEVEL;
+      g = NON_OCTAVE_LEVEL;
+      b = NON_OCTAVE_LEVEL;
+    }
   }
 
   listout1 = [0, pad, r, g, b];
