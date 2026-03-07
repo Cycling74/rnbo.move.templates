@@ -37,6 +37,15 @@ const NON_OCTAVE_LEVEL: number = 0.2;
 const PREFIX_PAD = 0;
 const PREFIX_NAV = 4;
 
+function updateoctaverange() {
+  //TODO: check in more detail
+  //XXX should offset max take into acount there being 32 pads to play above the offset?
+  octaveoffsetmax = floor((127.0 - kbmMid) / (1.0 * kbmOctave));
+  octaveoffsetmin = -ceil(1.0 * kbmMid / (1.0 * kbmOctave));
+  
+  curoctaveoffset = clamp(curoctaveoffset, octaveoffsetmin, octaveoffsetmax);
+}
+
 function updatemappings() {
   degreemapping.clear();
 
@@ -85,8 +94,7 @@ function updatemappings() {
       }
     }
   }
-
-  //TODO compute octave offset range
+  updateoctaverange();
 }
 
 function listin2(scale: list) {
