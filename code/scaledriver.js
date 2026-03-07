@@ -1,60 +1,56 @@
+// vim: sw=2 ts=2 expandtab
 //listout1 = control
 //listout2 = note out
 //listout3 = poly out
 
+const MAP_INDEX_NOTE: Index = 0;
+const MAP_INDEX_COLOR: Index = 1;
+const MAP_INDEX_EXTRA: Index = 2;
+
+const VERT_MODE_OCTAVE: Index = 0;
+const VERT_MODE_4THS: Index = 1;
+
 @param active = 0;
 
 @state scl = new scala();
-@state scaleLength = 12; //computed from scl
-@state kbmMid = 60;
-@state kbmLength = 16;
-@state kbmOctave = 12;
+@state scaleLength: Index = 12; //computed from scl
+@state kbmMid: Index = 60;
+@state kbmLength: Index = 16;
+@state kbmOctave: Index = 12;
 
-@state page = 0;
+@state page: Index = 0;
+@state curdegreeoffset = 60;
+@state vertmode: Index = VERT_MODE_OCTAVE;
 
-//pad -> note, offcolor, [, output pad 1..]
+//pad -> degree, offcolor, [, output pad 1..]
 @state padmapping = new liststore({"maxlistsize": 4, "slotcount": 32, "preset": false});
 
 //map of scale degree -> pads
 //TODO could some of these be negative?
 @state degreemapping = new liststore({"maxlistsize": 4, "slotcount": 128, "preset": false});
 
-const MAP_INDEX_NOTE: Index = 0;
-const MAP_INDEX_COLOR: Index = 1;
-const MAP_INDEX_EXTRA: Index = 2;
-
-
 const PREFIX_PAD = 0;
 const PREFIX_NAV = 4;
 
 function updatemappings() {
-  let padoffset = kbmMid;
-
-  //paging
-  if (page != 0) {
-    //we want to retain 1 octave from the 0 page in each direction if possible
-    //if the octave is greater than 16 notes though we just offset by it
-    if (kbmLength > 16) {
-      padoffset += kbmLength * page;
-    } else {
-      let octaveoffset = max(floor(32.0 / kbmLength) - 1, 1);
-      padoffset += octaveoffset * page * kbmLength;
-    }
-  }
-
   degreemapping.clear();
 
-  for (let pad = 0; pad < 32; pad++) {
-    let color = 0;
-    let note = pad + padoffset;
-    let mapped = scl.applyKBM(note);
+  let octaverows: Index = ceil((1.0 * kbmOctave) / 8.0);
+  let octavenotes: Index = octaverows * 8;
+  let octaves: Index = ceil(4.0 / (1.0 * octaverows));
 
-    if (mapped[1] > 0) {
-      let degree = mapped[0];
-      //find octaves
-      if (safemod(degree, kbmOctave) == 0) {
-        color = 1;
+  for (let octave: Index = 0; octave < octaves; octave++) {
+    let padoffset: Index = octave * octavenotes;
+    let degreeoffset: Index = octave * kbmOctave;
+    for (let i: Index = 0; i < octavenotes; i++) {
+      let pad = padoffset + i;
+      if (pad >= 32) {
+        break;
       }
+
+      let color = (i % kbmOctave) == 0 ? 1.0 : 0.0;
+      let degree = i + degreeoffset;
+      padmapping.store(pad, [degree, color]);
 
       //now to deal with notes out of range?
       if (degree >= 0 && degree < 128) {
@@ -62,10 +58,7 @@ function updatemappings() {
         tmp.push(pad);
         degreemapping.store(degree, tmp);
       }
-    } else {
-      //mapping is invalid, what to do? .. just move forward
     }
-    padmapping.store(pad, [note, color]);
   }
 
   //insert additional pad outputs
@@ -129,7 +122,8 @@ function listin4(poly: list) {
     let pad = poly[0];
     let val = poly[1];
     if (pad >= 0 && pad < 36) {
-      let note = padmapping.lookup(pad)[MAP_INDEX_NOTE];
+      let degree = padmapping.lookup(pad)[MAP_INDEX_NOTE];
+      let note = curdegreeoffset + degree;
       sendpoly(note, val);
     }
   }
@@ -179,7 +173,8 @@ if (prefix == PREFIX_PAD) { //pads
 
   //send mapped note
   let mapping = padmapping.lookup(pad);
-  let note = mapping[MAP_INDEX_NOTE];
+  let degree = mapping[MAP_INDEX_NOTE];
+  let note = curdegreeoffset + degree;
   sendnote(note, vel);
 
   let r = 0;
