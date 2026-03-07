@@ -19,8 +19,12 @@ const NON_OCTAVE_LEVEL: number = 0.2;
 @state kbmLength: Index = 16;
 @state kbmOctave: Index = 12;
 
-@state page: Index = 0;
-@state curdegreeoffset = 60;
+@state curdegreeoffset: Int = 60;
+
+@state curoctaveoffset: Int = 0;
+@state octaveoffsetmax: Int = 2;
+@state octaveoffsetmin: Int = -2;
+
 @state vertmode: Index = VERT_MODE_OCTAVE;
 
 //pad -> degree, offcolor, [, output pad 1..]
@@ -81,6 +85,8 @@ function updatemappings() {
       }
     }
   }
+
+  //TODO compute octave offset range
 }
 
 function listin2(scale: list) {
@@ -131,11 +137,15 @@ function listin4(poly: list) {
 }
 
 function sendnote(note: number, vel: number) {
-  listout2 = [note, vel];
+  if (note >= 0 && note < 128) {
+    listout2 = [note, vel];
+  }
 }
 
 function sendpoly(note: number, val: number) {
-  listout3 = [note, val];
+  if (note >= 0 && note < 128) {
+    listout3 = [note, val];
+  }
 }
 
 function drawall() {
@@ -159,9 +169,9 @@ function drawall() {
   //up, down
   let plus = 1;
   let minus = 1;
-  if (page == 1) {
+  if (curoctaveoffset >= octaveoffsetmax) {
     plus = 0;
-  } else if (page == -1) {
+  } else if (curoctaveoffset <= octaveoffsetmin) {
     minus = 0;
   }
   listout1 = [PREFIX_NAV, 0, plus];
@@ -212,16 +222,20 @@ if (prefix == PREFIX_PAD) { //pads
   if (m[2] == 0) { //value
     return;
   }
-  let prev = page;
+  let prev = curoctaveoffset;
+  let offset: Int = 0;
   let btn = m[1];
   if (btn == 0) { //plus 
-    page = clamp(page + 1, -1, 1);
+    offset = 1;
   } else if (btn == 1) { //minus
-    page = clamp(page - 1, -1, 1);
+    offset = -1;
   } else {
     return;
   }
-  if (prev != page) {
+  curoctaveoffset = clamp(curoctaveoffset + offset, octaveoffsetmin, octaveoffsetmax);
+
+  if (prev != curoctaveoffset) {
+    curdegreeoffset = kbmMid + kbmOctave * curoctaveoffset;
     updatemappings();
     drawall();
   }
