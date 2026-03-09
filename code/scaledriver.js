@@ -3,7 +3,10 @@
 //listout2 = note out
 //listout3 = poly out
 
-const MAP_INDEX_NOTE: Index = 0;
+///TODO keep held notes list and send off if held when changing octave
+
+
+const MAP_INDEX_DEGREE: Index = 0;
 const MAP_INDEX_COLOR: Index = 1;
 const MAP_INDEX_EXTRA: Index = 2;
 
@@ -44,6 +47,11 @@ function updateoctaverange() {
   octaveoffsetmin = -ceil(1.0 * kbmMid / (1.0 * kbmOctave));
   
   curoctaveoffset = clamp(curoctaveoffset, octaveoffsetmin, octaveoffsetmax);
+  curdegreeoffset = kbmMid + kbmOctave * curoctaveoffset;
+}
+
+function inrange(note: number): number {
+  return note >= 0 && note < 128;
 }
 
 function updatemappings() {
@@ -137,7 +145,7 @@ function listin4(poly: list) {
     let pad = poly[0];
     let val = poly[1];
     if (pad >= 0 && pad < 36) {
-      let degree = padmapping.lookup(pad)[MAP_INDEX_NOTE];
+      let degree = padmapping.lookup(pad)[MAP_INDEX_DEGREE];
       let note = curdegreeoffset + degree;
       sendpoly(note, val);
     }
@@ -145,13 +153,13 @@ function listin4(poly: list) {
 }
 
 function sendnote(note: number, vel: number) {
-  if (note >= 0 && note < 128) {
+  if (inrange(note)) {
     listout2 = [note, vel];
   }
 }
 
 function sendpoly(note: number, val: number) {
-  if (note >= 0 && note < 128) {
+  if (inrange(note)) {
     listout3 = [note, val];
   }
 }
@@ -159,20 +167,27 @@ function sendpoly(note: number, val: number) {
 function drawall() {
   for (let pad = 0; pad < 32; pad++) {
     let v = padmapping.lookup(pad);
+    let degree = v[MAP_INDEX_DEGREE];
+    let note = curdegreeoffset + degree;
     let isoctave = v[MAP_INDEX_COLOR];
     let r = 0;
     let g = 0;
     let b = 0;
-    if (isoctave) {
-      r = 1;
-    } else {
-      r = NON_OCTAVE_LEVEL;
-      g = NON_OCTAVE_LEVEL;
-      b = NON_OCTAVE_LEVEL;
+    if (inrange(note)) {
+      if (isoctave) {
+        r = 1;
+      } else {
+        r = NON_OCTAVE_LEVEL;
+        g = NON_OCTAVE_LEVEL;
+        b = NON_OCTAVE_LEVEL;
+      }
     }
     listout1 = [PREFIX_PAD, pad, r, g, b];
   }
+  drawnav();
+}
 
+function drawnav() {
   //nav
   //up, down
   let plus = 1;
@@ -200,31 +215,34 @@ if (prefix == PREFIX_PAD) { //pads
 
   //send mapped note
   let mapping = padmapping.lookup(pad);
-  let degree = mapping[MAP_INDEX_NOTE];
+  let degree = mapping[MAP_INDEX_DEGREE];
   let note = curdegreeoffset + degree;
-  sendnote(note, vel);
 
-  let r = 0;
-  let g = 0;
-  let b = 0;
+  if (inrange(note)) {
+    let r = 0;
+    let g = 0;
+    let b = 0;
 
-  if (vel > 0) {
-    g = vel / 127.0;
-  } else {
-    let isoctave = mapping[MAP_INDEX_COLOR];
-    if (isoctave) {
-      r = 1.0;
+    sendnote(note, vel);
+
+    if (vel > 0) {
+      g = vel / 127.0;
     } else {
-      r = NON_OCTAVE_LEVEL;
-      g = NON_OCTAVE_LEVEL;
-      b = NON_OCTAVE_LEVEL;
+      let isoctave = mapping[MAP_INDEX_COLOR];
+      if (isoctave) {
+        r = 1.0;
+      } else {
+        r = NON_OCTAVE_LEVEL;
+        g = NON_OCTAVE_LEVEL;
+        b = NON_OCTAVE_LEVEL;
+      }
     }
-  }
 
-  listout1 = [0, pad, r, g, b];
-  //additional pads to light
-  for (let i = MAP_INDEX_EXTRA; i < mapping.length; i++) {
-    listout1 = [0, mapping[i], r, g, b];
+    listout1 = [0, pad, r, g, b];
+    //additional pads to light
+    for (let i = MAP_INDEX_EXTRA; i < mapping.length; i++) {
+      listout1 = [0, mapping[i], r, g, b];
+    }
   }
 } else if (prefix == PREFIX_NAV) { //nav
   if (m[2] == 0) { //value
@@ -244,7 +262,6 @@ if (prefix == PREFIX_PAD) { //pads
 
   if (prev != curoctaveoffset) {
     curdegreeoffset = kbmMid + kbmOctave * curoctaveoffset;
-    updatemappings();
     drawall();
   }
 }

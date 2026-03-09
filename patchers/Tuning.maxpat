@@ -45,7 +45,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "rnbo",
-                        "rect": [ 694.0, 1062.0, 1000.0, 752.0 ],
+                        "rect": [ 1025.0, 987.0, 1000.0, 752.0 ],
                         "default_fontname": "Lato",
                         "title": "Pad KBM Builder",
                         "boxes": [
@@ -168,9 +168,6 @@
                                     "outlettype": [ "", "" ],
                                     "patching_rect": [ 10.0, 255.0, 29.5, 23.0 ],
                                     "rnbo_classname": "t",
-                                    "rnbo_extra_attributes": {
-                                        "triggers": ""
-                                    },
                                     "rnbo_serial": 1,
                                     "rnbo_uniqueid": "t_obj-13",
                                     "rnboinfo": {
@@ -260,9 +257,6 @@
                                     "outlettype": [ "", "" ],
                                     "patching_rect": [ 89.0, 99.0, 30.0, 23.0 ],
                                     "rnbo_classname": "t",
-                                    "rnbo_extra_attributes": {
-                                        "triggers": ""
-                                    },
                                     "rnbo_serial": 2,
                                     "rnbo_uniqueid": "t_obj-28",
                                     "rnboinfo": {
@@ -408,9 +402,6 @@
                                     "outlettype": [ "", "" ],
                                     "patching_rect": [ 181.0, 134.0, 30.0, 23.0 ],
                                     "rnbo_classname": "t",
-                                    "rnbo_extra_attributes": {
-                                        "triggers": ""
-                                    },
                                     "rnbo_serial": 3,
                                     "rnbo_uniqueid": "t_obj-26",
                                     "rnboinfo": {
@@ -556,9 +547,6 @@
                                     "outlettype": [ "", "" ],
                                     "patching_rect": [ 261.0, 172.0, 30.0, 23.0 ],
                                     "rnbo_classname": "t",
-                                    "rnbo_extra_attributes": {
-                                        "triggers": ""
-                                    },
                                     "rnbo_serial": 4,
                                     "rnbo_uniqueid": "t_obj-22",
                                     "rnboinfo": {
@@ -705,8 +693,8 @@
                                     "patching_rect": [ 53.0, 330.0, 43.0, 23.0 ],
                                     "rnbo_classname": "list.reg",
                                     "rnbo_extra_attributes": {
-                                        "preset": 0,
-                                        "order": ""
+                                        "order": "",
+                                        "preset": 0
                                     },
                                     "rnbo_serial": 1,
                                     "rnbo_uniqueid": "list.reg_obj-21",
@@ -743,8 +731,8 @@
                                                     "patching_rect": [ 44.0, 172.0, 36.0, 23.0 ],
                                                     "rnbo_classname": "out",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "out_obj-2",
@@ -824,8 +812,8 @@
                                                     "patching_rect": [ 44.0, 17.0, 28.0, 23.0 ],
                                                     "rnbo_classname": "in",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "in_obj-1",
@@ -959,9 +947,6 @@
                                                     "outlettype": [ "", "" ],
                                                     "patching_rect": [ 44.0, 55.0, 56.0, 23.0 ],
                                                     "rnbo_classname": "t",
-                                                    "rnbo_extra_attributes": {
-                                                        "triggers": ""
-                                                    },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "t_obj-16",
                                                     "rnboinfo": {
@@ -1093,13 +1078,13 @@
                                     "patching_rect": [ 53.0, 290.0, 70.0, 23.0 ],
                                     "rnbo_classname": "p",
                                     "rnbo_extra_attributes": {
-                                        "notecontroller": 0,
-                                        "polyphony": -1.0,
-                                        "uidstyle": "auto",
                                         "args": [],
                                         "voicecontrol": "simple",
+                                        "uidstyle": "auto",
+                                        "notecontroller": 0,
+                                        "exposevoiceparams": 0,
                                         "receivemode": "local",
-                                        "exposevoiceparams": 0
+                                        "polyphony": -1.0
                                     },
                                     "rnbo_serial": 1,
                                     "rnbo_uniqueid": "hysteresis",
@@ -1303,17 +1288,17 @@
                                     "patching_rect": [ 261.0, 134.0, 401.0, 23.0 ],
                                     "rnbo_classname": "param",
                                     "rnbo_extra_attributes": {
-                                        "fromnormalized": "",
-                                        "meta": "",
+                                        "displayname": "",
+                                        "exponent": 1.0,
+                                        "order": "0",
                                         "preset": 1,
-                                        "tonormalized": "",
-                                        "unit": "",
                                         "enum": "",
                                         "sendinit": 1,
-                                        "order": "0",
+                                        "meta": "",
                                         "ctlin": -1.0,
-                                        "displayname": "",
-                                        "exponent": 1.0
+                                        "fromnormalized": "",
+                                        "unit": "",
+                                        "tonormalized": ""
                                     },
                                     "rnbo_serial": 1,
                                     "rnbo_uniqueid": "MIDIRef",
@@ -1719,17 +1704,17 @@
                                     "patching_rect": [ 89.0, 64.0, 404.0, 23.0 ],
                                     "rnbo_classname": "param",
                                     "rnbo_extra_attributes": {
-                                        "fromnormalized": "",
-                                        "meta": "",
+                                        "displayname": "",
+                                        "exponent": 1.0,
+                                        "order": "0",
                                         "preset": 1,
-                                        "tonormalized": "",
-                                        "unit": "",
                                         "enum": "",
                                         "sendinit": 1,
-                                        "order": "0",
+                                        "meta": "",
                                         "ctlin": -1.0,
-                                        "displayname": "",
-                                        "exponent": 1.0
+                                        "fromnormalized": "",
+                                        "unit": "",
+                                        "tonormalized": ""
                                     },
                                     "rnbo_serial": 2,
                                     "rnbo_uniqueid": "MIDIMid",
@@ -2135,18 +2120,18 @@
                                     "patching_rect": [ 181.0, 95.0, 347.0, 23.0 ],
                                     "rnbo_classname": "param",
                                     "rnbo_extra_attributes": {
-                                        "fromnormalized": "",
-                                        "meta": "",
+                                        "displayname": "",
+                                        "exponent": 1.0,
+                                        "order": "0",
                                         "preset": 1,
-                                        "tonormalized": "",
-                                        "unit": "",
-                                        "steps": 0.0,
                                         "enum": "",
                                         "sendinit": 1,
-                                        "order": "0",
+                                        "meta": "",
                                         "ctlin": -1.0,
-                                        "displayname": "",
-                                        "exponent": 1.0
+                                        "fromnormalized": "",
+                                        "steps": 0.0,
+                                        "unit": "",
+                                        "tonormalized": ""
                                     },
                                     "rnbo_serial": 3,
                                     "rnbo_uniqueid": "Tuning",
@@ -2556,10 +2541,10 @@
                                     "patching_rect": [ 18.0, 382.0, 909.0, 325.0 ],
                                     "rnbo_classname": "codebox",
                                     "rnbo_extra_attributes": {
-                                        "hot": 0,
                                         "nocache": 0,
                                         "code": "@param mid = 60;\n@param tuning = 440.0;\n@param ref = 69;\n\nlet _scl = listin1;\n\n//linear\nlistout1 = [0, 0, 0, mid, ref, tuning];",
-                                        "safemath": 1
+                                        "safemath": 1,
+                                        "hot": 0
                                     },
                                     "rnbo_serial": 1,
                                     "rnbo_uniqueid": "codebox_obj-17",
@@ -3010,20 +2995,20 @@
                                     "patching_rect": [ 13.0, 50.0, 253.0, 23.0 ],
                                     "rnbo_classname": "param",
                                     "rnbo_extra_attributes": {
-                                        "fromnormalized": "",
-                                        "displayorder": "-",
-                                        "minimum": 0.0,
-                                        "meta": "",
-                                        "preset": 1,
-                                        "tonormalized": "",
-                                        "unit": "",
-                                        "steps": 3.0,
-                                        "sendinit": 1,
-                                        "order": "0",
-                                        "ctlin": -1.0,
-                                        "maximum": 2.0,
                                         "displayname": "",
-                                        "exponent": 1.0
+                                        "exponent": 1.0,
+                                        "order": "0",
+                                        "preset": 1,
+                                        "sendinit": 1,
+                                        "meta": "",
+                                        "displayorder": "-",
+                                        "ctlin": -1.0,
+                                        "fromnormalized": "",
+                                        "maximum": 2.0,
+                                        "steps": 3.0,
+                                        "minimum": 0.0,
+                                        "unit": "",
+                                        "tonormalized": ""
                                     },
                                     "rnbo_serial": 1,
                                     "rnbo_uniqueid": "Scale",
@@ -3684,13 +3669,13 @@
                                     "patching_rect": [ 373.0, 645.0, 105.0, 23.0 ],
                                     "rnbo_classname": "p",
                                     "rnbo_extra_attributes": {
-                                        "notecontroller": 0,
-                                        "polyphony": -1.0,
-                                        "uidstyle": "auto",
                                         "args": [],
                                         "voicecontrol": "simple",
+                                        "uidstyle": "auto",
+                                        "notecontroller": 0,
+                                        "exposevoiceparams": 0,
                                         "receivemode": "local",
-                                        "exposevoiceparams": 0
+                                        "polyphony": -1.0
                                     },
                                     "rnbo_serial": 1,
                                     "rnbo_uniqueid": "p_obj-35",
@@ -3992,7 +3977,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "rnbo",
-                                        "rect": [ 14.0, 618.0, 1438.0, 752.0 ],
+                                        "rect": [ 34.0, 618.0, 1438.0, 752.0 ],
                                         "default_fontname": "Lato",
                                         "title": "logic",
                                         "boxes": [
@@ -4078,7 +4063,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "// vim: sw=2 ts=2 expandtab\n//listout1 = control\n//listout2 = note out\n//listout3 = poly out\n\nconst MAP_INDEX_NOTE: Index = 0;\nconst MAP_INDEX_COLOR: Index = 1;\nconst MAP_INDEX_EXTRA: Index = 2;\n\nconst VERT_MODE_OCTAVE: Index = 0;\nconst VERT_MODE_4THS: Index = 1;\nconst NON_OCTAVE_LEVEL: number = 0.2;\n\n@param active = 0;\n\n@state scl = new scala();\n@state scaleLength: Index = 12; //computed from scl\n@state kbmMid: Index = 60;\n@state kbmLength: Index = 16;\n@state kbmOctave: Index = 12;\n\n@state curdegreeoffset: Int = 60;\n\n@state curoctaveoffset: Int = 0;\n@state octaveoffsetmax: Int = 2;\n@state octaveoffsetmin: Int = -2;\n\n@state vertmode: Index = VERT_MODE_OCTAVE;\n\n//pad -> degree, offcolor, [, output pad 1..]\n@state padmapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 32, \"preset\": false});\n\n//map of scale degree -> pads\n//TODO could some of these be negative?\n@state degreemapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 128, \"preset\": false});\n\nconst PREFIX_PAD = 0;\nconst PREFIX_NAV = 4;\n\nfunction updateoctaverange() {\n  //TODO: check in more detail\n  //XXX should offset max take into acount there being 32 pads to play above the offset?\n  octaveoffsetmax = floor((127.0 - kbmMid) / (1.0 * kbmOctave));\n  octaveoffsetmin = -ceil(1.0 * kbmMid / (1.0 * kbmOctave));\n  \n  curoctaveoffset = clamp(curoctaveoffset, octaveoffsetmin, octaveoffsetmax);\n}\n\nfunction updatemappings() {\n  degreemapping.clear();\n\n  let octaverows: Index = ceil((1.0 * kbmOctave) / 8.0);\n  let octavenotes: Index = octaverows * 8;\n  let octaves: Index = ceil(4.0 / (1.0 * octaverows));\n\n  for (let octave: Index = 0; octave < octaves; octave++) {\n    let padoffset: Index = octave * octavenotes;\n    let degreeoffset: Index = octave * kbmOctave;\n    for (let i: Index = 0; i < octavenotes; i++) {\n      let pad = padoffset + i;\n      if (pad >= 32) {\n        break;\n      }\n\n      let color = (i % kbmOctave) == 0 ? 1.0 : 0.0;\n      let degree = i + degreeoffset;\n      padmapping.store(pad, [degree, color]);\n\n      //now to deal with notes out of range?\n      if (degree >= 0 && degree < 128) {\n        let tmp = degreemapping.lookup(degree);\n        tmp.push(pad);\n        degreemapping.store(degree, tmp);\n      }\n    }\n  }\n\n  //insert additional pad outputs\n  for (let note = 0; note < 127; note++) {\n    let mapping = degreemapping.lookup(note);\n\n    //if more than 1 pad maps to the same degree, insert the into padmapping\n    if (mapping.length > 1) {\n      for (let i = 0; i < mapping.length; i++) {\n        let pad = mapping[i];\n        for (let j = 0; j < mapping.length; j++) {\n          let other = mapping[j];\n          if (pad != other) {\n            let tmp = padmapping.lookup(pad);\n            tmp.push(other);\n            padmapping.store(pad, tmp);\n          }\n        }\n      }\n    }\n  }\n  updateoctaverange();\n}\n\nfunction listin2(scale: list) {\n  if (scale.length > 0) {\n    scaleLength = scale[0]; //cannot get from scl\n  }\n  scl.updateScale(scale);\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin3(kbm: list) {\n  //we can't get len/mid/octave from scl so store it directly\n  if (kbm.length > 3) {\n    kbmLength = kbm[0];\n    kbmMid = kbm[3];\n  }\n  if (kbm.length > 6) {\n    kbmOctave = kbm[6];\n  } else {\n    kbmOctave = scaleLength;\n  }\n  if (kbmLength <= 0) {\n    kbmLength = scaleLength;\n  }\n  scl.updateMap(kbm);\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin4(poly: list) {\n  if (active) {\n    let pad = poly[0];\n    let val = poly[1];\n    if (pad >= 0 && pad < 36) {\n      let degree = padmapping.lookup(pad)[MAP_INDEX_NOTE];\n      let note = curdegreeoffset + degree;\n      sendpoly(note, val);\n    }\n  }\n}\n\nfunction sendnote(note: number, vel: number) {\n  if (note >= 0 && note < 128) {\n    listout2 = [note, vel];\n  }\n}\n\nfunction sendpoly(note: number, val: number) {\n  if (note >= 0 && note < 128) {\n    listout3 = [note, val];\n  }\n}\n\nfunction drawall() {\n  for (let pad = 0; pad < 32; pad++) {\n    let v = padmapping.lookup(pad);\n    let isoctave = v[MAP_INDEX_COLOR];\n    let r = 0;\n    let g = 0;\n    let b = 0;\n    if (isoctave) {\n      r = 1;\n    } else {\n      r = NON_OCTAVE_LEVEL;\n      g = NON_OCTAVE_LEVEL;\n      b = NON_OCTAVE_LEVEL;\n    }\n    listout1 = [PREFIX_PAD, pad, r, g, b];\n  }\n\n  //nav\n  //up, down\n  let plus = 1;\n  let minus = 1;\n  if (curoctaveoffset >= octaveoffsetmax) {\n    plus = 0;\n  } else if (curoctaveoffset <= octaveoffsetmin) {\n    minus = 0;\n  }\n  listout1 = [PREFIX_NAV, 0, plus];\n  listout1 = [PREFIX_NAV, 1, minus];\n}\n\nlet m = listin1;\n\nif (!active) {\n  return;\n}\n\nlet prefix = m[0];\n\nif (prefix == PREFIX_PAD) { //pads\n  let pad = m[1];\n  let vel = m[2];\n\n  //send mapped note\n  let mapping = padmapping.lookup(pad);\n  let degree = mapping[MAP_INDEX_NOTE];\n  let note = curdegreeoffset + degree;\n  sendnote(note, vel);\n\n  let r = 0;\n  let g = 0;\n  let b = 0;\n\n  if (vel > 0) {\n    g = vel / 127.0;\n  } else {\n    let isoctave = mapping[MAP_INDEX_COLOR];\n    if (isoctave) {\n      r = 1.0;\n    } else {\n      r = NON_OCTAVE_LEVEL;\n      g = NON_OCTAVE_LEVEL;\n      b = NON_OCTAVE_LEVEL;\n    }\n  }\n\n  listout1 = [0, pad, r, g, b];\n  //additional pads to light\n  for (let i = MAP_INDEX_EXTRA; i < mapping.length; i++) {\n    listout1 = [0, mapping[i], r, g, b];\n  }\n} else if (prefix == PREFIX_NAV) { //nav\n  if (m[2] == 0) { //value\n    return;\n  }\n  let prev = curoctaveoffset;\n  let offset: Int = 0;\n  let btn = m[1];\n  if (btn == 0) { //plus \n    offset = 1;\n  } else if (btn == 1) { //minus\n    offset = -1;\n  } else {\n    return;\n  }\n  curoctaveoffset = clamp(curoctaveoffset + offset, octaveoffsetmin, octaveoffsetmax);\n\n  if (prev != curoctaveoffset) {\n    curdegreeoffset = kbmMid + kbmOctave * curoctaveoffset;\n    updatemappings();\n    drawall();\n  }\n}\n",
+                                                    "code": "// vim: sw=2 ts=2 expandtab\n//listout1 = control\n//listout2 = note out\n//listout3 = poly out\n\n///TODO keep held notes list and send off if held when changing octave\n\n\nconst MAP_INDEX_DEGREE: Index = 0;\nconst MAP_INDEX_COLOR: Index = 1;\nconst MAP_INDEX_EXTRA: Index = 2;\n\nconst VERT_MODE_OCTAVE: Index = 0;\nconst VERT_MODE_4THS: Index = 1;\nconst NON_OCTAVE_LEVEL: number = 0.2;\n\n@param active = 0;\n\n@state scl = new scala();\n@state scaleLength: Index = 12; //computed from scl\n@state kbmMid: Index = 60;\n@state kbmLength: Index = 16;\n@state kbmOctave: Index = 12;\n\n@state curdegreeoffset: Int = 60;\n\n@state curoctaveoffset: Int = 0;\n@state octaveoffsetmax: Int = 2;\n@state octaveoffsetmin: Int = -2;\n\n@state vertmode: Index = VERT_MODE_OCTAVE;\n\n//pad -> degree, offcolor, [, output pad 1..]\n@state padmapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 32, \"preset\": false});\n\n//map of scale degree -> pads\n//TODO could some of these be negative?\n@state degreemapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 128, \"preset\": false});\n\nconst PREFIX_PAD = 0;\nconst PREFIX_NAV = 4;\n\nfunction updateoctaverange() {\n  //TODO: check in more detail\n  //XXX should offset max take into acount there being 32 pads to play above the offset?\n  octaveoffsetmax = floor((127.0 - kbmMid) / (1.0 * kbmOctave));\n  octaveoffsetmin = -ceil(1.0 * kbmMid / (1.0 * kbmOctave));\n  \n  curoctaveoffset = clamp(curoctaveoffset, octaveoffsetmin, octaveoffsetmax);\n  curdegreeoffset = kbmMid + kbmOctave * curoctaveoffset;\n}\n\nfunction inrange(note: number): number {\n  return note >= 0 && note < 128;\n}\n\nfunction updatemappings() {\n  degreemapping.clear();\n\n  let octaverows: Index = ceil((1.0 * kbmOctave) / 8.0);\n  let octavenotes: Index = octaverows * 8;\n  let octaves: Index = ceil(4.0 / (1.0 * octaverows));\n\n  for (let octave: Index = 0; octave < octaves; octave++) {\n    let padoffset: Index = octave * octavenotes;\n    let degreeoffset: Index = octave * kbmOctave;\n    for (let i: Index = 0; i < octavenotes; i++) {\n      let pad = padoffset + i;\n      if (pad >= 32) {\n        break;\n      }\n\n      let color = (i % kbmOctave) == 0 ? 1.0 : 0.0;\n      let degree = i + degreeoffset;\n      padmapping.store(pad, [degree, color]);\n\n      //now to deal with notes out of range?\n      if (degree >= 0 && degree < 128) {\n        let tmp = degreemapping.lookup(degree);\n        tmp.push(pad);\n        degreemapping.store(degree, tmp);\n      }\n    }\n  }\n\n  //insert additional pad outputs\n  for (let note = 0; note < 127; note++) {\n    let mapping = degreemapping.lookup(note);\n\n    //if more than 1 pad maps to the same degree, insert the into padmapping\n    if (mapping.length > 1) {\n      for (let i = 0; i < mapping.length; i++) {\n        let pad = mapping[i];\n        for (let j = 0; j < mapping.length; j++) {\n          let other = mapping[j];\n          if (pad != other) {\n            let tmp = padmapping.lookup(pad);\n            tmp.push(other);\n            padmapping.store(pad, tmp);\n          }\n        }\n      }\n    }\n  }\n  updateoctaverange();\n}\n\nfunction listin2(scale: list) {\n  if (scale.length > 0) {\n    scaleLength = scale[0]; //cannot get from scl\n  }\n  scl.updateScale(scale);\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin3(kbm: list) {\n  //we can't get len/mid/octave from scl so store it directly\n  if (kbm.length > 3) {\n    kbmLength = kbm[0];\n    kbmMid = kbm[3];\n  }\n  if (kbm.length > 6) {\n    kbmOctave = kbm[6];\n  } else {\n    kbmOctave = scaleLength;\n  }\n  if (kbmLength <= 0) {\n    kbmLength = scaleLength;\n  }\n  scl.updateMap(kbm);\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin4(poly: list) {\n  if (active) {\n    let pad = poly[0];\n    let val = poly[1];\n    if (pad >= 0 && pad < 36) {\n      let degree = padmapping.lookup(pad)[MAP_INDEX_DEGREE];\n      let note = curdegreeoffset + degree;\n      sendpoly(note, val);\n    }\n  }\n}\n\nfunction sendnote(note: number, vel: number) {\n  if (inrange(note)) {\n    listout2 = [note, vel];\n  }\n}\n\nfunction sendpoly(note: number, val: number) {\n  if (inrange(note)) {\n    listout3 = [note, val];\n  }\n}\n\nfunction drawall() {\n  for (let pad = 0; pad < 32; pad++) {\n    let v = padmapping.lookup(pad);\n    let degree = v[MAP_INDEX_DEGREE];\n    let note = curdegreeoffset + degree;\n    let isoctave = v[MAP_INDEX_COLOR];\n    let r = 0;\n    let g = 0;\n    let b = 0;\n    if (inrange(note)) {\n      if (isoctave) {\n        r = 1;\n      } else {\n        r = NON_OCTAVE_LEVEL;\n        g = NON_OCTAVE_LEVEL;\n        b = NON_OCTAVE_LEVEL;\n      }\n    }\n    listout1 = [PREFIX_PAD, pad, r, g, b];\n  }\n  drawnav();\n}\n\nfunction drawnav() {\n  //nav\n  //up, down\n  let plus = 1;\n  let minus = 1;\n  if (curoctaveoffset >= octaveoffsetmax) {\n    plus = 0;\n  } else if (curoctaveoffset <= octaveoffsetmin) {\n    minus = 0;\n  }\n  listout1 = [PREFIX_NAV, 0, plus];\n  listout1 = [PREFIX_NAV, 1, minus];\n}\n\nlet m = listin1;\n\nif (!active) {\n  return;\n}\n\nlet prefix = m[0];\n\nif (prefix == PREFIX_PAD) { //pads\n  let pad = m[1];\n  let vel = m[2];\n\n  //send mapped note\n  let mapping = padmapping.lookup(pad);\n  let degree = mapping[MAP_INDEX_DEGREE];\n  let note = curdegreeoffset + degree;\n\n  if (inrange(note)) {\n    let r = 0;\n    let g = 0;\n    let b = 0;\n\n    sendnote(note, vel);\n\n    if (vel > 0) {\n      g = vel / 127.0;\n    } else {\n      let isoctave = mapping[MAP_INDEX_COLOR];\n      if (isoctave) {\n        r = 1.0;\n      } else {\n        r = NON_OCTAVE_LEVEL;\n        g = NON_OCTAVE_LEVEL;\n        b = NON_OCTAVE_LEVEL;\n      }\n    }\n\n    listout1 = [0, pad, r, g, b];\n    //additional pads to light\n    for (let i = MAP_INDEX_EXTRA; i < mapping.length; i++) {\n      listout1 = [0, mapping[i], r, g, b];\n    }\n  }\n} else if (prefix == PREFIX_NAV) { //nav\n  if (m[2] == 0) { //value\n    return;\n  }\n  let prev = curoctaveoffset;\n  let offset: Int = 0;\n  let btn = m[1];\n  if (btn == 0) { //plus \n    offset = 1;\n  } else if (btn == 1) { //minus\n    offset = -1;\n  } else {\n    return;\n  }\n  curoctaveoffset = clamp(curoctaveoffset + offset, octaveoffsetmin, octaveoffsetmax);\n\n  if (prev != curoctaveoffset) {\n    curdegreeoffset = kbmMid + kbmOctave * curoctaveoffset;\n    drawall();\n  }\n}\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -4090,12 +4075,12 @@
                                                     "patching_rect": [ 14.0, 134.0, 806.0, 558.0 ],
                                                     "rnbo_classname": "codebox",
                                                     "rnbo_extra_attributes": {
-                                                        "hot": 0,
                                                         "nocache": 0,
-                                                        "code": "// vim: sw=2 ts=2 expandtab\n//listout1 = control\n//listout2 = note out\n//listout3 = poly out\n\nconst MAP_INDEX_NOTE: Index = 0;\nconst MAP_INDEX_COLOR: Index = 1;\nconst MAP_INDEX_EXTRA: Index = 2;\n\nconst VERT_MODE_OCTAVE: Index = 0;\nconst VERT_MODE_4THS: Index = 1;\nconst NON_OCTAVE_LEVEL: number = 0.2;\n\n@param active = 0;\n\n@state scl = new scala();\n@state scaleLength: Index = 12; //computed from scl\n@state kbmMid: Index = 60;\n@state kbmLength: Index = 16;\n@state kbmOctave: Index = 12;\n\n@state curdegreeoffset: Int = 60;\n\n@state curoctaveoffset: Int = 0;\n@state octaveoffsetmax: Int = 2;\n@state octaveoffsetmin: Int = -2;\n\n@state vertmode: Index = VERT_MODE_OCTAVE;\n\n//pad -> degree, offcolor, [, output pad 1..]\n@state padmapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 32, \"preset\": false});\n\n//map of scale degree -> pads\n//TODO could some of these be negative?\n@state degreemapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 128, \"preset\": false});\n\nconst PREFIX_PAD = 0;\nconst PREFIX_NAV = 4;\n\nfunction updateoctaverange() {\n  //TODO: check in more detail\n  //XXX should offset max take into acount there being 32 pads to play above the offset?\n  octaveoffsetmax = floor((127.0 - kbmMid) / (1.0 * kbmOctave));\n  octaveoffsetmin = -ceil(1.0 * kbmMid / (1.0 * kbmOctave));\n  \n  curoctaveoffset = clamp(curoctaveoffset, octaveoffsetmin, octaveoffsetmax);\n}\n\nfunction updatemappings() {\n  degreemapping.clear();\n\n  let octaverows: Index = ceil((1.0 * kbmOctave) / 8.0);\n  let octavenotes: Index = octaverows * 8;\n  let octaves: Index = ceil(4.0 / (1.0 * octaverows));\n\n  for (let octave: Index = 0; octave < octaves; octave++) {\n    let padoffset: Index = octave * octavenotes;\n    let degreeoffset: Index = octave * kbmOctave;\n    for (let i: Index = 0; i < octavenotes; i++) {\n      let pad = padoffset + i;\n      if (pad >= 32) {\n        break;\n      }\n\n      let color = (i % kbmOctave) == 0 ? 1.0 : 0.0;\n      let degree = i + degreeoffset;\n      padmapping.store(pad, [degree, color]);\n\n      //now to deal with notes out of range?\n      if (degree >= 0 && degree < 128) {\n        let tmp = degreemapping.lookup(degree);\n        tmp.push(pad);\n        degreemapping.store(degree, tmp);\n      }\n    }\n  }\n\n  //insert additional pad outputs\n  for (let note = 0; note < 127; note++) {\n    let mapping = degreemapping.lookup(note);\n\n    //if more than 1 pad maps to the same degree, insert the into padmapping\n    if (mapping.length > 1) {\n      for (let i = 0; i < mapping.length; i++) {\n        let pad = mapping[i];\n        for (let j = 0; j < mapping.length; j++) {\n          let other = mapping[j];\n          if (pad != other) {\n            let tmp = padmapping.lookup(pad);\n            tmp.push(other);\n            padmapping.store(pad, tmp);\n          }\n        }\n      }\n    }\n  }\n  updateoctaverange();\n}\n\nfunction listin2(scale: list) {\n  if (scale.length > 0) {\n    scaleLength = scale[0]; //cannot get from scl\n  }\n  scl.updateScale(scale);\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin3(kbm: list) {\n  //we can't get len/mid/octave from scl so store it directly\n  if (kbm.length > 3) {\n    kbmLength = kbm[0];\n    kbmMid = kbm[3];\n  }\n  if (kbm.length > 6) {\n    kbmOctave = kbm[6];\n  } else {\n    kbmOctave = scaleLength;\n  }\n  if (kbmLength <= 0) {\n    kbmLength = scaleLength;\n  }\n  scl.updateMap(kbm);\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin4(poly: list) {\n  if (active) {\n    let pad = poly[0];\n    let val = poly[1];\n    if (pad >= 0 && pad < 36) {\n      let degree = padmapping.lookup(pad)[MAP_INDEX_NOTE];\n      let note = curdegreeoffset + degree;\n      sendpoly(note, val);\n    }\n  }\n}\n\nfunction sendnote(note: number, vel: number) {\n  if (note >= 0 && note < 128) {\n    listout2 = [note, vel];\n  }\n}\n\nfunction sendpoly(note: number, val: number) {\n  if (note >= 0 && note < 128) {\n    listout3 = [note, val];\n  }\n}\n\nfunction drawall() {\n  for (let pad = 0; pad < 32; pad++) {\n    let v = padmapping.lookup(pad);\n    let isoctave = v[MAP_INDEX_COLOR];\n    let r = 0;\n    let g = 0;\n    let b = 0;\n    if (isoctave) {\n      r = 1;\n    } else {\n      r = NON_OCTAVE_LEVEL;\n      g = NON_OCTAVE_LEVEL;\n      b = NON_OCTAVE_LEVEL;\n    }\n    listout1 = [PREFIX_PAD, pad, r, g, b];\n  }\n\n  //nav\n  //up, down\n  let plus = 1;\n  let minus = 1;\n  if (curoctaveoffset >= octaveoffsetmax) {\n    plus = 0;\n  } else if (curoctaveoffset <= octaveoffsetmin) {\n    minus = 0;\n  }\n  listout1 = [PREFIX_NAV, 0, plus];\n  listout1 = [PREFIX_NAV, 1, minus];\n}\n\nlet m = listin1;\n\nif (!active) {\n  return;\n}\n\nlet prefix = m[0];\n\nif (prefix == PREFIX_PAD) { //pads\n  let pad = m[1];\n  let vel = m[2];\n\n  //send mapped note\n  let mapping = padmapping.lookup(pad);\n  let degree = mapping[MAP_INDEX_NOTE];\n  let note = curdegreeoffset + degree;\n  sendnote(note, vel);\n\n  let r = 0;\n  let g = 0;\n  let b = 0;\n\n  if (vel > 0) {\n    g = vel / 127.0;\n  } else {\n    let isoctave = mapping[MAP_INDEX_COLOR];\n    if (isoctave) {\n      r = 1.0;\n    } else {\n      r = NON_OCTAVE_LEVEL;\n      g = NON_OCTAVE_LEVEL;\n      b = NON_OCTAVE_LEVEL;\n    }\n  }\n\n  listout1 = [0, pad, r, g, b];\n  //additional pads to light\n  for (let i = MAP_INDEX_EXTRA; i < mapping.length; i++) {\n    listout1 = [0, mapping[i], r, g, b];\n  }\n} else if (prefix == PREFIX_NAV) { //nav\n  if (m[2] == 0) { //value\n    return;\n  }\n  let prev = curoctaveoffset;\n  let offset: Int = 0;\n  let btn = m[1];\n  if (btn == 0) { //plus \n    offset = 1;\n  } else if (btn == 1) { //minus\n    offset = -1;\n  } else {\n    return;\n  }\n  curoctaveoffset = clamp(curoctaveoffset + offset, octaveoffsetmin, octaveoffsetmax);\n\n  if (prev != curoctaveoffset) {\n    curdegreeoffset = kbmMid + kbmOctave * curoctaveoffset;\n    updatemappings();\n    drawall();\n  }\n}\n",
-                                                        "safemath": 0
+                                                        "code": "// vim: sw=2 ts=2 expandtab\n//listout1 = control\n//listout2 = note out\n//listout3 = poly out\n\n///TODO keep held notes list and send off if held when changing octave\n\n\nconst MAP_INDEX_DEGREE: Index = 0;\nconst MAP_INDEX_COLOR: Index = 1;\nconst MAP_INDEX_EXTRA: Index = 2;\n\nconst VERT_MODE_OCTAVE: Index = 0;\nconst VERT_MODE_4THS: Index = 1;\nconst NON_OCTAVE_LEVEL: number = 0.2;\n\n@param active = 0;\n\n@state scl = new scala();\n@state scaleLength: Index = 12; //computed from scl\n@state kbmMid: Index = 60;\n@state kbmLength: Index = 16;\n@state kbmOctave: Index = 12;\n\n@state curdegreeoffset: Int = 60;\n\n@state curoctaveoffset: Int = 0;\n@state octaveoffsetmax: Int = 2;\n@state octaveoffsetmin: Int = -2;\n\n@state vertmode: Index = VERT_MODE_OCTAVE;\n\n//pad -> degree, offcolor, [, output pad 1..]\n@state padmapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 32, \"preset\": false});\n\n//map of scale degree -> pads\n//TODO could some of these be negative?\n@state degreemapping = new liststore({\"maxlistsize\": 4, \"slotcount\": 128, \"preset\": false});\n\nconst PREFIX_PAD = 0;\nconst PREFIX_NAV = 4;\n\nfunction updateoctaverange() {\n  //TODO: check in more detail\n  //XXX should offset max take into acount there being 32 pads to play above the offset?\n  octaveoffsetmax = floor((127.0 - kbmMid) / (1.0 * kbmOctave));\n  octaveoffsetmin = -ceil(1.0 * kbmMid / (1.0 * kbmOctave));\n  \n  curoctaveoffset = clamp(curoctaveoffset, octaveoffsetmin, octaveoffsetmax);\n  curdegreeoffset = kbmMid + kbmOctave * curoctaveoffset;\n}\n\nfunction inrange(note: number): number {\n  return note >= 0 && note < 128;\n}\n\nfunction updatemappings() {\n  degreemapping.clear();\n\n  let octaverows: Index = ceil((1.0 * kbmOctave) / 8.0);\n  let octavenotes: Index = octaverows * 8;\n  let octaves: Index = ceil(4.0 / (1.0 * octaverows));\n\n  for (let octave: Index = 0; octave < octaves; octave++) {\n    let padoffset: Index = octave * octavenotes;\n    let degreeoffset: Index = octave * kbmOctave;\n    for (let i: Index = 0; i < octavenotes; i++) {\n      let pad = padoffset + i;\n      if (pad >= 32) {\n        break;\n      }\n\n      let color = (i % kbmOctave) == 0 ? 1.0 : 0.0;\n      let degree = i + degreeoffset;\n      padmapping.store(pad, [degree, color]);\n\n      //now to deal with notes out of range?\n      if (degree >= 0 && degree < 128) {\n        let tmp = degreemapping.lookup(degree);\n        tmp.push(pad);\n        degreemapping.store(degree, tmp);\n      }\n    }\n  }\n\n  //insert additional pad outputs\n  for (let note = 0; note < 127; note++) {\n    let mapping = degreemapping.lookup(note);\n\n    //if more than 1 pad maps to the same degree, insert the into padmapping\n    if (mapping.length > 1) {\n      for (let i = 0; i < mapping.length; i++) {\n        let pad = mapping[i];\n        for (let j = 0; j < mapping.length; j++) {\n          let other = mapping[j];\n          if (pad != other) {\n            let tmp = padmapping.lookup(pad);\n            tmp.push(other);\n            padmapping.store(pad, tmp);\n          }\n        }\n      }\n    }\n  }\n  updateoctaverange();\n}\n\nfunction listin2(scale: list) {\n  if (scale.length > 0) {\n    scaleLength = scale[0]; //cannot get from scl\n  }\n  scl.updateScale(scale);\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin3(kbm: list) {\n  //we can't get len/mid/octave from scl so store it directly\n  if (kbm.length > 3) {\n    kbmLength = kbm[0];\n    kbmMid = kbm[3];\n  }\n  if (kbm.length > 6) {\n    kbmOctave = kbm[6];\n  } else {\n    kbmOctave = scaleLength;\n  }\n  if (kbmLength <= 0) {\n    kbmLength = scaleLength;\n  }\n  scl.updateMap(kbm);\n\n  updatemappings();\n  \n  if (active) {\n    drawall();\n  }\n}\n\nfunction listin4(poly: list) {\n  if (active) {\n    let pad = poly[0];\n    let val = poly[1];\n    if (pad >= 0 && pad < 36) {\n      let degree = padmapping.lookup(pad)[MAP_INDEX_DEGREE];\n      let note = curdegreeoffset + degree;\n      sendpoly(note, val);\n    }\n  }\n}\n\nfunction sendnote(note: number, vel: number) {\n  if (inrange(note)) {\n    listout2 = [note, vel];\n  }\n}\n\nfunction sendpoly(note: number, val: number) {\n  if (inrange(note)) {\n    listout3 = [note, val];\n  }\n}\n\nfunction drawall() {\n  for (let pad = 0; pad < 32; pad++) {\n    let v = padmapping.lookup(pad);\n    let degree = v[MAP_INDEX_DEGREE];\n    let note = curdegreeoffset + degree;\n    let isoctave = v[MAP_INDEX_COLOR];\n    let r = 0;\n    let g = 0;\n    let b = 0;\n    if (inrange(note)) {\n      if (isoctave) {\n        r = 1;\n      } else {\n        r = NON_OCTAVE_LEVEL;\n        g = NON_OCTAVE_LEVEL;\n        b = NON_OCTAVE_LEVEL;\n      }\n    }\n    listout1 = [PREFIX_PAD, pad, r, g, b];\n  }\n  drawnav();\n}\n\nfunction drawnav() {\n  //nav\n  //up, down\n  let plus = 1;\n  let minus = 1;\n  if (curoctaveoffset >= octaveoffsetmax) {\n    plus = 0;\n  } else if (curoctaveoffset <= octaveoffsetmin) {\n    minus = 0;\n  }\n  listout1 = [PREFIX_NAV, 0, plus];\n  listout1 = [PREFIX_NAV, 1, minus];\n}\n\nlet m = listin1;\n\nif (!active) {\n  return;\n}\n\nlet prefix = m[0];\n\nif (prefix == PREFIX_PAD) { //pads\n  let pad = m[1];\n  let vel = m[2];\n\n  //send mapped note\n  let mapping = padmapping.lookup(pad);\n  let degree = mapping[MAP_INDEX_DEGREE];\n  let note = curdegreeoffset + degree;\n\n  if (inrange(note)) {\n    let r = 0;\n    let g = 0;\n    let b = 0;\n\n    sendnote(note, vel);\n\n    if (vel > 0) {\n      g = vel / 127.0;\n    } else {\n      let isoctave = mapping[MAP_INDEX_COLOR];\n      if (isoctave) {\n        r = 1.0;\n      } else {\n        r = NON_OCTAVE_LEVEL;\n        g = NON_OCTAVE_LEVEL;\n        b = NON_OCTAVE_LEVEL;\n      }\n    }\n\n    listout1 = [0, pad, r, g, b];\n    //additional pads to light\n    for (let i = MAP_INDEX_EXTRA; i < mapping.length; i++) {\n      listout1 = [0, mapping[i], r, g, b];\n    }\n  }\n} else if (prefix == PREFIX_NAV) { //nav\n  if (m[2] == 0) { //value\n    return;\n  }\n  let prev = curoctaveoffset;\n  let offset: Int = 0;\n  let btn = m[1];\n  if (btn == 0) { //plus \n    offset = 1;\n  } else if (btn == 1) { //minus\n    offset = -1;\n  } else {\n    return;\n  }\n  curoctaveoffset = clamp(curoctaveoffset + offset, octaveoffsetmin, octaveoffsetmax);\n\n  if (prev != curoctaveoffset) {\n    curdegreeoffset = kbmMid + kbmOctave * curoctaveoffset;\n    drawall();\n  }\n}\n",
+                                                        "safemath": 0,
+                                                        "hot": 0
                                                     },
-                                                    "rnbo_serial": 10,
+                                                    "rnbo_serial": 3,
                                                     "rnbo_uniqueid": "codebox_obj-29",
                                                     "rnboinfo": {
                                                         "needsInstanceInfo": 1,
@@ -4939,13 +4924,13 @@
                                     "patching_rect": [ 42.0, 376.0, 77.0, 23.0 ],
                                     "rnbo_classname": "p",
                                     "rnbo_extra_attributes": {
-                                        "notecontroller": 0,
-                                        "polyphony": -1.0,
-                                        "uidstyle": "auto",
                                         "args": [],
                                         "voicecontrol": "simple",
+                                        "uidstyle": "auto",
+                                        "notecontroller": 0,
+                                        "exposevoiceparams": 0,
                                         "receivemode": "local",
-                                        "exposevoiceparams": 0
+                                        "polyphony": -1.0
                                     },
                                     "rnbo_serial": 2,
                                     "rnbo_uniqueid": "logic",
@@ -5187,19 +5172,19 @@
                                     "patching_rect": [ 383.0, 505.0, 605.0, 23.0 ],
                                     "rnbo_classname": "param",
                                     "rnbo_extra_attributes": {
-                                        "fromnormalized": "",
-                                        "displayorder": "-",
-                                        "minimum": 0.0,
-                                        "meta": "",
-                                        "preset": 1,
-                                        "tonormalized": "",
-                                        "unit": "",
-                                        "steps": 17.0,
-                                        "sendinit": 1,
+                                        "exponent": 1.0,
                                         "order": "0",
+                                        "preset": 1,
+                                        "sendinit": 1,
+                                        "meta": "",
+                                        "displayorder": "-",
                                         "ctlin": -1.0,
+                                        "fromnormalized": "",
                                         "maximum": 16.0,
-                                        "exponent": 1.0
+                                        "steps": 17.0,
+                                        "minimum": 0.0,
+                                        "unit": "",
+                                        "tonormalized": ""
                                     },
                                     "rnbo_serial": 1,
                                     "rnbo_uniqueid": "fnchannel",
@@ -5608,9 +5593,6 @@
                                     "outlettype": [ "", "" ],
                                     "patching_rect": [ 269.0, 62.0, 32.0, 23.0 ],
                                     "rnbo_classname": "t",
-                                    "rnbo_extra_attributes": {
-                                        "triggers": ""
-                                    },
                                     "rnbo_serial": 1,
                                     "rnbo_uniqueid": "t_obj-14",
                                     "rnboinfo": {
@@ -5731,9 +5713,6 @@
                                     "outlettype": [ "", "" ],
                                     "patching_rect": [ 290.5, 469.0, 43.0, 23.0 ],
                                     "rnbo_classname": "t",
-                                    "rnbo_extra_attributes": {
-                                        "triggers": ""
-                                    },
                                     "rnbo_serial": 2,
                                     "rnbo_uniqueid": "t_obj-10",
                                     "rnboinfo": {
@@ -6196,20 +6175,20 @@
                                     "patching_rect": [ 321.5, 75.0, 208.0, 23.0 ],
                                     "rnbo_classname": "param",
                                     "rnbo_extra_attributes": {
-                                        "fromnormalized": "",
-                                        "displayorder": "-",
-                                        "minimum": 0.0,
-                                        "meta": "",
-                                        "preset": 1,
-                                        "tonormalized": "",
-                                        "unit": "",
-                                        "steps": 2.0,
-                                        "sendinit": 1,
-                                        "order": "0",
-                                        "ctlin": -1.0,
-                                        "maximum": 1.0,
                                         "displayname": "",
-                                        "exponent": 1.0
+                                        "exponent": 1.0,
+                                        "order": "0",
+                                        "preset": 1,
+                                        "sendinit": 1,
+                                        "meta": "",
+                                        "displayorder": "-",
+                                        "ctlin": -1.0,
+                                        "fromnormalized": "",
+                                        "maximum": 1.0,
+                                        "steps": 2.0,
+                                        "minimum": 0.0,
+                                        "unit": "",
+                                        "tonormalized": ""
                                     },
                                     "rnbo_serial": 2,
                                     "rnbo_uniqueid": "Enable",
@@ -6619,19 +6598,19 @@
                                     "patching_rect": [ 295.5, 363.0, 501.0, 23.0 ],
                                     "rnbo_classname": "param",
                                     "rnbo_extra_attributes": {
-                                        "fromnormalized": "",
-                                        "displayorder": "-",
-                                        "minimum": 0.0,
-                                        "meta": "",
-                                        "preset": 1,
-                                        "tonormalized": "",
-                                        "unit": "",
-                                        "steps": 16.0,
-                                        "sendinit": 1,
+                                        "exponent": 1.0,
                                         "order": "0",
+                                        "preset": 1,
+                                        "sendinit": 1,
+                                        "meta": "",
+                                        "displayorder": "-",
                                         "ctlin": -1.0,
+                                        "fromnormalized": "",
                                         "maximum": 15.0,
-                                        "exponent": 1.0
+                                        "steps": 16.0,
+                                        "minimum": 0.0,
+                                        "unit": "",
+                                        "tonormalized": ""
                                     },
                                     "rnbo_serial": 3,
                                     "rnbo_uniqueid": "channel",
@@ -7071,13 +7050,13 @@
                                     "patching_rect": [ 43.5, 711.0, 143.0, 23.0 ],
                                     "rnbo_classname": "p",
                                     "rnbo_extra_attributes": {
-                                        "notecontroller": 0,
-                                        "polyphony": -1.0,
-                                        "uidstyle": "auto",
                                         "args": [],
                                         "voicecontrol": "simple",
+                                        "uidstyle": "auto",
+                                        "notecontroller": 0,
+                                        "exposevoiceparams": 0,
                                         "receivemode": "local",
-                                        "exposevoiceparams": 0
+                                        "polyphony": -1.0
                                     },
                                     "rnbo_serial": 3,
                                     "rnbo_uniqueid": "p_obj-3",
@@ -7272,13 +7251,13 @@
                                     "patching_rect": [ 42.0, 54.0, 154.0, 23.0 ],
                                     "rnbo_classname": "p",
                                     "rnbo_extra_attributes": {
-                                        "notecontroller": 0,
-                                        "polyphony": -1.0,
-                                        "uidstyle": "auto",
                                         "args": [],
                                         "voicecontrol": "simple",
+                                        "uidstyle": "auto",
+                                        "notecontroller": 0,
+                                        "exposevoiceparams": 0,
                                         "receivemode": "local",
-                                        "exposevoiceparams": 0
+                                        "polyphony": -1.0
                                     },
                                     "rnbo_serial": 4,
                                     "rnbo_uniqueid": "p_obj-2",
@@ -7926,7 +7905,7 @@
                                 "value": 1.0
                             },
                             "listreg_02": {
-                                "value": [ 16.0, 0.0, 0.0, 60.0, 69.0, 440.0, 12.0, 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0 ]
+                                "value": [ 1.0, 2.0, 3.0, 4.0 ]
                             },
                             "Enable": {
                                 "value": 1.0
@@ -7988,7 +7967,7 @@
                                             "value": 1.0
                                         },
                                         "listreg_02": {
-                                            "value": [ 16.0, 0.0, 0.0, 60.0, 69.0, 440.0, 12.0, 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0 ]
+                                            "value": [ 1.0, 2.0, 3.0, 4.0 ]
                                         },
                                         "Enable": {
                                             "value": 1.0
@@ -8041,6 +8020,14 @@
             "obj-1": [ "rnbo~[5]", "rnbo~[5]", 0 ],
             "obj-15": [ "rnbo~[9]", "rnbo~[9]", 0 ],
             "obj-3": [ "rnbo~[6]", "rnbo~[6]", 0 ],
+            "parameterbanks": {
+                "0": {
+                    "index": 0,
+                    "name": "",
+                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
+                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
+                }
+            },
             "inherited_shortname": 1
         },
         "autosave": 0,
