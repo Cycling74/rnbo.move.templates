@@ -3,9 +3,6 @@
 //listout2 = note out
 //listout3 = poly out
 
-///TODO keep held notes list and send off if held when changing octave
-
-
 const MAP_INDEX_DEGREE: Index = 0;
 const MAP_INDEX_COLOR: Index = 1;
 const MAP_INDEX_EXTRA: Index = 2;
@@ -29,6 +26,9 @@ const NON_OCTAVE_LEVEL: number = 0.2;
 @state octaveoffsetmin: Int = -2;
 
 @state vertmode: Index = VERT_MODE_OCTAVE;
+
+//keep state so we can send note offs if we change octave etc
+@state padsdown: Index = 0; //we know that Index is at least 32-bits
 
 //pad -> degree, offcolor, [, output pad 1..]
 @state padmapping = new liststore({"maxlistsize": 4, "slotcount": 32, "preset": false});
@@ -106,6 +106,8 @@ function updatemappings() {
 }
 
 function listin2(scale: list) {
+  releasenotes(); //TODO could be less drastic, look for changes?
+
   if (scale.length > 0) {
     scaleLength = scale[0]; //cannot get from scl
   }
@@ -118,6 +120,8 @@ function listin2(scale: list) {
 }
 
 function listin3(kbm: list) {
+  releasenotes(); //TODO could be less drastic, look for changes?
+
   //we can't get len/mid/octave from scl so store it directly
   if (kbm.length > 3) {
     kbmLength = kbm[0];
@@ -152,6 +156,15 @@ function listin4(poly: list) {
   }
 }
 
+function markpad(pad: Index, vel: number) {
+  let mask: Index = 1 << pad;
+  if (vel > 0) {
+    padsdown |= mask;
+  } else {
+    padsdown &= ~mask;
+  }
+}
+
 function sendnote(note: number, vel: number) {
   if (inrange(note)) {
     listout2 = [note, vel];
@@ -161,6 +174,24 @@ function sendnote(note: number, vel: number) {
 function sendpoly(note: number, val: number) {
   if (inrange(note)) {
     listout3 = [note, val];
+  }
+}
+
+function releasenotes() {
+  if (padsdown) {
+    for (let pad: Index = 0; pad < 32; pad++) {
+      let mask: Index = 1 << pad;
+      if ((mask & padsdown) != 0) {
+        let mapping = padmapping.lookup(pad);
+        let degree = mapping[MAP_INDEX_DEGREE];
+        let note = curdegreeoffset + degree;
+
+        if (inrange(note)) {
+          sendnote(note, 0);
+        }
+      }
+    }
+    padsdown = 0;
   }
 }
 
@@ -223,6 +254,7 @@ if (prefix == PREFIX_PAD) { //pads
     let g = 0;
     let b = 0;
 
+    markpad(pad, vel);
     sendnote(note, vel);
 
     if (vel > 0) {
@@ -248,6 +280,9 @@ if (prefix == PREFIX_PAD) { //pads
   if (m[2] == 0) { //value
     return;
   }
+
+  releasenotes();
+
   let prev = curoctaveoffset;
   let offset: Int = 0;
   let btn = m[1];
