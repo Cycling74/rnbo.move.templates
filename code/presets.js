@@ -23,6 +23,10 @@ function drawpage() {
 			v[3] = 0.5;
 		} else if (active) {
 			v[2] = 0.5;
+		} else if (mode == MODE_SAVE) {
+			v[2] = 0.5;
+			v[3] = 0.5;
+			v[4] = 0.5;
 		}
 		listout1 = v;
 	}
@@ -98,9 +102,11 @@ switch (zone) {
 		switch (i) {
 			case 0: //capture
 				mode = down ? MODE_SAVE : MODE_LOAD;
+				drawpage();
 				break;
 			case 4: //delete
 				mode = down ? MODE_DEL : MODE_LOAD;
+				drawpage();
 				break;
 		}
 		break;
