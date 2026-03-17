@@ -7,7 +7,6 @@ Some of these might be dropped into other patchers, some might be more standalon
 
 This is a Max Package, so it should be installed into the *Packages* folder in the [Max Folder](https://docs.cycling74.com/userguide/search_path/#max-9-folder). You can either download this repository as a .zip archive, and then unzip it into the *Packages* folder, or you can clone this repository into the *Packages* folder. 
 
-> [!info] 
 > This package is not yet available in the Max Package Manager. When it is, you will be able to install it that way. This shouldn't cause any conflict with the existing package.
 
 ## Interface
