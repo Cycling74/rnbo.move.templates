@@ -3,13 +3,20 @@
 Here are some utility patchers for making running RNBO on the move a bit easier.
 Some of these might be dropped into other patchers, some might be more standalone for use in graphs.
 
-# Interface
+## Installation
+
+This is a Max Package, so it should be installed into the *Packages* folder in the [Max Folder](https://docs.cycling74.com/userguide/search_path/#max-9-folder). You can either download this repository as a .zip archive, and then unzip it into the *Packages* folder, or you can clone this repository into the *Packages* folder. 
+
+> [!info] 
+> This package is not yet available in the Max Package Manager. When it is, you will be able to install it that way. This shouldn't cause any conflict with the existing package.
+
+## Interface
 
 ![move marked up](./media/Move-Layout-Midimapping-RNBO-Driver-Markup.png)
 
-# Utilities
+## Utilities
 
-## Preset UI
+### Preset UI
 
 The Preset UI is a basic preset load/save/delete utility, it takes over the following UI elements: 
 
@@ -33,7 +40,7 @@ If you press a step you'll load that preset.
   you will nav either forward or back in the page list.
 
 
-## UI Control
+### UI Control
 
 The UI Control is a simple utility for controlling the transport play state, toggling recording on and off, and altering parameter editing precision.
 
@@ -44,11 +51,11 @@ It takes over the following buttons:
 * Shift - hold to increase the precision of parameter editing while altering a parameter value with the top encoders. Release to return to standard precision.
 
 
-## Input Switcher
+### Input Switcher
 
 This utility simply switches between 2 stereo inputs depending on the audio input plug state. This is useful to avoid feedback.
 
-## Stereo Switcher
+### Stereo Switcher
 
 This utility switches between 2 stereo inputs based on a parameter. You can toggle via in inport.
 
