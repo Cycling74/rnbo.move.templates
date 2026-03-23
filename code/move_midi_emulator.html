@@ -1155,9 +1155,15 @@ const LedState = (() => {
     if (r <= 1 && g <= 1 && b <= 1) {
       el.style.background = '';
       el.style.boxShadow = '';
+      delete el.dataset.customBg;
+      delete el.dataset.customShadow;
     } else {
-      el.style.background = `rgb(${r},${g},${b})`;
-      el.style.boxShadow = `0 0 12px rgba(${r},${g},${b},0.5)`;
+      const bg = `rgb(${r},${g},${b})`;
+      const shadow = `0 0 12px rgba(${r},${g},${b},0.5)`;
+      el.style.background = bg;
+      el.style.boxShadow = shadow;
+      el.dataset.customBg = bg;
+      el.dataset.customShadow = shadow;
     }
   };
 
@@ -1174,8 +1180,8 @@ const LedState = (() => {
       }
     } else {
       el.classList.remove('active');
-      el.style.background = '';
-      el.style.boxShadow = '';
+      el.style.background = el.dataset.customBg || '';
+      el.style.boxShadow = el.dataset.customShadow || '';
     }
   };
 
