@@ -1317,22 +1317,23 @@ const LedState = (() => {
     buildLookups();
 
     const status = args[0] & 0xF0;
+    const channel = (args[0] & 0x0F) + 1; // 1-based channel number
     const d1 = args[1];
     const d2 = args.length > 2 ? args[2] : 0;
 
     if (status === 0x90) {
-      // Note On - pad LEDs (nn68-99, RGB) and step LEDs (nn16-31, RGB)
+      // Note On - pad LEDs (nn68-99, RGB) and step LEDs (nn16-31, RGB, ch16 only)
       const rgb = colorFromValue(d2); // null if d2=0
       if (d1 >= 68 && d1 <= 99 && noteToEl[d1]) {
         setPadColor(noteToEl[d1], ...(rgb || [0, 0, 0]));
-      } else if (d1 >= 16 && d1 <= 31) {
+      } else if (channel === 16 && d1 >= 16 && d1 <= 31) {
         setStepLed(d1 - 16, ...(rgb || [0, 0, 0]));
       }
     } else if (status === 0x80) {
       // Note Off - clear LED
       if (d1 >= 68 && d1 <= 99 && noteToEl[d1]) {
         setPadColor(noteToEl[d1], 0, 0, 0);
-      } else if (d1 >= 16 && d1 <= 31) {
+      } else if (channel === 16 && d1 >= 16 && d1 <= 31) {
         setStepLed(d1 - 16, 0, 0, 0);
       }
     } else if (status === 0xB0) {
