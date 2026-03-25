@@ -747,11 +747,12 @@ Relative values use 2's complement 7-bit: CW = 1-63, CCW = 65-127.</p>
 <p><b>Buttons</b> (function, nav, track, play, record, back, session) send <code>CC</code> with value 127 on press and 0 on release.</p>
 
 <h2>MIDI/SysEx Input (Host to LEDs)</h2>
+<p>Send MIDI bytes to the emulator using the <code>midiraw</code> symbol</p>
 <p>The Move has two types of LEDs controlled by different protocols:</p>
 <p><b>RGB LEDs</b> are set via SysEx messages with 14-bit color values per channel:</p>
 <p><code>F0 00 21 1D 01 01 3B [ch&lt;&lt;4] [index] [rLo] [rHi] [gLo] [gHi] [bLo] [bHi] F7</code></p>
 <p>Each color component is 14-bit: <code>value = (lo &amp; 0x7F) | ((hi &amp; 0x7F) &lt;&lt; 7)</code>.
-RGB LEDs can also be set via <code>Note On</code> (nn) or <code>CC</code> using an indexed color table (value 0-127) [see below].</p>
+RGB LEDs can also be set via <code>Note On</code> (nn) or <code>CC</code> on ch16 using an indexed color table (value 0-127) [see below].</p>
 <p><b>B/W LEDs</b> are set via <code>CC</code> on ch16 using the color table's white-balance value for brightness.</p>
 
 <h2>Overlay: midi</h2>
