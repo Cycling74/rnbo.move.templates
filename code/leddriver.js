@@ -88,6 +88,9 @@ function mapdest(dest: number, index: number): list {
         case 10: //session/note
           index = 50;
           break;
+        case 11: //back
+          index = 51;
+          break;
         default:
           return [];
       }

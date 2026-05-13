@@ -2,7 +2,7 @@
 //0 -> pads
 //1 -> steps
 //2 -> tracks
-//3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record, play, session/note)
+//3 -> functions (capture, sampling, repeat, mute, delete, duplicate, undo, shift, record, play, session/note, back, jog wheel)
 //4 -> nav (plus, minus, left, right)
 //6 -> encoders [index, touch=non zero, direction pos=right]
 //7 -> jacks [index, pluged = 127] (audio in, audio out)
@@ -50,6 +50,9 @@ const OUT_NAV = 4;
 const OUT_ENCODER = 6;
 const OUT_JACK = 7;
 
+const JOG_WHEEL_BUTTON_INDEX = 12;
+const JOG_WHEEL_ENCODER_INDEX = 9;
+
 let m = listin1;
 let prefix = m[0];
 
@@ -74,6 +77,8 @@ if (prefix == 0) { //note
   } else if (num >= 0  && num < 8) {
     //encoders
     listout1 = [OUT_ENCODER, num, vel, 0]; //up or down but no movement
+  } else if (num == 9) { //jog wheel
+    listout1 = [OUT_ENCODER, JOG_WHEEL_ENCODER_INDEX, vel, 0]; //up or down but no movement
   }
 } else if (prefix == 1) { //cc
   let val = m[1];
@@ -87,6 +92,12 @@ if (prefix == 0) { //note
       val -= 128;
     }
     listout1 = [OUT_ENCODER, num - 71, 127, val]; //down and movement
+  } else if (num == 14) { // jog wheel
+    //2's complement
+    if (val > 64) {
+      val -= 128;
+    }
+    listout1 = [OUT_ENCODER, JOG_WHEEL_ENCODER_INDEX, 127, val]; //down and movement
   } else if (num >= 114 && num <= 115) {
     listout1 = [OUT_JACK, num - 114, val];
   } else {
@@ -125,6 +136,12 @@ if (prefix == 0) { //note
         break;
       case 50:
         mapped = 10;
+        break;
+      case 51:
+        mapped = 11;
+        break;
+      case 3:
+        mapped = JOG_WHEEL_BUTTON_INDEX;
         break;
       case 55:
         o = OUT_NAV;

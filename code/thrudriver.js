@@ -17,6 +17,8 @@ const PREFIX_FUNCTION = 3;
 const PREFIX_NAV = 4;
 const PREFIX_ENCODER = 6;
 
+const JOG_WHEEL_ENCODER_INDEX = 9;
+
 function sendnote(num: number, vel: number, chan: number) {
   if (vel == 0) {
     out1 = 0x80 | (chan - 1);
@@ -105,6 +107,12 @@ switch (prefix) {
         case 10:
           sendcc(50, m[2], chan_function);
           break;
+        case 11:
+          sendcc(51, m[2], chan_function);
+          break;
+        case 12: //jog wheel button
+          sendcc(3, m[2], chan_function);
+          break;
         default:
           break;
       }
@@ -131,15 +139,25 @@ switch (prefix) {
     }
     break;
   case PREFIX_ENCODER:
-    if (chan_encoder > 0 && chan_encoder <= 16 && num >= 0 && num < 8) {
+    if (chan_encoder > 0 && chan_encoder <= 16 && num >= 0) {
       let down = m[2];
       let val = m[3];
-      if (val == 0) {
-        sendnote(num, down, chan_encoder);
-      } else if (val < 0) {
-        sendcc(num + 71, val + 128, chan_encoder);
-      } else {
-        sendcc(num + 71, val, chan_encoder);
+      if (num < 8) {
+        if (val == 0) {
+          sendnote(num, down, chan_encoder);
+        } else if (val < 0) {
+          sendcc(num + 71, val + 128, chan_encoder);
+        } else {
+          sendcc(num + 71, val, chan_encoder);
+        }
+      } else if (num == JOG_WHEEL_ENCODER_INDEX) {
+        if (val == 0) {
+          sendnote(9, down, chan_encoder);
+        } else if (val < 0) {
+          sendcc(14, val + 128, chan_encoder);
+        } else {
+          sendcc(14, val, chan_encoder);
+        }
       }
     }
     break;
